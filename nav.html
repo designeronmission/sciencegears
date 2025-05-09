@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScienceGears - Advanced Electrochemistry Solutions for Battery Research & Materials Science</title>
+    <meta name="description"
+        content="ScienceGears provides cutting-edge electrochemistry instruments including potentiostats, battery test systems, and fuel cell analyzers for research laboratories worldwide.">
+    <meta name="keywords"
+        content="electrochemistry instruments, potentiostat, battery tester, fuel cell analyzer, corrosion measurement, electrochemical research">
+    <meta name="author" content="ScienceGears">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="ScienceGears - Advanced Electrochemistry Solutions">
+    <meta property="og:description"
+        content="Precision electrochemistry instrumentation for battery research, materials science, and renewable energy applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sciencegears.com">
+    <meta property="og:image" content="https://www.sciencegears.com/assets/images/sciencegears-social.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sciencegears.com">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Roboto + Plus Jakarta Sans -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <!-- Custom CSS -->
+
+     <style>
+          /* Main Navigation */
+          .main-navbar {
+            background-color: white;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            padding: 10px 0px 10px 0px;
+            transition: all 0.3s;
+        }
+        
+        .main-navbar.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand img {
+            height: 65px;
+            transition: all 0.3s;
+        }
+        
+        .main-navbar.scrolled .navbar-brand img {
+            height: 60px;
+        }
+        
+        .nav-link {
+            color: var(--dark-gray);
+            font-weight: 600;
+            margin: 0 5px;
+            position: relative;
+            padding: 15px 12px !important;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color:#002464;
+        }
+        
+        .nav-link.active {
+            color: #f4a631;
+        }
+        
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 12px;
+            right: 12px;
+            height: 3px;
+            background: #f4a631;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark) !important;
+            padding: 0.75rem 1.25rem !important;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: var(--primary) !important;
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+           /* Mobile adjustments */
+           @media (max-width: 991.98px) {
+            .header-top {
+                display: none;
+            }
+            
+            .navbar-brand img {
+                height: 40px;
+            }
+            
+            .main-navbar {
+                padding: 10px 0;
+            }
+            
+            .navbar-collapse {
+                padding: 15px 0;
+                background: white;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+                border-radius: 8px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px !important;
+            }
+            
+            .nav-link.active:after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                box-shadow: none;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                margin-left: 15px;
+            }
+            
+            .search-container {
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .search-expandable {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                padding: 0;
+                margin-bottom: 15px;
+                display: block !important;
+                animation: none;
+            }
+            
+            .nav-cta {
+                margin: 15px 0 0 0;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-request, .btn-contact {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+
+        .nav-pills .nav-link.active {
+background-color: var(--secondary-blue);
+border-radius: 50px;
+}
+
+.nav-pills .nav-link {
+color: var(--dark);
+font-weight: 500;
+padding: 0.5rem 1.5rem;
+}
+
+
+.nav-tabs {
+            border-bottom: 1px solid #d2d2d7;
+        }
+        
+        .nav-link {
+            color: #1d1d1f;
+            font-weight: 500;
+            border: none;
+            padding: 12px 20px;
+            position: relative;
+        }
+        
+        .nav-link.active {
+            color: #002464;
+            background: none;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #002464;
+        }
+     </style>
+
+
+</head>
+
+<body>
+
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg main-navbar sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/logo/Logo-300x86.png" alt="ScienceGears Logo">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+
+            <!-- megaproducts Mega Menu -->
+            <li class="nav-item dropdown mega-menu">
+                <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown" data-bs-toggle="dropdown">
+                    products
+                </a>
+                <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Column 1: megaproduct Categories -->
+                            <div class="col-lg-3 col-md-12 mega-column">
+                                <h5 class="section-title megamenu-left">Product Categories</h5>
+                                <div class="megaproduct-category active" data-category="electronics">
+                                    <i class="fas fa-bolt"></i>
+                                    Potentiostats / Galvanostats
+                                </div>
+                                <div class="megaproduct-category" data-category="clothing">
+                                    <i class="fas fa-solar-panel"></i>
+                                    Photoelectrochemistry &#038; Photovoltaics
+                                </div>
+                                <div class="megaproduct-category" data-category="home">
+                                    <i class="fas fa-tools"></i>
+                                    Electrochemistry Accessories
+                                </div>
+                                <div class="megaproduct-category" data-category="beauty">
+                                    <i class="fas fa-battery-three-quarters"></i>
+                                    Battery Cycler
+                                </div>
+                                <div class="megaproduct-category" data-category="sports">
+                                    <i class="fas fa-temperature-low"></i>
+                                    Battery Environmental Test Chambers
+                                </div>
+                                <div class="megaproduct-category" data-category="toys">
+                                    <i class="fas fa-plug"></i>
+                                    Battery Cycler Accessories
+                                </div>
+                            </div>
+                            
+                            <!-- Column 2: Subcategories -->
+                            <div class="col-lg-3 col-md-12 mega-column">
+                                <h5 class="section-title megamenu-left">Sub Categories</h5>
+                                <div id="electronics-sub" class="subcategories-container">
+                                    <div class="subcategory-item active" data-subcategory="Electrochemistry WorkStations" data-image="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png">
+                                        Electrochemistry WorkStations (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Electrochemistry Accessories" data-image="assets/products/Electrochemistry/L-Pt-Electrode.jpg">
+                                        Electrochemistry Accessories (1)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Battery Cycler" data-image="assets/products/Battery Cycler/CT-4000-Series_01-845x321 (1).png">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Battery Environmental Test Chambers" data-image="assets/products/Battery Environmental Test Chambers/3C-All-in-one-Testing-System_New_01-450x450.png">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Battery Cycler Accessories" data-image="assets/products/Battery Cycler Accessories/Alligator_Clamp_New_01-600x600.png">
+                                        Battery Cycler Accessories (6)
+                                    </div>
+                                </div>
+                                
+                                <div id="clothing-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="mens" data-image="https://via.placeholder.com/400x300?text=Mens+Clothing">
+                                        Electrochemistry WorkStations (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="womens" data-image="https://via.placeholder.com/400x300?text=Womens+Clothing">
+                                        Electrochemistry Accessories (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="kids" data-image="https://via.placeholder.com/400x300?text=Kids+Clothing">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="footwear" data-image="https://via.placeholder.com/400x300?text=Footwear">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="home-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="kitchen" data-image="https://via.placeholder.com/400x300?text=Kitchen+Appliances">
+                                        Electrochemistry Accessories (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="cleaning" data-image="https://via.placeholder.com/400x300?text=Cleaning+Appliances">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="furniture" data-image="https://via.placeholder.com/400x300?text=Furniture">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="beauty-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="skincare" data-image="https://via.placeholder.com/400x300?text=Skincare">
+                                        Electrochemistry Accessories (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="haircare" data-image="https://via.placeholder.com/400x300?text=Haircare">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="makeup" data-image="https://via.placeholder.com/400x300?text=Makeup">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="sports-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="fitness" data-image="https://via.placeholder.com/400x300?text=Fitness+Equipment">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="outdoor" data-image="https://via.placeholder.com/400x300?text=Outdoor+Gear">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="sports" data-image="https://via.placeholder.com/400x300?text=Sports+Equipment">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="toys-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="toys" data-image="https://via.placeholder.com/400x300?text=Toys">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="games" data-image="https://via.placeholder.com/400x300?text=Games">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="collectibles" data-image="https://via.placeholder.com/400x300?text=Collectibles">
+                                        Battery Cycler (14)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Column 3: Image Display -->
+                            <div class="col-lg-6 col-md-12 mega-column">
+                                <div class="megaproduct-image-container">
+                                    <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="Squidstat-Plus" class="megaproduct-image" id="megaproduct-display-image">
+                                </div>
+                                <div class="megaproduct-promo">
+                                    <h6>Squidstat Plus</h6>
+                                    <p> ±1 A Potentiostat with EIS up to 2 MHz and 1% / 2° Accuracy at 1 mΩ.</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="d-flex justify-content-between align-items-center p-3 bg-light rounded">
+                                    <div class="brand-sec">
+                                     <img src="assets/brands/Admiral_01.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/company-logo.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/logolog.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/Neware_01.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/Zahner_01.jpg" alt="Admiral" class="brand-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                 <!-- resources Mega Menu -->
+                 <li class="nav-item dropdown mega-menu">
+                    <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown" data-bs-toggle="dropdown">
+                        Resources
+                    </a>
+                    <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
+                        <div class="container">
+                            <div class="row col-lg-12 col-md-12">
+                                <div class="row col-lg-6 col-md-12">
+                                    <!-- Column 3: Image Display -->
+                                    <div class="col-lg-4 col-md-12 mega-column">
+                                        <div class="card-images card-bg-1">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="megaproduct-promo">
+                                            <h6>Application Notes</h6>
+                                            <p>In-depth technical guides for researchers</p>
+                                            <a href="#"><p class="mega-a">View all<i class="fas fa-arrow-right-long"></i></p></a>
+                                        </div>
+                                    </div>
+                                                     <!-- Column 3: Image Display -->
+                            <div class="col-lg-4 col-md-12 mega-column">
+                                <div class="card-images card-bg-2">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="megaproduct-promo">
+                                    <h6>Publications</h6>
+                                    <p>Peer-reviewed research and science articles.</p>
+                                    <a href="#"><p class="mega-a">Read More<i class="fas fa-arrow-right-long"></i></p></a>
+                                </div>
+                            </div>
+    
+    
+             <!-- Column 3: Image Display -->
+             <div class="col-lg-4 col-md-12 mega-column">
+                <div class="card-images card-bg-3">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="megaproduct-promo">
+                    <h6>Software</h6>
+                    <p>Software tutorials, troubleshooting.</p>
+                    <a href="#"><p class="mega-a">Download Now<i class="fas fa-arrow-right-long"></i></p></a>
+                </div>
+            </div>
+    
+                                </div>
+    
+                                     <!-- Column 2: Subcategories -->
+                                     <div class="col-lg-3  col-md-12 mega-column">
+                                        <h5 class="section-title megamenu-left">Services</h5>
+                                        <div class="subcategories-container">
+                                            <div class="subcategory-item active"> FAQ </div>
+                                            <div class="subcategory-item"> Troubleshooting </div>
+                                            <div class="subcategory-item"> Software Download </div>
+                                            <div class="subcategory-item"> Contact Support </div>
+                                          
+                                        </div>
+                                    </div>
+                                         <!-- Column 3: Subcategories -->
+                                         <div class="col-lg-3 col-md-12 mega-column">
+                                            <h5 class="section-title megamenu-left">Support</h5>
+                                            <div class="subcategories-container">
+                                                <div class="subcategory-item"> Squidstat - Admiral </div>
+                                                <div class="subcategory-item"> Jennium - Zahner </div>
+                                                <div class="subcategory-item"> Neware </div>
+                                               
+                                              
+                                            </div>
+                                        </div>
+                                
+                            </div>
+
+                          
+                        </div>
+                    </div>
+                </li>
+            
+                 
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+                
+            </ul>
+            
+            <div class="d-flex align-items-center">
+                <!-- Search Toggle -->
+                <div class="search-container">
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-expandable" id="searchExpandable">
+                        <form class="search-form">
+                            <input class="form-control" type="search" placeholder="Search products..." aria-label="Search">
+                            <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Call to Action Buttons -->
+                <div class="nav-cta">
+                    <a href="#" class="btn btn-request">
+                        <i class="fas fa-file-alt me-1"></i> Request Quote
+                    </a>
+                    <a href="#" class="btn btn-contact">
+                        <i class="fas fa-headset me-1"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+    <!-- Footer - Professional Design -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-col">
+                    <div class="footer-logo">
+                        <img src="Logo-300x86.png" alt="ScienceGears Logo">
+                    </div>
+                    <p class="footer-about">ScienceGears provides cutting-edge electrochemistry instrumentation and
+                        technical support to researchers worldwide, helping drive scientific discovery and innovation.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                      <!--   <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> -->
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Potentiostats</a></li>
+                        <li><a href="#">Battery Testers</a></li>
+                        <li><a href="#">Fuel Cells</a></li>
+                        <li><a href="#">Corrosion</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Software</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h4 class="footer-title">Applications</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Battery Research</a></li>
+                        <li><a href="#">Electrocatalysis</a></li>
+                        <li><a href="#">Corrosion Studies</a></li>
+                        <li><a href="#">Sensors</a></li>
+                        <li><a href="#">Fuel Cells</a></li>
+                        <li><a href="#">Renewable Energy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Science Park, Boston, MA 02134</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (617) 555-0123</li>
+                        <li><i class="fas fa-envelope"></i> info@sciencegears.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 5PM EST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        &copy; 2023 ScienceGears. All rights reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="text-secondary me-3">Privacy Policy</a>
+                        <a href="#" class="text-secondary">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+
+    <script></script>
+
+</body>
+
+</html>
+
+
+
+<!-- <!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg main-navbar sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/logo/Logo-300x86.png" alt="ScienceGears Logo">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+
+            <!-- megaproducts Mega Menu -->
+            <li class="nav-item dropdown mega-menu">
+                <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown" data-bs-toggle="dropdown">
+                    products
+                </a>
+                <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Column 1: megaproduct Categories -->
+                            <div class="col-lg-3 mega-column">
+                                <h5 class="section-title megamenu-left">Product Categories</h5>
+                                <div class="megaproduct-category active" data-category="electronics">
+                                    <i class="fas fa-bolt"></i>
+                                    Potentiostats / Galvanostats
+                                </div>
+                                <div class="megaproduct-category" data-category="clothing">
+                                    <i class="fas fa-solar-panel"></i>
+                                    Photoelectrochemistry &#038; Photovoltaics
+                                </div>
+                                <div class="megaproduct-category" data-category="home">
+                                    <i class="fas fa-tools"></i>
+                                    Electrochemistry Accessories
+                                </div>
+                                <div class="megaproduct-category" data-category="beauty">
+                                    <i class="fas fa-battery-three-quarters"></i>
+                                    Battery Cycler
+                                </div>
+                                <div class="megaproduct-category" data-category="sports">
+                                    <i class="fas fa-temperature-low"></i>
+                                    Battery Environmental Test Chambers
+                                </div>
+                                <div class="megaproduct-category" data-category="toys">
+                                    <i class="fas fa-plug"></i>
+                                    Battery Cycler Accessories
+                                </div>
+                            </div>
+                            
+                            <!-- Column 2: Subcategories -->
+                            <div class="col-lg-3 mega-column">
+                                <h5 class="section-title megamenu-left">Sub Categories</h5>
+                                <div id="electronics-sub" class="subcategories-container">
+                                    <div class="subcategory-item active" data-subcategory="Electrochemistry WorkStations" data-image="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png">
+                                        Electrochemistry WorkStations (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Electrochemistry Accessories" data-image="assets/products/Electrochemistry/L-Pt-Electrode.jpg">
+                                        Electrochemistry Accessories (1)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Battery Cycler" data-image="assets/products/Battery Cycler/CT-4000-Series_01-845x321 (1).png">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Battery Environmental Test Chambers" data-image="assets/products/Battery Environmental Test Chambers/3C-All-in-one-Testing-System_New_01-450x450.png">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="Battery Cycler Accessories" data-image="assets/products/Battery Cycler Accessories/Alligator_Clamp_New_01-600x600.png">
+                                        Battery Cycler Accessories (6)
+                                    </div>
+                                </div>
+                                
+                                <div id="clothing-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="mens" data-image="https://via.placeholder.com/400x300?text=Mens+Clothing">
+                                        Electrochemistry WorkStations (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="womens" data-image="https://via.placeholder.com/400x300?text=Womens+Clothing">
+                                        Electrochemistry Accessories (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="kids" data-image="https://via.placeholder.com/400x300?text=Kids+Clothing">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="footwear" data-image="https://via.placeholder.com/400x300?text=Footwear">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="home-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="kitchen" data-image="https://via.placeholder.com/400x300?text=Kitchen+Appliances">
+                                        Electrochemistry Accessories (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="cleaning" data-image="https://via.placeholder.com/400x300?text=Cleaning+Appliances">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="furniture" data-image="https://via.placeholder.com/400x300?text=Furniture">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="beauty-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="skincare" data-image="https://via.placeholder.com/400x300?text=Skincare">
+                                        Electrochemistry Accessories (6)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="haircare" data-image="https://via.placeholder.com/400x300?text=Haircare">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="makeup" data-image="https://via.placeholder.com/400x300?text=Makeup">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="sports-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="fitness" data-image="https://via.placeholder.com/400x300?text=Fitness+Equipment">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="outdoor" data-image="https://via.placeholder.com/400x300?text=Outdoor+Gear">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="sports" data-image="https://via.placeholder.com/400x300?text=Sports+Equipment">
+                                        Battery Environmental Test Chambers (8)
+                                    </div>
+                                </div>
+                                
+                                <div id="toys-sub" class="subcategories-container" style="display:none;">
+                                    <div class="subcategory-item" data-subcategory="toys" data-image="https://via.placeholder.com/400x300?text=Toys">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="games" data-image="https://via.placeholder.com/400x300?text=Games">
+                                        Battery Cycler (14)
+                                    </div>
+                                    <div class="subcategory-item" data-subcategory="collectibles" data-image="https://via.placeholder.com/400x300?text=Collectibles">
+                                        Battery Cycler (14)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Column 3: Image Display -->
+                            <div class="col-lg-6 mega-column">
+                                <div class="megaproduct-image-container">
+                                    <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="Squidstat-Plus" class="megaproduct-image" id="megaproduct-display-image">
+                                </div>
+                                <div class="megaproduct-promo">
+                                    <h6>Squidstat Plus</h6>
+                                    <p> ±1 A Potentiostat with EIS up to 2 MHz and 1% / 2° Accuracy at 1 mΩ.</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+               <!--          <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center p-3 bg-light rounded">
+                                    <div class="brand-sect">
+                                     <img src="assets/brands/Admiral_01.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/company-logo.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/logolog.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/Neware_01.png" alt="Admiral" class="brand-img">
+                                     <img src="assets/brands/Zahner_01.jpg" alt="Admiral" class="brand-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </li>
+            
+   
+                 <!-- resources Mega Menu -->
+                 <li class="nav-item dropdown mega-menu">
+                    <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown" data-bs-toggle="dropdown">
+                        Resources
+                    </a>
+                    <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
+                        <div class="container">
+                            <div class="row col-lg-12">
+                                <div class="row col-lg-6">
+                                    <!-- Column 3: Image Display -->
+                                    <div class="col-lg-4 mega-column">
+                                        <div class="card-images card-bg-1">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="megaproduct-promo">
+                                            <h6>Application Notes</h6>
+                                            <p>In-depth technical guides for researchers</p>
+                                            <a href="#"><p class="mega-a">View all<i class="fas fa-arrow-right-long"></i></p></a>
+                                        </div>
+                                    </div>
+                                                     <!-- Column 3: Image Display -->
+                            <div class="col-lg-4 mega-column">
+                                <div class="card-images card-bg-2">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="megaproduct-promo">
+                                    <h6>Publications</h6>
+                                    <p>Peer-reviewed research and science articles.</p>
+                                    <a href="#"><p class="mega-a">Read More<i class="fas fa-arrow-right-long"></i></p></a>
+                                </div>
+                            </div>
+    
+    
+             <!-- Column 3: Image Display -->
+             <div class="col-lg-4 mega-column">
+                <div class="card-images card-bg-3">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="megaproduct-promo">
+                    <h6>Software</h6>
+                    <p>Software tutorials, troubleshooting.</p>
+                    <a href="#"><p class="mega-a">Download Now<i class="fas fa-arrow-right-long"></i></p></a>
+                </div>
+            </div>
+    
+                                </div>
+    
+                                     <!-- Column 2: Subcategories -->
+                                     <div class="col-lg-3 mega-column">
+                                        <h5 class="section-title megamenu-left">Services</h5>
+                                        <div class="subcategories-container">
+                                            <div class="subcategory-item active"> FAQ </div>
+                                            <div class="subcategory-item"> Troubleshooting </div>
+                                            <div class="subcategory-item"> Software Download </div>
+                                            <div class="subcategory-item"> Contact Support </div>
+                                          
+                                        </div>
+                                    </div>
+                                         <!-- Column 3: Subcategories -->
+                                         <div class="col-lg-3 mega-column">
+                                            <h5 class="section-title megamenu-left">Support</h5>
+                                            <div class="subcategories-container">
+                                                <div class="subcategory-item"> Squidstat - Admiral </div>
+                                                <div class="subcategory-item"> Jennium - Zahner </div>
+                                                <div class="subcategory-item"> Neware </div>
+                                               
+                                              
+                                            </div>
+                                        </div>
+                                
+                            </div>
+
+                          
+                        </div>
+                    </div>
+                </li>
+            
+                 
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+                
+            </ul>
+            
+            <div class="d-flex align-items-center">
+                <!-- Search Toggle -->
+                <div class="search-container">
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-expandable" id="searchExpandable">
+                        <form class="search-form">
+                            <input class="form-control" type="search" placeholder="Search products..." aria-label="Search">
+                            <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Call to Action Buttons -->
+                <div class="nav-cta">
+                    <a href="#" class="btn btn-request">
+                        <i class="fas fa-file-alt me-1"></i> Request Quote
+                    </a>
+                    <a href="#" class="btn btn-contact">
+                        <i class="fas fa-headset me-1"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+ -->

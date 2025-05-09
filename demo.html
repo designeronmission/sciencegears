@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mission & Vision</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .mission-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .mission-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .mission-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .mission-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 class="text-center mb-4">OUR MISSION & VISION</h1>
+            <p class="text-center lead mx-auto" style="max-width: 700px;">
+                We are committed to delivering excellence through innovation, integrity, and dedication to our core values.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">About Our Mission</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="mission-text">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maece nus porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="mission-card">
+                        <div class="icon-container">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="mission-title">Mission Text One</h3>
+                        <p class="mission-text">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maece nus porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="mission-card">
+                        <div class="icon-container">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="mission-title">Mission Text Two</h3>
+                        <p class="mission-text">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maece nus porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="mission-card">
+                        <div class="icon-container">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="mission-title">Mission Text Three</h3>
+                        <p class="mission-text">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maece nus porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Vision" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-lg-5">
+                        <h3 class="mb-4">Building a Better Future</h3>
+                        <p class="mb-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Innovative solutions for modern challenges</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Sustainable growth and development</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Customer-centric approach</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Global reach with local impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Our Core Values</h2>
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <div class="icon-container mx-auto">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4 class="mt-3">Integrity</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <div class="icon-container mx-auto">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="mt-3">Innovation</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <div class="icon-container mx-auto">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="mt-3">Teamwork</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <div class="icon-container mx-auto">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="mt-3">Excellence</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Animation for mission cards when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const missionCards = document.querySelectorAll('.mission-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            missionCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
