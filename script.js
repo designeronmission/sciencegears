@@ -1383,3 +1383,78 @@ window.addEventListener('resize', handleSidebar);
             });
         });
     });
+
+
+
+
+
+
+
+
+
+    
+        document.addEventListener('DOMContentLoaded', function() {
+    // Make the horizontal scroll work with mouse drag
+    const brandScroller = document.querySelector('.brand-scroller');
+    const brandTrack = document.querySelector('.brand-track');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    brandScroller.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - brandScroller.offsetLeft;
+        scrollLeft = brandScroller.scrollLeft;
+        brandTrack.style.animationPlayState = 'paused';
+        brandScroller.style.cursor = 'grabbing';
+    });
+
+    brandScroller.addEventListener('mouseleave', () => {
+        isDown = false;
+        brandScroller.style.cursor = 'grab';
+    });
+
+    brandScroller.addEventListener('mouseup', () => {
+        isDown = false;
+        brandScroller.style.cursor = 'grab';
+        // Restart animation after a delay if not manually scrolling
+        setTimeout(() => {
+            if (!isDown) {
+                brandTrack.style.animationPlayState = 'running';
+            }
+        }, 2000);
+    });
+
+    brandScroller.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - brandScroller.offsetLeft;
+        const walk = (x - startX) * 2; // Adjust scroll speed
+        brandScroller.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events for mobile
+    brandScroller.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - brandScroller.offsetLeft;
+        scrollLeft = brandScroller.scrollLeft;
+        brandTrack.style.animationPlayState = 'paused';
+    });
+
+    brandScroller.addEventListener('touchend', () => {
+        isDown = false;
+        // Restart animation after a delay if not manually scrolling
+        setTimeout(() => {
+            if (!isDown) {
+                brandTrack.style.animationPlayState = 'running';
+            }
+        }, 2000);
+    });
+
+    brandScroller.addEventListener('touchmove', (e) => {
+        if(!isDown) return;
+        const x = e.touches[0].pageX - brandScroller.offsetLeft;
+        const walk = (x - startX) * 2;
+        brandScroller.scrollLeft = scrollLeft - walk;
+    });
+});
