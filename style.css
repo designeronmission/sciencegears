@@ -54,8 +54,6 @@ body {
 }
 
 
-
-
 h1,
 h2,
 h3,
@@ -435,6 +433,7 @@ h6 {
     }
 }
 
+
 /* Mobile adjustments */
 @media (max-width: 991.98px) {
     .header-top {
@@ -442,7 +441,7 @@ h6 {
     }
 
     .navbar-brand img {
-        height: 40px;
+        height: 60px;
     }
 
     .main-navbar {
@@ -1190,7 +1189,7 @@ h6 {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: var(--gradient-orange);
+    background: #f4a631;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1918,7 +1917,6 @@ h6 {
 .feature-icon {
     font-size: 2.5rem;
     color: #002464;
-    margin-bottom: 20px;
     transition: all 0.3s ease;
 }
 
@@ -4410,7 +4408,6 @@ h6 {
 .feature-icon {
     font-size: 2.5rem;
     color: #0056b3;
-    margin-bottom: 1rem;
 }
 
 /* Specifications Table */
@@ -5928,8 +5925,25 @@ h6 {
 }
 
 
+.thumb-product-varient{
+    width: 100px;
+}
+.view-all-right{
+    text-align: end;
+     color: black;
+      font-weight: 400;
+    text-decoration: none;
+}
 
+.view-all-right p{
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}
 
+.p-i{
+    padding-right: 10px;
+}
 
 
 
@@ -6072,6 +6086,7 @@ h6 {
     padding-top: 30px;
     padding-bottom: 30px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 
@@ -6513,6 +6528,7 @@ h6 {
 
     .mobile-container-head {
         display: block;
+        padding: 0px 20px;
     }
 
     .search-toggle {
@@ -6521,7 +6537,33 @@ h6 {
         .hero-slider{
         min-height: 200px;
     }
+    .mega-column{
+        padding: 10px;
+    }
+    .search-expandable{
+        width: fit-content;
+    }
+.nav-cta{
+    width: fit-content;
+}
+.heading-about{
+    font-size: 30px;
+}
 
+.sec-btn-about{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.glass-card{
+padding: 10PX;
+}
+.product-card{
+    width: 100%;
+}
+.category-title{
+    font-size: 18px;
+}
 
 }
 
@@ -6577,17 +6619,17 @@ h6 {
     object-fit: contain;
     transition: filter 0.3s ease;
 }
-
+/* 
 .grayscale {
     filter: grayscale(100%) brightness(0.8);
     opacity: 0.7;
-}
+} */
 
-.brand-item:hover img {
-    filter: grayscale(0%) brightness(1);
+/* .brand-item:hover img {
+    filter: grayscale(0%) brightness(1); 
     opacity: 1;
     transform: scale(1.05);
-}
+} */
 
 /* Scroll animation */
 @keyframes scroll {
@@ -6647,3 +6689,11 @@ h6 {
     width: 100%;
     border-radius: 10px;
 }
+
+
+
+
+
+
+
+
