@@ -238,6 +238,14 @@
             text-decoration: none;
         }
 
+        /* Contact Form Container */
+        .contact-form-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+        }
+
         /* Form Styling - Modern Inputs */
         .form-control,
         .form-select {
@@ -299,82 +307,30 @@
             transform: translateX(0);
         }
 
-        /* Tab Styling - Modern */
-        .nav-tabs {
-            border-bottom: none;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .nav-tabs::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #f0f0f0;
-            z-index: 1;
-        }
-
-        .nav-tabs .nav-link {
-            color: var(--gray);
-            font-weight: 600;
-            border: none;
-            padding: 15px 25px;
-            font-size: 1rem;
-            border-radius: 0;
-            margin-right: 5px;
-            position: relative;
-            z-index: 2;
-            transition: var(--transition);
-            background: transparent;
-        }
-
-        .nav-tabs .nav-link.active {
-            color: var(--primary);
-            background-color: transparent;
-        }
-
-        .nav-tabs .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-            z-index: 3;
-        }
-
-        .nav-tabs .nav-link:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Tab Content */
-        .tab-content {
-            padding: 40px;
-            background-color: white;
+        /* Inquiry Sections */
+        .inquiry-section {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            border: none;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
         }
 
         /* Product Item in Multiple Products Form */
         .product-item {
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: var(--border-radius);
             padding: 20px;
             margin-bottom: 20px;
             position: relative;
-            border: 1px dashed #e0e0e0;
+            border: 1px solid #e0e0e0;
             transition: var(--transition);
         }
 
         .product-item:hover {
             border-color: var(--primary);
-            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .remove-product-btn {
@@ -415,47 +371,6 @@
             box-shadow: 0 10px 20px rgba(0, 168, 150, 0.2);
         }
 
-        /* Map Container */
-        .map-container {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            margin-top: 30px;
-            border: none;
-            height: 400px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Floating Contact Button */
-        .floating-contact-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
-            z-index: 99;
-            transition: var(--transition);
-            border: none;
-        }
-
-        .floating-contact-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-5px) scale(1.1);
-        }
-
         /* Success Message */
         .success-message {
             display: none;
@@ -473,47 +388,40 @@
             display: block;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1199.98px) {
-            .hero-section {
-                padding: 80px 0;
-            }
-
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
+        .success-message h3 {
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
+        .hero-section h1 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #000;
+            font-size: 2.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: grey;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 991.98px) {
-            .hero-section {
-                padding: 70px 0;
-            }
-
-            .contact-card {
-                padding: 25px;
-            }
-
-            .tab-content {
+            .contact-form-container {
                 padding: 30px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
             }
         }
 
         @media (max-width: 767.98px) {
-            .hero-section {
-                padding: 60px 0;
-            }
-
-            .hero-section h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
+            .contact-form-container {
+                padding: 25px;
             }
 
             .contact-icon {
@@ -522,32 +430,11 @@
                 height: 60px;
                 font-size: 1.8rem;
             }
-
-            .nav-tabs .nav-link {
-                padding: 12px 15px;
-                font-size: 0.95rem;
-            }
-
-            .tab-content {
-                padding: 25px;
-            }
         }
 
         @media (max-width: 575.98px) {
-            .hero-section {
-                padding: 50px 0;
-            }
-
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
+            .contact-form-container {
+                padding: 20px;
             }
 
             .contact-card {
@@ -558,29 +445,12 @@
                 margin: 0 auto 15px;
             }
 
-            .nav-tabs {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 5px;
+            .product-item .row>div {
+                margin-bottom: 10px;
             }
 
-            .nav-tabs .nav-item {
-                display: inline-block;
-                float: none;
-            }
-
-            .tab-content {
-                padding: 20px;
-            }
-
-            .floating-contact-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-                bottom: 20px;
-                right: 20px;
+            .product-item .row>div:last-child {
+                margin-bottom: 0;
             }
         }
     </style>
@@ -598,7 +468,6 @@
                 <a href="mailto:info@sciencegears.com.au"><i class="fas fa-envelope"></i> info@sciencegears.com.au</a>
             </div>
             <div class="top-links">
-                <a href="#"><i class="fas fa-user"></i> My Account</a>
                 <a href="#"><i class="fas fa-question-circle"></i> Support</a>
             </div>
         </div>
@@ -631,6 +500,7 @@
                             data-bs-toggle="dropdown">
                             Products
                         </a>
+
                         <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
                             <div class="container">
                                 <div class="row">
@@ -640,7 +510,7 @@
                                             <h6>Explore Sciencegears</h6>
                                             <img src="assets/home/about-mega.png" alt="images" class="megamenu-image">
 
-                                            <p> At ScienceGears, we are committed to delivering high-quality
+                                            <p>At ScienceGears, we are committed to delivering high-quality
                                                 electrochemistry instrumentation.</p>
                                             <a href="about.html">
                                                 <p class="mega-a">Explore Now<i class="fas fa-arrow-right-long"></i></p>
@@ -677,34 +547,60 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 mega-column row">
+                                    <div class="col-lg-6 mega-column">
+                                        <div class="row">
                                          <h5 class="section-title megamenu-left">Product Variants</h5>
-                                   <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
 
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</p></div>
                                     </div>
 
-                                        <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
-
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
-                                    </div>
-                                             <a href="products.html" class="view-all-right mt-4">
-                                                <p class="view-all-right-p">View All<i class="fas fa-arrow-right-long p-i"></i></p>
-                                            </a>
+                                     <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</p></div>
                                     </div>
 
+                                     <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/External-Power-Potentiostats/PP212_1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">External Power Potentiostats</p></div>
+                                    </div>
+
+                                     <div class="col-lg-6 mega-row  d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Optional-Addon-Cards -Modules/PAD4_2.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Optional Addon Cards / Modules</p></div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/CorrTest-Single-Channel-Potentiostats/CS100-1030x487.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">CorrTest Single Channel Potentiostats / Galvanostats</p></div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/CorrTest-Multichannel-Potentiostats/CS2150-Bipotentiostat_1.png" alt="images" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p>CorrTest Multichannel Potentiostats/ Galvanostats</p></div>
+                                    </div>
+                                    
+                                    <div class="col-lg-12">
+                                     <button class="btn-primary mega-button"  onclick="window.location.href='products.html'">View All<i class="fas fa-arrow-right-long p-i"></i></button></a>
+                                    </div>
+
+
+                                       </div>     
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </li>
@@ -786,7 +682,7 @@
                                     <div class="col-lg-3 mega-column">
                                         <h5 class="section-title megamenu-left">Support</h5>
                                         <div class="subcategories-container">
-                                        <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
+                                            <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
                                                 FAQ</div>
                                             <div class="megaproducts-categorys"><i class="fas fa-book"></i> Product
                                                 Manuals</div>
@@ -855,10 +751,6 @@
             <h1>Let's Connect With Our Experts</h1>
             <p>Have questions about our electrochemistry instruments or need technical support? Our team is ready to
                 assist with your research needs.</p>
-            <!--             <div class="hero-cta">
-                <a href="#contact-form" class="btn btn-light"><i class="fas fa-paper-plane me-2"></i> Send a Message</a>
-                <a href="tel:+61493868335" class="btn btn-outline-light"><i class="fas fa-phone me-2"></i> Call Now</a>
-            </div> -->
         </div>
     </section>
 
@@ -917,93 +809,90 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <h4>Need Support? </h4>
-                    <p class="mb-1">Whether it's a quick question or in-depth assistance, our support team is ready to guide you.</p>
+                    <p class="mb-1">Whether it's a quick question or in-depth assistance, our support team is ready to
+                        guide you.</p>
                     <a href="#" class="text-start">Help Center <i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
 
-        <!-- Contact Form Section -->
-        <div class="row py-10" id="contact-form" data-aos="fade-up">
-            <div class="col-lg-10 mx-auto" id="form-request">
+        <!-- Single Contact Form Section -->
+        <div class="row py-10">
+            <div class="col-lg-10 mx-auto">
                 <h2 class="text-center">How Can We Help You?</h2>
                 <p class="section-subtitle text-center">Complete the form below and our team will respond within 24
                     hours. For urgent inquiries, please call our sales team directly.</p>
 
-                <!-- Form Tabs -->
-                <ul class="nav nav-tabs justify-content-center" id="enquiryTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="single-tab" data-bs-toggle="tab" data-bs-target="#single"
-                            type="button" role="tab">Product Inquiry</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="multiple-tab" data-bs-toggle="tab" data-bs-target="#multiple"
-                            type="button" role="tab">Multiple Products</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="support-tab" data-bs-toggle="tab" data-bs-target="#support"
-                            type="button" role="tab">Technical Support</button>
-                    </li>
-                </ul>
-
-                <div class="tab-content" id="enquiryTabsContent">
-                    <!-- Single Product Tab -->
-                    <div class="tab-pane fade show active" id="single" role="tabpanel">
-                        <form id="singleProductForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Your Name *</label>
-                                        <input type="text" class="form-control" id="name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="company" class="form-label">Institution/Company *</label>
-                                        <input type="text" class="form-control" id="company" required>
-                                    </div>
+                <div class="contact-form-container">
+                    <form id="universalContactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name *</label>
+                                    <input type="text" class="form-control" id="name" required>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email Address *</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone Number *</label>
-                                        <input type="tel" class="form-control" id="phone" required>
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="company" class="form-label">Institution/Company *</label>
+                                    <input type="text" class="form-control" id="company" required>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="country" class="form-label">Country *</label>
-                                <select class="form-select" id="country" required>
-                                    <option value="">Select Country</option>
-                                    <option value="AU">Australia</option>
-                                    <option value="NZ">New Zealand</option>
-                                    <option value="US">United States</option>
-                                    <option value="UK">United Kingdom</option>
-                                    <option value="JP">Japan</option>
-                                    <option value="CN">China</option>
-                                    <option value="IN">India</option>
-                                </select>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country *</label>
+                            <select class="form-select" id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="AU">Australia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="JP">Japan</option>
+                                <option value="CN">China</option>
+                                <option value="IN">India</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inquiryType" class="form-label">Inquiry Type *</label>
+                            <select class="form-select" id="inquiryType" required onchange="showRelevantFields()">
+                                <option value="">Select Inquiry Type</option>
+                                <option value="product">Product Inquiry</option>
+                                <option value="multiple">Multiple Products</option>
+                                <option value="support">Technical Support</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <!-- Product Inquiry Fields (Hidden by default) -->
+                        <div id="productFields" class="inquiry-section">
                             <div class="mb-3">
                                 <label for="product" class="form-label">Product of Interest *</label>
                                 <select class="form-select" id="product" required>
                                     <option value="">Select Product</option>
-                                    <option value="potentiostat">Advanced Potentiostat/Galvanostat</option>
-                                    <option value="battery-cycler">High-Precision Battery Cycler</option>
-                                    <option value="test-chamber">Battery Environmental Test Chamber</option>
-                                    <option value="spectrometer">Electrochemical Spectrometer</option>
-                                    <option value="accessories">Accessories & Probes</option>
-                                    <option value="other">Other (Specify Below)</option>
+                                    <option value="potentiostat"> Potentiostats / Galvanostats</option>
+                                    <option value="Photoelectrochemistry"> Photoelectrochemistry &#038; Photovoltaics
+                                    </option>
+                                    <option value="Electrochemistry-accessories">Electrochemistry Accessories</option>
+                                    <option value="Battery-cycler">Battery Cycler</option>
+                                    <option value="test-Chambers">Battery Environmental Test Chambers</option>
+                                    <option value="Cycler-accessories">Battery Cycler Accessories</option>
                                 </select>
                             </div>
 
@@ -1026,93 +915,54 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Additional Information</label>
-                                <textarea class="form-control" id="message" rows="4"
-                                    placeholder="Please describe your application, specific requirements, or any questions you may have..."></textarea>
-                            </div>
-
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="subscribe" checked>
-                                <label class="form-check-label" for="subscribe">Subscribe to our technical
-                                    newsletter</label>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-paper-plane me-2"></i> Submit Inquiry
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Multiple Products Tab -->
-                    <div class="tab-pane fade" id="multiple" role="tabpanel">
-                        <form id="multipleProductForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="m_name" class="form-label">Your Name *</label>
-                                        <input type="text" class="form-control" id="m_name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="m_company" class="form-label">Institution/Company *</label>
-                                        <input type="text" class="form-control" id="m_company" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="m_email" class="form-label">Email Address *</label>
-                                        <input type="email" class="form-control" id="m_email" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="m_phone" class="form-label">Phone Number *</label>
-                                        <input type="tel" class="form-control" id="m_phone" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="m_country" class="form-label">Country *</label>
-                                <select class="form-select" id="m_country" required>
-                                    <option value="">Select Country</option>
-                                    <option value="AU">Australia</option>
-                                    <option value="NZ">New Zealand</option>
-                                    <option value="US">United States</option>
-                                    <option value="UK">United Kingdom</option>
-                                    <option value="JP">Japan</option>
-                                    <option value="CN">China</option>
-                                    <option value="IN">India</option>
-                                </select>
-                            </div>
-
+                        <!-- Multiple Products Fields (Hidden by default) -->
+                        <div id="multipleProductsFields" class="inquiry-section">
                             <h5 class="mb-3">Products List</h5>
                             <div id="productContainer">
-                                <!-- Products will be added here dynamically -->
                                 <div class="product-item">
                                     <div class="row g-2">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="mb-2">
                                                 <label class="form-label">Product *</label>
                                                 <select class="form-select product-select" required>
                                                     <option value="">Select Product</option>
-                                                    <option value="potentiostat">Advanced Potentiostat/Galvanostat
+                                                    <option value="potentiostat"> Potentiostats / Galvanostats</option>
+                                                    <option value="Photoelectrochemistry"> Photoelectrochemistry &#038;
+                                                        Photovoltaics</option>
+                                                    <option value="Electrochemistry-accessories">Electrochemistry
+                                                        Accessories</option>
+                                                    <option value="Battery-cycler">Battery Cycler</option>
+                                                    <option value="test-Chambers">Battery Environmental Test Chambers
                                                     </option>
-                                                    <option value="battery-cycler">High-Precision Battery Cycler
+                                                    <option value="Cycler-accessories">Battery Cycler Accessories
                                                     </option>
-                                                    <option value="test-chamber">Battery Environmental Test Chamber
-                                                    </option>
-                                                    <option value="spectrometer">Electrochemical Spectrometer</option>
-                                                    <option value="accessories">Accessories & Probes</option>
+
+
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">Categories *</label>
+                                                <select class="form-select product-select" required>
+                                                    <option value="">Select Categories</option>
+                                                    <option value="squidstat-potentiostats">Squidstat Potentiostats /
+                                                        Galvanostats</option>
+                                                    <option value="zennium-modular">Zennium Modular Potentiostats /
+                                                        Galvanostats</option>
+                                                    <option value="external-power">External Power Potentiostats</option>
+                                                    <option value="Optional-Addon">Optional Addon Cards / Modules
+                                                    </option>
+                                                    <option value="Single-Channel">CorrTest Single Channel Potentiostats
+                                                        / Galvanostats</option>
+                                                    <option value="Multi-channel">CorrTest Multichannel Potentiostats/
+                                                        Galvanostats</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-4">
                                             <div class="mb-2">
                                                 <label class="form-label">Quantity *</label>
@@ -1144,58 +994,10 @@
                                     <option value="flexible">Flexible (5+ weeks)</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="m_message" class="form-label">Additional Information</label>
-                                <textarea class="form-control" id="m_message" rows="4"
-                                    placeholder="Please describe your application, specific requirements, or any questions you may have..."></textarea>
-                            </div>
-
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="m_subscribe" checked>
-                                <label class="form-check-label" for="m_subscribe">Subscribe to our technical
-                                    newsletter</label>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-paper-plane me-2"></i> Submit Inquiry
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Technical Support Tab -->
-                    <div class="tab-pane fade" id="support" role="tabpanel">
-                        <form id="supportForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="s_name" class="form-label">Your Name *</label>
-                                        <input type="text" class="form-control" id="s_name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="s_company" class="form-label">Institution/Company *</label>
-                                        <input type="text" class="form-control" id="s_company" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="s_email" class="form-label">Email Address *</label>
-                                        <input type="email" class="form-control" id="s_email" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="s_phone" class="form-label">Phone Number *</label>
-                                        <input type="tel" class="form-control" id="s_phone" required>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <!-- Technical Support Fields (Hidden by default) -->
+                        <div id="supportFields" class="inquiry-section">
                             <div class="mb-3">
                                 <label for="s_serial" class="form-label">Instrument Serial Number (if
                                     applicable)</label>
@@ -1206,11 +1008,13 @@
                                 <label for="s_product" class="form-label">Product Model *</label>
                                 <select class="form-select" id="s_product" required>
                                     <option value="">Select Product</option>
-                                    <option value="potentiostat">Advanced Potentiostat/Galvanostat</option>
-                                    <option value="battery-cycler">High-Precision Battery Cycler</option>
-                                    <option value="test-chamber">Battery Environmental Test Chamber</option>
-                                    <option value="spectrometer">Electrochemical Spectrometer</option>
-                                    <option value="other">Other (Specify Below)</option>
+                                    <option value="potentiostat"> Potentiostats / Galvanostats</option>
+                                    <option value="Photoelectrochemistry"> Photoelectrochemistry &#038; Photovoltaics
+                                    </option>
+                                    <option value="Electrochemistry-accessories">Electrochemistry Accessories</option>
+                                    <option value="Battery-cycler">Battery Cycler</option>
+                                    <option value="test-Chambers">Battery Environmental Test Chambers</option>
+                                    <option value="Cycler-accessories">Battery Cycler Accessories</option>
                                 </select>
                             </div>
 
@@ -1227,12 +1031,6 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="s_description" class="form-label">Issue Description *</label>
-                                <textarea class="form-control" id="s_description" rows="4"
-                                    placeholder="Please describe the issue in detail, including any error messages you're receiving..."></textarea>
-                            </div>
-
-                            <div class="mb-3">
                                 <label for="s_urgency" class="form-label">Urgency Level *</label>
                                 <select class="form-select" id="s_urgency" required>
                                     <option value="">Select Urgency</option>
@@ -1242,14 +1040,25 @@
                                     <option value="low">Low (General Question)</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-headset me-2"></i> Submit Support Request
-                            </button>
-                            <p class="mt-3 small text-muted text-center">For critical issues, please call our support
-                                line immediately after submitting this form.</p>
-                        </form>
-                    </div>
+                        <!-- Additional Information Field -->
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Additional Information *</label>
+                            <textarea class="form-control" id="message" rows="4" required
+                                placeholder="Please describe your inquiry in detail..."></textarea>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="subscribe" checked>
+                            <label class="form-check-label" for="subscribe">Subscribe to our technical
+                                newsletter</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i> Submit Inquiry
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1262,7 +1071,7 @@
     </a>
 
 
-    <!-- Footer Section -->
+   <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -1282,45 +1091,34 @@
 
                 <!-- Categories Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Product Variants</h3>
-                    <div class="mb-3">
-                        <h4 class="sub-heading">Electrochemistry WorkStations</h4>
-                        <a href="products-detail.html" class="footer-link"> Electrochemistry Accessories</a>
-                        <a href="products-detail.html" class="footer-link">Battery Cycler </a>
-                        <a href="products-detail.html" class="footer-link"> Battery Environmental Test Chambers</a>
-                        <a href="products-detail.html" class="footer-link"> Battery Cycler Accessories</a>
-                    </div>
-                </div>
-
-                <!-- Learn Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
                     <h3 class="footer-heading">Learn</h3>
+                    <div class="mb-3">
                     <a href="#" class="footer-link">How to Use</a>
                     <a href="#" class="footer-link">Educational Articles</a>
                     <a href="#" class="footer-link">Video Tutorials</a>
                     <a href="#" class="footer-link">Science Blog</a>
                     <a href="#" class="footer-link">Download Guides</a>
+                    </div>
+                </div>
+
+                <!-- Learn Column -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                <h3 class="footer-heading">Quick Links</h3>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About US</a>
+                    <a href="faq.html" class="footer-link">FAQ</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
                 </div>
 
                 <!-- About Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">About</h3>
-                    <a href="about.html" class="footer-link">Our Story</a>
-                    <a href="about.html" class="footer-link">Why ScienceGears</a>
-                    <a href="#" class="footer-link">Sustainability</a>
-                    <a href="contact.html" class="footer-link">Contact Us</a>
-                    <a href="#" class="footer-link">Support</a>
-
-                    <div class="mb-3">
-                        <h4 class="sub-heading">Legal</h4>
+                        <h4 class="footer-heading">Legal</h4>
                         <a href="#" class="footer-link">Terms of Use</a>
                         <a href="#" class="footer-link">Privacy Policy</a>
                         <a href="#" class="footer-link">Return Policy</a>
-                    </div>
-
-                    <div class="social-icons">
+                    <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1331,11 +1129,7 @@
             <div class="footer-divider"></div>
 
             <div class="footer-bottom">
-                <div class="footer-cta">
-                    <a href="#" class="btn btn btn-request">Download Product Catalog</a>
-                    <a href="#" class="btn btn-primary">Get a Custom Quote</a>
-                </div>
-                <div class="text-center mt-3">
+                <div class="col-lg-12 text-center mt-3">
                     <div class="footer-text">
                         &copy; 2025 ScienceGears Australia | Empowering Discovery Through Science | ABN: 23 456 789 012
                     </div>
@@ -1343,35 +1137,55 @@
             </div>
         </div>
     </footer>
-
-
-
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Initially hide all inquiry sections
+            document.querySelectorAll('.inquiry-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
             // Add product functionality for multiple products form
-            document.getElementById('addProductBtn').addEventListener('click', function () {
+            document.getElementById('addProductBtn')?.addEventListener('click', function () {
                 const productContainer = document.getElementById('productContainer');
                 const newProduct = document.createElement('div');
                 newProduct.className = 'product-item';
                 newProduct.innerHTML = `
                 <div class="row g-2">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="mb-2">
                             <label class="form-label">Product *</label>
                             <select class="form-select product-select" required>
-                                <option value="">Select Product</option>
-                                <option value="potentiostat">Advanced Potentiostat/Galvanostat</option>
-                                <option value="battery-cycler">High-Precision Battery Cycler</option>
-                                <option value="test-chamber">Battery Environmental Test Chamber</option>
-                                <option value="spectrometer">Electrochemical Spectrometer</option>
-                                <option value="accessories">Accessories & Probes</option>
+                                <option value="Select Product"</option>
+                                <option value="Potentiostats / Galvanostats"</option>
+                                <option value="battery-cycler">Photoelectrochemistry &#038; Photovoltaics"</option>
+                                <option value="test-chamber">Electrochemistry Accessories"</option>
+                                <option value="spectrometer"> Battery Cycler"</option>
+                                <option value="spectrometer"> Battery Environmental Test Chambers"</option>
+                                <option value="accessories">Battery Environmental Test Chambers"</option>
                             </select>
                         </div>
                     </div>
+
+                      <div class="col-md-4">
+                        <div class="mb-2">
+                            <label class="form-label">Categories *</label>
+                            <select class="form-select categories-select" required>
+                                 <option value="Select Categories"></option>
+                                 <option value="squidstat-potentiostats">Squidstat Potentiostats / Galvanostats</option>
+                                 <option value="zennium-modular">Zennium Modular Potentiostats / Galvanostats</option>
+                                 <option value="external-power">External Power Potentiostats</option>
+                                 <option value="Optional-Addon">Optional Addon Cards / Modules</option>
+                                 <option value="Single-Channel">CorrTest Single Channel Potentiostats / Galvanostats</option>
+                                 <option value="Multi-channel">CorrTest Multichannel Potentiostats/ Galvanostats</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="col-md-4">
                         <div class="mb-2">
                             <label class="form-label">Quantity *</label>
@@ -1399,6 +1213,20 @@
                 });
             });
 
+            // Form submission handling
+            document.getElementById('universalContactForm')?.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Hide the form
+                this.style.display = 'none';
+
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            });
+
             // Add event listeners to existing remove buttons
             document.querySelectorAll('.remove-product-btn').forEach(button => {
                 button.addEventListener('click', function () {
@@ -1410,23 +1238,43 @@
                     }
                 });
             });
+        });
 
-            // Form submission handling
-            document.getElementById('singleProductForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                // Here you would typically send the form data to your server
-                alert('Thank you for your inquiry! Our team will contact you within 24 hours.');
-                this.reset();
+        function showRelevantFields() {
+            // Hide all sections first
+            document.querySelectorAll('.inquiry-section').forEach(section => {
+                section.style.display = 'none';
             });
 
-            document.getElementById('multipleProductForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                // Here you would typically send the form data to your server
-                alert('Thank you for your multi-product inquiry! Our sales team will prepare a customized quote for you.');
-                this.reset();
+            // Show the relevant section based on selection
+            const inquiryType = document.getElementById('inquiryType').value;
+            if (inquiryType === 'product') {
+                document.getElementById('productFields').style.display = 'block';
+            } else if (inquiryType === 'multiple') {
+                document.getElementById('multipleProductsFields').style.display = 'block';
+            } else if (inquiryType === 'support') {
+                document.getElementById('supportFields').style.display = 'block';
+            }
+        }
 
-                // Reset to one product field
-                const productContainer = document.getElementById('productContainer');
+        function resetForm() {
+            // Hide success message
+            document.getElementById('successMessage').style.display = 'none';
+
+            // Show the form again
+            document.getElementById('universalContactForm').style.display = 'block';
+
+            // Reset the form
+            document.getElementById('universalContactForm').reset();
+
+            // Hide all inquiry sections
+            document.querySelectorAll('.inquiry-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Reset multiple products to just one
+            const productContainer = document.getElementById('productContainer');
+            if (productContainer) {
                 while (productContainer.children.length > 1) {
                     productContainer.removeChild(productContainer.lastChild);
                 }
@@ -1435,28 +1283,9 @@
                 const firstProduct = productContainer.firstElementChild;
                 firstProduct.querySelector('.product-select').value = '';
                 firstProduct.querySelector('.product-quantity').value = '1';
-            });
-
-            document.getElementById('supportForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                // Here you would typically send the form data to your server
-                alert('Thank you for your support request! Our technical team will respond promptly. For urgent issues, please call our support line.');
-                this.reset();
-            });
-
-            // Make tabs scrollable on mobile
-            const navTabs = document.querySelector('.nav-tabs');
-            if (navTabs) {
-                navTabs.addEventListener('wheel', function (e) {
-                    if (window.innerWidth < 768) {
-                        e.preventDefault();
-                        this.scrollLeft += e.deltaY;
-                    }
-                });
             }
-        });
+        }
     </script>
-
 </body>
 
 </html>

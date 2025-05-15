@@ -4,286 +4,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScienceGears - Product Listing</title>
+    <title>ScienceGears - Advanced Electrochemistry Solutions for Battery Research & Materials Science</title>
+    <meta name="description"
+        content="ScienceGears provides cutting-edge electrochemistry instruments including potentiostats, battery test systems, and fuel cell analyzers for research laboratories worldwide.">
+    <meta name="keywords"
+        content="electrochemistry instruments, potentiostat, battery tester, fuel cell analyzer, corrosion measurement, electrochemical research">
+    <meta name="author" content="ScienceGears">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="ScienceGears - Advanced Electrochemistry Solutions">
+    <meta property="og:description"
+        content="Precision electrochemistry instrumentation for battery research, materials science, and renewable energy applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sciencegears.com">
+    <meta property="og:image" content="https://www.sciencegears.com/assets/images/sciencegears-social.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sciencegears.com">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo/fav-icon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/fav-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/fav-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/fav-icon.png">
+    <link rel="manifest" href="assets/logo/fav-icon.png">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Roboto + Plus Jakarta Sans -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css"/>
+    
     <style>
-        /* View Toggle Styles */
+        :root {
+            --dark: #1d1d1f;
+            --light: #f5f5f7;
+            --primary-blue: #0052a3;
+            --primary-dark: #0052a3;
+            --gray: #86868b;
+            --light-gray: #e5e5e7;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 8px 30px rgba(29, 29, 29, 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .containers {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .product-grid, .product-list {
+            display: none;
+        }
+
+        .product-grid.active {
+            display: grid;
+        }
+
+        .product-list.active {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Filter Sidebar */
+        .filters-sidebars {
+            width: 280px;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .filters-groups {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .filters-groups h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .filters-groups h3 button {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .filters-groups h3 button:hover {
+            color: var(--primary-dark);
+        }
+        
+        .filters-options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .filters-option {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .filters-option input {
+            margin-right: 10px;
+            accent-color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        .filters-option label {
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .filters-option label:hover {
+            color: var(--primary-blue);
+        }
+        
+        .searches-filters {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--light-gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .filter-actions button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .apply-btn {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .apply-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .reset-btn {
+            background-color: var(--light-gray);
+            color: var(--dark);
+        }
+        
+        .reset-btn:hover {
+            background-color: #d8d8d8;
+        }
+        
+        /* Main Content */
+        .mains-contents {
+            flex: 1;
+        }
+        
+        /* Header */
+        .listings-headers {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .listings-headers h1 {
+            font-weight: 500;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+        
+        /* View Controls */
         .views-controls {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
-        .sort-dropdown button {
-            background: none;
-            border: 1px solid #ddd;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
+        
         .view-toggle {
             display: flex;
-            gap: 5px;
-        }
-
-        .view-toggle-btn {
-            background: none;
-            border: 1px solid #ddd;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .view-toggle-btn.active {
-            background-color: #f0f0f0;
-            color: #333;
-            border-color: #aaa;
-        }
-
-        /* Product View Styles */
-        .product-results {
-            margin-top: 20px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .product-list {
-            display: none;
-        }
-
-        .product-grid.active,
-        .product-list.active {
-            display: block;
-        }
-
-        /* Product Grid View Styles */
-        .products-card-list {
-            border: 1px solid #eaeaea;
+            border: 1px solid var(--light-gray);
             border-radius: 8px;
             overflow: hidden;
+        }
+        
+        .view-toggle-btn {
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .view-toggle-btn.active {
+            background-color: var(--light-gray);
+        }
+        
+        .view-toggle-btn i {
+            color: var(--dark);
+            font-size: 16px;
+        }
+        
+        .sort-dropdown {
+            position: relative;
+        }
+        
+        .sort-dropdown button {
+            background: none;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .sort-dropdown button:hover {
+            border-color: var(--primary-blue);
+        }
+        
+        .sort-dropdown button i {
+            font-size: 12px;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        /* Product List View */
+        .product-list {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .product-grid.active,
+        .product-list.active {
+            display: grid;
+        }
+        
+        .product-list.active {
+            display: flex;
+        }
+        
+        /* Updated Product Card Styles */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e5e5e7;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
         }
-
-        .products-card-list:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: #0052a3;
         }
-
-        .product-image {
-            height: 200px;
-            background-color: #f9f9f9;
+        
+        .product-image-container {
+            height: 220px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 30px;
             position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #e5e5e7;
         }
-
-        .product-image img {
-            max-height: 100%;
+        
+        .product-image {
             max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
+            transition: transform 0.3s;
+            mix-blend-mode: multiply;
         }
-
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
         .product-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #2a7de1;
+            top: 12px;
+            right: 12px;
+            background-color: #0052a3;
             color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
+        
+        .product-badge.new {
+            background-color: #0052a3;
+        }
+        
+        .product-badge.portable {
+            background-color: #28a745;
+        }
+        
+        .product-badge.multi-channel {
+            background-color: #6f42c1;
+        }
+        
         .product-info {
-            padding: 15px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-
+        
         .product-category {
             font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
+            color: #0052a3;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
         }
-
+        
         .product-title {
             font-size: 18px;
-            margin-bottom: 10px;
-            color: #333;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+            line-height: 1.3;
         }
-
+        
         .product-specs {
             font-size: 14px;
-            color: #555;
+            color: #86868b;
             margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            flex: 1;
+            line-height: 1.5;
         }
-
+        
         .product-features {
-            list-style: none;
+            margin: 15px 0;
             padding: 0;
-            margin: 0 0 15px 0;
-            font-size: 13px;
-            color: #555;
+            list-style: none;
         }
-
+        
         .product-features li {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #515154;
         }
-
+        
         .product-features li:before {
-            content: "•";
-            color: #2a7de1;
-            margin-right: 8px;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            background-color: #0052a3;
+            border-radius: 50%;
         }
-
+        
         .product-actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
         }
-
+        
         .btn-details {
-            background-color: #f5f5f5;
-            border: none;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 13px;
-        }
-
-        .product-link {
-            color: #2a7de1;
+            background-color: transparent;
+            color: #0052a3;
+            border: 1px solid #0052a3;
+            padding: 8px 16px;
+            border-radius: 6px;
             font-size: 14px;
-            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
-
-        /* Product List View Styles */
+        
+        .btn-details:hover {
+            background-color: #0052a3;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 82, 163, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #86868b;
+            border: 1px solid #e5e5e7;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+        
+        /* Enhanced Product Row (List View) */
         .product-row {
             display: flex;
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e5e5e7;
         }
-
+        
         .product-row:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: #0052a3;
         }
-
+        
         .product-row-image {
-            width: 200px;
-            min-width: 200px;
-            background-color: #f9f9f9;
+            width: 220px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            flex-shrink: 0;
+            padding: 30px;
+            border-right: 1px solid #e5e5e7;
         }
-
+        
         .product-row-image img {
-            max-height: 100%;
             max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
+            transition: transform 0.3s;
+            mix-blend-mode: multiply;
         }
-
+        
+        .product-row:hover .product-row-image img {
+            transform: scale(1.05);
+        }
+        
         .product-row-info {
+            padding: 25px;
             flex: 1;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
-
+        
         .product-row-main {
             display: flex;
-            height: 100%;
+            flex: 1;
         }
-
+        
         .product-row-details {
             flex: 1;
         }
-
+        
         .product-row-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 15px;
             margin-top: 15px;
         }
-
+        
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #555;
         }
-
+        
         .feature-icon {
-            color: #2a7de1;
+            color: #0052a3;
+            margin-right: 10px;
             font-size: 14px;
         }
-
+        
+        .feature-text {
+            font-size: 13px;
+            color: #515154;
+        }
+        
         .product-row-actions {
+            width: 200px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding-left: 20px;
+            align-items: flex-end;
+            justify-content: space-between;
         }
-
-        /* Pagination Styles */
-        .pagination {
+        
+        /* Technical Specs Highlight */
+        .tech-spec-highlight {
+            display: inline-block;
+            background-color: #f0f7ff;
+            color: #0052a3;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Loading Indicator */
+        .loading {
             display: flex;
             justify-content: center;
-            margin-top: 40px;
-            gap: 5px;
+            padding: 30px 0;
+            display: none;
         }
-
-        .pagination button {
-            border: 1px solid #ddd;
-            background: none;
+        
+        .loading-spinner {
             width: 40px;
             height: 40px;
+            border: 4px solid var(--light-gray);
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Category Groups */
+        .category-group {
+            margin-bottom: 40px;
+        }
+        
+        .category-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            cursor: pointer;
-            color: #333;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gray);
         }
-
-        .pagination button.active {
-            background-color: #2a7de1;
-            color: white;
-            border-color: #2a7de1;
+        
+        .category-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 0;
         }
-
-        /* Responsive Styles */
+        
+        .category-count {
+            font-size: 14px;
+            color: var(--gray);
+            background-color: var(--light-gray);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .containers {
+                padding: 0 60px;
+            }
+            
+            .filters-sidebars {
+                width: 240px;
+            }
+            
+            .product-row-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .containers {
+                flex-direction: column;
+                padding: 0 40px;
+            }
+            
+            .filters-sidebars {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+            
+            .filters-options {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .product-row-image {
+                width: 150px;
+            }
+            
+            .product-row-actions {
+                width: 150px;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .containers {
+                padding: 0 20px;
+            }
+            
+            .listings-headers {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .views-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
             .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
             }
             
             .product-row {
@@ -299,9 +703,27 @@
                 flex-direction: column;
             }
             
+            .product-row-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .product-row-actions {
-                padding-left: 0;
-                padding-top: 15px;
+                width: 100%;
+                flex-direction: row;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid var(--light-gray);
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .view-toggle {
+                margin-left: auto;
             }
             
             .product-row-features {
@@ -309,118 +731,474 @@
             }
         }
 
-        /* General Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.6;
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
         }
 
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .no-results i {
+            font-size: 48px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .no-results h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .no-results p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Navigation Sidebar */
+        .category-navigation {
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            background: white;
+            border-radius: 12px;
             padding: 20px;
+            box-shadow: var(--card-shadow);
+            margin-left: 20px;
+            width: 220px;
         }
 
-        .listing-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 20px 0;
-        }
-
-        .search-bar {
-            position: relative;
-            max-width: 500px;
-        }
-
-        .search-bar i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .category-navigation h3 {
             font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
         }
 
-        .filter-sidebar {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
-
-        .filter-group {
-            margin-bottom: 25px;
-        }
-
-        .filter-group h3 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .filter-group h3 button {
-            background: none;
-            border: none;
-            color: #2a7de1;
-            font-size: 13px;
-            cursor: pointer;
-        }
-
-        .filter-options {
+        .category-nav-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .filter-option {
-            margin-bottom: 8px;
+        .category-nav-item {
+            margin-bottom: 10px;
         }
 
-        .filter-option label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
+        .category-nav-link {
+            display: block;
+            padding: 8px 12px;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
             font-size: 14px;
         }
 
-        .filter-option input {
-            margin-right: 10px;
+        .category-nav-link:hover, .category-nav-link.active {
+            background-color: #f0f7ff;
+            color: var(--primary-blue);
         }
 
-        .product-view {
-            display: flex;
-            margin-top: 30px;
+        @media (max-width: 1200px) {
+            .category-navigation {
+                display: none;
+            }
         }
-
-        .product-results {
-            flex: 1;
-        }
+        
     </style>
 </head>
 
 <body>
-    <section class="product-listing-section">
-        <div class="section-container">
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search for electrochemical workstations..." id="searchInput">
+    <!-- Header Top Bar -->
+    <div class="header-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="top-contact">
+                <a href="tel:+1234567890"><i class="fas fa-phone"></i>+61 493 868 335</a>
+                <a href="mailto:info@sciencegears.com.au"><i class="fas fa-envelope"></i> info@sciencegears.com.au</a>
             </div>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-user"></i> My Account</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Support</a>
+            </div>
+        </div>
+    </div>
 
-            <div class="listing-header">
-                <h1>Electrochemical Workstations (6)</h1>
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/logo/Logo-300x86.png" alt="ScienceGears Logo">
+            </a>
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+
+                    <!-- megaproducts Mega Menu -->
+                    <li class="nav-item dropdown mega-menu">
+                        <a class="nav-link dropdown-toggle active" href="#" id="megaproductsDropdown"
+                            data-bs-toggle="dropdown">
+                            Products
+                        </a>
+                        <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Column 3: Image Display -->
+                                    <div class="col-lg-3 mega-column">
+                                        <div class="megaproduct-promo">
+                                            <h6>Explore Sciencegears</h6>
+                                            <img src="assets/home/about-mega.png" alt="images" class="megamenu-image">
+
+                                            <p> At ScienceGears, we are committed to delivering high-quality
+                                                electrochemistry instrumentation.</p>
+                                            <a href="about.html">
+                                                <p class="mega-a">Explore Now<i class="fas fa-arrow-right-long"></i></p>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                
+                                    <div class="col-lg-3 mega-column">
+                                        <h5 class="section-title megamenu-left">Instruments</h5>
+                                        <div class="megaproduct-category active"  onclick="window.location.href='products.html'">
+                                            <i class="fas fa-bolt"></i>
+                                            Potentiostats / Galvanostats
+                                        </div>
+                                        <div class="megaproduct-category">
+                                            <i class="fas fa-solar-panel"></i>
+                                            Photoelectrochemistry &#038; Photovoltaics
+                                        </div>
+                                        <div class="megaproduct-category">
+                                            <i class="fas fa-tools"></i>
+                                            Electrochemistry Accessories
+                                        </div>
+                                        <div class="megaproduct-category">
+                                            <i class="fas fa-battery-three-quarters"></i>
+                                            Battery Cycler
+                                        </div>
+                                        <div class="megaproduct-category">
+                                            <i class="fas fa-temperature-low"></i>
+                                            Battery Environmental Test Chambers
+                                        </div>
+                                        <div class="megaproduct-category">
+                                            <i class="fas fa-plug"></i>
+                                            Battery Cycler Accessories
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-column row">
+                                         <h5 class="section-title megamenu-left">Product Variants</h5>
+                                   <div class="col-lg-6 mega-column d-flex">
+                                        <div class="megaproduct-promo">
+                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</h6>
+                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
+
+                                            <p> At ScienceGears, we are committed to delivering high-quality
+                                                electrochemistry instrumentation.</p>
+                                        </div>
+                                    </div>
+
+                                        <div class="col-lg-6 mega-column d-flex">
+                                        <div class="megaproduct-promo">
+                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</h6>
+                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
+
+                                            <p> At ScienceGears, we are committed to delivering high-quality
+                                                electrochemistry instrumentation.</p>
+                                        </div>
+                                    </div>
+                                             <a href="products.html" class="view-all-right mt-4">
+                                                <p class="view-all-right-p">View All<i class="fas fa-arrow-right-long p-i"></i></p>
+                                            </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-- resources Mega Menu -->
+                    <li class="nav-item dropdown mega-menu">
+                        <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown"
+                            data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
+                            <div class="container">
+                                <div class="row col-lg-12">
+                                    <div class="row col-lg-6">
+                                        <!-- Column 3: Image Display -->
+                                        <div class="col-lg-4 mega-column">
+                                            <div class="card-images card-bg-1">
+                                                <i class="fas fa-file-alt"></i>
+                                            </div>
+                                            <div class="megaproduct-promo">
+                                                <h6>Application Notes</h6>
+                                                <p>In-depth technical guides for researchers</p>
+                                                <a href="#">
+                                                    <p class="mega-a">View all<i class="fas fa-arrow-right-long"></i>
+                                                    </p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Column 3: Image Display -->
+                                        <div class="col-lg-4 mega-column">
+                                            <div class="card-images card-bg-2">
+                                                <i class="fas fa-book"></i>
+                                            </div>
+                                            <div class="megaproduct-promo">
+                                                <h6>Publications</h6>
+                                                <p>Peer-reviewed research and science articles.</p>
+                                                <a href="#">
+                                                    <p class="mega-a">Read More<i class="fas fa-arrow-right-long"></i>
+                                                    </p>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Column 3: Image Display -->
+                                        <div class="col-lg-4 mega-column">
+                                            <div class="card-images card-bg-3">
+                                                <i class="fas fa-download"></i>
+                                            </div>
+                                            <div class="megaproduct-promo">
+                                                <h6>Software</h6>
+                                                <p>Software tutorials, troubleshooting.</p>
+                                                <a href="#">
+                                                    <p class="mega-a">Download Now<i
+                                                            class="fas fa-arrow-right-long"></i></p>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Column 2: Subcategories -->
+                                    <div class="col-lg-3 mega-column">
+                                        <h5 class="section-title megamenu-left">Services</h5>
+                                        <div class="subcategories-container">
+                                            <div class="megaproducts-categorys"><i class="fas fa-tools"></i>
+                                                Installation & Setup </div>
+                                            <div class="megaproducts-categorys"><i class="fas fa-wrench"></i> Repair &
+                                                Maintenance </div>
+                                            <div class="megaproducts-categorys"><i
+                                                    class="fas fa-chalkboard-teacher"></i> Training & Workshops </div>
+                                            <div class="megaproducts-categorys"><i class="fas fa-puzzle-piece"></i>
+                                                Customization & Integration </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- Column 3: Subcategories -->
+                                    <div class="col-lg-3 mega-column">
+                                        <h5 class="section-title megamenu-left">Support</h5>
+                                        <div class="subcategories-container">
+                                         <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
+                                                FAQ</div>
+                                            <div class="megaproducts-categorys"><i class="fas fa-book"></i> Product
+                                                Manuals</div>
+                                            <div class="megaproducts-categorys"><i class="fas fa-file-alt"></i>
+                                                Installation Guides</div>
+                                            <div class="megaproducts-categorys"><i class="fas fa-tools"></i>
+                                                Troubleshooting Center</div>
+                                            <div class="megaproducts-categorys"><i class="fas fa-shield-alt"></i>
+                                                Warranty & Repairs</div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+
+                </ul>
+
+                <div class="web-container-head align-items-center mobile-container-head">
+                    <!-- Search Toggle -->
+                    <div class="search-container">
+                        <button class="search-toggle" id="searchToggle">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-expandable" id="searchExpandable">
+                            <form class="search-form">
+                                <input class="form-control" type="search" placeholder="Search products..."
+                                    aria-label="Search">
+                                <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="nav-cta">
+                        <a href="contact.html#form-request" class="btn btn-request">
+                            <i class="fas fa-file-alt me-1"></i> Request Quote
+                        </a>
+                        <a href="contact.html" class="btn btn-contact">
+                            <i class="fas fa-headset me-1"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="containers">
+        <!-- Filter Sidebar -->
+        <aside class="filters-sidebars">
+            <div class="filters-groups">
+                <h3>
+                    Search
+                </h3>
+                <input type="text" class="searches-filters" placeholder="Search products...">
+            </div>
+            
+            <div class="filters-groups">
+                <h3>
+                    Categories
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                    <li class="filters-option">
+                        <input type="checkbox" id="cat-1" checked>
+                        <label for="cat-1">Potentiostats</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="cat-2" checked>
+                        <label for="cat-2">Galvanostats</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="cat-3">
+                        <label for="cat-3">Bi-potentiostats</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="cat-4">
+                        <label for="cat-4">Multi-channel</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="cat-5">
+                        <label for="cat-5">ZRA</label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="filters-groups">
+                <h3>
+                    Current Range
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                    <li class="filters-option">
+                        <input type="checkbox" id="current-1">
+                        <label for="current-1">µA Range (≤1mA)</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="current-2">
+                        <label for="current-2">mA Range (1mA-1A)</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="current-3">
+                        <label for="current-3">A Range (≥1A)</label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="filters-groups">
+                <h3>
+                    Features
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                    <li class="filters-option">
+                        <input type="checkbox" id="feat-1">
+                        <label for="feat-1">EIS Capability</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="feat-2">
+                        <label for="feat-2">Multi-channel</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="feat-3">
+                        <label for="feat-3">Portable</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="feat-4">
+                        <label for="feat-4">High Bandwidth</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="feat-5">
+                        <label for="feat-5">Floating Operation</label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="filters-groups">
+                <h3>
+                    Brands
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                    <li class="filters-option">
+                        <input type="checkbox" id="brand-1" checked>
+                        <label for="brand-1">BioLogic</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="brand-2" checked>
+                        <label for="brand-2">Gamry</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="brand-3">
+                        <label for="brand-3">Pine Research</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="brand-4">
+                        <label for="brand-4">Metrohm</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="brand-5">
+                        <label for="brand-5">Princeton</label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="apply-btn">Apply Filters</button>
+                <button class="reset-btn">Reset All</button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="mains-contents">
+            <div class="listings-headers">
+                <h1>Squidstat Potentiostats / Galvanostats</h1>
+                
                 <div class="views-controls">
                     <div class="sort-dropdown">
                         <button>
@@ -428,7 +1206,7 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                     </div>
-
+                    
                     <div class="view-toggle">
                         <button class="view-toggle-btn grid-toggle active" aria-label="Grid view">
                             <i class="fas fa-th-large"></i>
@@ -439,442 +1217,628 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Grid View -->
+            <div class="product-grid active" id="productGrid">
+                <!-- Product cards will be loaded here -->
+            </div>
+            
+            <!-- List View -->
+            <div class="product-list" id="productList">
+                <!-- Product rows will be loaded here -->
+            </div>
+            
+            <!-- Loading Indicator -->
+            <div class="loading" id="loadingIndicator">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+        
+        <!-- Category Navigation Sidebar -->
+        <aside class="category-navigation">
+            <h3>Categories</h3>
+            <ul class="category-nav-list" id="categoryNav">
+                <!-- Will be populated by JavaScript -->
+            </ul>
+        </aside>
+    </div>
 
-            <div class="product-view">
-                <aside class="filter-sidebar">
-                    <div class="filter-group">
-                        <h3>
-                            Products
-                            <button>Reset</button>
-                        </h3>
-                        <ul class="filter-options">
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-1" checked>
-                                <label for="cat-1">Potentiostats / Galvanostats</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-2" checked>
-                                <label for="cat-2">Potentiostats</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-3">
-                                <label for="cat-3">Galvanostats</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-4">
-                                <label for="cat-4">Modules</label>
-                            </li>
-                        </ul>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+         <div class="row">
+                <!-- Explore Column -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="footer-heading">Explore Instruments</h3>
+                    <a href="products.html" class="footer-link"> Potentiostats / Galvanostats</a>
+                    <a href="products.html" class="footer-link">Photoelectrochemistry &#038;
+                        Photovoltaics</a>
+                    <a href="products.html" class="footer-link"> Electrochemistry Accessories</a>
+                    <a href="products.html" class="footer-link">Battery Cycler</a>
+                    <a href="products.html" class="footer-link">Battery Environmental Test
+                        Chambers</a>
+                    <a href="products.html" class="footer-link">Battery Cycler Accessories</a>
+
+                </div>
+
+                <!-- Categories Column -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="footer-heading">Learn</h3>
+                    <div class="mb-3">
+                    <a href="#" class="footer-link">How to Use</a>
+                    <a href="#" class="footer-link">Educational Articles</a>
+                    <a href="#" class="footer-link">Video Tutorials</a>
+                    <a href="#" class="footer-link">Science Blog</a>
+                    <a href="#" class="footer-link">Download Guides</a>
                     </div>
+                </div>
 
-                    <div class="filter-group">
-                        <h3>
-                            Product Categories
-                            <button>Reset</button>
-                        </h3>
-                        <ul class="filter-options">
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-1" checked>
-                                <label for="cat-1">Squidstat</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-2" checked>
-                                <label for="cat-2">Zennium Modular</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-3">
-                                <label for="cat-3">External Power</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-4">
-                                <label for="cat-4">Optional Addon Cards</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-5">
-                                <label for="cat-5">CorrTest Single Channel</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-6">
-                                <label for="cat-6">CorrTest Multichannel</label>
-                            </li>
-                            <li class="filter-option">
-                                <input type="checkbox" id="cat-7">
-                                <label for="cat-7">CorrTest Boosters and Specialized devices</label>
-                            </li>
-                        </ul>
+                <!-- Learn Column -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                <h3 class="footer-heading">Quick Links</h3>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About US</a>
+                    <a href="faq.html" class="footer-link">FAQ</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                </div>
+
+                <!-- About Column -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                        <h4 class="footer-heading">Legal</h4>
+                        <a href="#" class="footer-link">Terms of Use</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Return Policy</a>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
-                </aside>
+                </div>
+            </div>
 
-                <div class="product-results">
-                    <!-- Grid View -->
-                    <div class="product-grid active" id="productGrid">
-                        <!-- Product 1 -->
-                        <div class="products-card-list">
-                            <div class="product-image">
-                                <span class="product-badge">New</span>
-                                <img src="https://via.placeholder.com/300x200?text=SquidStat-Plus" alt="SquidStat-Plus">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Potentiostat/Galvanostat/ZRA</div>
-                                <h3 class="product-title">Reference 3000</h3>
-                                <p class="product-specs">High-performance potentiostat with ultra-low current
-                                    measurements and wide potential range for advanced electrochemical research.</p>
-                                <ul class="product-features">
-                                    <li>Current Range: 1µA to 1A</li>
-                                    <li>Bandwidth: 1MHz</li>
-                                    <li>USB 3.0 & Ethernet</li>
-                                    <li>8 Independent Channels</li>
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                            class="share-btn">Share</span> </button>
-                                    <a href="products-detail.html" class="product-link">View details <i
-                                            class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="footer-divider"></div>
 
-                        <!-- Product 2 -->
-                        <div class="products-card-list">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x200?text=VSP-300" alt="VSP-300">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Potentiostat</div>
-                                <h3 class="product-title">VSP-300</h3>
-                                <p class="product-specs">Advanced electrochemical workstation with high current range
-                                    and ultra-high speed data acquisition.</p>
-                                <ul class="product-features">
-                                    <li>300 mA current range</li>
-                                    <li>1 MHz EIS capability</li>
-                                    <li>10 µs time resolution</li>
-                                    <li>24-bit ADC resolution</li>
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                            class="share-btn">Share</span> </button>
-                                    <a href="products-detail.html" class="product-link">View details <i
-                                            class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 3 -->
-                        <div class="products-card-list">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x200?text=Interface+5000" alt="Interface 5000">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Galvanostat</div>
-                                <h3 class="product-title">Interface 5000</h3>
-                                <p class="product-specs">High current galvanostat with touchscreen interface and
-                                    built-in electrochemical impedance spectroscopy.</p>
-                                <ul class="product-features">
-                                    <li>5A current range</li>
-                                    <li>1 MHz EIS</li>
-                                    <li>16-bit resolution</li>
-                                    <li>10V compliance</li>
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                            class="share-btn">Share</span> </button>
-                                    <a href="products-detail.html" class="product-link">View details <i
-                                            class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 4 -->
-                        <div class="products-card-list">
-                            <div class="product-image">
-                                <span class="product-badge">Portable</span>
-                                <img src="https://via.placeholder.com/300x200?text=HCP-803" alt="HCP-803">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Galvanostat</div>
-                                <h3 class="product-title">HCP-803</h3>
-                                <p class="product-specs">Compact and portable galvanostat with high current output for
-                                    field applications.</p>
-                                <ul class="product-features">
-                                    <li>800 mA current range</li>
-                                    <li>1 MHz EIS</li>
-                                    <li>Battery powered</li>
-                                    <li>Bluetooth connectivity</li>
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                            class="share-btn">Share</span> </button>
-                                    <a href="products-detail.html" class="product-link">View details <i
-                                            class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 5 -->
-                        <div class="products-card-list">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x200?text=SP-200" alt="SP-200">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Potentiostat</div>
-                                <h3 class="product-title">SP-200</h3>
-                                <p class="product-specs">Versatile potentiostat with wide current range and high
-                                    precision measurements.</p>
-                                <ul class="product-features">
-                                    <li>2A current range</li>
-                                    <li>1 MHz EIS</li>
-                                    <li>16-bit resolution</li>
-                                    <li>Floating operation</li>
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                            class="share-btn">Share</span> </button>
-                                    <a href="products-detail.html" class="product-link">View details <i
-                                            class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 6 -->
-                        <div class="products-card-list">
-                            <div class="product-image">
-                                <span class="product-badge">Multi-channel</span>
-                                <img src="https://via.placeholder.com/300x200?text=VMP3" alt="VMP3">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Multi-channel</div>
-                                <h3 class="product-title">VMP3</h3>
-                                <p class="product-specs">Multi-channel electrochemical workstation for high-throughput
-                                    experiments and battery testing.</p>
-                                <ul class="product-features">
-                                    <li>16 channels</li>
-                                    <li>1A per channel</li>
-                                    <li>1 MHz EIS</li>
-                                    <li>Advanced battery cycling</li>
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                            class="share-btn">Share</span> </button>
-                                    <a href="products-detail.html" class="product-link">View details <i
-                                            class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- List View -->
-                    <div class="product-list" id="productList">
-                        <!-- Product 1 -->
-                        <div class="product-row">
-                            <div class="product-row-image">
-                                <img src="https://via.placeholder.com/300x200?text=Reference+3000" alt="Reference 3000">
-                            </div>
-                            <div class="product-row-info">
-                                <div class="product-row-main">
-                                    <div class="product-row-details">
-                                        <div class="product-category">Potentiostat/Galvanostat/ZRA</div>
-                                        <h3 class="product-title">Reference 3000</h3>
-                                        <p class="product-specs">High-performance potentiostat with ultra-low current
-                                            measurements and wide potential range for advanced electrochemical research.
-                                            Ideal for corrosion studies, battery research, and sensor development.</p>
-                                        <div class="product-row-features">
-                                            <div class="feature-item">
-                                                <i class="fas fa-bolt feature-icon"></i>
-                                                <span class="feature-text">Current Range: 1µA to 1A</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-tachometer-alt feature-icon"></i>
-                                                <span class="feature-text">Bandwidth: 1MHz</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-plug feature-icon"></i>
-                                                <span class="feature-text">USB 3.0 & Ethernet</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-microchip feature-icon"></i>
-                                                <span class="feature-text">8 Independent Channels</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-row-actions">
-                                        <div>
-                                            <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                                    class="share-btn">Share</span> </button>
-                                            <a href="products-detail.html" class="product-link">View details <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 2 -->
-                        <div class="product-row">
-                            <div class="product-row-image">
-                                <img src="https://via.placeholder.com/300x200?text=VSP-300" alt="VSP-300">
-                            </div>
-                            <div class="product-row-info">
-                                <div class="product-row-main">
-                                    <div class="product-row-details">
-                                        <div class="product-category">Potentiostat</div>
-                                        <h3 class="product-title">VSP-300</h3>
-                                        <p class="product-specs">Advanced electrochemical workstation with high current
-                                            range and ultra-high speed data acquisition. Perfect for fast
-                                            electrochemical experiments and detailed kinetic analysis.</p>
-                                        <div class="product-row-features">
-                                            <div class="feature-item">
-                                                <i class="fas fa-bolt feature-icon"></i>
-                                                <span class="feature-text">300 mA current range</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-tachometer-alt feature-icon"></i>
-                                                <span class="feature-text">1 MHz EIS capability</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-clock feature-icon"></i>
-                                                <span class="feature-text">10 µs time resolution</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-wave-square feature-icon"></i>
-                                                <span class="feature-text">24-bit ADC resolution</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-row-actions">
-                                        <div>
-                                            <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                                    class="share-btn">Share</span> </button>
-                                            <a href="products-detail.html" class="product-link">View details <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 3 -->
-                        <div class="product-row">
-                            <div class="product-row-image">
-                                <img src="https://via.placeholder.com/300x200?text=Interface+5000" alt="Interface 5000">
-                            </div>
-                            <div class="product-row-info">
-                                <div class="product-row-main">
-                                    <div class="product-row-details">
-                                        <div class="product-category">Galvanostat</div>
-                                        <h3 class="product-title">Interface 5000</h3>
-                                        <p class="product-specs">High current galvanostat with touchscreen interface and
-                                            built-in electrochemical impedance spectroscopy. Designed for demanding
-                                            applications in materials science and electroplating.</p>
-                                        <div class="product-row-features">
-                                            <div class="feature-item">
-                                                <i class="fas fa-bolt feature-icon"></i>
-                                                <span class="feature-text">5A current range</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-tachometer-alt feature-icon"></i>
-                                                <span class="feature-text">1 MHz EIS</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-ruler-combined feature-icon"></i>
-                                                <span class="feature-text">16-bit resolution</span>
-                                            </div>
-                                            <div class="feature-item">
-                                                <i class="fas fa-battery-three-quarters feature-icon"></i>
-                                                <span class="feature-text">10V compliance</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-row-actions">
-                                        <div>
-                                            <button class="btn btn-sm btn-details"><i class="fas fa-share-alt"></i><span
-                                                    class="share-btn">Share</span> </button>
-                                            <a href="products-detail.html" class="product-link">View details <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pagination -->
-                    <div class="pagination">
-                        <button><i class="fas fa-chevron-left"></i></button>
-                        <button class="active">1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>4</button>
-                        <button><i class="fas fa-chevron-right"></i></button>
+            <div class="footer-bottom">
+                <div class="footer-cta">
+                    <a href="#" class="btn btn btn-request">Download Product Catalog</a>
+                    <a href="#" class="btn-primary">Get a Custom Quote</a>
+                </div>
+                <div class="text-center mt-3">
+                    <div class="footer-text">
+                        &copy; 2025 ScienceGears Australia | Empowering Discovery Through Science | ABN: 23 456 789 012
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Custom JS -->
+ 
+
     <script>
-        // View Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the toggle buttons
-            const gridToggle = document.querySelector('.grid-toggle');
-            const listToggle = document.querySelector('.list-toggle');
-            
-            // Get the product containers
-            const productGrid = document.getElementById('productGrid');
-            const productList = document.getElementById('productList');
-            
-            // Set initial state (grid view is active by default)
-            gridToggle.classList.add('active');
-            productGrid.classList.add('active');
-            productList.classList.remove('active');
-            
-            // Grid view button click handler
-            gridToggle.addEventListener('click', function() {
-                if (!this.classList.contains('active')) {
-                    // Switch to grid view
-                    this.classList.add('active');
-                    listToggle.classList.remove('active');
-                    
-                    productGrid.classList.add('active');
-                    productList.classList.remove('active');
-                }
+document.addEventListener('DOMContentLoaded', function() {
+    // Product data
+    const products = [
+        {
+            id: 1,
+            title: "Squidstat Plus",
+            category: "Potentiostat/Galvanostat/ZRA",
+            specs: "High-performance potentiostat with ultra-low current measurements and wide potential range.",
+            features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: ["eis", "high-bandwidth"],
+            brand: "biologic",
+        },
+        {
+            id: 2,
+            title: "Squidstat Prime",
+            category: "Potentiostat",
+            specs: "Advanced electrochemical workstation with high current range and ultra-high speed data acquisition.",
+            features: ["Max Current: ±250 mA per channel", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", ""],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_3.png",
+            current: "ma",
+            featuresData: ["eis"],
+            brand: "gamry"
+        },
+        {
+            id: 3,
+            title: "Interface 5000",
+            category: "Galvanostat",
+            specs: "High current galvanostat with touchscreen interface and built-in electrochemical impedance spectroscopy.",
+            features: ["5A current range", "1 MHz EIS", "16-bit resolution"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "a",
+            featuresData: ["eis"],
+            brand: "biologic"
+        },
+        {
+            id: 4,
+            title: "HCP-803",
+            category: "Galvanostat",
+            specs: "Compact and portable galvanostat with high current output for field applications.",
+            features: ["800 mA current range", "Battery powered", "Bluetooth connectivity"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: ["portable"],
+            brand: "pine-research",
+        },
+        {
+            id: 5,
+            title: "SP-200",
+            category: "Potentiostat",
+            specs: "Versatile potentiostat with wide current range and high precision measurements.",
+            features: ["2A current range", "16-bit resolution", "Floating operation"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "a",
+            featuresData: ["floating"],
+            brand: "metrohm"
+        },
+        {
+            id: 6,
+            title: "VMP3",
+            category: "Multi-channel",
+            specs: "Multi-channel electrochemical workstation for high-throughput experiments.",
+            features: ["16 channels", "1A per channel", "Advanced battery cycling"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: ["multi-channel", "eis"],
+            brand: "princeton",
+        
+        },
+        {
+            id: 7,
+            title: "Reference 600+",
+            category: "Potentiostat",
+            specs: "High-performance potentiostat with advanced EIS capabilities and ultra-low current measurements.",
+            features: ["Current Range: 10nA to 1A", "1 MHz EIS", "24-bit ADC"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: ["eis", "high-bandwidth"],
+            brand: "gamry"
+        },
+        {
+            id: 8,
+            title: "CompactStat",
+            category: "Potentiostat",
+            specs: "Compact potentiostat with USB connectivity and basic electrochemical techniques.",
+            features: ["10 mA current range", "USB powered", "Basic EIS"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: ["portable"],
+            brand: "biologic"
+        },
+        {
+            id: 9,
+            title: "WaveNow",
+            category: "Potentiostat",
+            specs: "Simple potentiostat for basic electrochemical measurements and teaching applications.",
+            features: ["1 mA current range", "USB connectivity", "Basic techniques"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: [],
+            brand: "pine-research"
+        },
+        {
+            id: 10,
+            title: "Interface 1010E",
+            category: "Potentiostat/Galvanostat",
+            specs: "Economical potentiostat/galvanostat with EIS capability for research applications.",
+            features: ["1A current range", "100 kHz EIS", "USB connectivity"],
+            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+            current: "ma",
+            featuresData: ["eis"],
+            brand: "biologic"
+        }
+    ];
+
+    // View toggle functionality
+    const gridToggle = document.querySelector('.grid-toggle');
+    const listToggle = document.querySelector('.list-toggle');
+    const productGrid = document.getElementById('productGrid');
+    const productList = document.getElementById('productList');
+    
+    gridToggle.addEventListener('click', function() {
+        gridToggle.classList.add('active');
+        listToggle.classList.remove('active');
+        productGrid.classList.add('active');
+        productList.classList.remove('active');
+    });
+    
+    listToggle.addEventListener('click', function() {
+        listToggle.classList.add('active');
+        gridToggle.classList.remove('active');
+        productList.classList.add('active');
+        productGrid.classList.remove('active');
+    });
+    
+    // Filter functionality
+    const applyBtn = document.querySelector('.apply-btn');
+    const resetAllBtn = document.querySelector('.reset-btn');
+    const resetFilterBtns = document.querySelectorAll('.resets-filters');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const categoryNav = document.getElementById('categoryNav');
+    
+    applyBtn.addEventListener('click', applyFilters);
+    resetAllBtn.addEventListener('click', resetAllFilters);
+    
+    resetFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filterGroup = this.closest('.filters-groups');
+            const checkboxes = filterGroup.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
             });
-            
-            // List view button click handler
-            listToggle.addEventListener('click', function() {
-                if (!this.classList.contains('active')) {
-                    // Switch to list view
-                    this.classList.add('active');
-                    gridToggle.classList.remove('active');
-                    
-                    productList.classList.add('active');
-                    productGrid.classList.remove('active');
-                }
-            });
-            
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase();
-                    const products = document.querySelectorAll('.products-card-list, .product-row');
-                    
-                    products.forEach(product => {
-                        const title = product.querySelector('.product-title').textContent.toLowerCase();
-                        const specs = product.querySelector('.product-specs').textContent.toLowerCase();
-                        
-                        if (title.includes(searchTerm) || specs.includes(searchTerm)) {
-                            product.style.display = '';
-                        } else {
-                            product.style.display = 'none';
-                        }
-                    });
-                });
-            }
         });
+    });
+    
+    // Function to render products
+    function renderProducts(productsToRender) {
+        // Clear existing products
+        productGrid.innerHTML = '';
+        productList.innerHTML = '';
+        
+        // Show loading indicator
+        loadingIndicator.style.display = 'flex';
+        
+        // Group products by category
+        const categories = {};
+        productsToRender.forEach(product => {
+            const category = product.category.toLowerCase().includes('potentiostat') ? 'Potentiostats' : 
+                             product.category.toLowerCase().includes('galvanostat') ? 'Galvanostats' : 
+                             product.category.toLowerCase().includes('multi') ? 'Multi-channel' : 'ZRA';
+            
+            if (!categories[category]) {
+                categories[category] = [];
+            }
+            categories[category].push(product);
+        });
+        
+        // Update category navigation
+        updateCategoryNav(Object.keys(categories));
+        
+        // Simulate loading delay (in a real app, this would be an API call)
+        setTimeout(() => {
+            if (productsToRender.length === 0) {
+                // Show no results message
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters to find what you're looking for.</p>
+                    <button class="btn btn-primary" onclick="resetAllFilters()">Reset All Filters</button>
+                `;
+                productGrid.appendChild(noResults);
+                productList.appendChild(noResults.cloneNode(true));
+            } else {
+                // Render products grouped by category
+                for (const [category, productsInCategory] of Object.entries(categories)) {
+                    // Create category group for grid view
+                    const gridGroup = document.createElement('div');
+                    gridGroup.className = 'category-group';
+                    gridGroup.id = `grid-${category.toLowerCase().replace(' ', '-')}`;
+                    
+                    const gridHeader = document.createElement('div');
+                    gridHeader.className = 'category-header';
+                    gridHeader.innerHTML = `
+                        <h2 class="category-title">${category}</h2>
+                        <span class="category-count">${productsInCategory.length} products</span>
+                    `;
+                    gridGroup.appendChild(gridHeader);
+                    
+                    // Create category group for list view
+                    const listGroup = document.createElement('div');
+                    listGroup.className = 'category-group';
+                    listGroup.id = `list-${category.toLowerCase().replace(' ', '-')}`;
+                    
+                    const listHeader = document.createElement('div');
+                    listHeader.className = 'category-header';
+                    listHeader.innerHTML = `
+                        <h2 class="category-title">${category}</h2>
+                        <span class="category-count">${productsInCategory.length} products</span>
+                    `;
+                    listGroup.appendChild(listHeader);
+                    
+                    // Add products to grid view
+                    productsInCategory.forEach(product => {
+                        const card = createProductCard(product);
+                        gridGroup.appendChild(card);
+                    });
+                    
+                    // Add products to list view
+                    productsInCategory.forEach(product => {
+                        const row = createProductRow(product);
+                        listGroup.appendChild(row);
+                    });
+                    
+                    // Append to containers
+                    productGrid.appendChild(gridGroup);
+                    productList.appendChild(listGroup);
+                }
+            }
+            
+            // Hide loading indicator
+            loadingIndicator.style.display = 'none';
+        }, 500); // Simulate 500ms loading delay
+    }
+    
+    // Create product card for grid view
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-category', product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
+            product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
+            product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra');
+        card.setAttribute('data-current', product.current);
+        card.setAttribute('data-features', product.featuresData.join(' '));
+        card.setAttribute('data-brand', product.brand);
+        
+        let badgeHtml = '';
+        if (product.badge) {
+            badgeHtml = `<span class="product-badge">${product.badge}</span>`;
+        }
+        
+        card.innerHTML = `
+            <div class="product-image-container">
+                ${badgeHtml}
+                <img src="${product.image}" alt="${product.title}" class="product-image">
+            </div>
+            <div class="product-info">
+                <div class="product-category">${product.category}</div>
+                <h3 class="product-title">${product.title}</h3>
+                <p class="product-specs">${product.specs}</p>
+                <ul class="product-features">
+                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <div class="product-actions">
+                    <button class="btn-secondary">
+                        <i class="far fa-share-square"></i>
+                    </button>
+                    <button class="btn-primary" onclick="window.location.href='products-detail.html'">
+                        View Details
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        return card;
+    }
+    
+    // Create product row for list view
+    function createProductRow(product) {
+        const row = document.createElement('div');
+        row.className = 'product-row';
+        row.setAttribute('data-category', product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
+            product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
+            product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra');
+        row.setAttribute('data-current', product.current);
+        row.setAttribute('data-features', product.featuresData.join(' '));
+        row.setAttribute('data-brand', product.brand);
+        
+        row.innerHTML = `
+            <div class="product-row-image">
+                <img src="${product.image}" alt="${product.title}">
+            </div>
+            <div class="product-row-info">
+                <div class="product-row-main">
+                    <div class="product-row-details">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-specs">${product.specs}</p>
+                        <div class="product-row-features">
+                            ${product.features.slice(0, 4).map(feature => `
+                                <div class="feature-item">
+                                    <i class="fas fa-bolt feature-icon"></i>
+                                    <span class="feature-text">${feature}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="product-row-actions">
+                        <div>
+                            <button class="btn-secondary" style="margin-bottom: 10px;">
+                                <i class="far fa-share-square"></i> Share
+                            </button>
+                            <button class="btn-primary" onclick="window.location.href='products-detail.html'">
+                                View Details
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        return row;
+    }
+    
+    // Update category navigation
+    function updateCategoryNav(categories) {
+        categoryNav.innerHTML = '';
+        
+        categories.forEach(category => {
+            const li = document.createElement('li');
+            li.className = 'category-nav-item';
+            
+            const link = document.createElement('a');
+            link.href = `#${category.toLowerCase().replace(' ', '-')}`;
+            link.className = 'category-nav-link';
+            link.textContent = category;
+            
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.category-nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Scroll to category
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            
+            li.appendChild(link);
+            categoryNav.appendChild(li);
+        });
+    }
+    
+    function applyFilters() {
+        // Get all selected filters
+        const selectedCategories = Array.from(document.querySelectorAll('#cat-1, #cat-2, #cat-3, #cat-4, #cat-5'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => {
+                switch(checkbox.id) {
+                    case 'cat-1': return 'potentiostat';
+                    case 'cat-2': return 'galvanostat';
+                    case 'cat-3': return 'bi-potentiostat';
+                    case 'cat-4': return 'multi-channel';
+                    case 'cat-5': return 'zra';
+                    default: return '';
+                }
+            });
+        
+        const selectedCurrents = Array.from(document.querySelectorAll('#current-1, #current-2, #current-3'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => {
+                switch(checkbox.id) {
+                    case 'current-1': return 'µa';
+                    case 'current-2': return 'ma';
+                    case 'current-3': return 'a';
+                    default: return '';
+                }
+            });
+        
+        const selectedFeatures = Array.from(document.querySelectorAll('#feat-1, #feat-2, #feat-3, #feat-4, #feat-5'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => {
+                switch(checkbox.id) {
+                    case 'feat-1': return 'eis';
+                    case 'feat-2': return 'multi-channel';
+                    case 'feat-3': return 'portable';
+                    case 'feat-4': return 'high-bandwidth';
+                    case 'feat-5': return 'floating';
+                    default: return '';
+                }
+            });
+        
+        const selectedBrands = Array.from(document.querySelectorAll('#brand-1, #brand-2, #brand-3, #brand-4, #brand-5'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => {
+                switch(checkbox.id) {
+                    case 'brand-1': return 'biologic';
+                    case 'brand-2': return 'gamry';
+                    case 'brand-3': return 'pine-research';
+                    case 'brand-4': return 'metrohm';
+                    case 'brand-5': return 'princeton';
+                    default: return '';
+                }
+            });
+        
+        // Filter products
+        const filteredProducts = products.filter(product => {
+            const category = product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
+                             product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
+                             product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra';
+            
+            // Check if product matches all selected filters
+            const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+            const currentMatch = selectedCurrents.length === 0 || selectedCurrents.includes(product.current);
+            const featuresMatch = selectedFeatures.length === 0 || 
+                selectedFeatures.some(feat => product.featuresData.includes(feat));
+            const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+            
+            return categoryMatch && currentMatch && featuresMatch && brandMatch;
+        });
+        
+        // Render filtered products
+        renderProducts(filteredProducts);
+    }
+    
+    function resetAllFilters() {
+        // Uncheck all checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+        // Check default checkboxes (Categories and Brands)
+        document.querySelectorAll('#cat-1, #cat-2, #brand-1, #brand-2').forEach(checkbox => {
+            checkbox.checked = true;
+        });
+        
+        // Show all products
+        renderProducts(products);
+    }
+    
+    // Search functionality
+    const searchInput = document.querySelector('.searches-filters');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        const filteredProducts = products.filter(product => {
+            const title = product.title.toLowerCase();
+            const specs = product.specs.toLowerCase();
+            const category = product.category.toLowerCase();
+            
+            return title.includes(searchTerm) || specs.includes(searchTerm) || category.includes(searchTerm);
+        });
+        
+        renderProducts(filteredProducts);
+    });
+    
+    // Initial render - show all products
+    renderProducts(products);
+});
+
+// View toggle functionality
+const gridToggle = document.querySelector('.grid-toggle');
+const listToggle = document.querySelector('.list-toggle');
+const productGrid = document.getElementById('productGrid');
+const productList = document.getElementById('productList');
+
+function showGridView() {
+    gridToggle.classList.add('active');
+    listToggle.classList.remove('active');
+    productGrid.style.display = 'grid'; // or 'flex' depending on your layout
+    productList.style.display = 'none';
+}
+
+function showListView() {
+    listToggle.classList.add('active');
+    gridToggle.classList.remove('active');
+    productList.style.display = 'flex';
+    productGrid.style.display = 'none';
+}
+
+gridToggle.addEventListener('click', showGridView);
+listToggle.addEventListener('click', showListView);
+
+// Initialize with grid view
+showGridView();
     </script>
 </body>
-
 </html>

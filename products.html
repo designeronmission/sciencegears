@@ -157,6 +157,12 @@
         .filters-option label:hover {
             color: var(--primary-blue);
         }
+
+        .filters-option p{
+            font-size: 14px;
+            cursor: pointer;
+            margin: 0;
+        }
         
         .searches-filters {
             width: 100%;
@@ -323,7 +329,6 @@
     
     .product-image-container {
         height: 220px;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -339,7 +344,6 @@
         object-fit: contain;
         transition: transform 0.3s;
         mix-blend-mode: multiply;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
     }
     
     .product-card:hover .product-image {
@@ -704,6 +708,32 @@
             }
         }
 
+        .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+.no-results i {
+    font-size: 48px;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.no-results h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.no-results p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
     </style>
 
     <!-- Header Top Bar -->
@@ -714,7 +744,6 @@
                 <a href="mailto:info@sciencegears.com.au"><i class="fas fa-envelope"></i> info@sciencegears.com.au</a>
             </div>
             <div class="top-links">
-                <a href="#"><i class="fas fa-user"></i> My Account</a>
                 <a href="#"><i class="fas fa-question-circle"></i> Support</a>
             </div>
         </div>
@@ -747,6 +776,7 @@
                             data-bs-toggle="dropdown">
                             Products
                         </a>
+
                         <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
                             <div class="container">
                                 <div class="row">
@@ -756,7 +786,7 @@
                                             <h6>Explore Sciencegears</h6>
                                             <img src="assets/home/about-mega.png" alt="images" class="megamenu-image">
 
-                                            <p> At ScienceGears, we are committed to delivering high-quality
+                                            <p>At ScienceGears, we are committed to delivering high-quality
                                                 electrochemistry instrumentation.</p>
                                             <a href="about.html">
                                                 <p class="mega-a">Explore Now<i class="fas fa-arrow-right-long"></i></p>
@@ -771,56 +801,82 @@
                                             <i class="fas fa-bolt"></i>
                                             Potentiostats / Galvanostats
                                         </div>
-                                        <div class="megaproduct-category">
+                                        <div class="megaproduct-category" onclick="window.location.href='products.html'">
                                             <i class="fas fa-solar-panel"></i>
                                             Photoelectrochemistry &#038; Photovoltaics
                                         </div>
-                                        <div class="megaproduct-category">
+                                        <div class="megaproduct-category" onclick="window.location.href='products.html'">
                                             <i class="fas fa-tools"></i>
                                             Electrochemistry Accessories
                                         </div>
-                                        <div class="megaproduct-category">
+                                        <div class="megaproduct-category" onclick="window.location.href='products.html'">
                                             <i class="fas fa-battery-three-quarters"></i>
                                             Battery Cycler
                                         </div>
-                                        <div class="megaproduct-category">
+                                        <div class="megaproduct-category" onclick="window.location.href='products.html'">
                                             <i class="fas fa-temperature-low"></i>
                                             Battery Environmental Test Chambers
                                         </div>
-                                        <div class="megaproduct-category">
+                                        <div class="megaproduct-category" onclick="window.location.href='products.html'">
                                             <i class="fas fa-plug"></i>
                                             Battery Cycler Accessories
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 mega-column row">
+                                    <div class="col-lg-6 mega-column">
+                                        <div class="row">
                                          <h5 class="section-title megamenu-left">Product Variants</h5>
-                                   <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
 
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" onclick="window.location.href='products-detail.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</p></div>
                                     </div>
 
-                                        <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
-
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
-                                    </div>
-                                             <a href="products.html" class="view-all-right mt-4">
-                                                <p class="view-all-right-p">View All<i class="fas fa-arrow-right-long p-i"></i></p>
-                                            </a>
+                                     <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</p></div>
                                     </div>
 
+                                     <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/External-Power-Potentiostats/PP212_1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">External Power Potentiostats</p></div>
+                                    </div>
+
+                                     <div class="col-lg-6 mega-row  d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Optional-Addon-Cards -Modules/PAD4_2.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Optional Addon Cards / Modules</p></div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/CorrTest-Single-Channel-Potentiostats/CS100-1030x487.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">CorrTest Single Channel Potentiostats / Galvanostats</p></div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/CorrTest-Multichannel-Potentiostats/CS2150-Bipotentiostat_1.png" alt="images" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p>CorrTest Multichannel Potentiostats/ Galvanostats</p></div>
+                                    </div>
+                                    
+                                    <div class="col-lg-12">
+                                     <button class="btn-primary mega-button"  onclick="window.location.href='products.html'">View All<i class="fas fa-arrow-right-long p-i"></i></button></a>
+                                    </div>
+
+
+                                       </div>     
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </li>
@@ -902,7 +958,7 @@
                                     <div class="col-lg-3 mega-column">
                                         <h5 class="section-title megamenu-left">Support</h5>
                                         <div class="subcategories-container">
-                                         <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
+                                            <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
                                                 FAQ</div>
                                             <div class="megaproducts-categorys"><i class="fas fa-book"></i> Product
                                                 Manuals</div>
@@ -964,179 +1020,157 @@
         </div>
     </nav>
 
+
 </head>
 <body>
-    <div class="containers">
-        <!-- Filter Sidebar -->
-        <aside class="filters-sidebars">
-            <div class="filters-groups">
-                <h3>
-                    Search
-                </h3>
-                <input type="text" class="searches-filters" placeholder="Search products...">
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Categories
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-1" checked>
-                        <label for="cat-1">Potentiostats</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-2" checked>
-                        <label for="cat-2">Galvanostats</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-3">
-                        <label for="cat-3">Bi-potentiostats</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-4">
-                        <label for="cat-4">Multi-channel</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-5">
-                        <label for="cat-5">ZRA</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Current Range
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="current-1">
-                        <label for="current-1">µA Range (≤1mA)</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="current-2">
-                        <label for="current-2">mA Range (1mA-1A)</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="current-3">
-                        <label for="current-3">A Range (≥1A)</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Features
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-1">
-                        <label for="feat-1">EIS Capability</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-2">
-                        <label for="feat-2">Multi-channel</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-3">
-                        <label for="feat-3">Portable</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-4">
-                        <label for="feat-4">High Bandwidth</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-5">
-                        <label for="feat-5">Floating Operation</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Brands
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-1" checked>
-                        <label for="brand-1">BioLogic</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-2" checked>
-                        <label for="brand-2">Gamry</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-3">
-                        <label for="brand-3">Pine Research</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-4">
-                        <label for="brand-4">Metrohm</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-5">
-                        <label for="brand-5">Princeton</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filter-actions">
-                <button class="apply-btn">Apply Filters</button>
-                <button class="reset-btn">Reset All</button>
-            </div>
-        </aside>
+
+    
+ <div class="containers">
+    <!-- Filter Sidebar -->
+    <aside class="filters-sidebars">
+        <div class="filters-groups">
+            <h3>
+                Search
+            </h3>
+            <input type="text" class="searches-filters" placeholder="Search products...">
+        </div>
         
-        <!-- Main Content -->
-        <div class="mains-contents">
-            <div class="listings-headers">
-                <h1>Squidstat Potentiostats / Galvanostats</h1>
+        <div class="filters-groups">
+            <h3>
+                Categories
+                <button class="resets-filters">Reset</button>
+            </h3>
+            <ul class="filters-options">
+                <li class="filters-option">
+                    <input type="checkbox" id="Potentiostats" checked>
+                    <label for="Potentiostats"> Potentiostats / Galvanostats</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="Galvanostats" checked>
+                    <label for="Galvanostats"> Photoelectrochemistry &#038; Photovoltaics</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="Bi-potentiostats">
+                    <label for="Bi-potentiostats">Electrochemistry Accessories</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="Multi-channel">
+                    <label for="Multi-channel"> Battery Cycler</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="ZRA">
+                    <label for="ZRA">Battery Environmental Test Chambers</label>
+                </li>
+
+                <li class="filters-option">
+                    <input type="checkbox" id="Cycler">
+                    <label for="ZRA"> Battery Cycler Accessorie</label>
+                </li>
+
+                </ul>
+        </div>
+
+               <div class="filters-groups">
+            <h3>
+                Product Variants
+                <button class="resets-filters">Reset</button>
+            </h3>
+            <ul class="filters-options">
+                <li class="filters-option">
+                    <p id="one">Squidstat Potentiostats / Galvanostats </p>
+                </li>
+                <li class="filters-option">
+                    <p id="two">Zennium Modular Potentiostats / Galvanostats</p>
+                </li>
+                <li class="filters-option">
+                    <p>External Power Potentiostats</p>
+                </li>
+                <li class="filters-option">
+                    <p>Optional Addon Cards / Modules</p>
+                </li>
+                <li class="filters-option">
+                    <p>CorrTest Single Channel Potentiostats / Galvanostats</p>
+                </li>
+                <li class="filters-option">
+                    <p>CorrTest Multichannel Potentiostats/ Galvanostats</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="filters-groups">
+            <h3>
+                Brands
+                <button class="resets-filters">Reset</button>
+            </h3>
+            <ul class="filters-options">
+                <li class="filters-option">
+                    <input type="checkbox" id="brand-1" checked>
+                    <label for="brand-1">Zahner</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="brand-2" checked>
+                    <label for="brand-2">Admiral</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="brand-3">
+                    <label for="brand-3">Corrtest Instruments</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="brand-4">
+                    <label for="brand-4">Neware</label>
+                </li>
+                <li class="filters-option">
+                    <input type="checkbox" id="brand-5">
+                    <label for="brand-5">Semokim</label>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="filter-actions">
+            <button class="apply-btn">Apply Filters</button>
+            <button class="reset-btn">Reset All</button>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="mains-contents">
+        <div class="listings-headers">
+            <h1>Potentiostats / Galvanostats</h1>
+            
+            <div class="views-controls">
+                <div class="sort-dropdown">
+                    <button>
+                        Sort by: Featured
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
                 
-                <div class="views-controls">
-                    <div class="sort-dropdown">
-                        <button>
-                            Sort by: Featured
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="view-toggle">
-                        <button class="view-toggle-btn grid-toggle active" aria-label="Grid view">
-                            <i class="fas fa-th-large"></i>
-                        </button>
-                        <button class="view-toggle-btn list-toggle" aria-label="List view">
-                            <i class="fas fa-list"></i>
-                        </button>
-                    </div>
+                <div class="view-toggle">
+                    <button class="view-toggle-btn grid-toggle active" aria-label="Grid view">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-toggle-btn list-toggle" aria-label="List view">
+                        <i class="fas fa-list"></i>
+                    </button>
                 </div>
             </div>
-            
-            <!-- Grid View -->
-            <div class="product-grid active" id="productGrid">
-                <!-- Product cards will be loaded here -->
-            </div>
-            
-            <!-- List View -->
-            <div class="product-list" id="productList">
-                <!-- Product rows will be loaded here -->
-            </div>
-            
-            <!-- Loading Indicator -->
-            <div class="loading" id="loadingIndicator">
-                <div class="loading-spinner"></div>
-            </div>
+        </div>
+        
+        <!-- Category sections will be dynamically inserted here -->
+        <div id="categorySections"></div>
+        
+        <!-- Loading Indicator -->
+        <div class="loading" id="loadingIndicator">
+            <div class="loading-spinner"></div>
         </div>
     </div>
+</div>
 
 
-
-        <!-- Footer Section -->
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
-         <div class="row">
+            <div class="row">
                 <!-- Explore Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h3 class="footer-heading">Explore Instruments</h3>
@@ -1179,9 +1213,8 @@
                         <a href="#" class="footer-link">Terms of Use</a>
                         <a href="#" class="footer-link">Privacy Policy</a>
                         <a href="#" class="footer-link">Return Policy</a>
-                    <div class="social-icons">
+                    <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1192,11 +1225,7 @@
             <div class="footer-divider"></div>
 
             <div class="footer-bottom">
-                <div class="footer-cta">
-                    <a href="#" class="btn btn btn-request">Download Product Catalog</a>
-                    <a href="#" class="btn-primary">Get a Custom Quote</a>
-                </div>
-                <div class="text-center mt-3">
+                <div class="col-lg-12 text-center mt-3">
                     <div class="footer-text">
                         &copy; 2025 ScienceGears Australia | Empowering Discovery Through Science | ABN: 23 456 789 012
                     </div>
@@ -1204,7 +1233,6 @@
             </div>
         </div>
     </footer>
-
 
 
     <!-- Back to Top Button -->
@@ -1222,401 +1250,421 @@
 
   <!--   <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_4.png" -->
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Product data
-            const products = [
-                {
-                    id: 1,
-                    title: "Reference 3000",
-                    category: "Potentiostat/Galvanostat/ZRA",
-                    specs: "High-performance potentiostat with ultra-low current measurements and wide potential range.",
-                    features: ["Current Range: 1µA to 1A", "Bandwidth: 1MHz", "8 Independent Channels"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: ["eis", "high-bandwidth"],
-                    brand: "biologic",
-                },
-                {
-                    id: 2,
-                    title: "VSP-300",
-                    category: "Potentiostat",
-                    specs: "Advanced electrochemical workstation with high current range and ultra-high speed data acquisition.",
-                    features: ["300 mA current range", "1 MHz EIS capability", "10 µs time resolution"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_3.png",
-                    current: "ma",
-                    featuresData: ["eis"],
-                    brand: "gamry"
-                },
-                {
-                    id: 3,
-                    title: "Interface 5000",
-                    category: "Galvanostat",
-                    specs: "High current galvanostat with touchscreen interface and built-in electrochemical impedance spectroscopy.",
-                    features: ["5A current range", "1 MHz EIS", "16-bit resolution"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "a",
-                    featuresData: ["eis"],
-                    brand: "biologic"
-                },
-                {
-                    id: 4,
-                    title: "HCP-803",
-                    category: "Galvanostat",
-                    specs: "Compact and portable galvanostat with high current output for field applications.",
-                    features: ["800 mA current range", "Battery powered", "Bluetooth connectivity"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: ["portable"],
-                    brand: "pine-research",
-                },
-                {
-                    id: 5,
-                    title: "SP-200",
-                    category: "Potentiostat",
-                    specs: "Versatile potentiostat with wide current range and high precision measurements.",
-                    features: ["2A current range", "16-bit resolution", "Floating operation"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "a",
-                    featuresData: ["floating"],
-                    brand: "metrohm"
-                },
-                {
-                    id: 6,
-                    title: "VMP3",
-                    category: "Multi-channel",
-                    specs: "Multi-channel electrochemical workstation for high-throughput experiments.",
-                    features: ["16 channels", "1A per channel", "Advanced battery cycling"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: ["multi-channel", "eis"],
-                    brand: "princeton",
-                
-                },
-                {
-                    id: 7,
-                    title: "Reference 600+",
-                    category: "Potentiostat",
-                    specs: "High-performance potentiostat with advanced EIS capabilities and ultra-low current measurements.",
-                    features: ["Current Range: 10nA to 1A", "1 MHz EIS", "24-bit ADC"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: ["eis", "high-bandwidth"],
-                    brand: "gamry"
-                },
-                {
-                    id: 8,
-                    title: "CompactStat",
-                    category: "Potentiostat",
-                    specs: "Compact potentiostat with USB connectivity and basic electrochemical techniques.",
-                    features: ["10 mA current range", "USB powered", "Basic EIS"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: ["portable"],
-                    brand: "biologic"
-                },
-                {
-                    id: 9,
-                    title: "WaveNow",
-                    category: "Potentiostat",
-                    specs: "Simple potentiostat for basic electrochemical measurements and teaching applications.",
-                    features: ["1 mA current range", "USB connectivity", "Basic techniques"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: [],
-                    brand: "pine-research"
-                },
-                {
-                    id: 10,
-                    title: "Interface 1010E",
-                    category: "Potentiostat/Galvanostat",
-                    specs: "Economical potentiostat/galvanostat with EIS capability for research applications.",
-                    features: ["1A current range", "100 kHz EIS", "USB connectivity"],
-                    image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-                    current: "ma",
-                    featuresData: ["eis"],
-                    brand: "biologic"
-                }
-            ];
+<script>
 
-            // View toggle functionality
-            const gridToggle = document.querySelector('.grid-toggle');
-            const listToggle = document.querySelector('.list-toggle');
-            const productGrid = document.getElementById('productGrid');
-            const productList = document.getElementById('productList');
-            
-            gridToggle.addEventListener('click', function() {
-                gridToggle.classList.add('active');
-                listToggle.classList.remove('active');
-                productGrid.classList.add('active');
-                productList.classList.remove('active');
-            });
-            
-            listToggle.addEventListener('click', function() {
-                listToggle.classList.add('active');
-                gridToggle.classList.remove('active');
-                productList.classList.add('active');
-                productGrid.classList.remove('active');
-            });
-            
-            // Filter functionality
-            const applyBtn = document.querySelector('.apply-btn');
-            const resetAllBtn = document.querySelector('.reset-btn');
-            const resetFilterBtns = document.querySelectorAll('.resets-filters');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            
-            applyBtn.addEventListener('click', applyFilters);
-            resetAllBtn.addEventListener('click', resetAllFilters);
-            
-            resetFilterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const filterGroup = this.closest('.filters-groups');
-                    const checkboxes = filterGroup.querySelectorAll('input[type="checkbox"]');
-                    checkboxes.forEach(checkbox => {
-                        checkbox.checked = false;
-                    });
-                });
-            });
-            
-            // Function to render products
-            function renderProducts(productsToRender) {
-                // Clear existing products
-                productGrid.innerHTML = '';
-                productList.innerHTML = '';
-                
-                // Show loading indicator
-                loadingIndicator.style.display = 'flex';
-                
-                // Simulate loading delay (in a real app, this would be an API call)
-                setTimeout(() => {
-                    // Render grid view
-                    productsToRender.forEach(product => {
-                        const card = document.createElement('div');
-                        card.className = 'product-card';
-                        card.setAttribute('data-category', product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
-                            product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
-                            product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra');
-                        card.setAttribute('data-current', product.current);
-                        card.setAttribute('data-features', product.featuresData.join(' '));
-                        card.setAttribute('data-brand', product.brand);
-                        
-                        let badgeHtml = '';
-                        if (product.badge) {
-                            badgeHtml = `<span class="product-badge">${product.badge}</span>`;
-                        }
-                        
-                        card.innerHTML = `
-                            <div class="product-image-container">
-                                ${badgeHtml}
-                                <img src="${product.image}" alt="${product.title}" class="product-image">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">${product.category}</div>
-                                <h3 class="product-title">${product.title}</h3>
-                                <p class="product-specs">${product.specs}</p>
-                                <ul class="product-features">
-                                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
-                                </ul>
-                                <div class="product-actions">
-                                    <button class="btn-secondary">
-                                        <i class="far fa-share-square"></i>
-                                    </button>
-                                    <button class="btn-primary" onclick="window.location.href='products-detail.html'">
-                                        View Details
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        `;
-                        
-                        productGrid.appendChild(card);
-                    });
-                    
-                    // Render list view
-                    productsToRender.forEach(product => {
-                        const row = document.createElement('div');
-                        row.className = 'product-row';
-                        row.setAttribute('data-category', product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
-                            product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
-                            product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra');
-                        row.setAttribute('data-current', product.current);
-                        row.setAttribute('data-features', product.featuresData.join(' '));
-                        row.setAttribute('data-brand', product.brand);
-                        
-                        row.innerHTML = `
-                            <div class="product-row-image">
-                                <img src="${product.image}" alt="${product.title}">
-                            </div>
-                            <div class="product-row-info">
-                                <div class="product-row-main">
-                                    <div class="product-row-details">
-                                        <div class="product-category">${product.category}</div>
-                                        <h3 class="product-title">${product.title}</h3>
-                                        <p class="product-specs">${product.specs}</p>
-                                        <div class="product-row-features">
-                                            ${product.features.slice(0, 4).map(feature => `
-                                                <div class="feature-item">
-                                                    <i class="fas fa-bolt feature-icon"></i>
-                                                    <span class="feature-text">${feature}</span>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                    <div class="product-row-actions">
-                                        <div>
-                                            <button class="btn-secondary" style="margin-bottom: 10px;">
-                                                <i class="far fa-share-square"></i> Share
-                                            </button>
-                                            <button class="btn-primary" onclick="window.location.href='products-detail.html'">
-                                                View Details
-                                                <i class="fas fa-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        
-                        productList.appendChild(row);
-                    });
-                    
-                    // Hide loading indicator
-                    loadingIndicator.style.display = 'none';
-                }, 500); // Simulate 500ms loading delay
+document.addEventListener('DOMContentLoaded', function() {
+    // Product data organized by category
+    const productsByCategory = {
+        "Squidstat Potentiostats / Galvanostats": [
+            {
+                id: 1,
+                title: "Squidstat Plus",
+                category: "Potentiostat",
+                specs: "High-performance potentiostat with ultra-low current measurements and wide potential range.",
+                features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Zahner",
+            },
+            {
+                id: 2,
+                title: "Squidstat Prime",
+                category: "Potentiostat",
+                specs: "Advanced electrochemical workstation with high current range and ultra-high speed data acquisition.",
+                features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_3.png",
+                brand: "Admiral"
+            },
+            {
+                id: 7,
+                title: "Reference 600+",
+                category: "Potentiostat",
+                specs: "High-performance potentiostat with advanced EIS capabilities and ultra-low current measurements.",
+             features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Admiral"
+            },
+            {
+                id: 8,
+                title: "CompactStat",
+                category: "Potentiostat",
+                specs: "Compact potentiostat with USB connectivity and basic electrochemical techniques.",
+                features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Zahner"
+            },
+            {
+                id: 9,
+                title: "WaveNow",
+                category: "Potentiostat",
+                specs: "Simple potentiostat for basic electrochemical measurements and teaching applications.",
+                features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Corrtest Instruments"
+            },
+            {
+                id: 10,
+                title: "Interface 1010E",
+                category: "Potentiostat",
+                specs: "Economical potentiostat/galvanostat with EIS capability for research applications.",
+                 features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Zahner"
             }
-            
-            function applyFilters() {
-                // Get all selected filters
-                const selectedCategories = Array.from(document.querySelectorAll('#cat-1, #cat-2, #cat-3, #cat-4, #cat-5'))
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => {
-                        switch(checkbox.id) {
-                            case 'cat-1': return 'potentiostat';
-                            case 'cat-2': return 'galvanostat';
-                            case 'cat-3': return 'bi-potentiostat';
-                            case 'cat-4': return 'multi-channel';
-                            case 'cat-5': return 'zra';
-                            default: return '';
-                        }
-                    });
-                
-                const selectedCurrents = Array.from(document.querySelectorAll('#current-1, #current-2, #current-3'))
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => {
-                        switch(checkbox.id) {
-                            case 'current-1': return 'µa';
-                            case 'current-2': return 'ma';
-                            case 'current-3': return 'a';
-                            default: return '';
-                        }
-                    });
-                
-                const selectedFeatures = Array.from(document.querySelectorAll('#feat-1, #feat-2, #feat-3, #feat-4, #feat-5'))
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => {
-                        switch(checkbox.id) {
-                            case 'feat-1': return 'eis';
-                            case 'feat-2': return 'multi-channel';
-                            case 'feat-3': return 'portable';
-                            case 'feat-4': return 'high-bandwidth';
-                            case 'feat-5': return 'floating';
-                            default: return '';
-                        }
-                    });
-                
-                const selectedBrands = Array.from(document.querySelectorAll('#brand-1, #brand-2, #brand-3, #brand-4, #brand-5'))
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => {
-                        switch(checkbox.id) {
-                            case 'brand-1': return 'biologic';
-                            case 'brand-2': return 'gamry';
-                            case 'brand-3': return 'pine-research';
-                            case 'brand-4': return 'metrohm';
-                            case 'brand-5': return 'princeton';
-                            default: return '';
-                        }
-                    });
-                
-                // Filter products
-                const filteredProducts = products.filter(product => {
-                    const category = product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
-                                     product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
-                                     product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra';
-                    
-                    // Check if product matches all selected filters
-                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
-                    const currentMatch = selectedCurrents.length === 0 || selectedCurrents.includes(product.current);
-                    const featuresMatch = selectedFeatures.length === 0 || 
-                        selectedFeatures.some(feat => product.featuresData.includes(feat));
-                    const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-                    
-                    return categoryMatch && currentMatch && featuresMatch && brandMatch;
-                });
-                
-                // Render filtered products
-                renderProducts(filteredProducts);
+        ],
+        "Zennium Modular Potentiostats / Galvanostats": [
+            {
+                id: 3,
+                title: "Interface 5000",
+                category: "Galvanostat",
+                specs: "High current galvanostat with touchscreen interface and built-in electrochemical impedance spectroscopy.",
+               features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Zahner"
+            },
+            {
+                id: 4,
+                title: "HCP-803",
+                category: "Galvanostat",
+                specs: "Compact and portable galvanostat with high current output for field applications.",
+                 features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Corrtest Instruments",
+            },
+            {
+                id: 5,
+                title: "SP-200",
+                category: "Galvanostat",
+                specs: "Versatile galvanostat with wide current range and high precision measurements.",
+               features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Neware"
             }
-            
-            function resetAllFilters() {
-                // Uncheck all checkboxes
-                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-                
-                // Check default checkboxes (Categories and Brands)
-                document.querySelectorAll('#cat-1, #cat-2, #brand-1, #brand-2').forEach(checkbox => {
-                    checkbox.checked = true;
-                });
-                
-                // Show all products
-                renderProducts(products);
+        ],
+        "Optional Addon Cards / Modules": [
+            {
+                id: 6,
+                title: "VMP3",
+                category: "Multi-channel",
+                specs: "Multi-channel electrochemical workstation for high-throughput experiments.",
+               features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
+                brand: "Semokim",
             }
-            
-            // Search functionality
-            const searchInput = document.querySelector('.searches-filters');
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                
-                const filteredProducts = products.filter(product => {
-                    const title = product.title.toLowerCase();
-                    const specs = product.specs.toLowerCase();
-                    const category = product.category.toLowerCase();
-                    
-                    return title.includes(searchTerm) || specs.includes(searchTerm) || category.includes(searchTerm);
-                });
-                
-                renderProducts(filteredProducts);
+        ],
+        "Bi-potentiostats": [],
+        "ZRA": []
+    };
+
+    // View toggle functionality
+    const gridToggle = document.querySelector('.grid-toggle');
+    const listToggle = document.querySelector('.list-toggle');
+    const categorySections = document.getElementById('categorySections');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    
+    // Set up view toggle buttons
+    gridToggle.addEventListener('click', function() {
+        gridToggle.classList.add('active');
+        listToggle.classList.remove('active');
+        document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
+        document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
+    });
+    
+    listToggle.addEventListener('click', function() {
+        listToggle.classList.add('active');
+        gridToggle.classList.remove('active');
+        document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
+    });
+    
+    // Filter functionality
+    const applyBtn = document.querySelector('.apply-btn');
+    const resetAllBtn = document.querySelector('.reset-btn');
+    const resetFilterBtns = document.querySelectorAll('.resets-filters');
+    
+    applyBtn.addEventListener('click', applyFilters);
+    resetAllBtn.addEventListener('click', resetAllFilters);
+    
+    resetFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filterGroup = this.closest('.filters-groups');
+            const checkboxes = filterGroup.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
             });
-            
         });
+    });
+    
+    // Function to render products by category
+    function renderProducts(filteredCategories) {
+        // Clear existing products
+        categorySections.innerHTML = '';
+        
+        // Show loading indicator
+        loadingIndicator.style.display = 'flex';
+        
+        // Simulate loading delay
+        setTimeout(() => {
+            let hasProducts = false;
+            
+            // Loop through each category
+            for (const [categoryName, products] of Object.entries(productsByCategory)) {
+                // Skip if category is not selected (unless no filters are applied)
+                if (filteredCategories && filteredCategories.length > 0 && !filteredCategories.includes(categoryName)) {
+                    continue;
+                }
+                
+                // Skip if category has no products
+                if (products.length === 0) continue;
+                
+                hasProducts = true;
+                
+                // Create category section
+                const section = document.createElement('div');
+                section.className = 'category-section';
+                section.id = `category-${categoryName.toLowerCase().replace(' ', '-')}`;
+                
+                // Create category header
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.innerHTML = `<h2>${categoryName}</h2>`;
+                section.appendChild(header);
+                
+                // Create grid view container
+                const gridContainer = document.createElement('div');
+                gridContainer.className = 'product-grid active';
+                
+                // Create list view container
+                const listContainer = document.createElement('div');
+                listContainer.className = 'product-list';
+                
+                // Add products to both views
+                products.forEach(product => {
+                    // Grid view card
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.setAttribute('data-brand', product.brand);
+                    
+                    card.innerHTML = `
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.title}" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-specs">${product.specs}</p>
+                            <ul class="product-features">
+                                ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                            <div class="product-actions">
+                                <button class="btn-secondary">
+                                    <i class="far fa-share-square"></i>
+                                </button>
+                                <button class="btn-primary" onclick="window.location.href='products-detail.html'">
+                                    View Details
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    gridContainer.appendChild(card);
+                    
+                    // List view row
+                    const row = document.createElement('div');
+                    row.className = 'product-row';
+                    row.setAttribute('data-brand', product.brand);
+                    
+                    row.innerHTML = `
+                        <div class="product-row-image">
+                            <img src="${product.image}" alt="${product.title}">
+                        </div>
+                        <div class="product-row-info">
+                            <div class="product-row-main">
+                                <div class="product-row-details">
+                                    <div class="product-category">${product.category}</div>
+                                    <h3 class="product-title">${product.title}</h3>
+                                    <p class="product-specs">${product.specs}</p>
+                                    <div class="product-row-features">
+                                        ${product.features.slice(0, 4).map(feature => `
+                                            <div class="feature-item">
+                                                <i class="fas fa-bolt feature-icon"></i>
+                                                <span class="feature-text">${feature}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                <div class="product-row-actions">
+                                    <div>
+                                        <button class="btn-secondary" style="margin-bottom: 10px;">
+                                            <i class="far fa-share-square"></i> Share
+                                        </button>
+                                        <button class="btn-primary" onclick="window.location.href='products-detail.html'">
+                                            View Details
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    listContainer.appendChild(row);
+                });
+                
+                section.appendChild(gridContainer);
+                section.appendChild(listContainer);
+                categorySections.appendChild(section);
+            }
+            
+            if (!hasProducts) {
+                // Show no results message
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters to find what you're looking for.</p>
+                    <button class="btn btn-primary" onclick="resetAllFilters()">Reset All Filters</button>
+                `;
+                categorySections.appendChild(noResults);
+            }
+            
+            // Set initial view
+            if (gridToggle.classList.contains('active')) {
+                document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
+                document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
+            } else {
+                document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
+            }
+            
+            // Hide loading indicator
+            loadingIndicator.style.display = 'none';
+            
+            // Add click handlers to category checkboxes to scroll to sections
+            document.querySelectorAll('.filters-options input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        const categoryId = this.id.replace(' ', '-');
+                        const section = document.getElementById(`category-${categoryId.toLowerCase()}`);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        }, 500);
+    }
+    
+    function applyFilters() {
+        // Get selected categories
+        const selectedCategories = Array.from(document.querySelectorAll('#Potentiostats, #Galvanostats, #Bi-potentiostats, #Multi-channel, #ZRA'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => {
+                switch(checkbox.id) {
+                    case 'Potentiostats': return 'Potentiostats';
+                    case 'Galvanostats': return 'Galvanostats';
+                    case 'Bi-potentiostats': return 'Bi-potentiostats';
+                    case 'Multi-channel': return 'Multi-channel';
+                    case 'ZRA': return 'ZRA';
+                    default: return '';
+                }
+            });
+        
+        // Get selected brands
+        const selectedBrands = Array.from(document.querySelectorAll('#brand-1, #brand-2, #brand-3, #brand-4, #brand-5'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => {
+                switch(checkbox.id) {
+                    case 'brand-1': return 'Zahner';
+                    case 'brand-2': return 'Admiral';
+                    case 'brand-3': return 'Corrtest Instruments';
+                    case 'brand-4': return 'Neware';
+                    case 'brand-5': return 'Semokim';
+                    default: return '';
+                }
+            });
+        
+        // Filter products by brand if brands are selected
+        let filteredProductsByCategory = {...productsByCategory};
+        if (selectedBrands.length > 0) {
+            for (const [category, products] of Object.entries(filteredProductsByCategory)) {
+                filteredProductsByCategory[category] = products.filter(product => 
+                    selectedBrands.includes(product.brand)
+)}
+        }
+        
+        // Render filtered products
+        renderProducts(selectedCategories);
+    }
+    
+    function resetAllFilters() {
+        // Uncheck all checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+        // Check default checkboxes (Categories and Brands)
+        document.querySelectorAll('#Potentiostats, #Galvanostats, #brand-1, #brand-2').forEach(checkbox => {
+            checkbox.checked = true;
+        });
+        
+        // Show all products
+        renderProducts();
+    }
+    
+    // Search functionality
+    const searchInput = document.querySelector('.searches-filters');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        let hasResults = false;
+        let filteredCategories = {};
+        
+        // Search through all products
+        for (const [category, products] of Object.entries(productsByCategory)) {
+            const filtered = products.filter(product => {
+                const title = product.title.toLowerCase();
+                const specs = product.specs.toLowerCase();
+                const categoryName = product.category.toLowerCase();
+                
+                return title.includes(searchTerm) || specs.includes(searchTerm) || categoryName.includes(searchTerm);
+            });
+            
+            if (filtered.length > 0) {
+                filteredCategories[category] = filtered;
+                hasResults = true;
+            }
+        }
+        
+        if (hasResults) {
+            // Temporarily replace productsByCategory with filtered results
+            const originalProducts = {...productsByCategory};
+            Object.assign(productsByCategory, filteredCategories);
+            renderProducts();
+            Object.assign(productsByCategory, originalProducts);
+        } else {
+            renderProducts([]);
+        }
+    });
+    
+    // Initial render - show all products
+    renderProducts();
+});
 
-
-        // View toggle functionality
-const gridToggle = document.querySelector('.grid-toggle');
-const listToggle = document.querySelector('.list-toggle');
-const productGrid = document.getElementById('productGrid');
-const productList = document.getElementById('productList');
-
+// View toggle functions for global access
 function showGridView() {
-    gridToggle.classList.add('active');
-    listToggle.classList.remove('active');
-    productGrid.style.display = 'grid'; // or 'flex' depending on your layout
-    productList.style.display = 'none';
+    document.querySelector('.grid-toggle').classList.add('active');
+    document.querySelector('.list-toggle').classList.remove('active');
+    document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
+    document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
 }
 
 function showListView() {
-    listToggle.classList.add('active');
-    gridToggle.classList.remove('active');
-    productList.style.display = 'flex';
-    productGrid.style.display = 'none';
+    document.querySelector('.list-toggle').classList.add('active');
+    document.querySelector('.grid-toggle').classList.remove('active');
+    document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
 }
 
-gridToggle.addEventListener('click', showGridView);
-listToggle.addEventListener('click', showListView);
-
-// Initialize with grid view
-showGridView();
-
-        </script>
+</script>
 </body>
 </html>

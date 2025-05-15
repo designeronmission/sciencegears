@@ -48,398 +48,23 @@
 
 <body>
 
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ScienceGears - Advanced Electrochemistry Solutions for Battery Research & Materials Science</title>
-        <meta name="description"
-            content="ScienceGears provides cutting-edge electrochemistry instruments including potentiostats, battery test systems, and fuel cell analyzers for research laboratories worldwide.">
-        <meta name="keywords"
-            content="electrochemistry instruments, potentiostat, battery tester, fuel cell analyzer, corrosion measurement, electrochemical research">
-        <meta name="author" content="ScienceGears">
-
-        <!-- Open Graph / Social Media Meta Tags -->
-        <meta property="og:title" content="ScienceGears - Advanced Electrochemistry Solutions">
-        <meta property="og:description"
-            content="Precision electrochemistry instrumentation for battery research, materials science, and renewable energy applications.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://www.sciencegears.com">
-        <meta property="og:image" content="https://www.sciencegears.com/assets/images/sciencegears-social.jpg">
-
-        <!-- Canonical URL -->
-        <link rel="canonical" href="https://www.sciencegears.com">
-
-        <!-- Favicon -->
-        <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-        <link rel="manifest" href="assets/logo/fav-icon.png">
-
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Google Fonts - Roboto + Plus Jakarta Sans -->
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-            rel="stylesheet">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Swiper JS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="style.css" />
-
-
-
-
-        <style>
-            :root {
-                --light-color: #f8f9fa;
-                --dark-color: #212529;
-                --text-color: #343a40;
-                --gray-color: #6c757d;
-            }
-
-            body {
-                color: var(--text-color);
-                background-color: #f8f9fa;
-                line-height: 1.6;
-            }
-
-            .navbar-brand {
-                font-weight: 700;
-                color: var(--primary-color);
-            }
-
-            .navbar {
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .hero-title {
-                font-weight: 700;
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-subtitle {
-                font-weight: 300;
-                font-size: 1.2rem;
-                opacity: 0.9;
-                margin-bottom: 2rem;
-            }
-
-            .article-container {
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                padding: 2.5rem;
-                margin-bottom: 3rem;
-            }
-
-            .article-title {
-                font-weight: 700;
-                color: var(--dark-color);
-                margin-bottom: 1.5rem;
-            }
-
-            .article-meta {
-                display: flex;
-                align-items: center;
-                margin-bottom: 2rem;
-                padding-bottom: 1.5rem;
-                border-bottom: 1px solid #eee;
-            }
-
-            .article-author {
-                display: flex;
-                align-items: center;
-                margin-right: 2rem;
-            }
-
-            .article-author-img {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                margin-right: 1rem;
-                object-fit: cover;
-            }
-
-            .article-date {
-                color: var(--gray-color);
-                margin-right: 2rem;
-            }
-
-            .article-category {
-                display: inline-block;
-                padding: 0.35rem 1rem;
-                background-color: var(--light-color);
-                color: var(--primary-color);
-                border-radius: 20px;
-                font-size: 0.85rem;
-                font-weight: 600;
-                text-transform: capitalize;
-            }
-
-            .article-content h2 {
-                font-weight: 600;
-                color: var(--secondary-color);
-                margin-top: 2.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .article-content h3 {
-                font-weight: 600;
-                color: var(--dark-color);
-                margin-top: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .article-content p {
-                margin-bottom: 1.5rem;
-            }
-
-            .article-content ul,
-            .article-content ol {
-                margin-bottom: 1.5rem;
-                padding-left: 1.5rem;
-            }
-
-            .article-content li {
-                margin-bottom: 0.5rem;
-            }
-
-            .table-techniques {
-                width: 100%;
-                margin-bottom: 2rem;
-                border-collapse: collapse;
-            }
-
-            .table-techniques th {
-                background-color: var(--primary-color);
-                color: white;
-                padding: 0.75rem;
-                text-align: left;
-            }
-
-            .table-techniques td {
-                padding: 0.75rem;
-                border-bottom: 1px solid #eee;
-            }
-
-            .table-techniques tr:nth-child(even) {
-                background-color: #f9f9f9;
-            }
-
-            .technique-card {
-                background-color: white;
-                border-radius: 8px;
-                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-                border-left: 4px solid var(--primary-color);
-            }
-
-            .technique-card-title {
-                font-weight: 600;
-                color: var(--dark-color);
-                margin-bottom: 0.75rem;
-            }
-
-            .technique-card-subtitle {
-                font-size: 0.9rem;
-                color: var(--gray-color);
-                margin-bottom: 1rem;
-                font-weight: 500;
-            }
-
-            .badge-tag {
-                background-color: #e9ecef;
-                color: var(--primary-color);
-                font-weight: 500;
-                margin-right: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .sidebar-card {
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-            }
-
-            .sidebar-title {
-                font-weight: 600;
-                color: var(--dark-color);
-                margin-bottom: 1.5rem;
-                padding-bottom: 0.75rem;
-                border-bottom: 1px solid #eee;
-            }
-
-            .related-article {
-                display: flex;
-                margin-bottom: 1.5rem;
-                padding-bottom: 1.5rem;
-                border-bottom: 1px solid #f5f5f5;
-            }
-
-            .related-article:last-child {
-                margin-bottom: 0;
-                padding-bottom: 0;
-                border-bottom: none;
-            }
-
-            .related-article-img {
-                width: 80px;
-                height: 60px;
-                border-radius: 6px;
-                object-fit: cover;
-                margin-right: 1rem;
-            }
-
-            .related-article-title {
-                font-weight: 600;
-                font-size: 0.95rem;
-                margin-bottom: 0.25rem;
-            }
-
-            .related-article-date {
-                font-size: 0.8rem;
-                color: var(--gray-color);
-            }
-
-            .tag-cloud {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            @media (max-width: 768px) {
-                .hero-title {
-                    font-size: 2rem;
-                }
-
-                .hero-subtitle {
-                    font-size: 1rem;
-                }
-
-                .article-container {
-                    padding: 1.5rem;
-                }
-
-                .article-meta {
-                    flex-wrap: wrap;
-                }
-
-                .article-author {
-                    margin-bottom: 1rem;
-                }
-            }
-
-
-
-            /* Sticky sidebar styles */
-            .sidebar-column {
-                position: relative;
-            }
-
-            .sidebar-sticky {
-                position: sticky;
-                top: 20px;
-                /* Adjust this value based on your header height */
-                height: calc(100vh - 40px);
-                overflow-y: auto;
-                padding-bottom: 20px;
-            }
-
-            /* Responsive adjustments */
-            @media (max-width: 991.98px) {
-                .sidebar-sticky {
-                    position: static;
-                    height: auto;
-                    overflow-y: visible;
-                }
-
-                .sidebar-column {
-                    order: -1;
-                    /* Moves sidebar above content on mobile */
-                    margin-bottom: 2rem;
-                }
-            }
-
-            /* Prevent horizontal scrolling on mobile */
-            @media (max-width: 767.98px) {
-                .article-container {
-                    padding: 1.25rem;
-                }
-
-                .hero-title {
-                    font-size: 1.75rem;
-                }
-
-                .hero-subtitle {
-                    font-size: 1rem;
-                }
-            }
-
-            /* Smooth scrolling behavior */
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Adjust back-to-top button */
-            .back-to-top {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                display: none;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background: var(--primary-color);
-                color: white;
-                text-align: center;
-                line-height: 50px;
-                z-index: 99;
-                transition: all 0.3s;
-            }
-
-            .back-to-top:hover {
-                background: var(--secondary-color);
-                transform: translateY(-3px);
-            }
-
-            /* Add some spacing for the first element in sidebar */
-            .sidebar-card:first-child {
-                margin-top: 0;
-            }
-        </style>
-    </head>
-
-    <body>
-
-
-        <!-- Header Top Bar -->
-        <div class="header-top">
-            <div class="container d-flex justify-content-between align-items-center">
-                <div class="top-contact">
-                    <a href="tel:+1234567890"><i class="fas fa-phone"></i>+61 493 868 335</a>
-                    <a href="mailto:info@sciencegears.com.au"><i class="fas fa-envelope"></i>
-                        info@sciencegears.com.au</a>
-                </div>
-                <div class="top-links">
-                    <a href="#"><i class="fas fa-user"></i> My Account</a>
-                    <a href="#"><i class="fas fa-question-circle"></i> Support</a>
-                </div>
+    <!-- Header Top Bar -->
+    <div class="header-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="top-contact">
+                <a href="tel:+1234567890"><i class="fas fa-phone"></i>+61 493 868 335</a>
+                <a href="mailto:info@sciencegears.com.au"><i class="fas fa-envelope"></i> info@sciencegears.com.au</a>
+            </div>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-question-circle"></i> Support</a>
             </div>
         </div>
+    </div>
 
     <!-- Main Navigation -->
     <nav class="navbar navbar-expand-lg main-navbar sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <img src="assets/logo/Logo-300x86.png" alt="ScienceGears Logo">
             </a>
 
@@ -463,6 +88,7 @@
                             data-bs-toggle="dropdown">
                             Products
                         </a>
+
                         <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
                             <div class="container">
                                 <div class="row">
@@ -472,7 +98,7 @@
                                             <h6>Explore Sciencegears</h6>
                                             <img src="assets/home/about-mega.png" alt="images" class="megamenu-image">
 
-                                            <p> At ScienceGears, we are committed to delivering high-quality
+                                            <p>At ScienceGears, we are committed to delivering high-quality
                                                 electrochemistry instrumentation.</p>
                                             <a href="about.html">
                                                 <p class="mega-a">Explore Now<i class="fas fa-arrow-right-long"></i></p>
@@ -509,34 +135,60 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 mega-column row">
+                                    <div class="col-lg-6 mega-column">
+                                        <div class="row">
                                          <h5 class="section-title megamenu-left">Product Variants</h5>
-                                   <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
 
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</p></div>
                                     </div>
 
-                                        <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
-
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
-                                    </div>
-                                             <a href="products.html" class="view-all-right mt-4">
-                                                <p class="view-all-right-p">View All<i class="fas fa-arrow-right-long p-i"></i></p>
-                                            </a>
+                                     <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</p></div>
                                     </div>
 
+                                     <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/External-Power-Potentiostats/PP212_1.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">External Power Potentiostats</p></div>
+                                    </div>
+
+                                     <div class="col-lg-6 mega-row  d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/Optional-Addon-Cards -Modules/PAD4_2.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">Optional Addon Cards / Modules</p></div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/CorrTest-Single-Channel-Potentiostats/CS100-1030x487.png" alt="images" onclick="window.location.href='products.html'" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p onclick="window.location.href='products.html'">CorrTest Single Channel Potentiostats / Galvanostats</p></div>
+                                    </div>
+
+                                    <div class="col-lg-6 mega-row d-flex product-thumb-card" onclick="window.location.href='products.html'">
+                                            <div class="megamenu-content">
+                                            <img src="assets/products/Potentiostats/CorrTest-Multichannel-Potentiostats/CS2150-Bipotentiostat_1.png" alt="images" class="megamenu-images">
+                                            </div>
+                                          <div class="cursor-auto"><p>CorrTest Multichannel Potentiostats/ Galvanostats</p></div>
+                                    </div>
+                                    
+                                    <div class="col-lg-12">
+                                     <button class="btn-primary mega-button"  onclick="window.location.href='products.html'">View All<i class="fas fa-arrow-right-long p-i"></i></button></a>
+                                    </div>
+
+
+                                       </div>     
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </li>
@@ -618,7 +270,7 @@
                                     <div class="col-lg-3 mega-column">
                                         <h5 class="section-title megamenu-left">Support</h5>
                                         <div class="subcategories-container">
-                                            <div class="megaproducts-categorys"><i class="fas fa-question-circle"></i>
+                                            <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
                                                 FAQ</div>
                                             <div class="megaproducts-categorys"><i class="fas fa-book"></i> Product
                                                 Manuals</div>
@@ -641,8 +293,8 @@
                     </li>
 
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blog.html">Blog</a>
                     </li>
 
                     <li class="nav-item">
@@ -1080,7 +732,7 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
-          <div class="row">
+            <div class="row">
                 <!-- Explore Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h3 class="footer-heading">Explore Instruments</h3>
@@ -1123,9 +775,8 @@
                         <a href="#" class="footer-link">Terms of Use</a>
                         <a href="#" class="footer-link">Privacy Policy</a>
                         <a href="#" class="footer-link">Return Policy</a>
-                    <div class="social-icons">
+                    <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -1136,11 +787,7 @@
             <div class="footer-divider"></div>
 
             <div class="footer-bottom">
-                <div class="footer-cta">
-                    <a href="#" class="btn btn btn-request">Download Product Catalog</a>
-                    <a href="#" class="btn btn-primary">Get a Custom Quote</a>
-                </div>
-                <div class="text-center mt-3">
+                <div class="col-lg-12 text-center mt-3">
                     <div class="footer-text">
                         &copy; 2025 ScienceGears Australia | Empowering Discovery Through Science | ABN: 23 456 789 012
                     </div>
@@ -1148,7 +795,6 @@
             </div>
         </div>
     </footer>
-
     
 
 

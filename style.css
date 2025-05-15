@@ -1174,9 +1174,6 @@ h6 {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-    margin-top: 50px;
     text-align: center;
     color: #777;
     font-size: 0.9rem;
@@ -6091,9 +6088,27 @@ h6 {
 
 
 
+.megamenu-images{
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
+.cursor-auto{
+    font-size: 16px;
+    padding-left: 10px;
+    font-weight: 500;
+}
 
+.mega-button{
+    float: inline-end;
+}
+
+.product-thumb-card{
+    padding: 20px 10px;
+    cursor: pointer;
+}
 
 
 

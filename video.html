@@ -3,503 +3,1237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Gallery</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>ScienceGears Video Library</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
     <style>
+        :root {
+            --science-primary: #2c3e50;
+            --science-secondary: #3498db;
+            --science-accent: #e74c3c;
+            --science-light: #ecf0f1;
+            --science-dark: #1a252f;
+        }
+        
         body {
-    background-color: #f8f9fa;
-}
-
-.video-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-}
-
-.video-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.video-thumbnail {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px 8px 0 0;
-}
-
-.video-thumbnail img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.video-card:hover .video-thumbnail img {
-    transform: scale(1.05);
-}
-
-.play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.video-thumbnail:hover .play-icon {
-    opacity: 1;
-}
-
-.play-icon i {
-    color: #0d6efd;
-    font-size: 1.5rem;
-    margin-left: 3px;
-}
-
-.video-info {
-    padding: 1rem;
-    background-color: white;
-    border-radius: 0 0 8px 8px;
-}
-
-.video-title {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.video-meta {
-    display: flex;
-    justify-content: space-between;
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-.badge {
-    font-weight: 500;
-}
-
-#videoModal .modal-body {
-    background-color: #000;
-}
-
-#videoModal iframe {
-    border: none;
-}
-
-@media (max-width: 767.98px) {
-    .video-thumbnail img {
-        height: 150px;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .video-thumbnail img {
-        height: 120px;
-    }
-}
-    </style>>
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--science-dark);
+        }
+        
+        .navbar {
+            background-color: var(--science-primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .navbar-brand img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--science-primary), var(--science-secondary));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hero-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-box input {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        
+        .search-box button {
+            border-radius: 50px;
+            padding: 8px 20px;
+            background-color: var(--science-accent);
+            border: none;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            color: var(--science-primary);
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background-color: var(--science-accent);
+            border-radius: 2px;
+        }
+        
+        .video-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            transition: transform 0.3s ease;
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(231, 76, 60, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-thumbnail:hover .play-icon {
+            opacity: 1;
+        }
+        
+        .video-info {
+            padding: 1rem;
+        }
+        
+        .video-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--science-primary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .video-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .badge {
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        
+        .category-nav {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .category-nav .nav-link {
+            color: var(--science-dark);
+            border-radius: 5px;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+        
+        .category-nav .nav-link.active {
+            background-color: var(--science-secondary);
+            color: white;
+        }
+        
+        .category-nav .nav-link:hover:not(.active) {
+            background-color: var(--science-light);
+        }
+        
+        .filter-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .filter-section h5 {
+            color: var(--science-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--science-light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group h6 {
+            font-size: 0.9rem;
+            color: var(--science-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .form-check {
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-check-label {
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        
+        .modal-content {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background-color: var(--science-primary);
+            color: white;
+            border-bottom: none;
+        }
+        
+        .modal-body {
+            padding: 0;
+        }
+        
+        .modal-footer {
+            background-color: var(--science-light);
+            border-top: none;
+        }
+        
+        .video-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: white;
+            border-top: 1px solid #eee;
+        }
+        
+        .video-stats-item {
+            text-align: center;
+        }
+        
+        .video-stats-item i {
+            color: var(--science-secondary);
+            margin-right: 5px;
+        }
+        
+        .footer {
+            background-color: var(--science-primary);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h5 {
+            color: var(--science-light);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons a {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--science-accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Loading animation */
+        .loading-spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 0.25em solid var(--science-light);
+            border-right-color: var(--science-secondary);
+            animation: spinner 0.75s linear infinite;
+            margin: 2rem auto;
+        }
+        
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Main content layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .video-results {
+            flex: 1;
+            min-width: 0; /* Prevent flexbox overflow */
+            padding-right: 20px;
+        }
+        
+        .filter-sidebar {
+            width: 300px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .video-results {
+                padding-right: 0;
+                order: 1;
+            }
+            
+            .filter-sidebar {
+                width: 100%;
+                order: 2;
+                margin-bottom: 2rem;
+            }
+            
+            .filter-section {
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="bg-dark text-white py-4">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <h1 class="text-center mb-0">Video Gallery</h1>
+            <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/30x30" alt="ScienceGears Logo"> ScienceGears
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="container my-5">
-        <div class="row mb-4">
-            <div class="col-md-6 mb-3 mb-md-0">
-                <div class="input-group">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Search videos...">
-                    <button class="btn btn-primary" id="searchBtn">
-                        <i class="fas fa-search"></i>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">ScienceGears Video Library</h1>
+                    <p class="hero-subtitle">Explore our collection of educational and scientific videos covering various topics from physics to biology.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="search-box d-flex align-items-center">
+                        <input type="text" id="searchInput" class="form-control flex-grow-1" placeholder="Search videos...">
+                        <button id="searchBtn" class="btn btn-primary ms-2"><i class="fas fa-search me-1"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <ul class="nav nav-pills" id="categoryTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-category="all">All Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="physics">Physics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="chemistry">Chemistry</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="biology">Biology</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="astronomy">Astronomy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="technology">Technology</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <!-- Video Results Section -->
+            <div class="video-results">
+                <!-- Featured Videos Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">Featured Videos</h2>
+                    <div class="row" id="featuredVideoContainer">
+                        <!-- Featured videos will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- All Videos Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">All Videos</h2>
+                    <div class="row" id="videoContainer">
+                        <!-- Videos will be loaded here -->
+                    </div>
+                    <div id="loadingIndicator" class="text-center d-none">
+                        <div class="loading-spinner"></div>
+                        <p>Loading more videos...</p>
+                    </div>
+                    <div id="noResults" class="text-center py-5 d-none">
+                        <i class="fas fa-video-slash fa-3x mb-3 text-muted"></i>
+                        <h4>No videos found</h4>
+                        <p class="text-muted">Try adjusting your search or filter criteria</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Filter Sidebar -->
+            <div class="filter-sidebar">
+                <div class="filter-section">
+                    <h5><i class="fas fa-filter me-2"></i>Filter Options</h5>
+                    
+                    <div class="filter-group">
+                        <h6>Categories</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="physics" id="filterPhysics" checked>
+                            <label class="form-check-label" for="filterPhysics">
+                                Physics
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="chemistry" id="filterChemistry" checked>
+                            <label class="form-check-label" for="filterChemistry">
+                                Chemistry
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="biology" id="filterBiology" checked>
+                            <label class="form-check-label" for="filterBiology">
+                                Biology
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="astronomy" id="filterAstronomy" checked>
+                            <label class="form-check-label" for="filterAstronomy">
+                                Astronomy
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="technology" id="filterTechnology" checked>
+                            <label class="form-check-label" for="filterTechnology">
+                                Technology
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h6>Content Type</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="lecture" id="filterLecture" checked>
+                            <label class="form-check-label" for="filterLecture">
+                                Lectures
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="experiment" id="filterExperiment" checked>
+                            <label class="form-check-label" for="filterExperiment">
+                                Experiments
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="tutorial" id="filterTutorial" checked>
+                            <label class="form-check-label" for="filterTutorial">
+                                Tutorials
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h6>Duration</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="short" id="filterShort" checked>
+                            <label class="form-check-label" for="filterShort">
+                                Short (< 5 min)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="medium" id="filterMedium" checked>
+                            <label class="form-check-label" for="filterMedium">
+                                Medium (5-15 min)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="long" id="filterLong" checked>
+                            <label class="form-check-label" for="filterLong">
+                                Long (> 15 min)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h6>Sort By</h6>
+                        <select class="form-select" id="sortVideos">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="views">Most Viewed</option>
+                            <option value="likes">Most Liked</option>
+                            <option value="title">Alphabetical</option>
+                        </select>
+                    </div>
+                    
+                    <button id="applyFilters" class="btn btn-primary w-100 mt-3">
+                        <i class="fas fa-sync-alt me-2"></i>Apply Filters
                     </button>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3 mb-md-0">
-                <select id="filterCategory" class="form-select">
-                    <option value="">All Categories</option>
-                    <option value="nature">Nature</option>
-                    <option value="technology">Technology</option>
-                    <option value="travel">Travel</option>
-                    <option value="food">Food</option>
-                    <option value="music">Music</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select id="sortVideos" class="form-select">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="views">Most Views</option>
-                    <option value="likes">Most Likes</option>
-                    <option value="title">Title (A-Z)</option>
-                </select>
-            </div>
-        </div>
-
-        <div id="videoContainer" class="row g-4">
-            <!-- Videos will be loaded here -->
-        </div>
-
-        <div id="loadingIndicator" class="text-center my-5 d-none">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-2">Loading more videos...</p>
-        </div>
-
-        <div id="noResults" class="text-center py-5 d-none">
-            <i class="fas fa-video-slash fa-3x mb-3 text-muted"></i>
-            <h3 class="text-muted">No videos found</h3>
-            <p class="text-muted">Try adjusting your search or filter criteria</p>
-        </div>
-    </main>
-
-    <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="videoModalTitle">Video Title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0 ratio ratio-16x9">
-                    <iframe id="videoModalFrame" src="" allowfullscreen></iframe>
-                </div>
-                <div class="modal-footer">
-                    <div class="me-auto">
-                        <span class="badge bg-primary" id="videoModalCategory"></span>
-                    </div>
-                    <div>
-                        <span class="me-3"><i class="fas fa-eye me-1"></i> <span id="videoModalViews">0</span></span>
-                        <span><i class="fas fa-thumbs-up me-1"></i> <span id="videoModalLikes">0</span></span>
-                    </div>
+                    <button id="resetFilters" class="btn btn-outline-secondary w-100 mt-2">
+                        <i class="fas fa-times me-2"></i>Reset All
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoModalTitle">Video Title</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoModalFrame" src="" allowfullscreen allow="autoplay"></iframe>
+                    </div>
+                    <div class="video-stats">
+                        <div class="video-stats-item">
+                            <i class="fas fa-tag"></i>
+                            Category: <span id="videoModalCategory"></span>
+                        </div>
+                        <div class="video-stats-item">
+                            <i class="fas fa-eye"></i>
+                            Views: <span id="videoModalViews"></span>
+                        </div>
+                        <div class="video-stats-item">
+                            <i class="fas fa-thumbs-up"></i>
+                            Likes: <span id="videoModalLikes"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-share-alt me-1"></i> Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/150x50" alt="ScienceGears Logo" class="footer-logo">
+                    <p>ScienceGears is dedicated to providing high-quality educational content to inspire the next generation of scientists and innovators.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Videos</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Categories</h5>
+                        <ul>
+                            <li><a href="#">Physics</a></li>
+                            <li><a href="#">Chemistry</a></li>
+                            <li><a href="#">Biology</a></li>
+                            <li><a href="#">Astronomy</a></li>
+                            <li><a href="#">Technology</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p>Subscribe to our newsletter for the latest videos and updates.</p>
+                        <form class="mt-3">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Your email">
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p>&copy; 2023 ScienceGears.com.au. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    // Sample video data
-    const videos = [
-        {
-            id: 'dQw4w9WgXcQ',
-            title: 'Amazing Nature Scenes',
-            category: 'nature',
-            views: 1250000,
-            likes: 85000,
-            date: '2023-05-15',
-            thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg'
-        },
-        {
-            id: '9bZkp7q19f0',
-            title: 'Latest Tech Gadgets 2023',
-            category: 'technology',
-            views: 890000,
-            likes: 45000,
-            date: '2023-06-20',
-            thumbnail: 'https://i.ytimg.com/vi/9bZkp7q19f0/hqdefault.jpg'
-        },
-        {
-            id: 'kJQP7kiw5Fk',
-            title: 'Beautiful Travel Destinations',
-            category: 'travel',
-            views: 3200000,
-            likes: 210000,
-            date: '2023-04-10',
-            thumbnail: 'https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg'
-        },
-        {
-            id: 'JGwWNGJdvx8',
-            title: 'Delicious Food Recipes',
-            category: 'food',
-            views: 750000,
-            likes: 38000,
-            date: '2023-07-05',
-            thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg'
-        },
-        {
-            id: 'RgKAFK5djSk',
-            title: 'Popular Music Hits',
-            category: 'music',
-            views: 4500000,
-            likes: 320000,
-            date: '2023-03-12',
-            thumbnail: 'https://i.ytimg.com/vi/RgKAFK5djSk/hqdefault.jpg'
-        },
-        {
-            id: 'fJ9rUzIMcZQ',
-            title: 'Wildlife Documentary',
-            category: 'nature',
-            views: 1100000,
-            likes: 67000,
-            date: '2023-06-30',
-            thumbnail: 'https://i.ytimg.com/vi/fJ9rUzIMcZQ/hqdefault.jpg'
-        },
-        {
-            id: 'OPf0YbXqDm0',
-            title: 'Programming Tutorial',
-            category: 'technology',
-            views: 520000,
-            likes: 29000,
-            date: '2023-07-18',
-            thumbnail: 'https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg'
-        },
-        {
-            id: 'JGwWNGJdvx9',
-            title: 'Italian Cooking Masterclass',
-            category: 'food',
-            views: 680000,
-            likes: 42000,
-            date: '2023-05-22',
-            thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg'
-        }
-    ];
+            // Enhanced video data for ScienceGears
+            const videos = [
+                {
+                    id: 'dQw4w9WgXcQ',
+                    title: 'Quantum Physics Explained: The Double Slit Experiment',
+                    category: 'physics',
+                    type: 'lecture',
+                    duration: 'long',
+                    views: 1250000,
+                    likes: 85000,
+                    date: '2023-05-15',
+                    thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+                    featured: true,
+                    description: 'Explore the fascinating world of quantum mechanics through the famous double slit experiment that challenges our understanding of reality.'
+                },
+                {
+                    id: '9bZkp7q19f0',
+                    title: 'Chemical Reactions: The Science Behind Explosions',
+                    category: 'chemistry',
+                    type: 'experiment',
+                    duration: 'medium',
+                    views: 890000,
+                    likes: 45000,
+                    date: '2023-06-20',
+                    thumbnail: 'https://i.ytimg.com/vi/9bZkp7q19f0/hqdefault.jpg',
+                    featured: true,
+                    description: 'Learn about exothermic reactions and what makes some chemical combinations so explosive in this exciting demonstration.'
+                },
+                {
+                    id: 'kJQP7kiw5Fk',
+                    title: 'Human DNA: Decoding the Blueprint of Life',
+                    category: 'biology',
+                    type: 'lecture',
+                    duration: 'long',
+                    views: 3200000,
+                    likes: 210000,
+                    date: '2023-04-10',
+                    thumbnail: 'https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg',
+                    featured: true,
+                    description: 'A comprehensive look at the structure and function of DNA, the molecule that carries genetic instructions in all living organisms.'
+                },
+                {
+                    id: 'JGwWNGJdvx8',
+                    title: 'Black Holes: The Universe\'s Most Mysterious Objects',
+                    category: 'astronomy',
+                    type: 'lecture',
+                    duration: 'medium',
+                    views: 750000,
+                    likes: 38000,
+                    date: '2023-07-05',
+                    thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg',
+                    featured: false,
+                    description: 'Journey to the edge of spacetime as we explore the physics and mysteries surrounding black holes.'
+                },
+                {
+                    id: 'RgKAFK5djSk',
+                    title: 'The Future of Artificial Intelligence',
+                    category: 'technology',
+                    type: 'lecture',
+                    duration: 'long',
+                    views: 4500000,
+                    likes: 320000,
+                    date: '2023-03-12',
+                    thumbnail: 'https://i.ytimg.com/vi/RgKAFK5djSk/hqdefault.jpg',
+                    featured: false,
+                    description: 'How AI is transforming industries and what the future might hold for this rapidly evolving technology.'
+                },
+                {
+                    id: 'fJ9rUzIMcZQ',
+                    title: 'Newton\'s Laws of Motion: Physics in Action',
+                    category: 'physics',
+                    type: 'tutorial',
+                    duration: 'short',
+                    views: 1100000,
+                    likes: 67000,
+                    date: '2023-06-30',
+                    thumbnail: 'https://i.ytimg.com/vi/fJ9rUzIMcZQ/hqdefault.jpg',
+                    featured: false,
+                    description: 'Practical demonstrations of Newton\'s three laws that govern motion in our everyday world.'
+                },
+                {
+                    id: 'OPf0YbXqDm0',
+                    title: 'The Periodic Table: Elements and Their Properties',
+                    category: 'chemistry',
+                    type: 'tutorial',
+                    duration: 'medium',
+                    views: 520000,
+                    likes: 29000,
+                    date: '2023-07-18',
+                    thumbnail: 'https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg',
+                    featured: false,
+                    description: 'An in-depth exploration of the periodic table and how elements are organized based on their atomic structure.'
+                },
+                {
+                    id: 'JGwWNGJdvx9',
+                    title: 'Evolution: The Story of Life on Earth',
+                    category: 'biology',
+                    type: 'lecture',
+                    duration: 'long',
+                    views: 680000,
+                    likes: 42000,
+                    date: '2023-05-22',
+                    thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg',
+                    featured: false,
+                    description: 'Trace the history of life from single-celled organisms to the incredible biodiversity we see today.'
+                },
+                {
+                    id: '7U3Uj2gdUYg',
+                    title: 'The Solar System: A Tour of Our Cosmic Neighborhood',
+                    category: 'astronomy',
+                    type: 'tutorial',
+                    duration: 'medium',
+                    views: 920000,
+                    likes: 58000,
+                    date: '2023-02-14',
+                    thumbnail: 'https://i.ytimg.com/vi/7U3Uj2gdUYg/hqdefault.jpg',
+                    featured: false,
+                    description: 'Explore the planets, moons, and other objects that make up our solar system.'
+                },
+                {
+                    id: 'XcU9GYUyG8g',
+                    title: 'Renewable Energy Technologies for a Sustainable Future',
+                    category: 'technology',
+                    type: 'lecture',
+                    duration: 'long',
+                    views: 780000,
+                    likes: 49000,
+                    date: '2023-01-30',
+                    thumbnail: 'https://i.ytimg.com/vi/XcU9GYUyG8g/hqdefault.jpg',
+                    featured: false,
+                    description: 'How solar, wind, and other renewable technologies are shaping the future of energy production.'
+                },
+                {
+                    id: 's4d10Z3xX2c',
+                    title: 'Electromagnetism: The Invisible Force',
+                    category: 'physics',
+                    type: 'experiment',
+                    duration: 'short',
+                    views: 620000,
+                    likes: 35000,
+                    date: '2023-04-25',
+                    thumbnail: 'https://i.ytimg.com/vi/s4d10Z3xX2c/hqdefault.jpg',
+                    featured: false,
+                    description: 'Understanding the fundamental force that powers our modern world, from generators to MRI machines.'
+                },
+                {
+                    id: 'v5bYDhZEU8g',
+                    title: 'Organic Chemistry: Carbon-Based Molecules',
+                    category: 'chemistry',
+                    type: 'tutorial',
+                    duration: 'short',
+                    views: 540000,
+                    likes: 31000,
+                    date: '2023-03-08',
+                    thumbnail: 'https://i.ytimg.com/vi/v5bYDhZEU8g/hqdefault.jpg',
+                    featured: false,
+                    description: 'An introduction to the chemistry of carbon compounds that form the basis of all life.'
+                }
+            ];
 
-    // DOM elements
-    const videoContainer = document.getElementById('videoContainer');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const filterCategory = document.getElementById('filterCategory');
-    const sortVideos = document.getElementById('sortVideos');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    const noResults = document.getElementById('noResults');
-    const videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
-    const videoModalTitle = document.getElementById('videoModalTitle');
-    const videoModalFrame = document.getElementById('videoModalFrame');
-    const videoModalCategory = document.getElementById('videoModalCategory');
-    const videoModalViews = document.getElementById('videoModalViews');
-    const videoModalLikes = document.getElementById('videoModalLikes');
+            // DOM elements
+            const videoContainer = document.getElementById('videoContainer');
+            const featuredVideoContainer = document.getElementById('featuredVideoContainer');
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const sortVideos = document.getElementById('sortVideos');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const noResults = document.getElementById('noResults');
+            const categoryTabs = document.getElementById('categoryTabs');
+            const videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+            const videoModalTitle = document.getElementById('videoModalTitle');
+            const videoModalFrame = document.getElementById('videoModalFrame');
+            const videoModalCategory = document.getElementById('videoModalCategory');
+            const videoModalViews = document.getElementById('videoModalViews');
+            const videoModalLikes = document.getElementById('videoModalLikes');
+            const applyFiltersBtn = document.getElementById('applyFilters');
+            const resetFiltersBtn = document.getElementById('resetFilters');
 
-    // Variables for lazy loading
-    let currentPage = 1;
-    const videosPerPage = 4;
-    let isLoading = false;
-    let allVideosLoaded = false;
-    let filteredVideos = [];
+            // Get all filter checkboxes
+            const categoryFilters = document.querySelectorAll('input[type="checkbox"][value="physics"], input[type="checkbox"][value="chemistry"], input[type="checkbox"][value="biology"], input[type="checkbox"][value="astronomy"], input[type="checkbox"][value="technology"]');
+            const typeFilters = document.querySelectorAll('input[type="checkbox"][value="lecture"], input[type="checkbox"][value="experiment"], input[type="checkbox"][value="tutorial"]');
+            const durationFilters = document.querySelectorAll('input[type="checkbox"][value="short"], input[type="checkbox"][value="medium"], input[type="checkbox"][value="long"]');
 
-    // Initialize the page
-    function init() {
-        filteredVideos = [...videos];
-        renderVideos();
-        setupEventListeners();
-    }
+            // Variables for lazy loading
+            let currentPage = 1;
+            const videosPerPage = 8;
+            let isLoading = false;
+            let allVideosLoaded = false;
+            let filteredVideos = [];
+            let currentCategory = 'all';
 
-    // Set up event listeners
-    function setupEventListeners() {
-        searchBtn.addEventListener('click', handleSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') handleSearch();
-        });
-        
-        filterCategory.addEventListener('change', function() {
-            currentPage = 1;
-            allVideosLoaded = false;
-            filterAndSortVideos();
-        });
-        
-        sortVideos.addEventListener('change', function() {
-            currentPage = 1;
-            allVideosLoaded = false;
-            filterAndSortVideos();
-        });
-        
-        // Lazy loading with intersection observer
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !isLoading && !allVideosLoaded) {
-                loadMoreVideos();
+            // Initialize the page
+            function init() {
+                filteredVideos = [...videos];
+                renderFeaturedVideos();
+                renderVideos();
+                setupEventListeners();
             }
-        }, { threshold: 0.1 });
-        
-        observer.observe(loadingIndicator);
-        
-        // Handle window resize for responsive adjustments
-        window.addEventListener('resize', debounce(() => {
-            // You could add responsive adjustments here if needed
-        }, 200));
-    }
 
-    // Handle search functionality
-    function handleSearch() {
-        currentPage = 1;
-        allVideosLoaded = false;
-        filterAndSortVideos();
-    }
+            // Set up event listeners
+            function setupEventListeners() {
+                searchBtn.addEventListener('click', handleSearch);
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') handleSearch();
+                });
+                
+                sortVideos.addEventListener('change', function() {
+                    currentPage = 1;
+                    allVideosLoaded = false;
+                    filterAndSortVideos();
+                });
+                
+                // Category tabs navigation
+                categoryTabs.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                        currentCategory = e.target.dataset.category;
+                        
+                        // Update active tab
+                        document.querySelector('#categoryTabs .nav-link.active').classList.remove('active');
+                        e.target.classList.add('active');
+                        
+                        // Reset and filter videos
+                        currentPage = 1;
+                        allVideosLoaded = false;
+                        filterAndSortVideos();
+                    }
+                });
+                
+                // Apply filters button
+                applyFiltersBtn.addEventListener('click', function() {
+                    currentPage = 1;
+                    allVideosLoaded = false;
+                    filterAndSortVideos();
+                });
+                
+                // Reset filters button
+                resetFiltersBtn.addEventListener('click', function() {
+                    // Reset all checkboxes
+                    document.querySelectorAll('.filter-section input[type="checkbox"]').forEach(checkbox => {
+                        checkbox.checked = true;
+                    });
+                    
+                    // Reset sort dropdown
+                    sortVideos.value = 'newest';
+                    
+                    // Reset category tabs
+                    document.querySelector('#categoryTabs .nav-link.active').classList.remove('active');
+                    document.querySelector('#categoryTabs .nav-link[data-category="all"]').classList.add('active');
+                    currentCategory = 'all';
+                    
+                    // Reset search
+                    searchInput.value = '';
+                    
+                    // Apply changes
+                    currentPage = 1;
+                    allVideosLoaded = false;
+                    filterAndSortVideos();
+                });
+                
+                // Lazy loading with intersection observer
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !isLoading && !allVideosLoaded) {
+                        loadMoreVideos();
+                    }
+                }, { threshold: 0.1 });
+                
+                observer.observe(loadingIndicator);
+            }
 
-    // Filter and sort videos based on current criteria
-    function filterAndSortVideos() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const categoryFilter = filterCategory.value;
-        
-        // Filter videos
-        filteredVideos = videos.filter(video => {
-            const matchesSearch = video.title.toLowerCase().includes(searchTerm);
-            const matchesCategory = !categoryFilter || video.category === categoryFilter;
-            return matchesSearch && matchesCategory;
+            // Handle search functionality
+            function handleSearch() {
+                currentPage = 1;
+                allVideosLoaded = false;
+                filterAndSortVideos();
+            }
+
+            // Filter and sort videos based on current criteria
+            function filterAndSortVideos() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                // Get selected categories
+                const selectedCategories = Array.from(categoryFilters)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                
+                // Get selected types
+                const selectedTypes = Array.from(typeFilters)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                
+                 // Get selected durations
+                const selectedDurations = Array.from(durationFilters)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                
+                // Filter videos based on all criteria
+                filteredVideos = videos.filter(video => {
+                    // Category filter
+                    if (currentCategory !== 'all' && video.category !== currentCategory) {
+                        return false;
+                    }
+                    
+                    // Check if video matches selected categories
+                    if (selectedCategories.length > 0 && !selectedCategories.includes(video.category)) {
+                        return false;
+                    }
+                    
+                    // Check if video matches selected types
+                    if (selectedTypes.length > 0 && !selectedTypes.includes(video.type)) {
+                        return false;
+                    }
+                    
+                    // Check if video matches selected durations
+                    if (selectedDurations.length > 0) {
+                        if (video.duration === 'short' && !selectedDurations.includes('short')) return false;
+                        if (video.duration === 'medium' && !selectedDurations.includes('medium')) return false;
+                        if (video.duration === 'long' && !selectedDurations.includes('long')) return false;
+                    }
+                    
+                    // Search term filter
+                    if (searchTerm && !video.title.toLowerCase().includes(searchTerm) && 
+                        !video.description.toLowerCase().includes(searchTerm)) {
+                        return false;
+                    }
+                    
+                    return true;
+                });
+                
+                // Sort videos
+                sortVideosList();
+                
+                // Render videos
+                renderVideos();
+            }
+
+            // Sort videos based on selected criteria
+            function sortVideosList() {
+                const sortBy = sortVideos.value;
+                
+                switch (sortBy) {
+                    case 'newest':
+                        filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
+                        break;
+                    case 'oldest':
+                        filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
+                        break;
+                    case 'views':
+                        filteredVideos.sort((a, b) => b.views - a.views);
+                        break;
+                    case 'likes':
+                        filteredVideos.sort((a, b) => b.likes - a.likes);
+                        break;
+                    case 'title':
+                        filteredVideos.sort((a, b) => a.title.localeCompare(b.title));
+                        break;
+                }
+            }
+
+            // Render featured videos
+            function renderFeaturedVideos() {
+                featuredVideoContainer.innerHTML = '';
+                const featuredVideos = videos.filter(video => video.featured);
+                
+                if (featuredVideos.length === 0) {
+                    featuredVideoContainer.innerHTML = '<p>No featured videos available.</p>';
+                    return;
+                }
+                
+                featuredVideos.forEach(video => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6 mb-4';
+                    
+                    col.innerHTML = `
+                        <div class="video-card h-100">
+                            <div class="video-thumbnail position-relative" data-video-id="${video.id}">
+                                <img src="${video.thumbnail}" alt="${video.title}" class="img-fluid">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Featured</span>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">${video.title}</h5>
+                                <div class="video-meta">
+                                    <span><i class="fas fa-tag me-1"></i> ${capitalizeFirstLetter(video.category)}</span>
+                                    <span><i class="fas fa-clock me-1"></i> ${getDurationLabel(video.duration)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    featuredVideoContainer.appendChild(col);
+                });
+                
+                // Add click event to featured video thumbnails
+                document.querySelectorAll('.featured-video .video-thumbnail').forEach(thumbnail => {
+                    thumbnail.addEventListener('click', openVideoModal);
+                });
+            }
+
+            // Render videos with lazy loading
+            function renderVideos() {
+                if (currentPage === 1) {
+                    videoContainer.innerHTML = '';
+                }
+                
+                const startIndex = (currentPage - 1) * videosPerPage;
+                const endIndex = startIndex + videosPerPage;
+                const videosToShow = filteredVideos.slice(0, endIndex);
+                
+                if (videosToShow.length === 0) {
+                    noResults.classList.remove('d-none');
+                    return;
+                } else {
+                    noResults.classList.add('d-none');
+                }
+                
+                videosToShow.slice(startIndex, endIndex).forEach(video => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6 col-lg-4 col-xl-3 mb-4';
+                    
+                    col.innerHTML = `
+                        <div class="video-card h-100">
+                            <div class="video-thumbnail position-relative" data-video-id="${video.id}">
+                                <img src="${video.thumbnail}" alt="${video.title}" class="img-fluid">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">${video.title}</h5>
+                                <div class="video-meta">
+                                    <span><i class="fas fa-tag me-1"></i> ${capitalizeFirstLetter(video.category)}</span>
+                                    <span><i class="fas fa-clock me-1"></i> ${getDurationLabel(video.duration)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    videoContainer.appendChild(col);
+                });
+                
+                // Add click event to video thumbnails
+                document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+                    thumbnail.addEventListener('click', openVideoModal);
+                });
+                
+                // Check if all videos are loaded
+                if (endIndex >= filteredVideos.length) {
+                    allVideosLoaded = true;
+                }
+            }
+
+            // Load more videos for lazy loading
+            function loadMoreVideos() {
+                if (isLoading || allVideosLoaded) return;
+                
+                isLoading = true;
+                loadingIndicator.classList.remove('d-none');
+                
+                // Simulate loading delay
+                setTimeout(() => {
+                    currentPage++;
+                    renderVideos();
+                    isLoading = false;
+                    loadingIndicator.classList.add('d-none');
+                }, 800);
+            }
+
+            // Open video modal
+            function openVideoModal(e) {
+                const videoId = e.currentTarget.dataset.videoId;
+                const video = videos.find(v => v.id === videoId);
+                
+                if (video) {
+                    videoModalTitle.textContent = video.title;
+                    videoModalFrame.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
+                    videoModalCategory.textContent = capitalizeFirstLetter(video.category);
+                    videoModalViews.textContent = formatNumber(video.views);
+                    videoModalLikes.textContent = formatNumber(video.likes);
+                    
+                    videoModal.show();
+                }
+            }
+
+            // Helper function to capitalize first letter
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+
+            // Helper function to format numbers (1000 -> 1K)
+            function formatNumber(num) {
+                if (num >= 1000000) {
+                    return (num / 1000000).toFixed(1) + 'M';
+                }
+                if (num >= 1000) {
+                    return (num / 1000).toFixed(1) + 'K';
+                }
+                return num.toString();
+            }
+
+            // Helper function to get duration label
+            function getDurationLabel(duration) {
+                switch (duration) {
+                    case 'short': return '< 5 min';
+                    case 'medium': return '5-15 min';
+                    case 'long': return '> 15 min';
+                    default: return duration;
+                }
+            }
+
+            // Close modal and stop video when modal is hidden
+            document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
+                videoModalFrame.src = '';
+            });
+
+            // Initialize the application
+            init();
         });
-        
-        // Sort videos
-        const sortBy = sortVideos.value;
-        switch(sortBy) {
-            case 'newest':
-                filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
-                break;
-            case 'oldest':
-                filteredVideos.sort((a, b) => new Date(a.date) - new Date(b.date));
-                break;
-            case 'views':
-                filteredVideos.sort((a, b) => b.views - a.views);
-                break;
-            case 'likes':
-                filteredVideos.sort((a, b) => b.likes - a.likes);
-                break;
-            case 'title':
-                filteredVideos.sort((a, b) => a.title.localeCompare(b.title));
-                break;
-        }
-        
-        // Clear current videos and render
-        videoContainer.innerHTML = '';
-        renderVideos();
-    }
-
-    // Render videos with lazy loading
-    function renderVideos() {
-        if (filteredVideos.length === 0) {
-            noResults.classList.remove('d-none');
-            loadingIndicator.classList.add('d-none');
-            return;
-        } else {
-            noResults.classList.add('d-none');
-        }
-        
-        const startIndex = 0;
-        const endIndex = Math.min(currentPage * videosPerPage, filteredVideos.length);
-        const videosToShow = filteredVideos.slice(startIndex, endIndex);
-        
-        videosToShow.forEach(video => {
-            const videoCard = createVideoCard(video);
-            videoContainer.appendChild(videoCard);
-        });
-        
-        // Hide loading indicator if all videos are loaded
-        if (endIndex >= filteredVideos.length) {
-            allVideosLoaded = true;
-            loadingIndicator.classList.add('d-none');
-        } else {
-            loadingIndicator.classList.remove('d-none');
-        }
-    }
-
-    // Load more videos for lazy loading
-    function loadMoreVideos() {
-        if (isLoading || allVideosLoaded) return;
-        
-        isLoading = true;
-        loadingIndicator.classList.remove('d-none');
-        
-        // Simulate loading delay
-        setTimeout(() => {
-            currentPage++;
-            renderVideos();
-            isLoading = false;
-        }, 800);
-    }
-
-    // Create a video card element
-    function createVideoCard(video) {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-sm-6 col-lg-4 col-xl-3';
-        
-        const card = document.createElement('div');
-        card.className = 'video-card card h-100';
-        
-        const thumbnail = document.createElement('div');
-        thumbnail.className = 'video-thumbnail position-relative';
-        thumbnail.innerHTML = `
-            <img src="${video.thumbnail}" alt="${video.title}" class="w-100">
-            <div class="play-icon">
-                <i class="fas fa-play"></i>
-            </div>
-        `;
-        
-        thumbnail.addEventListener('click', () => openVideoModal(video));
-        
-        const info = document.createElement('div');
-        info.className = 'video-info';
-        info.innerHTML = `
-            <h3 class="video-title">${video.title}</h3>
-            <div class="video-meta">
-                <span><i class="fas fa-eye me-1"></i> ${formatNumber(video.views)}</span>
-                <span><i class="fas fa-thumbs-up me-1"></i> ${formatNumber(video.likes)}</span>
-                <span class="badge bg-primary">${video.category}</span>
-            </div>
-        `;
-        
-        card.appendChild(thumbnail);
-        card.appendChild(info);
-        col.appendChild(card);
-        
-        return col;
-    }
-
-    // Open video modal
-    function openVideoModal(video) {
-        videoModalTitle.textContent = video.title;
-        videoModalFrame.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
-        videoModalCategory.textContent = video.category;
-        videoModalViews.textContent = formatNumber(video.views);
-        videoModalLikes.textContent = formatNumber(video.likes);
-        videoModal.show();
-    }
-
-    // Close video modal and stop video playback
-    document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
-        videoModalFrame.src = '';
-    });
-
-    // Helper function to format large numbers
-    function formatNumber(num) {
-        if (num >= 1000000) {
-            return (num / 1000000).toFixed(1) + 'M';
-        } else if (num >= 1000) {
-            return (num / 1000).toFixed(1) + 'K';
-        }
-        return num.toString();
-    }
-
-    // Debounce function for performance
-    function debounce(func, wait) {
-        let timeout;
-        return function() {
-            const context = this, args = arguments;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), wait);
-        };
-    }
-
-    // Initialize the application
-    init();
-});
     </script>
 </body>
 </html>
