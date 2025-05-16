@@ -1,1844 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScienceGears - Advanced Electrochemistry Solutions for Battery Research & Materials Science</title>
-    <meta name="description"
-        content="ScienceGears provides cutting-edge electrochemistry instruments including potentiostats, battery test systems, and fuel cell analyzers for research laboratories worldwide.">
-    <meta name="keywords"
-        content="electrochemistry instruments, potentiostat, battery tester, fuel cell analyzer, corrosion measurement, electrochemical research">
-    <meta name="author" content="ScienceGears">
-
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="ScienceGears - Advanced Electrochemistry Solutions">
-    <meta property="og:description"
-        content="Precision electrochemistry instrumentation for battery research, materials science, and renewable energy applications.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.sciencegears.com">
-    <meta property="og:image" content="https://www.sciencegears.com/assets/images/sciencegears-social.jpg">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.sciencegears.com">
-
-    <!-- Favicon -->
-    <link rel="icon" href="assets/logo/fav-icon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/fav-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/fav-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/fav-icon.png">
-    <link rel="manifest" href="assets/logo/fav-icon.png">
-
+    <title>Terms of Use | ScienceGears.com.au</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts - Roboto + Plus Jakarta Sans -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Swiper JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css"/>
-    
     <style>
         :root {
-            --dark: #1d1d1f;
-            --light: #f5f5f7;
-            --primary-blue: #0052a3;
-            --primary-dark: #0052a3;
-            --gray: #86868b;
-            --light-gray: #e5e5e7;
-            --card-bg: #ffffff;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            --card-shadow-hover: 0 8px 30px rgba(29, 29, 29, 0.1);
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
         }
         
         body {
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.5;
-            padding: 0;
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            position: relative;
         }
         
-        .containers {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            gap: 30px;
-        }
-
-        .product-grid, .product-list {
-            display: none;
-        }
-
-        .product-grid.active {
-            display: grid;
-        }
-
-        .product-list.active {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Filter Sidebar */
-        .filters-sidebars {
-            width: 280px;
-            position: sticky;
-            top: 20px;
-            align-self: flex-start;
-            height: calc(100vh - 40px);
-            overflow-y: auto;
-        }
-        
-        .filters-groups {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .filters-groups h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .filters-groups h3 button {
-            background: none;
-            border: none;
-            color: var(--primary-blue);
-            font-size: 14px;
-            font-weight: 400;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        
-        .filters-groups h3 button:hover {
-            color: var(--primary-dark);
-        }
-        
-        .filters-options {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .filters-option {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .filters-option input {
-            margin-right: 10px;
-            accent-color: var(--primary-blue);
-            cursor: pointer;
-        }
-        
-        .filters-option label {
-            font-size: 14px;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        
-        .filters-option label:hover {
-            color: var(--primary-blue);
-        }
-        
-        .searches-filters {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 6px;
-            border: 1px solid var(--light-gray);
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .filter-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .filter-actions button {
-            flex: 1;
-            padding: 10px;
-            border-radius: 6px;
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .apply-btn {
-            background-color: var(--primary-blue);
+        .terms-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-        }
-        
-        .apply-btn:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .reset-btn {
-            background-color: var(--light-gray);
-            color: var(--dark);
-        }
-        
-        .reset-btn:hover {
-            background-color: #d8d8d8;
-        }
-        
-        /* Main Content */
-        .mains-contents {
-            flex: 1;
-        }
-        
-        /* Header */
-        .listings-headers {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .listings-headers h1 {
-            font-weight: 500;
-            font-size: 28px;
-            letter-spacing: -0.5px;
-            margin: 0;
-        }
-        
-        /* View Controls */
-        .views-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .view-toggle {
-            display: flex;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .view-toggle-btn {
-            background: none;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .view-toggle-btn.active {
-            background-color: var(--light-gray);
-        }
-        
-        .view-toggle-btn i {
-            color: var(--dark);
-            font-size: 16px;
-        }
-        
-        .sort-dropdown {
-            position: relative;
-        }
-        
-        .sort-dropdown button {
-            background: none;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .sort-dropdown button:hover {
-            border-color: var(--primary-blue);
-        }
-        
-        .sort-dropdown button i {
-            font-size: 12px;
-        }
-        
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-        
-        /* Product List View */
-        .product-list {
-            display: none;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .product-grid.active,
-        .product-list.active {
-            display: grid;
-        }
-        
-        .product-list.active {
-            display: flex;
-        }
-        
-        /* Updated Product Card Styles */
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e5e5e7;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            width: 100%;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: #0052a3;
-        }
-        
-        .product-image-container {
-            height: 220px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid #e5e5e7;
         }
         
-        .product-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s;
-            mix-blend-mode: multiply;
-        }
-        
-        .product-card:hover .product-image {
-            transform: scale(1.08);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background-color: #0052a3;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-badge.new {
-            background-color: #0052a3;
-        }
-        
-        .product-badge.portable {
-            background-color: #28a745;
-        }
-        
-        .product-badge.multi-channel {
-            background-color: #6f42c1;
-        }
-        
-        .product-info {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-category {
-            font-size: 12px;
-            color: #0052a3;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .terms-header h1 {
             font-weight: 700;
+            font-size: 2.8rem;
         }
         
-        .product-title {
-            font-size: 18px;
+        .terms-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .terms-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
             font-weight: 600;
-            margin-bottom: 12px;
-            color: #1d1d1f;
-            line-height: 1.3;
-        }
-        
-        .product-specs {
-            font-size: 14px;
-            color: #86868b;
-            margin-bottom: 15px;
-            flex: 1;
-            line-height: 1.5;
-        }
-        
-        .product-features {
-            margin: 15px 0;
-            padding: 0;
-            list-style: none;
-        }
-        
-        .product-features li {
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-left: 22px;
-            margin-bottom: 8px;
-            font-size: 13px;
-            color: #515154;
+            padding-bottom: 0.5rem;
+            scroll-margin-top: 100px;
         }
         
-        .product-features li:before {
-            content: "";
+        .section-title:after {
+            content: '';
             position: absolute;
             left: 0;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            background-color: #0052a3;
-            border-radius: 50%;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
         }
         
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
+        .terms-list {
+            list-style-type: none;
+            padding-left: 0;
         }
         
-        .btn-details {
-            background-color: transparent;
-            color: #0052a3;
-            border: 1px solid #0052a3;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+        .terms-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
         
-        .btn-details:hover {
-            background-color: #0052a3;
+        .terms-list li:before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            top: 0.3rem;
+        }
+        
+        .highlight-box {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .update-date {
+            background-color: var(--accent-color);
             color: white;
-            box-shadow: 0 2px 10px rgba(0, 82, 163, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
         
-        .btn-secondary {
-            background-color: transparent;
-            color: #86868b;
-            border: 1px solid #e5e5e7;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 0.8rem;
+            width: 1.5rem;
+            text-align: center;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+        
+        .sticky-nav .nav-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .sticky-nav .nav-link {
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.3rem;
+            border-radius: 4px;
             transition: all 0.2s;
         }
         
-        .btn-secondary:hover {
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+        .sticky-nav .nav-link:hover,
+        .sticky-nav .nav-link.active {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+            text-decoration: none;
         }
         
-        /* Enhanced Product Row (List View) */
-        .product-row {
-            display: flex;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e5e5e7;
-        }
-        
-        .product-row:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: #0052a3;
-        }
-        
-        .product-row-image {
-            width: 220px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            padding: 30px;
-            border-right: 1px solid #e5e5e7;
-        }
-        
-        .product-row-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s;
-            mix-blend-mode: multiply;
-        }
-        
-        .product-row:hover .product-row-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-row-info {
-            padding: 25px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-row-main {
-            display: flex;
-            flex: 1;
-        }
-        
-        .product-row-details {
-            flex: 1;
-        }
-        
-        .product-row-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-        }
-        
-        .feature-icon {
-            color: #0052a3;
-            margin-right: 10px;
-            font-size: 14px;
-        }
-        
-        .feature-text {
-            font-size: 13px;
-            color: #515154;
-        }
-        
-        .product-row-actions {
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-        
-        /* Technical Specs Highlight */
-        .tech-spec-highlight {
-            display: inline-block;
-            background-color: #f0f7ff;
-            color: #0052a3;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        
-        /* Loading Indicator */
-        .loading {
-            display: flex;
-            justify-content: center;
-            padding: 30px 0;
-            display: none;
-        }
-        
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--light-gray);
-            border-top: 4px solid var(--primary-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Category Groups */
-        .category-group {
-            margin-bottom: 40px;
-        }
-        
-        .category-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .category-title {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin: 0;
-        }
-        
-        .category-count {
-            font-size: 14px;
-            color: var(--gray);
-            background-color: var(--light-gray);
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .containers {
-                padding: 0 60px;
-            }
-            
-            .filters-sidebars {
-                width: 240px;
-            }
-            
-            .product-row-features {
-                grid-template-columns: 1fr;
-            }
+        .sticky-nav .nav-link i {
+            margin-right: 0.5rem;
+            width: 1rem;
+            text-align: center;
         }
         
         @media (max-width: 992px) {
-            .containers {
-                flex-direction: column;
-                padding: 0 40px;
-            }
-            
-            .filters-sidebars {
-                width: 100%;
-                position: static;
+            .sticky-nav {
+                position: relative;
+                top: 0;
                 height: auto;
+                margin-bottom: 2rem;
+                padding-right: 0;
             }
             
-            .filters-options {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 15px;
+            .sticky-nav-inner {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
             
-            .product-row-image {
-                width: 150px;
-            }
-            
-            .product-row-actions {
-                width: 150px;
+            .sticky-nav .nav-link {
+                padding: 0.5rem;
+                font-size: 0.9rem;
             }
         }
         
         @media (max-width: 768px) {
-            .containers {
-                padding: 0 20px;
+            .terms-header {
+                padding: 3rem 0;
             }
             
-            .listings-headers {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
+            .terms-header h1 {
+                font-size: 2.2rem;
             }
             
-            .views-controls {
-                width: 100%;
-                justify-content: space-between;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 20px;
-            }
-            
-            .product-row {
-                flex-direction: column;
-            }
-            
-            .product-row-image {
-                width: 100%;
-                height: 200px;
-            }
-            
-            .product-row-main {
-                flex-direction: column;
-            }
-            
-            .product-row-features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .product-row-actions {
-                width: 100%;
-                flex-direction: row;
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid var(--light-gray);
-                align-items: center;
+            .terms-container {
+                padding: 2rem;
             }
         }
-        
-        @media (max-width: 576px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .view-toggle {
-                margin-left: auto;
-            }
-            
-            .product-row-features {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .no-results i {
-            font-size: 48px;
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .no-results h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .no-results p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        /* Navigation Sidebar */
-        .category-navigation {
-            position: sticky;
-            top: 20px;
-            align-self: flex-start;
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: var(--card-shadow);
-            margin-left: 20px;
-            width: 220px;
-        }
-
-        .category-navigation h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--primary-blue);
-        }
-
-        .category-nav-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .category-nav-item {
-            margin-bottom: 10px;
-        }
-
-        .category-nav-link {
-            display: block;
-            padding: 8px 12px;
-            color: var(--dark);
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s;
-            font-size: 14px;
-        }
-
-        .category-nav-link:hover, .category-nav-link.active {
-            background-color: #f0f7ff;
-            color: var(--primary-blue);
-        }
-
-        @media (max-width: 1200px) {
-            .category-navigation {
-                display: none;
-            }
-        }
-        
     </style>
 </head>
-
 <body>
-    <!-- Header Top Bar -->
-    <div class="header-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="top-contact">
-                <a href="tel:+1234567890"><i class="fas fa-phone"></i>+61 493 868 335</a>
-                <a href="mailto:info@sciencegears.com.au"><i class="fas fa-envelope"></i> info@sciencegears.com.au</a>
-            </div>
-            <div class="top-links">
-                <a href="#"><i class="fas fa-user"></i> My Account</a>
-                <a href="#"><i class="fas fa-question-circle"></i> Support</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+    <!-- Header Section -->
+    <header class="terms-header text-center">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/logo/Logo-300x86.png" alt="ScienceGears Logo">
-            </a>
+            <h1 class="mb-3">Terms of Use</h1>
+            <p class="mb-0">Please read these terms carefully before using our website.</p>
+        </div>
+    </header>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-
-                    <!-- megaproducts Mega Menu -->
-                    <li class="nav-item dropdown mega-menu">
-                        <a class="nav-link dropdown-toggle active" href="#" id="megaproductsDropdown"
-                            data-bs-toggle="dropdown">
-                            Products
-                        </a>
-                        <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
-                            <div class="container">
-                                <div class="row">
-                                    <!-- Column 3: Image Display -->
-                                    <div class="col-lg-3 mega-column">
-                                        <div class="megaproduct-promo">
-                                            <h6>Explore Sciencegears</h6>
-                                            <img src="assets/home/about-mega.png" alt="images" class="megamenu-image">
-
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                            <a href="about.html">
-                                                <p class="mega-a">Explore Now<i class="fas fa-arrow-right-long"></i></p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                
-                                    <div class="col-lg-3 mega-column">
-                                        <h5 class="section-title megamenu-left">Instruments</h5>
-                                        <div class="megaproduct-category active"  onclick="window.location.href='products.html'">
-                                            <i class="fas fa-bolt"></i>
-                                            Potentiostats / Galvanostats
-                                        </div>
-                                        <div class="megaproduct-category">
-                                            <i class="fas fa-solar-panel"></i>
-                                            Photoelectrochemistry &#038; Photovoltaics
-                                        </div>
-                                        <div class="megaproduct-category">
-                                            <i class="fas fa-tools"></i>
-                                            Electrochemistry Accessories
-                                        </div>
-                                        <div class="megaproduct-category">
-                                            <i class="fas fa-battery-three-quarters"></i>
-                                            Battery Cycler
-                                        </div>
-                                        <div class="megaproduct-category">
-                                            <i class="fas fa-temperature-low"></i>
-                                            Battery Environmental Test Chambers
-                                        </div>
-                                        <div class="megaproduct-category">
-                                            <i class="fas fa-plug"></i>
-                                            Battery Cycler Accessories
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 mega-column row">
-                                         <h5 class="section-title megamenu-left">Product Variants</h5>
-                                   <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Squidstat Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
-
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
-                                    </div>
-
-                                        <div class="col-lg-6 mega-column d-flex">
-                                        <div class="megaproduct-promo">
-                                            <h6 class="cursor-auto" onclick="window.location.href='products.html'">Zennium Modular Potentiostats / Galvanostats</h6>
-                                            <img src="assets/products/Potentiostats/Zennium-Modular/ScienceGears_com_au_08 1.png" alt="images" class="megamenu-image"  onclick="window.location.href='products.html'">
-
-                                            <p> At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                        </div>
-                                    </div>
-                                             <a href="products.html" class="view-all-right mt-4">
-                                                <p class="view-all-right-p">View All<i class="fas fa-arrow-right-long p-i"></i></p>
-                                            </a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <!-- resources Mega Menu -->
-                    <li class="nav-item dropdown mega-menu">
-                        <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown"
-                            data-bs-toggle="dropdown">
-                            Resources
-                        </a>
-                        <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
-                            <div class="container">
-                                <div class="row col-lg-12">
-                                    <div class="row col-lg-6">
-                                        <!-- Column 3: Image Display -->
-                                        <div class="col-lg-4 mega-column">
-                                            <div class="card-images card-bg-1">
-                                                <i class="fas fa-file-alt"></i>
-                                            </div>
-                                            <div class="megaproduct-promo">
-                                                <h6>Application Notes</h6>
-                                                <p>In-depth technical guides for researchers</p>
-                                                <a href="#">
-                                                    <p class="mega-a">View all<i class="fas fa-arrow-right-long"></i>
-                                                    </p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Column 3: Image Display -->
-                                        <div class="col-lg-4 mega-column">
-                                            <div class="card-images card-bg-2">
-                                                <i class="fas fa-book"></i>
-                                            </div>
-                                            <div class="megaproduct-promo">
-                                                <h6>Publications</h6>
-                                                <p>Peer-reviewed research and science articles.</p>
-                                                <a href="#">
-                                                    <p class="mega-a">Read More<i class="fas fa-arrow-right-long"></i>
-                                                    </p>
-                                                </a>
-                                            </div>
-                                        </div>
-
-
-                                        <!-- Column 3: Image Display -->
-                                        <div class="col-lg-4 mega-column">
-                                            <div class="card-images card-bg-3">
-                                                <i class="fas fa-download"></i>
-                                            </div>
-                                            <div class="megaproduct-promo">
-                                                <h6>Software</h6>
-                                                <p>Software tutorials, troubleshooting.</p>
-                                                <a href="#">
-                                                    <p class="mega-a">Download Now<i
-                                                            class="fas fa-arrow-right-long"></i></p>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Column 2: Subcategories -->
-                                    <div class="col-lg-3 mega-column">
-                                        <h5 class="section-title megamenu-left">Services</h5>
-                                        <div class="subcategories-container">
-                                            <div class="megaproducts-categorys"><i class="fas fa-tools"></i>
-                                                Installation & Setup </div>
-                                            <div class="megaproducts-categorys"><i class="fas fa-wrench"></i> Repair &
-                                                Maintenance </div>
-                                            <div class="megaproducts-categorys"><i
-                                                    class="fas fa-chalkboard-teacher"></i> Training & Workshops </div>
-                                            <div class="megaproducts-categorys"><i class="fas fa-puzzle-piece"></i>
-                                                Customization & Integration </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- Column 3: Subcategories -->
-                                    <div class="col-lg-3 mega-column">
-                                        <h5 class="section-title megamenu-left">Support</h5>
-                                        <div class="subcategories-container">
-                                         <div class="megaproducts-categorys" onclick="window.location.href='faq.html'"><i class="fas fa-question-circle"></i>
-                                                FAQ</div>
-                                            <div class="megaproducts-categorys"><i class="fas fa-book"></i> Product
-                                                Manuals</div>
-                                            <div class="megaproducts-categorys"><i class="fas fa-file-alt"></i>
-                                                Installation Guides</div>
-                                            <div class="megaproducts-categorys"><i class="fas fa-tools"></i>
-                                                Troubleshooting Center</div>
-                                            <div class="megaproducts-categorys"><i class="fas fa-shield-alt"></i>
-                                                Warranty & Repairs</div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq.html">FAQ</a>
-                    </li>
-
-                </ul>
-
-                <div class="web-container-head align-items-center mobile-container-head">
-                    <!-- Search Toggle -->
-                    <div class="search-container">
-                        <button class="search-toggle" id="searchToggle">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="search-expandable" id="searchExpandable">
-                            <form class="search-form">
-                                <input class="form-control" type="search" placeholder="Search products..."
-                                    aria-label="Search">
-                                <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action Buttons -->
-                    <div class="nav-cta">
-                        <a href="contact.html#form-request" class="btn btn-request">
-                            <i class="fas fa-file-alt me-1"></i> Request Quote
-                        </a>
-                        <a href="contact.html" class="btn btn-contact">
-                            <i class="fas fa-headset me-1"></i> Contact Us
-                        </a>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sticky Navigation -->
+            <div class="col-lg-3">
+                <div class="sticky-nav">
+                    <h4 class="nav-title">Terms of Use Sections</h4>
+                    <div class="sticky-nav-inner">
+                        <a class="nav-link" href="#acceptance"><i class="fas fa-check-circle"></i> Acceptance</a>
+                        <a class="nav-link" href="#changes"><i class="fas fa-sync-alt"></i> Changes to Terms</a>
+                        <a class="nav-link" href="#account"><i class="fas fa-user"></i> User Accounts</a>
+                        <a class="nav-link" href="#purchases"><i class="fas fa-shopping-cart"></i> Purchases</a>
+                        <a class="nav-link" href="#prohibited"><i class="fas fa-ban"></i> Prohibited Uses</a>
+                        <a class="nav-link" href="#intellectual"><i class="fas fa-lightbulb"></i> Intellectual Property</a>
+                        <a class="nav-link" href="#disclaimer"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+                        <a class="nav-link" href="#liability"><i class="fas fa-balance-scale"></i> Liability</a>
+                        <a class="nav-link" href="#indemnification"><i class="fas fa-shield-alt"></i> Indemnification</a>
+                        <a class="nav-link" href="#governing"><i class="fas fa-gavel"></i> Governing Law</a>
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact Us</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-
-    <div class="containers">
-        <!-- Filter Sidebar -->
-        <aside class="filters-sidebars">
-            <div class="filters-groups">
-                <h3>
-                    Search
-                </h3>
-                <input type="text" class="searches-filters" placeholder="Search products...">
-            </div>
             
-            <div class="filters-groups">
-                <h3>
-                    Categories
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-1" checked>
-                        <label for="cat-1">Potentiostats</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-2" checked>
-                        <label for="cat-2">Galvanostats</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-3">
-                        <label for="cat-3">Bi-potentiostats</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-4">
-                        <label for="cat-4">Multi-channel</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="cat-5">
-                        <label for="cat-5">ZRA</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Current Range
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="current-1">
-                        <label for="current-1">µA Range (≤1mA)</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="current-2">
-                        <label for="current-2">mA Range (1mA-1A)</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="current-3">
-                        <label for="current-3">A Range (≥1A)</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Features
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-1">
-                        <label for="feat-1">EIS Capability</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-2">
-                        <label for="feat-2">Multi-channel</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-3">
-                        <label for="feat-3">Portable</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-4">
-                        <label for="feat-4">High Bandwidth</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="feat-5">
-                        <label for="feat-5">Floating Operation</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filters-groups">
-                <h3>
-                    Brands
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-1" checked>
-                        <label for="brand-1">BioLogic</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-2" checked>
-                        <label for="brand-2">Gamry</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-3">
-                        <label for="brand-3">Pine Research</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-4">
-                        <label for="brand-4">Metrohm</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-5">
-                        <label for="brand-5">Princeton</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="filter-actions">
-                <button class="apply-btn">Apply Filters</button>
-                <button class="reset-btn">Reset All</button>
-            </div>
-        </aside>
-        
-        <!-- Main Content -->
-        <div class="mains-contents">
-            <div class="listings-headers">
-                <h1>Squidstat Potentiostats / Galvanostats</h1>
-                
-                <div class="views-controls">
-                    <div class="sort-dropdown">
-                        <button>
-                            Sort by: Featured
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
+            <!-- Terms Content -->
+            <div class="col-lg-9">
+                <div class="terms-container">
+                    <div class="update-date">
+                        Last Updated: <span id="currentDate"></span>
                     </div>
                     
-                    <div class="view-toggle">
-                        <button class="view-toggle-btn grid-toggle active" aria-label="Grid view">
-                            <i class="fas fa-th-large"></i>
-                        </button>
-                        <button class="view-toggle-btn list-toggle" aria-label="List view">
-                            <i class="fas fa-list"></i>
-                        </button>
-                    </div>
+                    <section id="acceptance">
+                        <h2 class="section-title">1. Acceptance of Terms</h2>
+                        <p>By accessing and using ScienceGears.com.au ("the Website"), you accept and agree to be bound by these Terms of Use. If you do not agree to these terms, you must not use our Website.</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Key Point:</strong> Your continued use of the Website constitutes acceptance of these Terms of Use and any modifications.</p>
+                        </div>
+                    </section>
+                    
+                    <section id="changes">
+                        <h2 class="section-title">2. Changes to Terms</h2>
+                        <p>We reserve the right to modify these terms at any time. All changes will be effective immediately upon posting to the Website. Material changes will be conspicuously posted on the Website or through other notification.</p>
+                        
+                        <h4 class="mt-4">Your Responsibility</h4>
+                        <ul class="terms-list">
+                            <li>You are responsible for reviewing these Terms periodically</li>
+                            <li>Your continued use after changes constitutes acceptance</li>
+                            <li>If you disagree with changes, you must stop using the Website</li>
+                        </ul>
+                    </section>
+                    
+                    <section id="account">
+                        <h2 class="section-title">3. User Accounts</h2>
+                        <p>Certain features of the Website may require you to create an account. You agree to:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-user-lock me-2"></i>Account Security</h5>
+                                        <ul class="terms-list">
+                                            <li>Provide accurate and current information</li>
+                                            <li>Maintain confidentiality of your credentials</li>
+                                            <li>Notify us immediately of unauthorized use</li>
+                                            <li>Accept responsibility for all activities under your account</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-trash-alt me-2"></i>Account Termination</h5>
+                                        <ul class="terms-list">
+                                            <li>We reserve the right to suspend or terminate accounts</li>
+                                            <li>You may terminate your account at any time</li>
+                                            <li>Termination does not affect liability for prior use</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="purchases">
+                        <h2 class="section-title">4. Purchases</h2>
+                        <p>All purchases through our Website are subject to availability and our acceptance of your order.</p>
+                        
+                        <div class="table-responsive mt-4">
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Purchase Aspect</th>
+                                        <th>Terms</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Pricing</td>
+                                        <td>Prices subject to change without notice</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Payment</td>
+                                        <td>All payments processed through secure gateways</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shipping</td>
+                                        <td>Subject to our Shipping Policy</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Returns</td>
+                                        <td>Subject to our Returns Policy</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <section id="prohibited">
+                        <h2 class="section-title">5. Prohibited Uses</h2>
+                        <p>You may use the Website only for lawful purposes and in accordance with these Terms. You agree not to use the Website:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-danger mb-3">
+                                    <div class="card-header bg-danger text-white">
+                                        <h5 class="mb-0">Illegal Activities</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="terms-list">
+                                            <li>For any unlawful purpose</li>
+                                            <li>To solicit others to perform unlawful acts</li>
+                                            <li>To violate regulations, rules, or laws</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-danger mb-3">
+                                    <div class="card-header bg-danger text-white">
+                                        <h5 class="mb-0">Website Integrity</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="terms-list">
+                                            <li>To harass, abuse, or harm others</li>
+                                            <li>To upload malicious code or viruses</li>
+                                            <li>To interfere with security features</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="intellectual">
+                        <h2 class="section-title">6. Intellectual Property</h2>
+                        <p>The Website and its entire contents, features, and functionality are owned by ScienceGears.com.au and are protected by copyright, trademark, and other intellectual property laws.</p>
+                        
+                        <div class="row mt-4 text-center">
+                            <div class="col-md-4 col-6 mb-4">
+                                <div class="p-3">
+                                    <i class="fas fa-copyright fa-3x text-primary mb-3"></i>
+                                    <h5>Copyright</h5>
+                                    <p class="small">All content is our property</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4">
+                                <div class="p-3">
+                                    <i class="fas fa-trademark fa-3x text-primary mb-3"></i>
+                                    <h5>Trademarks</h5>
+                                    <p class="small">Our marks may not be used</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4">
+                                <div class="p-3">
+                                    <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
+                                    <h5>License</h5>
+                                    <p class="small">Limited personal use only</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="disclaimer">
+                        <h2 class="section-title">7. Disclaimer of Warranties</h2>
+                        <p>Your use of the Website is at your sole risk. The Website is provided "as is" and "as available" without warranties of any kind.</p>
+                        
+                        <div class="alert alert-warning mt-4">
+                            <i class="fas fa-exclamation-triangle me-2"></i> We do not warrant that the Website will be uninterrupted, secure, or error-free, that defects will be corrected, or that the Website is free of viruses or other harmful components.
+                        </div>
+                    </section>
+                    
+                    <section id="liability">
+                        <h2 class="section-title">8. Limitation of Liability</h2>
+                        <p>To the fullest extent permitted by law, ScienceGears.com.au shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from:</p>
+                        
+                        <ul class="terms-list mt-3">
+                            <li>Your use or inability to use the Website</li>
+                            <li>Any unauthorized access to your transmissions</li>
+                            <li>Any interruption or cessation of transmission</li>
+                            <li>Any bugs, viruses, or similar issues</li>
+                            <li>Any errors or omissions in any content</li>
+                        </ul>
+                    </section>
+                    
+                    <section id="indemnification">
+                        <h2 class="section-title">9. Indemnification</h2>
+                        <p>You agree to defend, indemnify, and hold harmless ScienceGears.com.au from any claims, liabilities, damages, losses, and expenses arising from:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-user-times me-2"></i>Your Violations</h5>
+                                        <ul class="terms-list">
+                                            <li>Your use of the Website</li>
+                                            <li>Your violation of these Terms</li>
+                                            <li>Your violation of any rights of a third party</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-exclamation-circle me-2"></i>Your Content</h5>
+                                        <ul class="terms-list">
+                                            <li>Any user content you submit</li>
+                                            <li>Your conduct in connection with the Website</li>
+                                            <li>Any negligent or wrongful conduct</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="governing">
+                        <h2 class="section-title">10. Governing Law</h2>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of Australia and the state of New South Wales, without regard to its conflict of law provisions.</p>
+                        
+                        <div class="highlight-box mt-4">
+                            <p><strong>Jurisdiction:</strong> You agree to submit to the personal jurisdiction of the courts located in New South Wales for any legal actions arising from these Terms.</p>
+                        </div>
+                    </section>
+                    
+                    <section id="contact">
+                        <h2 class="section-title">11. Contact Us</h2>
+                        <p>For questions about these Terms of Use, please contact us:</p>
+                        
+                        <div class="contact-card">
+                            <h3><i class="fas fa-headset me-2"></i>Legal Department</h3>
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email: legal@sciencegears.com.au</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-phone"></i>
+                                <span>Phone: +61 2 1234 5678</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Address: 123 Science Street, Sydney NSW 2000, Australia</span>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </div>
-            
-            <!-- Grid View -->
-            <div class="product-grid active" id="productGrid">
-                <!-- Product cards will be loaded here -->
-            </div>
-            
-            <!-- List View -->
-            <div class="product-list" id="productList">
-                <!-- Product rows will be loaded here -->
-            </div>
-            
-            <!-- Loading Indicator -->
-            <div class="loading" id="loadingIndicator">
-                <div class="loading-spinner"></div>
             </div>
         </div>
-        
-        <!-- Category Navigation Sidebar -->
-        <aside class="category-navigation">
-            <h3>Categories</h3>
-            <ul class="category-nav-list" id="categoryNav">
-                <!-- Will be populated by JavaScript -->
-            </ul>
-        </aside>
     </div>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-         <div class="row">
-                <!-- Explore Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Explore Instruments</h3>
-                    <a href="products.html" class="footer-link"> Potentiostats / Galvanostats</a>
-                    <a href="products.html" class="footer-link">Photoelectrochemistry &#038;
-                        Photovoltaics</a>
-                    <a href="products.html" class="footer-link"> Electrochemistry Accessories</a>
-                    <a href="products.html" class="footer-link">Battery Cycler</a>
-                    <a href="products.html" class="footer-link">Battery Environmental Test
-                        Chambers</a>
-                    <a href="products.html" class="footer-link">Battery Cycler Accessories</a>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-                </div>
 
-                <!-- Categories Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Learn</h3>
-                    <div class="mb-3">
-                    <a href="#" class="footer-link">How to Use</a>
-                    <a href="#" class="footer-link">Educational Articles</a>
-                    <a href="#" class="footer-link">Video Tutorials</a>
-                    <a href="#" class="footer-link">Science Blog</a>
-                    <a href="#" class="footer-link">Download Guides</a>
-                    </div>
-                </div>
 
-                <!-- Learn Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                <h3 class="footer-heading">Quick Links</h3>
-                    <a href="index.html" class="footer-link">Home</a>
-                    <a href="about.html" class="footer-link">About US</a>
-                    <a href="faq.html" class="footer-link">FAQ</a>
-                    <a href="blog.html" class="footer-link">Blog</a>
-                    <a href="contact.html" class="footer-link">Contact Us</a>
-                </div>
 
-                <!-- About Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                        <h4 class="footer-heading">Legal</h4>
-                        <a href="#" class="footer-link">Terms of Use</a>
-                        <a href="#" class="footer-link">Privacy Policy</a>
-                        <a href="#" class="footer-link">Return Policy</a>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footer-divider"></div>
 
-            <div class="footer-bottom">
-                <div class="footer-cta">
-                    <a href="#" class="btn btn btn-request">Download Product Catalog</a>
-                    <a href="#" class="btn-primary">Get a Custom Quote</a>
-                </div>
-                <div class="text-center mt-3">
-                    <div class="footer-text">
-                        &copy; 2025 ScienceGears Australia | Empowering Discovery Through Science | ABN: 23 456 789 012
-                    </div>
-                </div>
-            </div>
+
+
+
+
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-2">© <span id="currentYear"></span> ScienceGears.com.au. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- Custom JS -->
- 
-
+    
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Product data
-    const products = [
-        {
-            id: 1,
-            title: "Squidstat Plus",
-            category: "Potentiostat/Galvanostat/ZRA",
-            specs: "High-performance potentiostat with ultra-low current measurements and wide potential range.",
-            features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: ["eis", "high-bandwidth"],
-            brand: "biologic",
-        },
-        {
-            id: 2,
-            title: "Squidstat Prime",
-            category: "Potentiostat",
-            specs: "Advanced electrochemical workstation with high current range and ultra-high speed data acquisition.",
-            features: ["Max Current: ±250 mA per channel", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", ""],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_3.png",
-            current: "ma",
-            featuresData: ["eis"],
-            brand: "gamry"
-        },
-        {
-            id: 3,
-            title: "Interface 5000",
-            category: "Galvanostat",
-            specs: "High current galvanostat with touchscreen interface and built-in electrochemical impedance spectroscopy.",
-            features: ["5A current range", "1 MHz EIS", "16-bit resolution"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "a",
-            featuresData: ["eis"],
-            brand: "biologic"
-        },
-        {
-            id: 4,
-            title: "HCP-803",
-            category: "Galvanostat",
-            specs: "Compact and portable galvanostat with high current output for field applications.",
-            features: ["800 mA current range", "Battery powered", "Bluetooth connectivity"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: ["portable"],
-            brand: "pine-research",
-        },
-        {
-            id: 5,
-            title: "SP-200",
-            category: "Potentiostat",
-            specs: "Versatile potentiostat with wide current range and high precision measurements.",
-            features: ["2A current range", "16-bit resolution", "Floating operation"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "a",
-            featuresData: ["floating"],
-            brand: "metrohm"
-        },
-        {
-            id: 6,
-            title: "VMP3",
-            category: "Multi-channel",
-            specs: "Multi-channel electrochemical workstation for high-throughput experiments.",
-            features: ["16 channels", "1A per channel", "Advanced battery cycling"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: ["multi-channel", "eis"],
-            brand: "princeton",
+        // Set current date in the header
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-AU', {
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        });
         
-        },
-        {
-            id: 7,
-            title: "Reference 600+",
-            category: "Potentiostat",
-            specs: "High-performance potentiostat with advanced EIS capabilities and ultra-low current measurements.",
-            features: ["Current Range: 10nA to 1A", "1 MHz EIS", "24-bit ADC"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: ["eis", "high-bandwidth"],
-            brand: "gamry"
-        },
-        {
-            id: 8,
-            title: "CompactStat",
-            category: "Potentiostat",
-            specs: "Compact potentiostat with USB connectivity and basic electrochemical techniques.",
-            features: ["10 mA current range", "USB powered", "Basic EIS"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: ["portable"],
-            brand: "biologic"
-        },
-        {
-            id: 9,
-            title: "WaveNow",
-            category: "Potentiostat",
-            specs: "Simple potentiostat for basic electrochemical measurements and teaching applications.",
-            features: ["1 mA current range", "USB connectivity", "Basic techniques"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: [],
-            brand: "pine-research"
-        },
-        {
-            id: 10,
-            title: "Interface 1010E",
-            category: "Potentiostat/Galvanostat",
-            specs: "Economical potentiostat/galvanostat with EIS capability for research applications.",
-            features: ["1A current range", "100 kHz EIS", "USB connectivity"],
-            image: "assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png",
-            current: "ma",
-            featuresData: ["eis"],
-            brand: "biologic"
-        }
-    ];
-
-    // View toggle functionality
-    const gridToggle = document.querySelector('.grid-toggle');
-    const listToggle = document.querySelector('.list-toggle');
-    const productGrid = document.getElementById('productGrid');
-    const productList = document.getElementById('productList');
-    
-    gridToggle.addEventListener('click', function() {
-        gridToggle.classList.add('active');
-        listToggle.classList.remove('active');
-        productGrid.classList.add('active');
-        productList.classList.remove('active');
-    });
-    
-    listToggle.addEventListener('click', function() {
-        listToggle.classList.add('active');
-        gridToggle.classList.remove('active');
-        productList.classList.add('active');
-        productGrid.classList.remove('active');
-    });
-    
-    // Filter functionality
-    const applyBtn = document.querySelector('.apply-btn');
-    const resetAllBtn = document.querySelector('.reset-btn');
-    const resetFilterBtns = document.querySelectorAll('.resets-filters');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    const categoryNav = document.getElementById('categoryNav');
-    
-    applyBtn.addEventListener('click', applyFilters);
-    resetAllBtn.addEventListener('click', resetAllFilters);
-    
-    resetFilterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const filterGroup = this.closest('.filters-groups');
-            const checkboxes = filterGroup.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
-    });
-    
-    // Function to render products
-    function renderProducts(productsToRender) {
-        // Clear existing products
-        productGrid.innerHTML = '';
-        productList.innerHTML = '';
         
-        // Show loading indicator
-        loadingIndicator.style.display = 'flex';
-        
-        // Group products by category
-        const categories = {};
-        productsToRender.forEach(product => {
-            const category = product.category.toLowerCase().includes('potentiostat') ? 'Potentiostats' : 
-                             product.category.toLowerCase().includes('galvanostat') ? 'Galvanostats' : 
-                             product.category.toLowerCase().includes('multi') ? 'Multi-channel' : 'ZRA';
-            
-            if (!categories[category]) {
-                categories[category] = [];
-            }
-            categories[category].push(product);
-        });
-        
-        // Update category navigation
-        updateCategoryNav(Object.keys(categories));
-        
-        // Simulate loading delay (in a real app, this would be an API call)
-        setTimeout(() => {
-            if (productsToRender.length === 0) {
-                // Show no results message
-                const noResults = document.createElement('div');
-                noResults.className = 'no-results';
-                noResults.innerHTML = `
-                    <i class="fas fa-search"></i>
-                    <h3>No products found</h3>
-                    <p>Try adjusting your filters to find what you're looking for.</p>
-                    <button class="btn btn-primary" onclick="resetAllFilters()">Reset All Filters</button>
-                `;
-                productGrid.appendChild(noResults);
-                productList.appendChild(noResults.cloneNode(true));
-            } else {
-                // Render products grouped by category
-                for (const [category, productsInCategory] of Object.entries(categories)) {
-                    // Create category group for grid view
-                    const gridGroup = document.createElement('div');
-                    gridGroup.className = 'category-group';
-                    gridGroup.id = `grid-${category.toLowerCase().replace(' ', '-')}`;
-                    
-                    const gridHeader = document.createElement('div');
-                    gridHeader.className = 'category-header';
-                    gridHeader.innerHTML = `
-                        <h2 class="category-title">${category}</h2>
-                        <span class="category-count">${productsInCategory.length} products</span>
-                    `;
-                    gridGroup.appendChild(gridHeader);
-                    
-                    // Create category group for list view
-                    const listGroup = document.createElement('div');
-                    listGroup.className = 'category-group';
-                    listGroup.id = `list-${category.toLowerCase().replace(' ', '-')}`;
-                    
-                    const listHeader = document.createElement('div');
-                    listHeader.className = 'category-header';
-                    listHeader.innerHTML = `
-                        <h2 class="category-title">${category}</h2>
-                        <span class="category-count">${productsInCategory.length} products</span>
-                    `;
-                    listGroup.appendChild(listHeader);
-                    
-                    // Add products to grid view
-                    productsInCategory.forEach(product => {
-                        const card = createProductCard(product);
-                        gridGroup.appendChild(card);
-                    });
-                    
-                    // Add products to list view
-                    productsInCategory.forEach(product => {
-                        const row = createProductRow(product);
-                        listGroup.appendChild(row);
-                    });
-                    
-                    // Append to containers
-                    productGrid.appendChild(gridGroup);
-                    productList.appendChild(listGroup);
-                }
-            }
-            
-            // Hide loading indicator
-            loadingIndicator.style.display = 'none';
-        }, 500); // Simulate 500ms loading delay
-    }
-    
-    // Create product card for grid view
-    function createProductCard(product) {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.setAttribute('data-category', product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
-            product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
-            product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra');
-        card.setAttribute('data-current', product.current);
-        card.setAttribute('data-features', product.featuresData.join(' '));
-        card.setAttribute('data-brand', product.brand);
-        
-        let badgeHtml = '';
-        if (product.badge) {
-            badgeHtml = `<span class="product-badge">${product.badge}</span>`;
-        }
-        
-        card.innerHTML = `
-            <div class="product-image-container">
-                ${badgeHtml}
-                <img src="${product.image}" alt="${product.title}" class="product-image">
-            </div>
-            <div class="product-info">
-                <div class="product-category">${product.category}</div>
-                <h3 class="product-title">${product.title}</h3>
-                <p class="product-specs">${product.specs}</p>
-                <ul class="product-features">
-                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-                <div class="product-actions">
-                    <button class="btn-secondary">
-                        <i class="far fa-share-square"></i>
-                    </button>
-                    <button class="btn-primary" onclick="window.location.href='products-detail.html'">
-                        View Details
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        `;
-        
-        return card;
-    }
-    
-    // Create product row for list view
-    function createProductRow(product) {
-        const row = document.createElement('div');
-        row.className = 'product-row';
-        row.setAttribute('data-category', product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
-            product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
-            product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra');
-        row.setAttribute('data-current', product.current);
-        row.setAttribute('data-features', product.featuresData.join(' '));
-        row.setAttribute('data-brand', product.brand);
-        
-        row.innerHTML = `
-            <div class="product-row-image">
-                <img src="${product.image}" alt="${product.title}">
-            </div>
-            <div class="product-row-info">
-                <div class="product-row-main">
-                    <div class="product-row-details">
-                        <div class="product-category">${product.category}</div>
-                        <h3 class="product-title">${product.title}</h3>
-                        <p class="product-specs">${product.specs}</p>
-                        <div class="product-row-features">
-                            ${product.features.slice(0, 4).map(feature => `
-                                <div class="feature-item">
-                                    <i class="fas fa-bolt feature-icon"></i>
-                                    <span class="feature-text">${feature}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="product-row-actions">
-                        <div>
-                            <button class="btn-secondary" style="margin-bottom: 10px;">
-                                <i class="far fa-share-square"></i> Share
-                            </button>
-                            <button class="btn-primary" onclick="window.location.href='products-detail.html'">
-                                View Details
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        return row;
-    }
-    
-    // Update category navigation
-    function updateCategoryNav(categories) {
-        categoryNav.innerHTML = '';
-        
-        categories.forEach(category => {
-            const li = document.createElement('li');
-            li.className = 'category-nav-item';
-            
-            const link = document.createElement('a');
-            link.href = `#${category.toLowerCase().replace(' ', '-')}`;
-            link.className = 'category-nav-link';
-            link.textContent = category;
-            
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.sticky-nav .nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 // Remove active class from all links
-                document.querySelectorAll('.category-nav-link').forEach(link => {
-                    link.classList.remove('active');
+                document.querySelectorAll('.sticky-nav .nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
                 });
                 
                 // Add active class to clicked link
                 this.classList.add('active');
                 
-                // Scroll to category
+                // Scroll to section
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 20,
+                        top: targetElement.offsetTop - 90,
                         behavior: 'smooth'
                     });
                 }
             });
-            
-            li.appendChild(link);
-            categoryNav.appendChild(li);
         });
-    }
-    
-    function applyFilters() {
-        // Get all selected filters
-        const selectedCategories = Array.from(document.querySelectorAll('#cat-1, #cat-2, #cat-3, #cat-4, #cat-5'))
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => {
-                switch(checkbox.id) {
-                    case 'cat-1': return 'potentiostat';
-                    case 'cat-2': return 'galvanostat';
-                    case 'cat-3': return 'bi-potentiostat';
-                    case 'cat-4': return 'multi-channel';
-                    case 'cat-5': return 'zra';
-                    default: return '';
+        
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = '#' + section.getAttribute('id');
                 }
             });
-        
-        const selectedCurrents = Array.from(document.querySelectorAll('#current-1, #current-2, #current-3'))
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => {
-                switch(checkbox.id) {
-                    case 'current-1': return 'µa';
-                    case 'current-2': return 'ma';
-                    case 'current-3': return 'a';
-                    default: return '';
+            
+            document.querySelectorAll('.sticky-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
                 }
             });
-        
-        const selectedFeatures = Array.from(document.querySelectorAll('#feat-1, #feat-2, #feat-3, #feat-4, #feat-5'))
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => {
-                switch(checkbox.id) {
-                    case 'feat-1': return 'eis';
-                    case 'feat-2': return 'multi-channel';
-                    case 'feat-3': return 'portable';
-                    case 'feat-4': return 'high-bandwidth';
-                    case 'feat-5': return 'floating';
-                    default: return '';
-                }
-            });
-        
-        const selectedBrands = Array.from(document.querySelectorAll('#brand-1, #brand-2, #brand-3, #brand-4, #brand-5'))
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => {
-                switch(checkbox.id) {
-                    case 'brand-1': return 'biologic';
-                    case 'brand-2': return 'gamry';
-                    case 'brand-3': return 'pine-research';
-                    case 'brand-4': return 'metrohm';
-                    case 'brand-5': return 'princeton';
-                    default: return '';
-                }
-            });
-        
-        // Filter products
-        const filteredProducts = products.filter(product => {
-            const category = product.category.toLowerCase().includes('potentiostat') ? 'potentiostat' : 
-                             product.category.toLowerCase().includes('galvanostat') ? 'galvanostat' : 
-                             product.category.toLowerCase().includes('multi') ? 'multi-channel' : 'zra';
-            
-            // Check if product matches all selected filters
-            const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
-            const currentMatch = selectedCurrents.length === 0 || selectedCurrents.includes(product.current);
-            const featuresMatch = selectedFeatures.length === 0 || 
-                selectedFeatures.some(feat => product.featuresData.includes(feat));
-            const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-            
-            return categoryMatch && currentMatch && featuresMatch && brandMatch;
         });
-        
-        // Render filtered products
-        renderProducts(filteredProducts);
-    }
-    
-    function resetAllFilters() {
-        // Uncheck all checkboxes
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = false;
-        });
-        
-        // Check default checkboxes (Categories and Brands)
-        document.querySelectorAll('#cat-1, #cat-2, #brand-1, #brand-2').forEach(checkbox => {
-            checkbox.checked = true;
-        });
-        
-        // Show all products
-        renderProducts(products);
-    }
-    
-    // Search functionality
-    const searchInput = document.querySelector('.searches-filters');
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        
-        const filteredProducts = products.filter(product => {
-            const title = product.title.toLowerCase();
-            const specs = product.specs.toLowerCase();
-            const category = product.category.toLowerCase();
-            
-            return title.includes(searchTerm) || specs.includes(searchTerm) || category.includes(searchTerm);
-        });
-        
-        renderProducts(filteredProducts);
-    });
-    
-    // Initial render - show all products
-    renderProducts(products);
-});
-
-// View toggle functionality
-const gridToggle = document.querySelector('.grid-toggle');
-const listToggle = document.querySelector('.list-toggle');
-const productGrid = document.getElementById('productGrid');
-const productList = document.getElementById('productList');
-
-function showGridView() {
-    gridToggle.classList.add('active');
-    listToggle.classList.remove('active');
-    productGrid.style.display = 'grid'; // or 'flex' depending on your layout
-    productList.style.display = 'none';
-}
-
-function showListView() {
-    listToggle.classList.add('active');
-    gridToggle.classList.remove('active');
-    productList.style.display = 'flex';
-    productGrid.style.display = 'none';
-}
-
-gridToggle.addEventListener('click', showGridView);
-listToggle.addEventListener('click', showListView);
-
-// Initialize with grid view
-showGridView();
     </script>
 </body>
 </html>

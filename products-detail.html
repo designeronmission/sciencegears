@@ -42,82 +42,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
 
-    <style>
-        .nav-tabs {
-            border-bottom: none;
-            gap: 10px;
-        }
-
-        .nav-link {
-            position: relative;
-            color: #555;
-            border: none !important;
-            padding: 10px 15px !important;
-            background: transparent !important;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-link span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .nav-link:hover {
-            color: #2c3e50;
-        }
-
-        .nav-link.active {
-            color: #3498db;
-            font-weight: 600;
-        }
-
-        .active-indicator,
-        .hover-indicator {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            border-radius: 3px 3px 0 0;
-            transform-origin: left;
-        }
-
-        .active-indicator {
-            animation: scaleIn 0.3s ease-out forwards;
-        }
-
-        .hover-indicator {
-            background: rgba(52, 152, 219, 0.2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-link:hover .hover-indicator {
-            transform: scaleX(1);
-        }
-
-        .tab-section {
-            display: none;
-            padding: 20px 0;
-        }
-
-        .tab-section.active-section {
-            display: block;
-        }
-
-        @keyframes scaleIn {
-            0% {
-                transform: scaleX(0);
-            }
-
-            100% {
-                transform: scaleX(1);
-            }
-        }
-    </style>
-
 </head>
 
 <body>
@@ -977,7 +901,7 @@
                                                                     (2.4MB)
                                                                 </a>
                                                                 <a href="#" class="btn preview-bt">
-                                                                    <i class="far fa-eye me-2"></i> Preview
+                                                                    <i class="far fa-eye me-2"></i> Share
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1006,7 +930,7 @@
                                                                     (1.8MB)
                                                                 </a>
                                                                 <a href="#" class="btn preview-bt">
-                                                                    <i class="far fa-eye me-2"></i> Preview
+                                                                    <i class="far fa-eye me-2"></i> Share
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1187,7 +1111,7 @@
                                                                     (2.4MB)
                                                                 </a>
                                                                 <a href="#" class="btn preview-bt">
-                                                                    <i class="far fa-eye me-2"></i> Preview
+                                                                    <i class="far fa-eye me-2"></i> Share
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1216,7 +1140,7 @@
                                                                     (1.8MB)
                                                                 </a>
                                                                 <a href="#" class="btn preview-bt">
-                                                                    <i class="far fa-eye me-2"></i> Preview
+                                                                    <i class="far fa-eye me-2"></i> Share
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1647,118 +1571,116 @@
             </div>
         </section>
 
-        <!-- Products -->
+    </div>
 
-        <section class="product-showcase">
-            <div class="container">
+
+            <!-- Products -->
+
+      <section class="product-bg">
+        <div class="apple-scroll-section container py-10">
+            <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">Related Products</h2>
-                    <div class="d-flex align-items-center">
-                        <a href="#" class="view-more me-4">View all products</a>
-                        <div class="scroll-controls">
-                            <button class="scroll-btn" id="scroll-left" disabled>
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="scroll-btn" id="scroll-right">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
+                    <div class="header-text">
+                        <h2 class="fw-bold  cyber-border">Related Product</h2>
+                        <p>Explore our precision instruments designed for electrochemical research and energy
+                            applications</p>
+                    </div>
+
+                    <div class="navs-buttons">
+                        <button class="scroll-button" id="scrollLeft" aria-label="Scroll left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="scroll-button" id="scrollRight" aria-label="Scroll right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
 
-                <div class="products-container">
-                    <div class="products-track" id="products-track">
-                        <!-- Product Card 1 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets\products\Battery Cycler\CT-4000-Series_01-845x321 (1).png"
-                                    alt="iPhone 15 Pro">
-                                <!--     <span class="badge-new">New</span> -->
+                <div class="scroll-container">
+                    <div class="scroll-content" id="scrollContent">
+                        <!-- Category 1 -->
+                        <div class="apple-card">
+                            <div class="related-product-image card-bg-1">
+                               <img src="assets/products/Potentiostats/Squidstat-Plus/squidstat-prime/SquidStat-Prime_1.png" alt="product-image" class="related-product-image">
                             </div>
-                            <div class="product-info">
-                                <div class="product-category">Electrochemistry Accessories</div>
-                                <h3 class="product-name">Saturated Calomel Electrode</h3>
-                                <p class="product-description">±1 A Potentiostat with EIS up to 2 MHz and 1% / 2°
-                                    Accuracy at 1 mΩ.</p>
-                                <div class="product-footer">
-                                    <button class="add-to-cart">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 2 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets\products\Battery Cycler Accessories\Clamp-Holder_New_03-600x600.png"
-                                    alt="MacBook Air">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Electrochemistry Accessories</div>
-                                <h3 class="product-name">Saturated Calomel Electrode</h3>
-                                <p class="product-description">±1 A Potentiostat with EIS up to 2 MHz and 1% / 2°
-                                    Accuracy at 1 mΩ.</p>
-                                <div class="product-footer">
-                                    <button class="add-to-cart">View Details</button>
-                                </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Squidstat Prime</h3>
+                                 <ul class="product-features">
+                                    <li>EIS Frequency Range: Up to 2 MHz</li>
+                                    <li>Max Current: ±1 A</li><li>Best Current Accuracy: 1 nA</li>
+                                    <li>Voltage Scan Range: ±10 V</li>
+                                    <li>Channels Per Unit: 1</li>
+                            </ul>
+                                <a href="products-detail.html" class="card-links">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Product Card 3 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets\products\Battery Environmental Test Chambers\3C-All-in-one-Testing-System_New_01-450x450.png"
-                                    alt="Apple Watch Series 9">
+                        <!-- Category 2 -->
+                        <div class="apple-card">
+                            <div class="related-product-image card-bg-2">
+                             <img src="assets/products/Potentiostats/Squidstat-Plus/squidstat-solo/SquidStat-Solo_1.png" alt="product-image" class="related-product-image">
                             </div>
-                            <div class="product-info">
-                                <div class="product-category">Electrochemistry Accessories</div>
-                                <h3 class="product-name">Saturated Calomel Electrode</h3>
-                                <p class="product-description">±1 A Potentiostat with EIS up to 2 MHz and 1% / 2°
-                                    Accuracy at 1 mΩ.</p>
-                                <div class="product-footer">
-                                    <button class="add-to-cart">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Card 4 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets\products\Battery Environmental Test Chambers\Constant-Temperature-Test-Chamber_New_01-450x450.png"
-                                    alt="iPad Air">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Electrochemistry Accessories</div>
-                                <h3 class="product-name">Saturated Calomel Electrode</h3>
-                                <p class="product-description">±1 A Potentiostat with EIS up to 2 MHz and 1% / 2°
-                                    Accuracy at 1 mΩ.</p>
-                                <div class="product-footer">
-                                    <button class="add-to-cart">View Details</button>
-                                </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Squidstat Solo</h3>
+                                          <ul class="product-features">
+                                    <li>EIS Frequency Range: Up to 2 MHz</li>
+                                    <li>Max Current: ±1 A</li><li>Best Current Accuracy: 1 nA</li>
+                                    <li>Voltage Scan Range: ±10 V</li>
+                                    <li>Channels Per Unit: 1</li>
+                            </ul>
+                                <a href="products-detail.html" class="card-links">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Product Card 5 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="assets\products\Electrochemistry\Double-Salt-Bridge-Saturated-Calomel-Electrode-450x450.png"
-                                    alt="AirPods Max">
+                        <!-- Category 3 -->
+                        <div class="apple-card">
+                            <div class="related-product-image card-bg-3">
+                                <img src="assets/products/Potentiostats/Squidstat-Plus/squidstat-penta/SquidStat-Penta_1.png" alt="product-image" class="related-product-image">
                             </div>
-                            <div class="product-info">
-                                <div class="product-category">Electrochemistry Accessories</div>
-                                <h3 class="product-name">Saturated Calomel Electrode</h3>
-                                <p class="product-description">±1 A Potentiostat with EIS up to 2 MHz and 1% / 2°
-                                    Accuracy at 1 mΩ.</p>
-                                <div class="product-footer">
-                                    <button class="add-to-cart">View Details</button>
-                                </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Squidstat Penta</h3>
+                                           <ul class="product-features">
+                                    <li>EIS Frequency Range: Up to 2 MHz</li>
+                                    <li>Max Current: ±1 A</li><li>Best Current Accuracy: 1 nA</li>
+                                    <li>Voltage Scan Range: ±10 V</li>
+                                    <li>Channels Per Unit: 1</li>
+                            </ul>
+                                <a href="products-detail.html" class="card-links">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Category 4 -->
+                        <div class="apple-card">
+                            <div class="related-product-image card-bg-4">
+                                <img src="assets/products/Potentiostats/Squidstat-Plus/squidstat-decka/SquidStat-Decka_1.png" alt="product-image" class="related-product-image">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Squidstat Decka</h3>
+                            <ul class="product-features">
+                                    <li>EIS Frequency Range: Up to 2 MHz</li>
+                                    <li>Max Current: ±1 A</li><li>Best Current Accuracy: 1 nA</li>
+                                    <li>Voltage Scan Range: ±10 V</li>
+                                    <li>Channels Per Unit: 1</li>
+                            </ul>
+                                <a href="products-detail.html" class="card-links">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
+
+        
     <!-- CTA Section -->
     <section class="cta-section py-10" id="contact">
         <div class="container position-relative">
@@ -1821,6 +1743,7 @@
                 <h3 class="footer-heading">Quick Links</h3>
                     <a href="index.html" class="footer-link">Home</a>
                     <a href="about.html" class="footer-link">About US</a>
+                    <a href="products.html" class="footer-link"> Products</a>
                     <a href="faq.html" class="footer-link">FAQ</a>
                     <a href="blog.html" class="footer-link">Blog</a>
                     <a href="contact.html" class="footer-link">Contact Us</a>
@@ -1830,7 +1753,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                         <h4 class="footer-heading">Legal</h4>
                         <a href="#" class="footer-link">Terms of Use</a>
-                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
                         <a href="#" class="footer-link">Return Policy</a>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1863,6 +1786,42 @@
     <!-- Custom JS -->
 
     <script src="script.js"></script>
+
+
+
+       <script>
+        // Simple script to handle tab navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('#contentNav .nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show the corresponding section
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Handle window resize for responsive adjustments
+            window.addEventListener('resize', function() {
+                // You can add responsive adjustments here if needed
+            });
+        });
+    </script>
 
 </body>
 
