@@ -6480,6 +6480,9 @@ h6 {
     .web-container-head {
         display: none;
     }
+    .terms-container{
+        padding: 1rem !important;
+    }
 
 
 }
