@@ -679,28 +679,24 @@
                         <label for="productCategory${productCount}" class="form-label">Category*</label>
                         <select class="form-select" id="productCategory${productCount}" required>
                             <option value="" selected disabled>Select category</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="machinery">Machinery</option>
-                            <option value="raw-materials">Raw Materials</option>
-                            <option value="consumables">Consumables</option>
-                            <option value="other">Other</option>
+                              <option value="potentiostat"> Potentiostats / Galvanostats</option>
+                                                <option value="Photoelectrochemistry"> Photoelectrochemistry &#038;
+                                                    Photovoltaics
+                                                </option>
+                                                <option value="Electrochemistry-accessories">Electrochemistry
+                                                    Accessories</option>
+                                                <option value="Battery-cycler">Battery Cycler</option>
+                                                <option value="test-Chambers">Battery Environmental Test Chambers
+                                                </option>
+                                                <option value="Cycler-accessories">Battery Cycler Accessories</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label for="quantity${productCount}" class="form-label">Quantity*</label>
                         <input type="number" class="form-control" id="quantity${productCount}" min="1" required>
                     </div>
-                    <div class="col-md-4">
-                        <label for="unit${productCount}" class="form-label">Unit*</label>
-                        <select class="form-select" id="unit${productCount}" required>
-                            <option value="pieces">Pieces</option>
-                            <option value="kg">Kilograms</option>
-                            <option value="liters">Liters</option>
-                            <option value="meters">Meters</option>
-                            <option value="boxes">Boxes</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-6">
                         <label for="deliveryDate${productCount}" class="form-label">Required By</label>
                         <input type="date" class="form-control" id="deliveryDate${productCount}">
                     </div>

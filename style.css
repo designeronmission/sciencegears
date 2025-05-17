@@ -6483,7 +6483,9 @@ h6 {
     .terms-container{
         padding: 1rem !important;
     }
-
+    .listings-headers h1{
+        font-size: 22px;
+    }
 
 }
 
@@ -6493,7 +6495,9 @@ h6 {
         min-height: 200px;
         height: 60vh;
     }
-
+    .listings-headers h1{
+        font-size: 22px !important;
+    }
 }
 
 
