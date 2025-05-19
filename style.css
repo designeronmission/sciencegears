@@ -5682,6 +5682,13 @@ h6 {
         border-top: 1px solid #e5e5e7;
         align-items: center;
     }
+
+    .nav-tabs{
+        gap: 6px !important; 
+    }
+    .responsive-privacy{
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -6486,6 +6493,23 @@ h6 {
     .listings-headers h1{
         font-size: 22px;
     }
+    .nav-tabs{
+        display: none;
+    }
+    .specs-table th{
+        width: 54%;
+    }
+    .key-head{
+        font-size: 18px;
+    }
+
+    .btn-responsive{
+    padding: 10px;
+    width: 80%;
+    }
+    .responsive-privacy{
+        display: none;
+    }
 
 }
 
@@ -6493,7 +6517,7 @@ h6 {
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
     .hero-slider {
         min-height: 200px;
-        height: 60vh;
+        height: 40vh;
     }
     .listings-headers h1{
         font-size: 22px !important;
