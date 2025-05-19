@@ -1,134 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Button with Dropdown</title>
+    <title>ScienceGears.au - Cookie Policy</title>
     <style>
-        /* Base styles */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* Base Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
             background-color: #f5f5f5;
         }
-        
-        .button-container {
+
+        /* Cookie Popup Styles */
+        .cookie-popup {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: var(--transition);
+            max-height: 90vh;
+            overflow-y: auto;
+            border-top: 3px solid #3498db;
+        }
+
+        .cookie-popup.active {
+            transform: translateY(0);
+        }
+
+        .cookie-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cookie-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cookie-text {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .cookie-text a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-settings {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .cookie-settings.active {
+            display: block;
+        }
+
+        .cookie-setting {
+            margin-bottom: 15px;
+        }
+
+        .cookie-setting-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .cookie-toggle {
             position: relative;
             display: inline-block;
+            width: 50px;
+            height: 24px;
         }
-        
-        /* Main toggle button */
-        .toggle-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
-        
-        .toggle-button:hover {
-            background-color: #45a049;
-        }
-        
-        .toggle-button:focus {
-            outline: none;
-        }
-        
-        /* Dropdown content (hidden by default) */
-        .dropdown-content {
-            display: none;
+
+        .cookie-slider {
             position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border-radius: 4px;
-            z-index: 1;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-        
-        /* Style the dropdown buttons */
-        .dropdown-button {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            text-align: left;
-            border: none;
-            background: none;
             cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: var(--transition);
+            border-radius: 34px;
         }
-        
-        .dropdown-button:hover {
-            background-color: #ddd;
+
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 50%;
         }
-        
-        /* Show the dropdown when active */
-        .button-container.active .dropdown-content {
-            display: block;
+
+        input:checked+.cookie-slider {
+            background-color: #3498db;
         }
-        
-        /* Change main button color when active */
-        .button-container.active .toggle-button {
-            background-color: #3e8e41;
+
+        input:checked+.cookie-slider:before {
+            transform: translateX(26px);
         }
-        
-        /* Responsive adjustments */
+
+        .cookie-setting-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .cookie-buttons {
+            position: relative;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .cookie-btn-accept {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .cookie-btn-accept:hover {
+            background-color: #2980b9;
+        }
+
+        .cookie-btn-settings {
+            background-color: transparent;
+            color: #3498db;
+            border: 1px solid #3498db;
+        }
+
+        .cookie-btn-settings:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .cookie-btn-reject {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .cookie-btn-reject:hover {
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+
+        .cookie-btn-save {
+            background-color: #2c3e50;
+            color: white;
+            display: none;
+        }
+
+        .cookie-btn-save:hover {
+            background-color: #1a252f;
+        }
+
+        .cookie-btn-save.active {
+            display: inline-block;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .cookie-popup {
+                padding: 20px 15px;
+            }
+
+            .cookie-title {
+                font-size: 1.3rem;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+            }
+        }
+
         @media (max-width: 480px) {
-            .toggle-button {
-                padding: 10px 20px;
-                font-size: 14px;
+            .cookie-content {
+                min-width: 100%;
             }
-            
-            .dropdown-content {
-                min-width: 120px;
+
+            .cookie-title {
+                font-size: 1.2rem;
             }
-            
-            .dropdown-button {
-                padding: 10px 12px;
-                font-size: 13px;
+
+            .cookie-text {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="button-container">
-        <button class="toggle-button">Toggle Menu</button>
-        <div class="dropdown-content">
-            <button class="dropdown-button">Option 1</button>
-            <button class="dropdown-button">Option 2</button>
+    <!-- Your website content goes here -->
+    <div class="content">
+        <h1>Welcome to ScienceGears.au</h1>
+        <p>This is a demonstration of the cookie policy popup. Scroll down to see it appear.</p>
+    </div>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-container">
+            <div class="cookie-content">
+                <h2 class="cookie-title">We Value Your Privacy</h2>
+                <p class="cookie-text">
+                    ScienceGears.au uses cookies to enhance your browsing experience, analyze site traffic, and
+                    personalize content.
+                    By continuing to use our site, you consent to our use of cookies.
+                    <a href="/privacy-policy" target="_blank">Learn more</a> about how we use cookies and your choices.
+                </p>
+
+                <div class="cookie-settings" id="cookieSettings">
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Necessary Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" checked disabled>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Essential for the website to function properly. Cannot be switched off.
+                        </p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Analytics Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="analyticsToggle" checked>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Help us understand how visitors interact with our website by collecting anonymous
+                            information.
+                        </p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Marketing Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="marketingToggle">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Used to track visitors across websites for more relevant advertising.
+                        </p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Preference Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="preferenceToggle" checked>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Allow the website to remember choices you make for a better experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept All</button>
+                <button class="cookie-btn cookie-btn-settings" id="cookieSettingsBtn">Customize Settings</button>
+                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject All</button>
+                <button class="cookie-btn cookie-btn-save" id="cookieSave">Save Preferences</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Toggle the dropdown when button is clicked
-        const toggleButton = document.querySelector('.toggle-button');
-        const buttonContainer = document.querySelector('.button-container');
-        
-        toggleButton.addEventListener('click', function() {
-            buttonContainer.classList.toggle('active');
-        });
-        
-        // Close the dropdown if clicked outside
-        document.addEventListener('click', function(event) {
-            if (!buttonContainer.contains(event.target)) {
-                buttonContainer.classList.remove('active');
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM Elements
+            const cookiePopup = document.getElementById('cookiePopup');
+            const cookieSettings = document.getElementById('cookieSettings');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieReject = document.getElementById('cookieReject');
+            const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
+            const cookieSave = document.getElementById('cookieSave');
+            const analyticsToggle = document.getElementById('analyticsToggle');
+            const marketingToggle = document.getElementById('marketingToggle');
+            const preferenceToggle = document.getElementById('preferenceToggle');
+
+            // Check if cookie consent was already given
+            const cookieConsent = getCookie('cookieConsent');
+            const cookiePreferences = getCookie('cookiePreferences');
+
+            if (!cookieConsent) {
+                // Show popup if no consent was given yet
+                setTimeout(() => {
+                    cookiePopup.classList.add('active');
+                }, 1000);
+            } else if (cookieConsent === 'custom') {
+                // Apply custom preferences if they exist
+                applyCookiePreferences(JSON.parse(cookiePreferences));
+            }
+
+            // Event Listeners
+            cookieAccept.addEventListener('click', function () {
+                setCookie('cookieConsent', 'all', 365);
+                setCookie('cookiePreferences', JSON.stringify({
+                    analytics: true,
+                    marketing: true,
+                    preferences: true
+                }), 365);
+                cookiePopup.classList.remove('active');
+                loadAcceptedCookies(true, true, true);
+            });
+
+            cookieReject.addEventListener('click', function () {
+                setCookie('cookieConsent', 'necessary', 365);
+                setCookie('cookiePreferences', JSON.stringify({
+                    analytics: false,
+                    marketing: false,
+                    preferences: false
+                }), 365);
+                cookiePopup.classList.remove('active');
+                loadAcceptedCookies(false, false, false);
+            });
+
+            cookieSettingsBtn.addEventListener('click', function () {
+                cookieSettings.classList.add('active');
+                cookieSave.classList.add('active');
+                cookieAccept.style.display = 'none';
+                cookieReject.style.display = 'none';
+                cookieSettingsBtn.style.display = 'none';
+            });
+
+            cookieSave.addEventListener('click', function () {
+                const analytics = analyticsToggle.checked;
+                const marketing = marketingToggle.checked;
+                const preferences = preferenceToggle.checked;
+
+                setCookie('cookieConsent', 'custom', 365);
+                setCookie('cookiePreferences', JSON.stringify({
+                    analytics: analytics,
+                    marketing: marketing,
+                    preferences: preferences
+                }), 365);
+                cookiePopup.classList.remove('active');
+                loadAcceptedCookies(analytics, marketing, preferences);
+            });
+
+            // Helper Functions
+            function setCookie(name, value, days) {
+                let expires = "";
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            function applyCookiePreferences(prefs) {
+                if (prefs) {
+                    analyticsToggle.checked = prefs.analytics;
+                    marketingToggle.checked = prefs.marketing;
+                    preferenceToggle.checked = prefs.preferences;
+                    loadAcceptedCookies(prefs.analytics, prefs.marketing, prefs.preferences);
+                }
+            }
+
+            function loadAcceptedCookies(analytics, marketing, preferences) {
+                // This is where you would load your actual cookies based on preferences
+                console.log('Loading cookies based on preferences:');
+                console.log('Analytics:', analytics);
+                console.log('Marketing:', marketing);
+                console.log('Preferences:', preferences);
+
+                // Example: Load Google Analytics if accepted
+                if (analytics) {
+                    // Load your analytics script here
+                    console.log('Loading analytics scripts...');
+                }
+
+                if (marketing) {
+                    // Load marketing scripts here
+                    console.log('Loading marketing scripts...');
+                }
+
+                if (preferences) {
+                    // Apply preference cookies
+                    console.log('Applying preference settings...');
+                }
             }
         });
     </script>
 </body>
+
 </html>

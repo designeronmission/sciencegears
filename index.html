@@ -745,6 +745,86 @@
 
 
 
+        <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-container">
+            <div class="cookie-content">
+                <h2 class="cookie-title">We Value Your Privacy</h2>
+                <p class="cookie-text">
+                    ScienceGears.au uses cookies to enhance your browsing experience, analyze site traffic, and
+                    personalize content.
+                    By continuing to use our site, you consent to our use of cookies.
+                    <a href="/privacy-policy" target="_blank">Learn more</a> about how we use cookies and your choices.
+                </p>
+
+                <div class="cookie-settings" id="cookieSettings">
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Necessary Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" checked disabled>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Essential for the website to function properly. Cannot be switched off.
+                        </p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Analytics Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="analyticsToggle" checked>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Help us understand how visitors interact with our website by collecting anonymous
+                            information.
+                        </p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Marketing Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="marketingToggle">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Used to track visitors across websites for more relevant advertising.
+                        </p>
+                    </div>
+
+                    <div class="cookie-setting">
+                        <div class="cookie-setting-title">
+                            <span>Preference Cookies</span>
+                            <label class="cookie-toggle">
+                                <input type="checkbox" id="preferenceToggle" checked>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                        <p class="cookie-setting-desc">
+                            Allow the website to remember choices you make for a better experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept All</button>
+                <button class="cookie-btn cookie-btn-settings" id="cookieSettingsBtn">Customize Settings</button>
+                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject All</button>
+                <button class="cookie-btn cookie-btn-save" id="cookieSave">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
@@ -986,6 +1066,146 @@
                 });
             });
         });
+
+
+
+
+
+
+
+
+
+
+        
+      document.addEventListener('DOMContentLoaded', function () {
+            // DOM Elements
+            const cookiePopup = document.getElementById('cookiePopup');
+            const cookieSettings = document.getElementById('cookieSettings');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieReject = document.getElementById('cookieReject');
+            const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
+            const cookieSave = document.getElementById('cookieSave');
+            const analyticsToggle = document.getElementById('analyticsToggle');
+            const marketingToggle = document.getElementById('marketingToggle');
+            const preferenceToggle = document.getElementById('preferenceToggle');
+
+            // Check if cookie consent was already given
+            const cookieConsent = getCookie('cookieConsent');
+            const cookiePreferences = getCookie('cookiePreferences');
+
+            if (!cookieConsent) {
+                // Show popup if no consent was given yet
+                setTimeout(() => {
+                    cookiePopup.classList.add('active');
+                }, 1000);
+            } else if (cookieConsent === 'custom') {
+                // Apply custom preferences if they exist
+                applyCookiePreferences(JSON.parse(cookiePreferences));
+            }
+
+            // Event Listeners
+            cookieAccept.addEventListener('click', function () {
+                setCookie('cookieConsent', 'all', 365);
+                setCookie('cookiePreferences', JSON.stringify({
+                    analytics: true,
+                    marketing: true,
+                    preferences: true
+                }), 365);
+                cookiePopup.classList.remove('active');
+                loadAcceptedCookies(true, true, true);
+            });
+
+            cookieReject.addEventListener('click', function () {
+                setCookie('cookieConsent', 'necessary', 365);
+                setCookie('cookiePreferences', JSON.stringify({
+                    analytics: false,
+                    marketing: false,
+                    preferences: false
+                }), 365);
+                cookiePopup.classList.remove('active');
+                loadAcceptedCookies(false, false, false);
+            });
+
+            cookieSettingsBtn.addEventListener('click', function () {
+                cookieSettings.classList.add('active');
+                cookieSave.classList.add('active');
+                cookieAccept.style.display = 'none';
+                cookieReject.style.display = 'none';
+                cookieSettingsBtn.style.display = 'none';
+            });
+
+            cookieSave.addEventListener('click', function () {
+                const analytics = analyticsToggle.checked;
+                const marketing = marketingToggle.checked;
+                const preferences = preferenceToggle.checked;
+
+                setCookie('cookieConsent', 'custom', 365);
+                setCookie('cookiePreferences', JSON.stringify({
+                    analytics: analytics,
+                    marketing: marketing,
+                    preferences: preferences
+                }), 365);
+                cookiePopup.classList.remove('active');
+                loadAcceptedCookies(analytics, marketing, preferences);
+            });
+
+            // Helper Functions
+            function setCookie(name, value, days) {
+                let expires = "";
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            function applyCookiePreferences(prefs) {
+                if (prefs) {
+                    analyticsToggle.checked = prefs.analytics;
+                    marketingToggle.checked = prefs.marketing;
+                    preferenceToggle.checked = prefs.preferences;
+                    loadAcceptedCookies(prefs.analytics, prefs.marketing, prefs.preferences);
+                }
+            }
+
+            function loadAcceptedCookies(analytics, marketing, preferences) {
+                // This is where you would load your actual cookies based on preferences
+                console.log('Loading cookies based on preferences:');
+                console.log('Analytics:', analytics);
+                console.log('Marketing:', marketing);
+                console.log('Preferences:', preferences);
+
+                // Example: Load Google Analytics if accepted
+                if (analytics) {
+                    // Load your analytics script here
+                    console.log('Loading analytics scripts...');
+                }
+
+                if (marketing) {
+                    // Load marketing scripts here
+                    console.log('Loading marketing scripts...');
+                }
+
+                if (preferences) {
+                    // Apply preference cookies
+                    console.log('Applying preference settings...');
+                }
+            }
+        });
+
+        
 
     </script>
 

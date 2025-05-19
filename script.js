@@ -1458,3 +1458,6 @@ window.addEventListener('resize', handleSidebar);
         brandScroller.scrollLeft = scrollLeft - walk;
     });
 });
+
+
+
