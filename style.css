@@ -6555,6 +6555,9 @@ h6 {
     .listings-headers h1{
         font-size: 25px  !important;
     }
+    .view-toggle{
+        display: none !important;
+    }
 
 }
 
@@ -6669,6 +6672,13 @@ h6 {
     .brand-item {
         min-width: 120px;
         height: 60px;
+    }
+      .filter-responsive{
+        display: block;
+    }
+
+    .view-toggle{
+        display: none !important;
     }
 }
 
