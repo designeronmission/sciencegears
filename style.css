@@ -313,6 +313,25 @@ h6 {
 }
 
 
+
+@media (max-width: 1440px) {
+        .hero-slider {
+        height: 70vh;
+        min-height: 600px !important;
+    }
+}
+
+
+@media (max-width: 1024px) {
+        .hero-slider {
+        height: 70vh;
+        min-height: 430px !important;
+    }
+}
+
+
+
+
 /* Search Functionality */
 .search-container {
     position: relative;
@@ -6517,7 +6536,7 @@ h6 {
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
     .hero-slider {
         min-height: 200px;
-        height: 40vh;
+        height: 50vh;
     }
     .listings-headers h1{
         font-size: 22px !important;
@@ -6626,6 +6645,10 @@ h6 {
         height: 60px;
     }
 }
+
+
+
+
 
 /* Pause animation on hover */
 .brand-scroller:hover .brand-track {
@@ -8046,13 +8069,13 @@ h6 {
 
 }
 
-@media only screen and (min-width: 1231px) and (max-width: 3000px) {
+@media only screen and (min-width: 1231px) and (max-width: 4000px) {
     .nav-res {
         display: none;
     }
         .hero-slider {
         height: 70vh;
-        min-height: 680px;
+        min-height: 1110px;
     }
 }
 
