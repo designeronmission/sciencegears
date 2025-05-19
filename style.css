@@ -5708,6 +5708,13 @@ h6 {
     .responsive-privacy{
         display: none;
     }
+        .filter-responsive{
+        display: block;
+    }
+
+    .filters-sidebars{
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -6423,6 +6430,9 @@ h6 {
 }
 
 
+ .filter-responsive{
+        display: none;
+    }
 
 
 
@@ -6533,6 +6543,17 @@ h6 {
     .hero-slider {
         height: 30vh;
         min-height: 180px !important;
+    }
+
+    .filter-responsive{
+        display: block;
+    }
+
+    .filters-sidebars{
+        display: none;
+    }
+    .listings-headers h1{
+        font-size: 25px  !important;
     }
 
 }
