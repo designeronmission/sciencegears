@@ -6530,13 +6530,18 @@ h6 {
         display: none;
     }
 
+    .hero-slider {
+        height: 30vh;
+        min-height: 180px !important;
+    }
+
 }
 
 
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
     .hero-slider {
         min-height: 200px;
-        height: 50vh;
+        height: 36vh;
     }
     .listings-headers h1{
         font-size: 22px !important;
@@ -8074,7 +8079,7 @@ h6 {
         display: none;
     }
         .hero-slider {
-        height: 70vh;
+        height: 50vh;
         min-height: 1110px;
     }
 }
