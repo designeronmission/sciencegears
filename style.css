@@ -8505,3 +8505,37 @@ h6 {
         display: none;
     }
 }
+
+
+
+
+
+@media (max-width: 1024px) {
+  .navbar-expand-lg .navbar-nav .dropdown-menu{
+    width: 1060px;
+  }
+  .megamenu-image{
+        width: 182px;
+  }
+
+  .section-title{
+     font-size: 12px; 
+  }
+
+  .megaproduct-category{
+        font-size: 13px;
+  }
+
+  .megamenu-images{
+    width: 60px;
+  }
+  .cursor-auto{
+    font-size: 13px;
+  }
+  .nav-responsive{
+    margin-left: auto;
+  }
+
+}
+
+
