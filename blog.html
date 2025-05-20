@@ -88,7 +88,6 @@
         #searchInput {
             padding: 12px 40px;
             border-radius: 5px;
-            border: 1px solid #d0d0d0;
             font-size: 1rem;
             transition: var(--transition);
         }
@@ -742,12 +741,12 @@
             <div class="col-md-12">
                 <h1 class="page-title mb-3 mb-4 text-center">Our Blogs</h1>
             </div>
-            <div class="col-md-8 align-items-center search-blog">
-                <div class="search-box">
-                    <input type="text" id="searchInput" class="form-control mt-3" placeholder="Search blogs...">
-                    <i class="fas fa-search search-icon"></i>
-                </div>
-            </div>
+                 <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search for anything..." id="searchInput" autocomplete="off">
+            <button class="search-btn" id="searchButton">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
         </div>
 
     </div>

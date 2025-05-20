@@ -382,181 +382,180 @@
                     <p class="hero-subtitle text-center">Explore our collection of educational and scientific
                         Publications.</p>
                 </div>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search for anything..." id="searchInput" autocomplete="off">
+            <button class="search-btn" id="searchButton">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
             </div>
         </div>
     </section>
 
 
-<section class="publication-list-page py-5">
-    <div class="container">
-        <div class="row g-4">
-            <!-- Sticky Filter Sidebar -->
-            <div class="col-lg-3 publication-filter">
-                <div class="filter-sidebar bg-white p-4 rounded-4 shadow-sm sticky-top">
-                    <h3 class="mb-4 d-flex align-items-center">
-                        <i class="fas fa-filter me-2 text-primary"></i> Filter & Sort
-                    </h3>
-                    
-                    <!-- Search Box -->
-                    <div class="mb-4">
-                        <label class="form-label small text-muted mb-3">Search Publications</label>
-                        <div class="search-box input-group">
-                            <span class="input-group-text bg-light border-end-0">
-                                <i class="fas fa-search text-muted"></i>
-                            </span>
-                            <input type="text" class="form-control border-start-0" placeholder="Title, author, keyword...">
+    <section class="publication-list-page py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Sticky Filter Sidebar -->
+                <div class="col-lg-3 publication-filter">
+                    <div class="filter-sidebar bg-white p-4 rounded-4 shadow-sm sticky-top">
+                        <h6 class="mb-4 d-flex align-items-center">
+                            <i class="fas fa-filter me-2"></i> Filter & Sort
+                        </h6>
+
+
+                        <!-- Category Filter -->
+                        <div class="mb-4">
+                            <label class="form-label small text-muted mb-3">Equipment Category</label>
+                            <select class="form-select">
+                                <option selected>All Categories</option>
+                                <option>Squidstat - Admiral</option>
+                                <option>Zennium - Zahner</option>
+                                <option>Neware</option>
+                                <option>BioLogic</option>
+                                <option>Gamry</option>
+                            </select>
                         </div>
-                    </div>
-                    
-                    <!-- Category Filter -->
-                    <div class="mb-4">
-                        <label class="form-label small text-muted mb-3">Equipment Category</label>
-                        <select class="form-select">
-                            <option selected>All Categories</option>
-                            <option>Squidstat - Admiral</option>
-                            <option>Zennium - Zahner</option>
-                            <option>Neware</option>
-                            <option>BioLogic</option>
-                            <option>Gamry</option>
-                        </select>
-                    </div>
-                    
-                    <!-- Year Filter -->
-                    <div class="mb-4">
-                        <label class="form-label small text-muted mb-3">Publication Year</label>
-                        <select class="form-select">
-                            <option selected>All Years</option>
-                            <option>2025</option>
-                            <option>2024</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                        </select>
-                    </div>
-                    
-                    <!-- Journal Filter -->
-                    <div class="mb-4">
-                        <label class="form-label small text-muted mb-3">Journal</label>
-                        <select class="form-select">
-                            <option selected>All Journals</option>
-                            <option>Nature Communications</option>
-                            <option>Scientific Reports</option>
-                            <option>Journal of Power Sources</option>
-                            <option>ACS Energy Letters</option>
-                            <option>Advanced Materials</option>
-                        </select>
-                    </div>
-                    
-                    <!-- Reset Filters -->
-                    <button class="btn btn-primary w-100">
-                        <i class="fas fa-sync-alt me-2"></i>Reset Filters
-                    </button>
-                    
-                    <!-- Stats -->
-                    <div class="mt-4 pt-3 border-top">
-                        <div class="d-flex justify-content-between small text-muted mb-3">
-                            <span>Total Publications</span>
-                            <span class="fw-bold">247</span>
+
+                        <!-- Year Filter -->
+                        <div class="mb-4">
+                            <label class="form-label small text-muted mb-3">Publication Year</label>
+                            <select class="form-select">
+                                <option selected>All Years</option>
+                                <option>2025</option>
+                                <option>2024</option>
+                                <option>2023</option>
+                                <option>2022</option>
+                                <option>2021</option>
+                            </select>
                         </div>
-                        <div class="d-flex justify-content-between small text-muted">
-                            <span>Showing Results</span>
-                            <span class="fw-bold">12</span>
+
+                        <!-- Journal Filter -->
+                        <div class="mb-4">
+                            <label class="form-label small text-muted mb-3">Journal</label>
+                            <select class="form-select">
+                                <option selected>All Journals</option>
+                                <option>Nature Communications</option>
+                                <option>Scientific Reports</option>
+                                <option>Journal of Power Sources</option>
+                                <option>ACS Energy Letters</option>
+                                <option>Advanced Materials</option>
+                            </select>
+                        </div>
+
+                        <!-- Reset Filters -->
+                        <button class="btn btn-primary w-100">
+                            <i class="fas fa-sync-alt me-2"></i>Reset Filters
+                        </button>
+
+                        <!-- Stats -->
+                        <div class="mt-4 pt-3 border-top">
+                            <div class="d-flex justify-content-between small text-muted mb-3">
+                                <span>Total Publications</span>
+                                <span class="fw-bold">247</span>
+                            </div>
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>Showing Results</span>
+                                <span class="fw-bold">12</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Publication Grid -->
-            <div class="col-lg-9">
 
-             <div class="row g-4">
-                    <!-- Publication 3 -->
-                    <div class="col-md-12 col-lg-12">
-                        <div class="publication-card h-100">
-                            <div class="publication-header">
-                                <div class="publication-journal">
-                                    <i class="fas fa-book-open"></i> Nature Communications
-                                </div>
-                                <div class="publication-year">2023</div>
-                            </div>
-                            <div class="publication-body">
-                                <p>Coupling nitrate capture with ammonia production through bifunctional
-                                    redox-electrodes.</p>
-                                <div class="publication-authors">
-                                    Kwiyong Kim, Alexandra Zagalskaya, Jing Lian Ng, Jaeyoung Hong, Vitaly Alexandrov,
-                                    Tuan Anh Pham and Xiao Su,
-                                </div>
-                            </div>
-                            <div class="publication-footer">
-                                <span class="publication-doi">Report: 14, Article number: 823</span>
-                                <a href="https://doi.org/10.1038/s41467-023-36321-6" target="_blank"
-                                    class="btn btn-outline-primary btn-sm btn-responsive">
-                                    <i class="fas fa-external-link-alt"></i> View Publication
-                                </a>
+                <!-- Publication Grid -->
+                <div class="col-lg-9">
 
+                    <div class="row g-4">
+                        <!-- Publication 3 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="publication-card h-100">
+                                <div class="publication-header">
+                                    <div class="publication-journal">
+                                        <i class="fas fa-book-open"></i> Nature Communications
+                                    </div>
+                                    <div class="publication-year">2023</div>
+                                </div>
+                                <div class="publication-body">
+                                    <p>Coupling nitrate capture with ammonia production through bifunctional
+                                        redox-electrodes.</p>
+                                    <div class="publication-authors">
+                                        Kwiyong Kim, Alexandra Zagalskaya, Jing Lian Ng, Jaeyoung Hong, Vitaly
+                                        Alexandrov,
+                                        Tuan Anh Pham and Xiao Su,
+                                    </div>
+                                </div>
+                                <div class="publication-footer">
+                                    <span class="publication-doi">Report: 14, Article number: 823</span>
+                                    <a href="https://doi.org/10.1038/s41467-023-36321-6" target="_blank"
+                                        class="btn btn-outline-primary btn-sm btn-responsive">
+                                        <i class="fas fa-external-link-alt"></i> View Publication
+                                    </a>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Publication 2 -->
-                    <div class="col-md-12 col-lg-12">
-                        <div class="publication-card h-100">
-                            <div class="publication-header">
-                                <div class="publication-journal">
-                                    <i class="fas fa-book-open"></i> Scientific Reports
+                        <!-- Publication 2 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="publication-card h-100">
+                                <div class="publication-header">
+                                    <div class="publication-journal">
+                                        <i class="fas fa-book-open"></i> Scientific Reports
+                                    </div>
+                                    <div class="publication-year">2022</div>
                                 </div>
-                                <div class="publication-year">2022</div>
-                            </div>
-                            <div class="publication-body">
-                                <p> Compressed composite carbon felt as a negative electrode for a zinc–iron flow
-                                    battery.</p>
-                                <div class="publication-authors">
-                                    Janenipa Saupsor, Jinnawat Sangsawang, Wathanyu Kao‑ian, Falko Mahlendorf, Ahmad
-                                    Azmin Mohamad, Rongrong Cheacharoen, Soorathep Kheawhom and Anongnat
-                                    Somwangthanaroj.
+                                <div class="publication-body">
+                                    <p> Compressed composite carbon felt as a negative electrode for a zinc–iron flow
+                                        battery.</p>
+                                    <div class="publication-authors">
+                                        Janenipa Saupsor, Jinnawat Sangsawang, Wathanyu Kao‑ian, Falko Mahlendorf, Ahmad
+                                        Azmin Mohamad, Rongrong Cheacharoen, Soorathep Kheawhom and Anongnat
+                                        Somwangthanaroj.
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="publication-footer">
-                                <span class="publication-doi">Report: 12, Article number: 21156</span>
-                                <a href="https://doi.org/10.1038/s41598-022-25450-5" target="_blank"
-                                    class="btn btn-outline-primary btn-sm btn-responsive">
-                                    <i class="fas fa-external-link-alt"></i> View Publication
-                                </a>
+                                <div class="publication-footer">
+                                    <span class="publication-doi">Report: 12, Article number: 21156</span>
+                                    <a href="https://doi.org/10.1038/s41598-022-25450-5" target="_blank"
+                                        class="btn btn-outline-primary btn-sm btn-responsive">
+                                        <i class="fas fa-external-link-alt"></i> View Publication
+                                    </a>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Publication 1 -->
-                    <div class="col-md-12 col-lg-12">
-                        <div class="publication-card h-100">
-                            <div class="publication-header">
-                                <div class="publication-journal">
-                                    <i class="fas fa-book-open"></i> Scientific Reports
+                        <!-- Publication 1 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="publication-card h-100">
+                                <div class="publication-header">
+                                    <div class="publication-journal">
+                                        <i class="fas fa-book-open"></i> Scientific Reports
+                                    </div>
+                                    <div class="publication-year">2021</div>
                                 </div>
-                                <div class="publication-year">2021</div>
-                            </div>
-                            <div class="publication-body">
-                                <p>Characterization and significance of extracellular polymeric substances, reactive
-                                    oxygen species, and extracellular electron transfer in methanogenic biocathode.</p>
-                                <div class="publication-authors">
-                                    Basem S. Zakaria and Bipro Ranjan Dhar
+                                <div class="publication-body">
+                                    <p>Characterization and significance of extracellular polymeric substances, reactive
+                                        oxygen species, and extracellular electron transfer in methanogenic biocathode.
+                                    </p>
+                                    <div class="publication-authors">
+                                        Basem S. Zakaria and Bipro Ranjan Dhar
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="publication-footer">
-                                <span class="publication-doi">Report: 11, Article number: 7933</span>
-                                <a href="https://doi.org/10.1038/s41598-021-87378-6" target="_blank"
-                                    class="btn btn-outline-primary btn-sm btn-responsive">
-                                    <i class="fas fa-external-link-alt"></i> View Publication
-                                </a>
+                                <div class="publication-footer">
+                                    <span class="publication-doi">Report: 11, Article number: 7933</span>
+                                    <a href="https://doi.org/10.1038/s41598-021-87378-6" target="_blank"
+                                        class="btn btn-outline-primary btn-sm btn-responsive">
+                                        <i class="fas fa-external-link-alt"></i> View Publication
+                                    </a>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Footer Section -->
@@ -582,10 +581,10 @@
                     <h3 class="footer-heading">Learn</h3>
                     <div class="mb-3">
                         <a href="#" class="footer-link">How to Use</a>
-                       <a href="publications.html" class="footer-link">Educational Articles</a>
+                        <a href="publications.html" class="footer-link">Educational Articles</a>
                         <a href="video.html" class="footer-link">Video Tutorials</a>
                         <a href="blog.html" class="footer-link">Science Blog</a>
-                          <a href="video.html" class="footer-link">Download Guides</a>
+                        <a href="video.html" class="footer-link">Download Guides</a>
                     </div>
                 </div>
 

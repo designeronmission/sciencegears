@@ -378,249 +378,279 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
-                    <h1 class="hero-title text-center">ScienceGears Software </h1>
-                    <p class="hero-subtitle text-center">Explore our Software.</p>
+                    <h1 class="hero-title text-center">How can we help you today?</h1>
+                   <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search our knowledge base...">
+                <button class="search-btn">Search</button>
+            </div>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <section class="publication-list-page py-5">
+   <!-- Support Content -->
+    <main class="support-content">
         <div class="container">
-            <div class="row g-4">
-                <!-- Sticky Filter Sidebar -->
-                <div class="col-lg-3 publication-filter">
-                    <div class="filter-sidebar bg-white p-4 rounded-4 shadow-sm sticky-top">
-                        <h6 class="mb-4 d-flex align-items-center">
-                            <i class="fas fa-filter me-2"></i> Filter & Sort
-                        </h6>
-
-                        <!-- Search Box -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Search Publications</label>
-                            <div class="search-box input-group">
-                                <span class="input-group-text bg-light border-end-0">
-                                    <i class="fas fa-search text-muted"></i>
-                                </span>
-                                <input type="text" class="form-control border-start-0"
-                                    placeholder="Title, author, keyword...">
-                            </div>
-                        </div>
-
-                        <!-- Category Filter -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Equipment Category</label>
-                            <select class="form-select">
-                                <option selected>All Categories</option>
-                                <option>Squidstat - Admiral</option>
-                                <option>Zennium - Zahner</option>
-                                <option>Neware</option>
-                                <option>BioLogic</option>
-                                <option>Gamry</option>
-                            </select>
-                        </div>
-
-                        <!-- Year Filter -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Publication Year</label>
-                            <select class="form-select">
-                                <option selected>All Years</option>
-                                <option>2025</option>
-                                <option>2024</option>
-                                <option>2023</option>
-                                <option>2022</option>
-                                <option>2021</option>
-                            </select>
-                        </div>
-
-                        <!-- Journal Filter -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Journal</label>
-                            <select class="form-select">
-                                <option selected>All Journals</option>
-                                <option>Nature Communications</option>
-                                <option>Scientific Reports</option>
-                                <option>Journal of Power Sources</option>
-                                <option>ACS Energy Letters</option>
-                                <option>Advanced Materials</option>
-                            </select>
-                        </div>
-
-                        <!-- Reset Filters -->
-                        <button class="btn btn-primary w-100">
-                            <i class="fas fa-sync-alt me-2"></i>Reset Filters
-                        </button>
-
-                        <!-- Stats -->
-                        <div class="mt-4 pt-3 border-top">
-                            <div class="d-flex justify-content-between small text-muted mb-3">
-                                <span>Total Publications</span>
-                                <span class="fw-bold">247</span>
-                            </div>
-                            <div class="d-flex justify-content-between small text-muted">
-                                <span>Showing Results</span>
-                                <span class="fw-bold">12</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Quick Help Grid -->
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="icon">📝</div>
+                    <h3>Raise a Ticket</h3>
+                    <p>Can't find what you're looking for? Submit a support ticket and our team will get back to you.</p>
+                    <a href="#" class="btn">Create Ticket</a>
                 </div>
-
-                <!-- Publication Grid -->
-                <div class="col-lg-9">
-                    <!-- Filter/Search Bar -->
-                    <div class="col-12 mb-4">
-                        <div class="app-notes-filter bg-white p-3 rounded-3 shadow-sm">
-                            <div class="row g-3 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="search-box">
-                                        <i class="fas fa-search"></i>
-                                        <input type="text" class="form-control" placeholder="Search software...">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>All Categories</option>
-                                        <option>Squidstat - Admiral</option>
-                                        <option>Zennium - Zahner</option>
-                                        <option>Neware</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Sort by: Newest First</option>
-                                        <option>Most Downloaded</option>
-                                        <option>Alphabetical</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Application Notes Grid -->
-                    <div class="col-12">
-                        <div class="row g-4">
-                            <!-- Note 1 -->
-                            <div class="col-lg-12 col-md-12">
-                                <div class="app-note-card h-100">
-                                    <div class="card-body row">
-                                        <div class="file-icon col-1">
-                                            <i class="fas fa-download"></i>
-                                        </div>
-                                        <div class="col-7">
-                                            <h4>SUI Installation File for Windows</h4>
-                                            <p class="text-muted">Squidstat - Admiral</p>
-                                            <div class="meta">
-                                                <span><i class="far fa-calendar-alt me-1"></i>
-                                                    Last Update on: May 2023</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4"
-                                            style="text-align: center;margin-top: auto;margin-bottom: auto;">
-                                            <a href="#" class="btn btn-primary btn-download">
-                                                <i class="fas fa-download me-2"></i> Download
-                                                (2.4MB)
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Note 1 -->
-                            <div class="col-lg-12 col-md-12">
-                                <div class="app-note-card h-100">
-                                    <div class="card-body row">
-                                        <div class="file-icon col-1">
-                                            <i class="fas fa-download"></i>
-                                        </div>
-                                        <div class="col-7">
-                                            <h4>Controlled Intensity Modulated Photo Spectroscopy</h4>
-                                            <p class="text-muted">The “C” in CIMPS</p>
-                                            <div class="meta">
-                                                <span><i class="far fa-calendar-alt me-1"></i>
-                                                    Last Update on: March 2023</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4"
-                                            style="text-align: center;margin-top: auto;margin-bottom: auto;">
-                                            <a href="#" class="btn btn-primary btn-download">
-                                                <i class="fas fa-download me-2"></i> Download
-                                                (2.4MB)
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Note 1 -->
-                            <div class="col-lg-12 col-md-12">
-                                <div class="app-note-card h-100">
-                                    <div class="card-body row">
-                                        <div class="file-icon col-1">
-                                            <i class="fas fa-download"></i>
-                                        </div>
-                                        <div class="col-7">
-                                            <h4>SUI Installation File for Windows</h4>
-                                            <p class="text-muted">Squidstat - Admiral</p>
-                                            <div class="meta">
-                                                <span><i class="far fa-calendar-alt me-1"></i>
-                                                    Last Update on: May 2023</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4"
-                                            style="text-align: center;margin-top: auto;margin-bottom: auto;">
-                                            <a href="#" class="btn btn-primary btn-download">
-                                                <i class="fas fa-download me-2"></i> Download
-                                                (2.4MB)
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Note 1 -->
-                            <div class="col-lg-12 col-md-12">
-                                <div class="app-note-card h-100">
-                                    <div class="card-body row">
-                                        <div class="file-icon col-1">
-                                            <i class="fas fa-download"></i>
-                                        </div>
-                                        <div class="col-7">
-                                            <h4>Controlled Intensity Modulated Photo Spectroscopy</h4>
-                                            <p class="text-muted">The “C” in CIMPS</p>
-                                            <div class="meta">
-                                                <span><i class="far fa-calendar-alt me-1"></i>
-                                                    Last Update on: March 2023</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4"
-                                            style="text-align: center;margin-top: auto;margin-bottom: auto;">
-                                            <a href="#" class="btn btn-primary btn-download">
-                                                <i class="fas fa-download me-2"></i> Download
-                                                (2.4MB)
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
+                
+                <div class="support-card">
+                    <div class="icon">🔍</div>
+                    <h3>Track Your Ticket</h3>
+                    <p>Check the status of your existing support requests and view responses from our team.</p>
+                    <a href="#" class="btn">View Tickets</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="icon">📚</div>
+                    <h3>Knowledge Base</h3>
+                    <p>Browse our collection of articles, guides and FAQs to find instant answers.</p>
+                    <a href="#" class="btn">Browse Articles</a>
                 </div>
             </div>
+            
+            <!-- Ticket Management Section -->
+            <div class="ticket-section">
+                <h2>Your Support Tickets</h2>
+                <div class="ticket-actions">
+                    <a href="#" class="btn">New Ticket</a>
+                    <a href="#" class="btn btn-outline">Open Tickets (3)</a>
+                    <a href="#" class="btn btn-outline">Pending Tickets (1)</a>
+                    <a href="#" class="btn btn-outline">Resolved Tickets (12)</a>
+                </div>
+                
+                <div class="ticket-list">
+                    <div class="ticket-header">
+                        <div>Ticket ID</div>
+                        <div>Subject</div>
+                        <div>Date</div>
+                        <div>Status</div>
+                    </div>
+                    
+                    <div class="ticket-item">
+                        <div class="ticket-id">#SG-4582</div>
+                        <div class="ticket-subject">Microscope not focusing properly</div>
+                        <div class="ticket-date">May 15, 2023</div>
+                        <div class="ticket-status status-open">Open</div>
+                    </div>
+                    
+                    <div class="ticket-item">
+                        <div class="ticket-id">#SG-4491</div>
+                        <div class="ticket-subject">Question about chemical compatibility</div>
+                        <div class="ticket-date">May 10, 2023</div>
+                        <div class="ticket-status status-pending">Pending</div>
+                    </div>
+                    
+                    <div class="ticket-item">
+                        <div class="ticket-id">#SG-4367</div>
+                        <div class="ticket-subject">Order #12345 missing items</div>
+                        <div class="ticket-date">May 5, 2023</div>
+                        <div class="ticket-status status-resolved">Resolved</div>
+                    </div>
+                    
+                    <div class="ticket-item">
+                        <div class="ticket-id">#SG-4289</div>
+                        <div class="ticket-subject">Centrifuge warranty inquiry</div>
+                        <div class="ticket-date">Apr 28, 2023</div>
+                        <div class="ticket-status status-resolved">Resolved</div>
+                    </div>
+                </div>
+            </div>
+            
+ 
+            <!-- FAQ Section -->
+    <div id="faqContainer">
+
+      <!-- Group: Electrochemistry Basics -->
+      <h3 class="category-title"><i class="fas fa-atom me-2"></i>Electrochemistry Fundamentals</h3>
+      <div class="accordion mb-5" id="faqElectrochemistry">
+        <div class="accordion-item" data-question="What is electrochemistry?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+              What is electrochemistry?
+            </button>
+          </h2>
+          <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqElectrochemistry">
+            <div class="accordion-body">
+              <p>Electrochemistry is the branch of physical chemistry that studies the relationship between electrical
+                potential and chemical change, with particular focus on:</p>
+              <ul>
+                <li>Redox reactions (electron transfer processes)</li>
+                <li>Interconversion of chemical and electrical energy</li>
+                <li>Behavior of ions in solution (electrolytes)</li>
+                <li>Properties of electrodes and electrochemical cells</li>
+              </ul>
+              <p>Key applications include batteries, fuel cells, corrosion studies, electroplating, and electrochemical
+                sensors.</p>
+              <div class="technical-note">
+                <strong>Nernst Equation:</strong> Fundamental to electrochemistry
+                <div class="equation">E = E° - (RT/nF)lnQ</div>
+                where E is cell potential, E° is standard potential, R is gas constant, T is temperature, n is number of
+                electrons, F is Faraday's constant, and Q is reaction quotient.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group: Potentiostats -->
+      <h3 class="category-title"><i class="fas fa-bolt me-2"></i>Potentiostats</h3>
+      <div class="accordion mb-5" id="faqPotentiostat">
+        <div class="accordion-item" data-question="What is a potentiostat?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+              What is a potentiostat?
+            </button>
+          </h2>
+          <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqPotentiostat">
+            <div class="accordion-body">
+              <p>A potentiostat is an electronic instrument that controls the voltage difference between a working
+                electrode and a reference electrode in an electrochemical cell. It measures the resulting current flow
+                through the counter electrode.</p>
+
+              <img src="https://www.bio-logic.net/wp-content/uploads/2018/12/potentiostat-schematic.png"
+                alt="Potentiostat schematic diagram" class="technical-diagram" style="max-width: 400px;">
+
+              <p>Key components include:</p>
+              <ul>
+                <li><strong>Control amplifier:</strong> Maintains desired potential</li>
+                <li><strong>Electrometer:</strong> Measures current with high sensitivity</li>
+                <li><strong>Signal generator:</strong> Produces voltage waveforms for experiments</li>
+                <li><strong>Three-electrode system:</strong> Working, reference, and counter electrodes</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-    </section>
+        <div class="accordion-item" data-question="How does a potentiostat work?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+              How does a potentiostat work?
+            </button>
+          </h2>
+          <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqPotentiostat">
+            <div class="accordion-body">
+              <p>A potentiostat operates using a feedback control system to maintain precise potential control while
+                measuring current:</p>
+
+              <ol>
+                <li><strong>Potential application:</strong> The user sets the desired potential between working
+                  electrode (WE) and reference electrode (RE)</li>
+                <li><strong>Feedback loop:</strong> The control amplifier compares the measured potential to the set
+                  potential</li>
+                <li><strong>Current adjustment:</strong> The system adjusts current through the counter electrode (CE)
+                  to maintain the desired potential</li>
+                <li><strong>Current measurement:</strong> The resulting current is measured with high precision</li>
+              </ol>
+
+              <div class="technical-note">
+                <strong>Key Technical Specifications:</strong>
+                <ul>
+                  <li>Potential range: Typically ±10V</li>
+                  <li>Current range: pA to A (depending on model)</li>
+                  <li>Bandwidth: Important for fast measurements</li>
+                  <li>Compliance voltage: Maximum voltage the potentiostat can apply</li>
+                </ul>
+              </div>
+
+              <p>Modern potentiostats often include additional features like impedance measurement (EIS), multiple
+                channels, and advanced software control.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-question="What are common potentiostat techniques?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+              What are common potentiostat techniques?
+            </button>
+          </h2>
+          <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqPotentiostat">
+            <div class="accordion-body">
+              <p>Potentiostats enable various electrochemical measurement techniques:</p>
+
+              <table class="table table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Technique</th>
+                    <th>Description</th>
+                    <th>Applications</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Cyclic Voltammetry (CV)</td>
+                    <td>Potential is swept linearly and then reversed</td>
+                    <td>Redox potential determination, reaction mechanisms</td>
+                  </tr>
+                  <tr>
+                    <td>Electrochemical Impedance Spectroscopy (EIS)</td>
+                    <td>Small AC signal applied over range of frequencies</td>
+                    <td>Interface characterization, corrosion studies</td>
+                  </tr>
+                  <tr>
+                    <td>Chronoamperometry</td>
+                    <td>Fixed potential with current measured over time</td>
+                    <td>Catalyst studies, sensor development</td>
+                  </tr>
+                  <tr>
+                    <td>Linear Sweep Voltammetry (LSV)</td>
+                    <td>Potential swept linearly in one direction</td>
+                    <td>Corrosion studies, electrochemical synthesis</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="alert alert-info mt-3">
+                <i class="fas fa-info-circle me-2"></i>The choice of technique depends on the specific electrochemical
+                information needed for your research.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Support Section -->
+    <div class="card mt-5">
+      <div class="card-body">
+        <h4 class="card-title mb-4"><i class="fas fa-microscope me-2"></i>Technical Support</h4>
+        <p class="card-text">For specific questions about your electrochemical setup or experimental design:</p>
+        <form id="techSupportForm">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-4 mt-4">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="col-md-6 mb-4 mt-4">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+          </div>
+          <div class=" mb-4 mt-4">
+            <label for="question" class="form-label">Technical Question</label>
+            <textarea class="form-control" id="question" rows="3" required></textarea>
+          </div>
+          <div class=" mb-4 mt-4">
+            <label for="equipment" class="form-label">Equipment Model (if applicable)</label>
+            <input type="text" class="form-control" id="equipment">
+          </div>
+          <button type="submit" class="btn btn-primary btn-left">Submit Technical Inquiry</button>
+        </form>
+      </div>
+    </div>    
+
+
+        </div>
+    </main>
+
 
 
     <!-- Footer Section -->
