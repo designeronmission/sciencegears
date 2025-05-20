@@ -4601,6 +4601,9 @@ h6 {
 
 /* Publications Section */
 
+.publication-filter{
+    z-index: 1;
+}
 
 .publication-card {
     background: white;
@@ -5944,7 +5947,6 @@ h6 {
     padding: 1rem;
     background-color: rgba(79, 70, 229, 0.05);
     border-radius: 8px;
-    border-left: 3px solid var(--primary);
 }
 
 .megaproduct-promo h6 {
@@ -7837,7 +7839,7 @@ h6 {
 }
 
 .back-to-top:hover {
-    background: var(--primary-color);
+    background: #f4a631;
     transform: translateY(-3px);
 }
 
@@ -8600,5 +8602,12 @@ h6 {
   }
 
 }
+
+
+
+
+
+/* Refund Policy */
+
 
 

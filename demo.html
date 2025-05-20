@@ -1,474 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScienceGears.au - Cookie Policy</title>
+    <title>Refund Policy | ScienceGears.com.au</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
-            --text-color: #333;
-            --light-color: #f8f9fa;
+            --light-color: #ecf0f1;
             --dark-color: #2c3e50;
-            --border-radius: 8px;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f5f5f5;
+            color: #333;
+            background-color: #f9f9f9;
+            position: relative;
         }
-
-        /* Cookie Popup Styles */
-        .cookie-popup {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            padding: 25px;
-            box-shadow: var(--box-shadow);
-            z-index: 9999;
-            transform: translateY(100%);
-            transition: var(--transition);
-            max-height: 90vh;
-            overflow-y: auto;
-            border-top: 3px solid #3498db;
+        
+        .refund-header {
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
         }
-
-        .cookie-popup.active {
-            transform: translateY(0);
+        
+        .refund-header h1 {
+            font-weight: 700;
+            font-size: 2.8rem;
         }
-
-        .cookie-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+        
+        .refund-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
-
-        .cookie-content {
-            flex: 1;
-            min-width: 300px;
+        
+        .refund-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            margin-bottom: 3rem;
         }
-
-        .cookie-title {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
+        
+        .section-title {
+            color: var(--primary-color);
             font-weight: 600;
-        }
-
-        .cookie-text {
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .cookie-text a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .cookie-text a:hover {
-            text-decoration: underline;
-        }
-
-        .cookie-settings {
-            background-color: var(--light-color);
-            padding: 15px;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        .cookie-settings.active {
-            display: block;
-        }
-
-        .cookie-setting {
-            margin-bottom: 15px;
-        }
-
-        .cookie-setting-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .cookie-toggle {
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
+            padding-bottom: 0.5rem;
+            scroll-margin-top: 100px;
         }
-
-        .cookie-toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .cookie-slider {
+        
+        .section-title:after {
+            content: '';
             position: absolute;
-            cursor: pointer;
-            top: 0;
             left: 0;
-            right: 0;
             bottom: 0;
-            background-color: #ccc;
-            transition: var(--transition);
-            border-radius: 34px;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
         }
-
-        .cookie-slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: var(--transition);
-            border-radius: 50%;
+        
+        .refund-list {
+            list-style-type: none;
+            padding-left: 0;
         }
-
-        input:checked+.cookie-slider {
-            background-color: #3498db;
-        }
-
-        input:checked+.cookie-slider:before {
-            transform: translateX(26px);
-        }
-
-        .cookie-setting-desc {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .cookie-buttons {
+        
+        .refund-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
             position: relative;
-            margin-top: auto;
-            margin-bottom: auto;
         }
-
-        .cookie-btn {
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-size: 0.95rem;
+        
+        .refund-list li:before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            top: 0.3rem;
         }
-
-        .cookie-btn-accept {
-            background-color: #3498db;
+        
+        .highlight-box {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .update-date {
+            background-color: var(--accent-color);
             color: white;
-        }
-
-        .cookie-btn-accept:hover {
-            background-color: #2980b9;
-        }
-
-        .cookie-btn-settings {
-            background-color: transparent;
-            color: #3498db;
-            border: 1px solid #3498db;
-        }
-
-        .cookie-btn-settings:hover {
-            background-color: rgba(52, 152, 219, 0.1);
-        }
-
-        .cookie-btn-reject {
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-        }
-
-        .cookie-btn-reject:hover {
-            background-color: rgba(231, 76, 60, 0.1);
-        }
-
-        .cookie-btn-save {
-            background-color: #2c3e50;
-            color: white;
-            display: none;
-        }
-
-        .cookie-btn-save:hover {
-            background-color: #1a252f;
-        }
-
-        .cookie-btn-save.active {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .cookie-popup {
-                padding: 20px 15px;
-            }
-
-            .cookie-title {
-                font-size: 1.3rem;
-            }
-
-            .cookie-buttons {
-                flex-direction: column;
-            }
-
-            .cookie-btn {
-                width: 100%;
-            }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--secondary-color);
         }
-
-        @media (max-width: 480px) {
-            .cookie-content {
-                min-width: 100%;
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 0.8rem;
+            width: 1.5rem;
+            text-align: center;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+        
+        .sticky-nav .nav-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .sticky-nav .nav-link {
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.3rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .sticky-nav .nav-link:hover,
+        .sticky-nav .nav-link.active {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .sticky-nav .nav-link i {
+            margin-right: 0.5rem;
+            width: 1rem;
+            text-align: center;
+        }
+        
+        /* Status Indicators */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+        
+        .status-approved {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-denied {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        @media (max-width: 992px) {
+            .sticky-nav {
+                position: relative;
+                top: 0;
+                height: auto;
+                margin-bottom: 2rem;
+                padding-right: 0;
             }
-
-            .cookie-title {
-                font-size: 1.2rem;
+            
+            .sticky-nav-inner {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
-
-            .cookie-text {
+            
+            .sticky-nav .nav-link {
+                padding: 0.5rem;
                 font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .refund-header {
+                padding: 3rem 0;
+            }
+            
+            .refund-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .refund-container {
+                padding: 2rem;
             }
         }
     </style>
 </head>
-
 <body>
-    <!-- Your website content goes here -->
-    <div class="content">
-        <h1>Welcome to ScienceGears.au</h1>
-        <p>This is a demonstration of the cookie policy popup. Scroll down to see it appear.</p>
-    </div>
+    <!-- Header Section -->
+    <header class="refund-header text-center">
+        <div class="container">
+            <h1 class="mb-3">Refund Policy</h1>
+            <p class="mb-0">Our policy on returns and refunds for your purchases</p>
+        </div>
+    </header>
 
-    <!-- Cookie Popup -->
-    <div class="cookie-popup" id="cookiePopup">
-        <div class="cookie-container">
-            <div class="cookie-content">
-                <h2 class="cookie-title">We Value Your Privacy</h2>
-                <p class="cookie-text">
-                    ScienceGears.au uses cookies to enhance your browsing experience, analyze site traffic, and
-                    personalize content.
-                    By continuing to use our site, you consent to our use of cookies.
-                    <a href="/privacy-policy" target="_blank">Learn more</a> about how we use cookies and your choices.
-                </p>
-
-                <div class="cookie-settings" id="cookieSettings">
-                    <div class="cookie-setting">
-                        <div class="cookie-setting-title">
-                            <span>Necessary Cookies</span>
-                            <label class="cookie-toggle">
-                                <input type="checkbox" checked disabled>
-                                <span class="cookie-slider"></span>
-                            </label>
-                        </div>
-                        <p class="cookie-setting-desc">
-                            Essential for the website to function properly. Cannot be switched off.
-                        </p>
-                    </div>
-
-                    <div class="cookie-setting">
-                        <div class="cookie-setting-title">
-                            <span>Analytics Cookies</span>
-                            <label class="cookie-toggle">
-                                <input type="checkbox" id="analyticsToggle" checked>
-                                <span class="cookie-slider"></span>
-                            </label>
-                        </div>
-                        <p class="cookie-setting-desc">
-                            Help us understand how visitors interact with our website by collecting anonymous
-                            information.
-                        </p>
-                    </div>
-
-                    <div class="cookie-setting">
-                        <div class="cookie-setting-title">
-                            <span>Marketing Cookies</span>
-                            <label class="cookie-toggle">
-                                <input type="checkbox" id="marketingToggle">
-                                <span class="cookie-slider"></span>
-                            </label>
-                        </div>
-                        <p class="cookie-setting-desc">
-                            Used to track visitors across websites for more relevant advertising.
-                        </p>
-                    </div>
-
-                    <div class="cookie-setting">
-                        <div class="cookie-setting-title">
-                            <span>Preference Cookies</span>
-                            <label class="cookie-toggle">
-                                <input type="checkbox" id="preferenceToggle" checked>
-                                <span class="cookie-slider"></span>
-                            </label>
-                        </div>
-                        <p class="cookie-setting-desc">
-                            Allow the website to remember choices you make for a better experience.
-                        </p>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sticky Navigation -->
+            <div class="col-lg-3">
+                <div class="sticky-nav">
+                    <h4 class="nav-title">Refund Policy Sections</h4>
+                    <div class="sticky-nav-inner">
+                        <a class="nav-link" href="#overview"><i class="fas fa-info-circle"></i> Overview</a>
+                        <a class="nav-link" href="#eligibility"><i class="fas fa-check"></i> Eligibility</a>
+                        <a class="nav-link" href="#timeframe"><i class="fas fa-clock"></i> Timeframe</a>
+                        <a class="nav-link" href="#process"><i class="fas fa-exchange-alt"></i> Return Process</a>
+                        <a class="nav-link" href="#refund-methods"><i class="fas fa-money-bill-wave"></i> Refund Methods</a>
+                        <a class="nav-link" href="#non-refundable"><i class="fas fa-times"></i> Non-Refundable</a>
+                        <a class="nav-link" href="#damaged"><i class="fas fa-box-open"></i> Damaged Items</a>
+                        <a class="nav-link" href="#shipping"><i class="fas fa-truck"></i> Shipping Costs</a>
+                        <a class="nav-link" href="#exchanges"><i class="fas fa-sync-alt"></i> Exchanges</a>
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact Us</a>
                     </div>
                 </div>
             </div>
-
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept All</button>
-                <button class="cookie-btn cookie-btn-settings" id="cookieSettingsBtn">Customize Settings</button>
-                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject All</button>
-                <button class="cookie-btn cookie-btn-save" id="cookieSave">Save Preferences</button>
+            
+            <!-- Refund Policy Content -->
+            <div class="col-lg-9">
+                <div class="refund-container">
+                    <div class="update-date">
+                        Last Updated: <span id="currentDate"></span>
+                    </div>
+                    
+                    <section id="overview">
+                        <h2 class="section-title">1. Overview</h2>
+                        <p>At ScienceGears.com.au, we want you to be completely satisfied with your purchase. If you're not satisfied, we're happy to offer refunds or exchanges on most products within a specified period, subject to the conditions outlined in this policy.</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Key Point:</strong> Please inspect your order upon receipt and contact us immediately if the item is defective, damaged, or if you receive the wrong item.</p>
+                        </div>
+                    </section>
+                    
+                    <section id="eligibility">
+                        <h2 class="section-title">2. Eligibility for Refunds</h2>
+                        <p>To be eligible for a return and refund, your item must meet the following criteria:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-success mb-3">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0">Approved Returns <span class="status-indicator status-approved">Approved</span></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="refund-list">
+                                            <li>Unused and in original condition</li>
+                                            <li>In original packaging with all tags attached</li>
+                                            <li>Within the return timeframe (see Section 3)</li>
+                                            <li>Accompanied by proof of purchase</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-danger mb-3">
+                                    <div class="card-header bg-danger text-white">
+                                        <h5 class="mb-0">Denied Returns <span class="status-indicator status-denied">Denied</span></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="refund-list">
+                                            <li>Used or damaged items</li>
+                                            <li>Items not in original condition</li>
+                                            <li>Perishable or personalized goods</li>
+                                            <li>Hazardous materials</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="timeframe">
+                        <h2 class="section-title">3. Return Timeframe</h2>
+                        <p>Our standard return and refund periods are as follows:</p>
+                        
+                        <div class="table-responsive mt-4">
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product Category</th>
+                                        <th>Return Period</th>
+                                        <th>Refund Processing</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Standard Products</td>
+                                        <td>30 days from delivery</td>
+                                        <td>5-10 business days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Electronics</td>
+                                        <td>14 days from delivery</td>
+                                        <td>7-14 business days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Special Orders</td>
+                                        <td>Case by case</td>
+                                        <td>Upon approval</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Clearance Items</td>
+                                        <td>Final sale (no returns)</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-info-circle me-2"></i> The return period is calculated from the date you receive your order (or the date the carrier confirms delivery).
+                        </div>
+                    </section>
+                    
+                    <section id="process">
+                        <h2 class="section-title">4. Return Process</h2>
+                        <p>Follow these steps to initiate a return:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 border-0 text-center">
+                                    <div class="card-body">
+                                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem; margin-bottom: 1rem;">
+                                            1
+                                        </div>
+                                        <h5>Contact Us</h5>
+                                        <p>Email returns@sciencegears.com.au with your order number and reason for return</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 border-0 text-center">
+                                    <div class="card-body">
+                                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem; margin-bottom: 1rem;">
+                                            2
+                                        </div>
+                                        <h5>Get Approval</h5>
+                                        <p>Wait for our return authorization (typically within 2 business days)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 border-0 text-center">
+                                    <div class="card-body">
+                                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem; margin-bottom: 1rem;">
+                                            3
+                                        </div>
+                                        <h5>Ship Item Back</h5>
+                                        <p>Package securely and ship to provided address with tracking</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Important:</strong> Returns sent without prior authorization may not be accepted. Please include the original packing slip or a copy of your order confirmation in your return package.</p>
+                        </div>
+                    </section>
+                    
+                    <section id="refund-methods">
+                        <h2 class="section-title">5. Refund Methods</h2>
+                        <p>Refunds will be issued to the original payment method used for purchase, unless otherwise specified:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-credit-card me-2"></i>Standard Refunds</h5>
+                                        <ul class="refund-list">
+                                            <li><strong>Credit/Debit Cards:</strong> 5-10 business days after processing</li>
+                                            <li><strong>PayPal:</strong> 3-5 business days after processing</li>
+                                            <li><strong>Bank Transfer:</strong> 7-14 business days after processing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-gift me-2"></i>Store Credit</h5>
+                                        <ul class="refund-list">
+                                            <li>May be offered in some circumstances</li>
+                                            <li>Does not expire</li>
+                                            <li>Can be used for future purchases</li>
+                                            <li>Issued immediately via email</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="non-refundable">
+                        <h2 class="section-title">6. Non-Refundable Items</h2>
+                        <p>The following items are not eligible for returns or refunds unless defective:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <ul class="refund-list">
+                                    <li>Downloadable software products</li>
+                                    <li>Personalized or custom-made items</li>
+                                    <li>Perishable goods (chemicals, specimens)</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="refund-list">
+                                    <li>Clearance or final sale items</li>
+                                    <li>Gift cards</li>
+                                    <li>Items marked as non-returnable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="damaged">
+                        <h2 class="section-title">7. Damaged or Defective Items</h2>
+                        <p>If you receive a damaged or defective item, please contact us immediately:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-warning mb-3">
+                                    <div class="card-header bg-warning">
+                                        <h5 class="mb-0">Required Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="refund-list">
+                                            <li>Order number</li>
+                                            <li>Photos of damaged item</li>
+                                            <li>Photos of packaging</li>
+                                            <li>Description of issue</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-success mb-3">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0">Our Response</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="refund-list">
+                                            <li>Typically within 2 business days</li>
+                                            <li>Replacement or refund options</li>
+                                            <li>Prepaid return label if needed</li>
+                                            <li>No restocking fee</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="shipping">
+                        <h2 class="section-title">8. Shipping Costs</h2>
+                        <p>Our policy on return shipping costs:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-check-circle me-2"></i>We Cover Shipping</h5>
+                                        <ul class="refund-list">
+                                            <li>For damaged/defective items</li>
+                                            <li>For incorrect items shipped</li>
+                                            <li>When return is our error</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-times-circle me-2"></i>Customer Covers Shipping</h5>
+                                        <ul class="refund-list">
+                                            <li>For change of mind returns</li>
+                                            <li>For non-defective returns</li>
+                                            <li>Original shipping costs non-refundable</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="exchanges">
+                        <h2 class="section-title">9. Exchanges</h2>
+                        <p>We offer exchanges for most items within 30 days of delivery:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-sync-alt me-2"></i>Exchange Process</h5>
+                                        <ul class="refund-list">
+                                            <li>Contact us to initiate exchange</li>
+                                            <li>Return original item per return policy</li>
+                                            <li>Once received, we'll ship replacement</li>
+                                            <li>Price differences will be adjusted</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary"><i class="fas fa-info-circle me-2"></i>Exchange Notes</h5>
+                                        <ul class="refund-list">
+                                            <li>Subject to product availability</li>
+                                            <li>Customer pays return shipping</li>
+                                            <li>We cover shipping for replacement</li>
+                                            <li>Faster option: refund and new order</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="contact">
+                        <h2 class="section-title">10. Contact Us</h2>
+                        <p>For questions about our refund policy or to initiate a return:</p>
+                        
+                        <div class="contact-card">
+                            <h3><i class="fas fa-headset me-2"></i>Customer Service</h3>
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email: returns@sciencegears.com.au</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-phone"></i>
+                                <span>Phone: +61 2 1234 5678 (Returns Department)</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-clock"></i>
+                                <span>Hours: Monday-Friday, 9am-5pm AEST</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Returns Address: 123 Science Street, Returns Dept, Sydney NSW 2000</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-2">© <span id="currentYear"></span> ScienceGears.com.au. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // DOM Elements
-            const cookiePopup = document.getElementById('cookiePopup');
-            const cookieSettings = document.getElementById('cookieSettings');
-            const cookieAccept = document.getElementById('cookieAccept');
-            const cookieReject = document.getElementById('cookieReject');
-            const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
-            const cookieSave = document.getElementById('cookieSave');
-            const analyticsToggle = document.getElementById('analyticsToggle');
-            const marketingToggle = document.getElementById('marketingToggle');
-            const preferenceToggle = document.getElementById('preferenceToggle');
-
-            // Check if cookie consent was already given
-            const cookieConsent = getCookie('cookieConsent');
-            const cookiePreferences = getCookie('cookiePreferences');
-
-            if (!cookieConsent) {
-                // Show popup if no consent was given yet
-                setTimeout(() => {
-                    cookiePopup.classList.add('active');
-                }, 1000);
-            } else if (cookieConsent === 'custom') {
-                // Apply custom preferences if they exist
-                applyCookiePreferences(JSON.parse(cookiePreferences));
+        // Set current date in the header
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-AU', {
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
             }
-
-            // Event Listeners
-            cookieAccept.addEventListener('click', function () {
-                setCookie('cookieConsent', 'all', 365);
-                setCookie('cookiePreferences', JSON.stringify({
-                    analytics: true,
-                    marketing: true,
-                    preferences: true
-                }), 365);
-                cookiePopup.classList.remove('active');
-                loadAcceptedCookies(true, true, true);
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-
-            cookieReject.addEventListener('click', function () {
-                setCookie('cookieConsent', 'necessary', 365);
-                setCookie('cookiePreferences', JSON.stringify({
-                    analytics: false,
-                    marketing: false,
-                    preferences: false
-                }), 365);
-                cookiePopup.classList.remove('active');
-                loadAcceptedCookies(false, false, false);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.sticky-nav .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.sticky-nav .nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
             });
-
-            cookieSettingsBtn.addEventListener('click', function () {
-                cookieSettings.classList.add('active');
-                cookieSave.classList.add('active');
-                cookieAccept.style.display = 'none';
-                cookieReject.style.display = 'none';
-                cookieSettingsBtn.style.display = 'none';
+        });
+        
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
             });
-
-            cookieSave.addEventListener('click', function () {
-                const analytics = analyticsToggle.checked;
-                const marketing = marketingToggle.checked;
-                const preferences = preferenceToggle.checked;
-
-                setCookie('cookieConsent', 'custom', 365);
-                setCookie('cookiePreferences', JSON.stringify({
-                    analytics: analytics,
-                    marketing: marketing,
-                    preferences: preferences
-                }), 365);
-                cookiePopup.classList.remove('active');
-                loadAcceptedCookies(analytics, marketing, preferences);
+            
+            document.querySelectorAll('.sticky-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
             });
-
-            // Helper Functions
-            function setCookie(name, value, days) {
-                let expires = "";
-                if (days) {
-                    const date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
-            }
-
-            function getCookie(name) {
-                const nameEQ = name + "=";
-                const ca = document.cookie.split(';');
-                for (let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
-
-            function applyCookiePreferences(prefs) {
-                if (prefs) {
-                    analyticsToggle.checked = prefs.analytics;
-                    marketingToggle.checked = prefs.marketing;
-                    preferenceToggle.checked = prefs.preferences;
-                    loadAcceptedCookies(prefs.analytics, prefs.marketing, prefs.preferences);
-                }
-            }
-
-            function loadAcceptedCookies(analytics, marketing, preferences) {
-                // This is where you would load your actual cookies based on preferences
-                console.log('Loading cookies based on preferences:');
-                console.log('Analytics:', analytics);
-                console.log('Marketing:', marketing);
-                console.log('Preferences:', preferences);
-
-                // Example: Load Google Analytics if accepted
-                if (analytics) {
-                    // Load your analytics script here
-                    console.log('Loading analytics scripts...');
-                }
-
-                if (marketing) {
-                    // Load marketing scripts here
-                    console.log('Loading marketing scripts...');
-                }
-
-                if (preferences) {
-                    // Apply preference cookies
-                    console.log('Applying preference settings...');
-                }
-            }
         });
     </script>
 </body>
-
 </html>

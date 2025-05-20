@@ -257,7 +257,7 @@
                                             <div class="megaproduct-promo">
                                                 <h6>Publications</h6>
                                                 <p>Peer-reviewed research and science articles.</p>
-                                                <a href="404.html">
+                                                <a href="publications.html">
                                                     <p class="mega-a">Read More<i class="fas fa-arrow-right-long"></i>
                                                     </p>
                                                 </a>
@@ -273,7 +273,7 @@
                                             <div class="megaproduct-promo">
                                                 <h6>Software</h6>
                                                 <p>Software tutorials, troubleshooting.</p>
-                                                <a href="404.html">
+                                                <a href="software.html">
                                                     <p class="mega-a">Download Now<i
                                                             class="fas fa-arrow-right-long"></i></p>
                                                 </a>
@@ -387,9 +387,89 @@
     </section>
 
 
-    <section>
-        <div class="col-lg-12 container py-10">
-            <div class="row">
+    <section class="publication-list-page py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Sticky Filter Sidebar -->
+            <div class="col-lg-3 publication-filter">
+                <div class="filter-sidebar bg-white p-4 rounded-4 shadow-sm sticky-top">
+                    <h6 class="mb-4 mt-4 align-items-center">
+                        <i class="fas fa-filter me-2"></i> Filter & Sort
+                    </h6>
+                    
+                    <!-- Search Box -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Search Publications</label>
+                        <div class="search-box input-group">
+                            <span class="input-group-text bg-light border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" placeholder="Title, author, keyword...">
+                        </div>
+                    </div>
+                    
+                    <!-- Category Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Equipment Category</label>
+                        <select class="form-select">
+                            <option selected>All Categories</option>
+                            <option>Squidstat - Admiral</option>
+                            <option>Zennium - Zahner</option>
+                            <option>Neware</option>
+                            <option>BioLogic</option>
+                            <option>Gamry</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Year Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Publication Year</label>
+                        <select class="form-select">
+                            <option selected>All Years</option>
+                            <option>2025</option>
+                            <option>2024</option>
+                            <option>2023</option>
+                            <option>2022</option>
+                            <option>2021</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Journal Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Journal</label>
+                        <select class="form-select">
+                            <option selected>All Journals</option>
+                            <option>Nature Communications</option>
+                            <option>Scientific Reports</option>
+                            <option>Journal of Power Sources</option>
+                            <option>ACS Energy Letters</option>
+                            <option>Advanced Materials</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Reset Filters -->
+                    <button class="btn btn-primary w-100">
+                        <i class="fas fa-sync-alt me-2"></i>Reset Filters
+                    </button>
+                    
+                    <!-- Stats -->
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex justify-content-between small text-muted mb-3">
+                            <span>Total Publications</span>
+                            <span class="fw-bold">247</span>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>Showing Results</span>
+                            <span class="fw-bold">12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Publication Grid -->
+            <div class="col-lg-9 col-md-12">
+
+               <div class="row">
                 <!-- Filter/Search Bar -->
                 <div class="col-12 mb-4">
                     <div class="app-notes-filter bg-white p-3 rounded-3 shadow-sm">
@@ -541,9 +621,14 @@
                     </div>
                 </div>
             </div>
-
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
 
 
     <!-- Footer Section -->
@@ -569,10 +654,10 @@
                     <h3 class="footer-heading">Learn</h3>
                     <div class="mb-3">
                         <a href="#" class="footer-link">How to Use</a>
-                        <a href="#" class="footer-link">Educational Articles</a>
+                       <a href="publications.html" class="footer-link">Educational Articles</a>
                         <a href="video.html" class="footer-link">Video Tutorials</a>
                         <a href="blog.html" class="footer-link">Science Blog</a>
-                        <a href="#" class="footer-link">Download Guides</a>
+                          <a href="video.html" class="footer-link">Download Guides</a>
                     </div>
                 </div>
 
@@ -592,7 +677,7 @@
                     <h4 class="footer-heading">Legal</h4>
                     <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
                     <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Return Policy</a>
+                    <a href="refund-policy.html" class="footer-link">Refund Policy</a>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>

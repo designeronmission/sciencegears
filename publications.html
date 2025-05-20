@@ -59,7 +59,7 @@
         </div>
     </div>
 
-     <!-- Main Navigation -->
+    <!-- Main Navigation -->
     <nav class="navbar navbar-expand-lg main-navbar sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -303,13 +303,13 @@
                                         <div class="subcategories-container">
                                             <div class="megaproducts-categorys"
                                                 onclick="window.location.href='faq.html'"><i
-                                                class="fas fa-question-circle"></i>
+                                                    class="fas fa-question-circle"></i>
                                                 FAQ</div>
                                             <div class="megaproducts-categorys"><i class="fas fa-book"></i> Product
                                                 Manuals</div>
                                             <div class="megaproducts-categorys"
                                                 onclick="window.location.href='video.html'"><i
-                                                class="fas fa-file-alt"></i>
+                                                    class="fas fa-file-alt"></i>
                                                 Installation Videos</div>
                                             <div class="megaproducts-categorys"><i class="fas fa-tools"></i>
                                                 Troubleshooting Center</div>
@@ -332,11 +332,11 @@
                         <a class="nav-link" href="faq.html">FAQ</a>
                     </li>
 
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link nav-res" href="request-quote.html">Request Quote</a>
                     </li>
 
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link nav-res" href="contact.html">Contact Us</a>
                     </li>
 
@@ -373,230 +373,192 @@
     </nav>
 
 
-
-        <!-- Header Section -->
-    <header class="privacy-header text-center">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <h1 class="mb-3">Privacy Policy</h1>
-            <p class="mb-0">Your privacy is important to us. This policy explains how we collect, use, and protect your information.</p>
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <h1 class="hero-title text-center">ScienceGears Publications </h1>
+                    <p class="hero-subtitle text-center">Explore our collection of educational and scientific
+                        Publications.</p>
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
 
-    <!-- Main Content -->
+<section class="publication-list-page py-5">
     <div class="container">
-        <div class="row pt-4 mt-4">
-            <!-- Sticky Navigation -->
-            <div class="col-lg-3  responsive-privacy">
-                <div class="sticky-nav">
-                    <h4 class="nav-title">Privacy Policy Sections</h4>
-                    <div class="sticky-nav-inner">
-                        <a class="nav-link" href="#introduction"><i class="fas fa-info-circle"></i> Introduction</a>
-                        <a class="nav-link" href="#information-we-collect"><i class="fas fa-database"></i> Information We Collect</a>
-                        <a class="nav-link" href="#how-we-use"><i class="fas fa-cogs"></i> How We Use Information</a>
-                        <a class="nav-link" href="#disclosure"><i class="fas fa-share-alt"></i> Disclosure</a>
-                        <a class="nav-link" href="#cookies"><i class="fas fa-cookie"></i> Cookies</a>
-                        <a class="nav-link" href="#data-security"><i class="fas fa-lock"></i> Data Security</a>
-                        <a class="nav-link" href="#your-rights"><i class="fas fa-user-shield"></i> Your Rights</a>
-                        <a class="nav-link" href="#third-party"><i class="fas fa-external-link-alt"></i> Third-Party Links</a>
-                        <a class="nav-link" href="#changes"><i class="fas fa-sync-alt"></i> Policy Changes</a>
-                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact Us</a>
+        <div class="row g-4">
+            <!-- Sticky Filter Sidebar -->
+            <div class="col-lg-3 publication-filter">
+                <div class="filter-sidebar bg-white p-4 rounded-4 shadow-sm sticky-top">
+                    <h3 class="mb-4 d-flex align-items-center">
+                        <i class="fas fa-filter me-2 text-primary"></i> Filter & Sort
+                    </h3>
+                    
+                    <!-- Search Box -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Search Publications</label>
+                        <div class="search-box input-group">
+                            <span class="input-group-text bg-light border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" placeholder="Title, author, keyword...">
+                        </div>
+                    </div>
+                    
+                    <!-- Category Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Equipment Category</label>
+                        <select class="form-select">
+                            <option selected>All Categories</option>
+                            <option>Squidstat - Admiral</option>
+                            <option>Zennium - Zahner</option>
+                            <option>Neware</option>
+                            <option>BioLogic</option>
+                            <option>Gamry</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Year Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Publication Year</label>
+                        <select class="form-select">
+                            <option selected>All Years</option>
+                            <option>2025</option>
+                            <option>2024</option>
+                            <option>2023</option>
+                            <option>2022</option>
+                            <option>2021</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Journal Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted mb-3">Journal</label>
+                        <select class="form-select">
+                            <option selected>All Journals</option>
+                            <option>Nature Communications</option>
+                            <option>Scientific Reports</option>
+                            <option>Journal of Power Sources</option>
+                            <option>ACS Energy Letters</option>
+                            <option>Advanced Materials</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Reset Filters -->
+                    <button class="btn btn-primary w-100">
+                        <i class="fas fa-sync-alt me-2"></i>Reset Filters
+                    </button>
+                    
+                    <!-- Stats -->
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex justify-content-between small text-muted mb-3">
+                            <span>Total Publications</span>
+                            <span class="fw-bold">247</span>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>Showing Results</span>
+                            <span class="fw-bold">12</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Policy Content -->
+            <!-- Publication Grid -->
             <div class="col-lg-9">
-                <div class="privacy-container">
-                    <div class="update-date">
-                        Last Updated: <span id="currentDate"></span>
+
+             <div class="row g-4">
+                    <!-- Publication 3 -->
+                    <div class="col-md-12 col-lg-12">
+                        <div class="publication-card h-100">
+                            <div class="publication-header">
+                                <div class="publication-journal">
+                                    <i class="fas fa-book-open"></i> Nature Communications
+                                </div>
+                                <div class="publication-year">2023</div>
+                            </div>
+                            <div class="publication-body">
+                                <p>Coupling nitrate capture with ammonia production through bifunctional
+                                    redox-electrodes.</p>
+                                <div class="publication-authors">
+                                    Kwiyong Kim, Alexandra Zagalskaya, Jing Lian Ng, Jaeyoung Hong, Vitaly Alexandrov,
+                                    Tuan Anh Pham and Xiao Su,
+                                </div>
+                            </div>
+                            <div class="publication-footer">
+                                <span class="publication-doi">Report: 14, Article number: 823</span>
+                                <a href="https://doi.org/10.1038/s41467-023-36321-6" target="_blank"
+                                    class="btn btn-outline-primary btn-sm btn-responsive">
+                                    <i class="fas fa-external-link-alt"></i> View Publication
+                                </a>
+
+                            </div>
+                        </div>
                     </div>
-                    
-                    <section id="introduction">
-                        <h2 class="privacy-section-title">1. Introduction</h2>
-                        <p>Welcome to ScienceGears.com.au ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit our website or make a purchase.</p>
-                        
-                        <div class="highlight-box">
-                            <p><strong>Key Point:</strong> We will never sell your personal information to third parties without your explicit consent.</p>
-                        </div>
-                    </section>
-                    
-                    <section id="information-we-collect">
-                        <h2 class="privacy-section-title">2. Information We Collect</h2>
-                        <p>We may collect the following types of information when you interact with our website:</p>
-                        
-                        <h4 class="mt-4">Personal Data</h4>
-                        <ul class="policy-list">
-                            <li>Contact information (name, email address, phone number)</li>
-                            <li>Shipping and billing addresses</li>
-                            <li>Payment details (processed securely through our payment providers)</li>
-                            <li>Account credentials if you create an account with us</li>
-                        </ul>
-                    </section>
-                    
-                    <section id="how-we-use">
-                        <h2 class="privacy-section-title">3. How We Use Your Information</h2>
-                        <p>We use the information we collect for the following purposes:</p>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 shadow-sm mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title  "><i class="fas fa-shopping-cart me-2"></i>Order Processing</h5>
-                                        <ul class="policy-list">
-                                            <li>Process and fulfill your orders</li>
-                                            <li>Send order confirmations and shipping notifications</li>
-                                            <li>Provide customer support</li>
-                                            <li>Process returns and refunds</li>
-                                        </ul>
-                                    </div>
+                    <!-- Publication 2 -->
+                    <div class="col-md-12 col-lg-12">
+                        <div class="publication-card h-100">
+                            <div class="publication-header">
+                                <div class="publication-journal">
+                                    <i class="fas fa-book-open"></i> Scientific Reports
+                                </div>
+                                <div class="publication-year">2022</div>
+                            </div>
+                            <div class="publication-body">
+                                <p> Compressed composite carbon felt as a negative electrode for a zinc–iron flow
+                                    battery.</p>
+                                <div class="publication-authors">
+                                    Janenipa Saupsor, Jinnawat Sangsawang, Wathanyu Kao‑ian, Falko Mahlendorf, Ahmad
+                                    Azmin Mohamad, Rongrong Cheacharoen, Soorathep Kheawhom and Anongnat
+                                    Somwangthanaroj.
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 shadow-sm mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title  "><i class="fas fa-chart-line me-2"></i>Website Improvement</h5>
-                                        <ul class="policy-list">
-                                            <li>Analyze website usage patterns</li>
-                                            <li>Improve our products and services</li>
-                                            <li>Enhance user experience</li>
-                                            <li>Develop new features</li>
-                                        </ul>
-                                    </div>
+                            <div class="publication-footer">
+                                <span class="publication-doi">Report: 12, Article number: 21156</span>
+                                <a href="https://doi.org/10.1038/s41598-022-25450-5" target="_blank"
+                                    class="btn btn-outline-primary btn-sm btn-responsive">
+                                    <i class="fas fa-external-link-alt"></i> View Publication
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Publication 1 -->
+                    <div class="col-md-12 col-lg-12">
+                        <div class="publication-card h-100">
+                            <div class="publication-header">
+                                <div class="publication-journal">
+                                    <i class="fas fa-book-open"></i> Scientific Reports
+                                </div>
+                                <div class="publication-year">2021</div>
+                            </div>
+                            <div class="publication-body">
+                                <p>Characterization and significance of extracellular polymeric substances, reactive
+                                    oxygen species, and extracellular electron transfer in methanogenic biocathode.</p>
+                                <div class="publication-authors">
+                                    Basem S. Zakaria and Bipro Ranjan Dhar
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    
-                    <section id="disclosure">
-                        <h2 class="privacy-section-title">4. Disclosure of Information</h2>
-                        <p>We may share your information in the following circumstances:</p>
-                        
-                        <div class="table-responsive mt-4">
-                            <table class="table table-bordered">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>Recipient</th>
-                                        <th>Purpose</th>
-                                        <th>Data Shared</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Service Providers</td>
-                                        <td>Payment processing, shipping, IT services, marketing</td>
-                                        <td>Necessary information to perform their services</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Legal Authorities</td>
-                                        <td>Compliance with laws, court orders, legal processes</td>
-                                        <td>Information required by law</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                    
-                    <section id="cookies">
-                        <h2 class="privacy-section-title">5. Cookies & Tracking Technologies</h2>
-                        <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information.</p>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fas fa-cookie me-2 text-warning"></i> Types of Cookies We Use</h5>
-                                        <ul class="policy-list">
-                                            <li><strong>Essential Cookies:</strong> Necessary for website functionality</li>
-                                            <li><strong>Preferences Cookies:</strong> Remember your preferences</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            <div class="publication-footer">
+                                <span class="publication-doi">Report: 11, Article number: 7933</span>
+                                <a href="https://doi.org/10.1038/s41598-021-87378-6" target="_blank"
+                                    class="btn btn-outline-primary btn-sm btn-responsive">
+                                    <i class="fas fa-external-link-alt"></i> View Publication
+                                </a>
+
                             </div>
                         </div>
-                    </section>
-                    
-                    <section id="data-security">
-                        <h2 class="privacy-section-title">6. Data Security</h2>
-                        <p>We implement appropriate technical and organizational measures to protect your personal data:</p>
-                        
-                        <div class="row mt-4 text-center">
-                            <div class="col-md-3 col-6 mb-4">
-                                <div class="p-3">
-                                    <i class="fas fa-lock fa-3x   mb-3"></i>
-                                    <h5>SSL Encryption</h5>
-                                    <p class="small">All data transmitted is encrypted</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 mb-4">
-                                <div class="p-3">
-                                    <i class="fas fa-shield-alt fa-3x   mb-3"></i>
-                                    <h5>Secure Payments</h5>
-                                    <p class="small">PCI-DSS compliant processing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section id="your-rights">
-                        <h2 class="privacy-section-title">7. Your Rights (Under Australian Privacy Laws)</h2>
-                        <p>Under the Australian Privacy Principles (APPs), you have certain rights regarding your personal information:</p>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-primary mb-3">
-                                    <div class="card-header bg-info text-white">
-                                        <h5 class="mb-0">Access & Correction</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>You may request access to the personal information we hold about you and request corrections if it is inaccurate, out-of-date, incomplete, irrelevant, or misleading.</p>
-                                        <button class="btn btn-outline-primary" id="accessRequestBtn">Request Access</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section id="third-party">
-                        <h2 class="privacy-section-title">8. Third-Party Links</h2>
-                        <p>Our website may contain links to third-party websites, plug-ins, and applications. Clicking on those links may allow third parties to collect or share data about you.</p>
-                    </section>
-                    
-                    <section id="changes">
-                        <h2 class="privacy-section-title">9. Changes to This Policy</h2>
-                        <p>We may update this privacy policy from time to time to reflect changes to our practices or for other operational, legal, or regulatory reasons.</p>
-                    </section>
-                    
-                    <section id="contact">
-                        <h2 class="privacy-section-title">10. Contact Us</h2>
-                        <p>For questions about this privacy policy or our privacy practices, please contact us:</p>
-                        
-                        <div class="contact-card">
-                            <h3><i class="fas fa-headset me-2"></i>Privacy Officer</h3>
-                            <div class="contact-info">
-                                <i class="fas fa-envelope"></i>
-                                <span>Email: support@sciencegears.com.au</span>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+</section>
 
 
-    
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
-
-
-
-    
-
-  
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
@@ -619,17 +581,17 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h3 class="footer-heading">Learn</h3>
                     <div class="mb-3">
-                    <a href="#" class="footer-link">How to Use</a>
-                   <a href="publications.html" class="footer-link">Educational Articles</a>
-                    <a href="video.html" class="footer-link">Video Tutorials</a>
-                    <a href="blog.html" class="footer-link">Science Blog</a>
-                      <a href="video.html" class="footer-link">Download Guides</a>
+                        <a href="#" class="footer-link">How to Use</a>
+                       <a href="publications.html" class="footer-link">Educational Articles</a>
+                        <a href="video.html" class="footer-link">Video Tutorials</a>
+                        <a href="blog.html" class="footer-link">Science Blog</a>
+                          <a href="video.html" class="footer-link">Download Guides</a>
                     </div>
                 </div>
 
                 <!-- Learn Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                <h3 class="footer-heading">Quick Links</h3>
+                    <h3 class="footer-heading">Quick Links</h3>
                     <a href="index.html" class="footer-link">Home</a>
                     <a href="about.html" class="footer-link">About US</a>
                     <a href="products.html" class="footer-link"> Products</a>
@@ -640,10 +602,10 @@
 
                 <!-- About Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                        <h4 class="footer-heading">Legal</h4>
-                        <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
-                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <a href="refund-policy.html" class="footer-link">Refund Policy</a>
+                    <h4 class="footer-heading">Legal</h4>
+                    <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="refund-policy.html" class="footer-link">Refund Policy</a>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -675,93 +637,6 @@
     <!-- Custom JS -->
 
     <script src="script.js"></script>
-
-
-
-       <script>
-               // Set current date in the header
-        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-AU', {
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric'
-        });
-        
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Cookie settings button
-        document.getElementById('cookieSettingsBtn').addEventListener('click', () => {
-            alert('Cookie settings would open here. This is a demo functionality.');
-        });
-        
-        // Access request button
-        document.getElementById('accessRequestBtn').addEventListener('click', () => {
-            alert('A request form would open here. This is a demo functionality.');
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.sticky-nav .nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remove active class from all links
-                document.querySelectorAll('.sticky-nav .nav-link').forEach(navLink => {
-                    navLink.classList.remove('active');
-                });
-                
-                // Add active class to clicked link
-                this.classList.add('active');
-                
-                // Scroll to section
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 90,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Highlight active section in navigation
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.pageYOffset >= sectionTop) {
-                    currentSection = '#' + section.getAttribute('id');
-                }
-            });
-            
-            document.querySelectorAll('.sticky-nav .nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentSection) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
 
 </body>
 
