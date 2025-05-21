@@ -1,800 +1,873 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScienceGears Support Center</title>
+    <title>Installation & Setup Guides | ScienceGears.com.au</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles */
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --text: #333;
-            --text-light: #7f8c8d;
+            --primary: #0066cc;
+            --secondary: #003366;
+            --accent: #ff6600;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --sidebar-width: 320px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: #f5f7fa;
-            color: var(--text);
+            background-color: #f5f5f5;
+            color: var(--dark);
             line-height: 1.6;
         }
-        
-        a {
-            text-decoration: none;
-            color: var(--secondary);
-            transition: all 0.3s ease;
+
+        .container {
+            display: flex;
+            min-height: 100vh;
         }
-        
-        a:hover {
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .logo-text span {
             color: var(--accent);
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .btn-accent {
-            background-color: var(--accent);
-        }
-        
-        .btn-accent:hover {
-            background-color: #c0392b;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        /* Header */
-        .support-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .support-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
+
         .nav-links {
             display: flex;
-            gap: 20px;
+            list-style: none;
         }
-        
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
         .nav-links a {
-            color: white;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
-        
-        /* Hero Section */
-        .support-hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
         }
-        
-        .support-hero h1 {
-            font-size: 2.5rem;
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 25%;
+            background-color: white;
+            border-right: 1px solid #eee;
+            height: 100vh;
+            position: sticky;
+            top: 80px;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .sidebar-search {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #eee;
             margin-bottom: 20px;
         }
-        
-        .support-hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .search-input {
+
+        .sidebar-search input {
             width: 100%;
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: none;
-            font-size: 16px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
         }
-        
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 10px 20px;
-            cursor: pointer;
+
+        .sidebar-categories {
+            padding: 0 20px;
         }
-        
-        /* Main Content */
-        .support-content {
-            padding: 50px 0;
-        }
-        
-        .support-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .support-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .support-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .support-card h3 {
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
             margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .support-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-        
-        .icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        /* Ticket Section */
-        .ticket-section {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-bottom: 50px;
-        }
-        
-        .ticket-section h2 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .ticket-actions {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .ticket-list {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .ticket-header {
-            display: grid;
-            grid-template-columns: 100px 1fr 120px 120px;
-            background-color: var(--light);
-            padding: 15px 20px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .ticket-item {
-            display: grid;
-            grid-template-columns: 100px 1fr 120px 120px;
-            padding: 15px 20px;
-            border-bottom: 1px solid #eee;
-            align-items: center;
-        }
-        
-        .ticket-item:last-child {
-            border-bottom: none;
-        }
-        
-        .ticket-item:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .ticket-id {
-            font-weight: bold;
-            color: var(--secondary);
-        }
-        
-        .ticket-subject {
-            color: var(--text);
-        }
-        
-        .ticket-date {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-        
-        .ticket-status {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        .status-open {
-            background-color: #ffeaa7;
-            color: #f39c12;
-        }
-        
-        .status-pending {
-            background-color: #fab1a0;
-            color: #e74c3c;
-        }
-        
-        .status-resolved {
-            background-color: #55efc4;
-            color: #00b894;
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            margin-bottom: 50px;
-        }
-        
-        .faq-section h2 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .faq-categories {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .faq-category {
-            padding: 8px 15px;
-            background-color: white;
-            border: 1px solid #eee;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-category:hover, .faq-category.active {
-            background-color: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-        }
-        
-        .faq-accordion {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-        
-        .faq-item {
-            border-bottom: 1px solid #eee;
-        }
-        
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        
-        .faq-question {
-            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            font-weight: 500;
         }
-        
-        .faq-question:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 500px;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        .contact-section h2 {
-            margin-bottom: 20px;
+
+        .sidebar-title button {
+            background: none;
+            border: none;
             color: var(--primary);
+            font-size: 0.8rem;
+            cursor: pointer;
         }
-        
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .contact-icon {
-            font-size: 24px;
-            color: var(--secondary);
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 5px;
-        }
-        
-        .contact-info p {
-            color: var(--text-light);
-        }
-        
-        /* Footer */
-        .support-footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 40px 0;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .footer-column ul {
+
+        .product-list-setup {
             list-style: none;
         }
-        
-        .footer-column li {
+
+        .product-item-setup {
+            margin-bottom: 5px;
+        }
+
+        .product-item-setup a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .product-item-setup a:hover {
+            background-color: rgba(0, 102, 204, 0.1);
+            color: var(--primary);
+        }
+
+        .product-item-setup a.active {
+            background-color: var(--primary);
+            color: white !important;
+        }
+
+        .product-meta:active{
+            color: white !important;
+        }
+
+        .product-item-setup .product-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            font-weight: 500;
+
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            max-width: calc(100% - var(--sidebar-width));
+        }
+
+        .guide-header {
+            margin-bottom: 30px;
+        }
+
+        .guide-title {
+            font-size: 2rem;
+            color: var(--secondary);
             margin-bottom: 10px;
         }
-        
-        .footer-column a {
-            color: #bdc3c7;
+
+        .guide-subtitle {
+            color: var(--gray);
+            margin-bottom: 20px;
         }
-        
-        .footer-column a:hover {
+
+        .guide-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .guide-meta-item {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+        }
+
+        .guide-meta-item i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .guide-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .guide-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--primary);
             color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
         }
-        
-        .footer-bottom {
+
+        .guide-btn:hover {
+            background-color: #0055aa;
+        }
+
+        .guide-btn.secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .guide-btn.secondary:hover {
+            background-color: rgba(0, 102, 204, 0.1);
+        }
+
+        .guide-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+
+        .guide-section {
+            margin-bottom: 40px;
+        }
+
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-content {
+            line-height: 1.7;
+        }
+
+        .section-content p {
+            margin-bottom: 15px;
+        }
+
+        .section-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .step {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #eee;
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bdc3c7;
-            font-size: 14px;
+            line-height: 28px;
+            font-weight: 600;
+            margin-right: 10px;
         }
-        
+
+        .step-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .warning-box-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .danger-box {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .danger-box-title {
+            font-weight: 600;
+            color: #721c24;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .download-section {
+            margin-top: 40px;
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .download-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .download-list {
+            list-style: none;
+        }
+
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .download-item:last-child {
+            border-bottom: none;
+        }
+
+        .download-item-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .download-item-name {
+            font-weight: 500;
+        }
+
+        .download-item-size {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .download-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #0055aa;
+        }
+
         /* Responsive Styles */
-        @media (max-width: 768px) {
-            .support-header .container {
+        @media (max-width: 1200px) {
+            .sidebar {
+                width: 280px;
+            }
+
+            .main-content {
+                max-width: calc(100% - 280px);
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
                 flex-direction: column;
-                gap: 15px;
             }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .support-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .support-hero p {
-                font-size: 1rem;
-            }
-            
-            .ticket-header, .ticket-item {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .ticket-header {
-                display: none;
-            }
-            
-            .ticket-item {
-                padding: 15px;
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
                 border-bottom: 1px solid #eee;
             }
+
+            .main-content {
+                max-width: 100%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
         }
-        
-        @media (max-width: 480px) {
-            .support-card {
-                padding: 20px;
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 25px 20px;
             }
-            
-            .ticket-actions {
-                flex-direction: column;
+
+            .guide-title {
+                font-size: 1.7rem;
             }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
+
+            .guide-meta {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .guide-actions {
+                flex-wrap: wrap;
+            }
+
+            .guide-content {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .guide-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .guide-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Support Header -->
-    <header class="support-header">
-        <div class="container">
-            <a href="index.html" class="logo">Science<span>Gears</span></a>
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Products</a>
-                <a href="#">Support</a>
-                <a href="#">Contact</a>
-                <a href="#">My Account</a>
-            </nav>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50" alt="ScienceGears Logo">
+                <div class="logo-text">Science<span>Gears</span></div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#" class="active">Installation</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
         </div>
     </header>
+
+
     
-    <!-- Support Hero Section -->
-    <section class="support-hero">
-        <div class="container">
-            <h1>How can we help you today?</h1>
-            <p>Find answers to common questions or get in touch with our support team.</p>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search our knowledge base...">
-                <button class="search-btn">Search</button>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-search">
+                <input type="text" placeholder="Search installation guides...">
             </div>
-        </div>
-    </section>
-    
-    <!-- Support Content -->
-    <main class="support-content">
-        <div class="container">
-            <!-- Quick Help Grid -->
-            <div class="support-grid">
-                <div class="support-card">
-                    <div class="icon">📝</div>
-                    <h3>Raise a Ticket</h3>
-                    <p>Can't find what you're looking for? Submit a support ticket and our team will get back to you.</p>
-                    <a href="#" class="btn">Create Ticket</a>
+
+            <div class="sidebar-categories">
+                <div class="sidebar-title">
+                    <span>Potentiostats / Galvanostats</span>
+                    <button>View All</button>
                 </div>
-                
-                <div class="support-card">
-                    <div class="icon">🔍</div>
-                    <h3>Track Your Ticket</h3>
-                    <p>Check the status of your existing support requests and view responses from our team.</p>
-                    <a href="#" class="btn">View Tickets</a>
-                </div>
-                
-                <div class="support-card">
-                    <div class="icon">📚</div>
-                    <h3>Knowledge Base</h3>
-                    <p>Browse our collection of articles, guides and FAQs to find instant answers.</p>
-                    <a href="#" class="btn">Browse Articles</a>
-                </div>
+                <ul class="product-list-setup">
+                    <li class="product-item-setup">
+                        <a href="#" class="active">
+                            <h4>Squidstat Potentiostat</h4>
+                            <div class="product-meta">
+                                <span>Electrochemical Workstation</span>
+                                <span>Difficulty: High</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product-item-setup">
+                        <a href="#">
+                           <h4>Zennium Modular Potentiostats</h4>
+                            <div class="product-meta">
+                                <span>Potentiostat</span>
+                                <span>Difficulty: Medium</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product-item-setup">
+                        <a href="#">
+                            <h4>Optional Addon Cards</h4>
+                            <div class="product-meta">
+                                <span>Potentiostat/Galvanostat</span>
+                                <span>Difficulty: High</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            
-            <!-- Ticket Management Section -->
-            <div class="ticket-section">
-                <h2>Your Support Tickets</h2>
-                <div class="ticket-actions">
-                    <a href="#" class="btn">New Ticket</a>
-                    <a href="#" class="btn btn-outline">Open Tickets (3)</a>
-                    <a href="#" class="btn btn-outline">Pending Tickets (1)</a>
-                    <a href="#" class="btn btn-outline">Resolved Tickets (12)</a>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="guide-header">
+                <h1 class="guide-title"> Squidstat Potentiostat Installation Guide</h1>
+                <p class="guide-subtitle">Complete setup and configuration for your multi-channel electrochemical
+                    workstation</p>
+
+                <div class="guide-meta">
+                    <div class="guide-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Estimated time: 60-90 minutes</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools required: USB cable, screwdriver, level</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Safety rating: High voltage - caution required</span>
+                    </div>
                 </div>
-                
-                <div class="ticket-list">
-                    <div class="ticket-header">
-                        <div>Ticket ID</div>
-                        <div>Subject</div>
-                        <div>Date</div>
-                        <div>Status</div>
-                    </div>
-                    
-                    <div class="ticket-item">
-                        <div class="ticket-id">#SG-4582</div>
-                        <div class="ticket-subject">Microscope not focusing properly</div>
-                        <div class="ticket-date">May 15, 2023</div>
-                        <div class="ticket-status status-open">Open</div>
-                    </div>
-                    
-                    <div class="ticket-item">
-                        <div class="ticket-id">#SG-4491</div>
-                        <div class="ticket-subject">Question about chemical compatibility</div>
-                        <div class="ticket-date">May 10, 2023</div>
-                        <div class="ticket-status status-pending">Pending</div>
-                    </div>
-                    
-                    <div class="ticket-item">
-                        <div class="ticket-id">#SG-4367</div>
-                        <div class="ticket-subject">Order #12345 missing items</div>
-                        <div class="ticket-date">May 5, 2023</div>
-                        <div class="ticket-status status-resolved">Resolved</div>
-                    </div>
-                    
-                    <div class="ticket-item">
-                        <div class="ticket-id">#SG-4289</div>
-                        <div class="ticket-subject">Centrifuge warranty inquiry</div>
-                        <div class="ticket-date">Apr 28, 2023</div>
-                        <div class="ticket-status status-resolved">Resolved</div>
-                    </div>
+
+                <div class="guide-actions">
+                    <a href="#" class="guide-btn">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF
+                    </a>
+                    <a href="#" class="guide-btn secondary">
+                        <i class="fas fa-video"></i>
+                        Watch Video Guide
+                    </a>
                 </div>
             </div>
-            
-            <!-- FAQ Section -->
-            <div class="faq-section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-categories">
-                    <div class="faq-category active">All Topics</div>
-                    <div class="faq-category">Orders</div>
-                    <div class="faq-category">Shipping</div>
-                    <div class="faq-category">Returns</div>
-                    <div class="faq-category">Products</div>
-                    <div class="faq-category">Account</div>
-                </div>
-                
-                <div class="faq-accordion">
-                    <div class="faq-item active">
-                        <div class="faq-question">
-                            How do I track my order?
-                            <span>+</span>
+
+            <div class="guide-content">
+                <section class="guide-section">
+                    <h2 class="section-title">Before You Begin</h2>
+                    <div class="section-content">
+                        <p>This guide provides complete installation instructions for your Squidstat Electrochemical
+                            Workstation. The Squidstat is a high-performance potentiostat/galvanostat with up to 16
+                            independent channels for advanced electrochemical research.</p>
+
+                        <div class="danger-box">
+                            <h4 class="danger-box-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Important Safety Notice
+                            </h4>
+                            <p>The Squidstat can deliver high voltages and currents. Always power off the unit when
+                                making connections. Ensure your work area is dry and properly grounded. Wear appropriate
+                                personal protective equipment when handling electrochemical cells.</p>
                         </div>
-                        <div class="faq-answer">
-                            <p>Once your order has shipped, you'll receive a confirmation email with a tracking number. You can enter this number on our website's tracking page or on the courier's website to see the current status and estimated delivery date of your package.</p>
+
+                        <h3>What's Included</h3>
+                        <p>Your Squidstat package should contain the following components:</p>
+                        <ul style="margin-bottom: 20px; padding-left: 20px;">
+                            <li> Squidstat main unit with power cord</li>
+                            <li>USB 2.0 connection cable</li>
+                            <li>EC-Lab Software license key and installation USB</li>
+                            <li>Electrode cables (working, reference, counter)</li>
+                            <li>Rack mounting kit (screws and brackets)</li>
+                            <li>Quick start guide</li>
+                        </ul>
+
+                        <h3>System Requirements</h3>
+                        <p>Before installation, verify your computer meets these requirements:</p>
+                        <ul style="margin-bottom: 20px; padding-left: 20px;">
+                            <li>Windows 10 or 11 (64-bit)</li>
+                            <li>Intel Core i5 processor or equivalent</li>
+                            <li>8GB RAM minimum (16GB recommended)</li>
+                            <li>USB 2.0 or 3.0 port</li>
+                            <li>500MB free disk space</li>
+                            <li>Administrator privileges for software installation</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="guide-section">
+                    <h2 class="section-title">Hardware Installation</h2>
+                    <div class="section-content">
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">1</span>Unpacking and Inspection</h3>
+                            <p>Carefully remove all components from the packaging and inspect for any shipping damage.
+                                Verify all components against the packing list.</p>
+                            <p>Choose a stable location for your potentiostat with adequate ventilation (minimum 10cm
+                                clearance on all sides). The surface should be level and vibration-free.</p>
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Potentiostat unpacking">
+                        </div>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">2</span>Rack Mounting (Optional)</h3>
+                            <p>For rack installation, use the provided mounting brackets and screws. The Squidstat
+                                requires 3U of rack space (13.3cm height).</p>
+                            <p>Ensure the rack is stable and properly grounded. Use all four mounting points for secure
+                                installation.</p>
+                        </div>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">3</span>Power Connection</h3>
+                            <p>Connect the provided power cord to the rear panel of the Squidstat. Plug into a properly
+                                grounded outlet (100-240V, 50/60Hz).</p>
+                            <p>Do not power on the unit until all connections are complete.</p>
+                            <div class="warning-box">
+                                <h4 class="warning-box-title">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Power Considerations
+                                </h4>
+                                <p>Use only the provided power cord. Ensure your power source provides clean, stable
+                                    voltage. For optimal performance, consider using a line conditioner or UPS.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">4</span>Computer Connection</h3>
+                            <p>Connect the USB cable between the Squidstat and your computer. Use the USB 2.0 port on
+                                the rear panel for best performance.</p>
+                            <p>For multi-unit setups, connect each Squidstat to a separate USB host controller.</p>
+                        </div>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">5</span>Electrode Connections</h3>
+                            <p>Connect the working, reference, and counter electrode cables to the appropriate front
+                                panel connectors.</p>
+                            <p>Ensure all connections are secure before applying potential to your electrochemical cell.
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Electrode connections">
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            What is your return policy?
-                            <span>+</span>
+                </section>
+
+                <section class="guide-section">
+                    <h2 class="section-title">Software Installation</h2>
+                    <div class="section-content">
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">1</span>EC-Lab Installation</h3>
+                            <p>Insert the provided EC-Lab installation USB or download the latest version from the
+                                BioLogic website. Run the setup executable and follow the on-screen instructions.</p>
+                            <p>When prompted, enter your license key. Select "VSP Series" when choosing hardware
+                                support.</p>
                         </div>
-                        <div class="faq-answer">
-                            <p>We accept returns within 30 days of purchase for most unopened and unused items. Laboratory equipment and chemicals may have different return policies due to safety regulations. Please contact our support team before initiating a return for these items.</p>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">2</span>Driver Installation</h3>
+                            <p>After EC-Lab installation, connect the Squidstat and power it on. Windows should
+                                automatically detect and install the necessary drivers.</p>
+                            <p>If automatic installation fails, manually install drivers from the EC-Lab installation
+                                directory (Drivers folder).</p>
                         </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            How do I calibrate my laboratory scale?
-                            <span>+</span>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">3</span>Initial Configuration</h3>
+                            <p>Launch EC-Lab and navigate to Tools > Hardware Manager. The Squidstat should appear in
+                                the connected devices list.</p>
+                            <p>Configure your measurement settings according to your experimental requirements. Perform
+                                a system test to verify all channels are functioning properly.</p>
                         </div>
-                        <div class="faq-answer">
-                            <p>Calibration procedures vary by model. Please refer to the user manual that came with your scale or download it from our product support page. For professional calibration services, we recommend contacting an accredited calibration laboratory.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Do you offer educational discounts?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, we offer discounts for educational institutions, teachers, and students. Please register with your educational email address or contact our sales team with proof of your educational status to receive discount information.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            What safety certifications do your products have?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Our products meet various international safety standards depending on the product type. Common certifications include CE, UL, ISO, and ASTM standards. Specific certification information is available on each product page and in the product documentation.</p>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">4</span>Firmware Update (If Required)</h3>
+                            <p>Check for firmware updates in the Hardware Manager. If an update is available, follow the
+                                on-screen instructions to complete the process.</p>
+                            <p>Do not interrupt power during firmware updates as this may damage the unit.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Contact Section -->
-            <div class="contact-section">
-                <h2>Still Need Help?</h2>
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-info">
-                            <h3>Call Us</h3>
-                            <p>+61 2 1234 5678<br>Mon-Fri, 9am-5pm AEST</p>
+                </section>
+
+                <section class="guide-section">
+                    <h2 class="section-title">Initial Calibration & Testing</h2>
+                    <div class="section-content">
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">1</span>Open Circuit Test</h3>
+                            <p>With no cell connected, measure the open circuit potential on all channels. Values should
+                                be within ±2mV of zero.</p>
+                        </div>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">2</span>Known Resistor Test</h3>
+                            <p>Connect a 1kΩ resistor between working and counter electrodes. Run a quick
+                                potentiodynamic scan (e.g., -10mV to +10mV at 1mV/s).</p>
+                            <p>The measured current should follow Ohm's Law (I = V/R) with less than 1% deviation.</p>
+                        </div>
+
+                        <div class="step">
+                            <h3 class="step-title"><span class="step-number">3</span>Multi-channel Verification</h3>
+                            <p>If using multiple channels, verify independent operation by running different techniques
+                                on adjacent channels.</p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4 class="warning-box-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Troubleshooting
+                            </h4>
+                            <p>If any tests fail, check all connections and ensure proper grounding. Contact
+                                ScienceGears technical support if issues persist after basic troubleshooting.</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-info">
-                            <h3>Email Us</h3>
-                            <p>support@sciencegears.com.au<br>Response within 24 hours</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-icon">💬</div>
-                        <div class="contact-info">
-                            <h3>Live Chat</h3>
-                            <p>Available Mon-Fri, 8am-4pm AEST<br>Look for the chat icon in the corner</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <form>
-                    <h3>Send Us a Message</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                        <input type="text" placeholder="Your Name" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        <input type="email" placeholder="Your Email" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                    </div>
-                    <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 20px;">
-                        <option>Select a topic</option>
-                        <option>Order Inquiry</option>
-                        <option>Product Support</option>
-                        <option>Returns & Refunds</option>
-                        <option>Technical Support</option>
-                        <option>Other</option>
-                    </select>
-                    <textarea placeholder="Your message" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; min-height: 150px; margin-bottom: 20px;"></textarea>
-                    <button type="submit" class="btn btn-accent">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="support-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>ScienceGears</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
+                </section>
+
+                <section class="download-section">
+                    <h3 class="download-title">Download Resources</h3>
+                    <ul class="download-list">
+                        <li class="download-item">
+                            <div class="download-item-info">
+                                <i class="fas fa-file-pdf download-icon"></i>
+                                <div>
+                                    <div class="download-item-name"> Squidstat Complete User Manual</div>
+                                    <div class="download-item-size">PDF • 8.7 MB</div>
+                                </div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </li>
+                        <li class="download-item">
+                            <div class="download-item-info">
+                                <i class="fas fa-file-pdf download-icon"></i>
+                                <div>
+                                    <div class="download-item-name">EC-Lab Software Guide</div>
+                                    <div class="download-item-size">PDF • 5.2 MB</div>
+                                </div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </li>
+                        <li class="download-item">
+                            <div class="download-item-info">
+                                <i class="fas fa-file-pdf download-icon"></i>
+                                <div>
+                                    <div class="download-item-name">Electrochemistry Cell Setup Guide</div>
+                                    <div class="download-item-size">PDF • 2.1 MB</div>
+                                </div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </li>
+                        <li class="download-item">
+                            <div class="download-item-info">
+                                <i class="fas fa-file-pdf download-icon"></i>
+                                <div>
+                                    <div class="download-item-name">Safety & Maintenance Checklist</div>
+                                    <div class="download-item-size">PDF • 1.3 MB</div>
+                                </div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </li>
                     </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Product Manuals</a></li>
-                        <li><a href="#">Safety Information</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Warranty Information</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                </div>
+                </section>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 ScienceGears.com.au. All rights reserved. ABN 12 345 678 910</p>
-            </div>
-        </div>
-    </footer>
-    
+        </main>
+    </div>
+
+
+
+
+
+
     <script>
-        // Simple accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-                
-                // Close other open items
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
+        // Mobile menu toggle functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Product selection in sidebar
+        const productItems = document.querySelectorAll('.product-item-setup a');
+        productItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                productItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                // Here you would typically load the new guide content via AJAX
+                // For this demo, we're just simulating the content change
+                document.querySelector('.guide-title').textContent = this.textContent.trim().split('\n')[0];
             });
         });
-        
-        // FAQ category filtering
-        document.querySelectorAll('.faq-category').forEach(category => {
-            category.addEventListener('click', () => {
-                document.querySelector('.faq-category.active').classList.remove('active');
-                category.classList.add('active');
-                // In a real implementation, you would filter FAQs here
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
 </body>
+
 </html>
