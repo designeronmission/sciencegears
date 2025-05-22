@@ -87,7 +87,7 @@ h6 {
 .header-top {
     background-color: #002464;
     color: white;
-    padding: 15px 0;
+    padding: 12px 0;
     font-size: 0.9rem;
 }
 
@@ -4251,7 +4251,21 @@ h6 {
     position: -webkit-sticky;
     /* For Safari */
     position: sticky;
-    height: 100px;
+    top: 0;
+        height: 100px;
+    z-index: 1000;
+    /* Ensures it stays above other content */
+    background-color: white;
+    /* Optional: adds background so content behind isn't visible */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional: adds shadow for better visibility */
+}
+
+.sticky-tops{
+position: -webkit-sticky;
+    /* For Safari */
+    position: sticky;
+
     top: 0;
     z-index: 1000;
     /* Ensures it stays above other content */
