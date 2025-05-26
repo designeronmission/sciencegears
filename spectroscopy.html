@@ -42,9 +42,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
-</head>
-
-<body>
 
     <!-- Header Top Bar -->
     <div class="header-top">
@@ -80,7 +77,7 @@
 
                     <!-- megaproducts Mega Menu -->
                     <li class="nav-item dropdown mega-menu">
-                        <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown"
+                        <a class="nav-link active dropdown-toggle" href="#" id="megaproductsDropdown"
                             data-bs-toggle="dropdown">
                             Products
                         </a>
@@ -222,6 +219,7 @@
                             </div>
                         </div>
                     </li>
+
 
                     <!-- resources Mega Menu -->
                     <li class="nav-item dropdown mega-menu">
@@ -371,189 +369,143 @@
     </nav>
 
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <h1 class="hero-title text-center">ScienceGears Publications </h1>
-                    <p class="hero-subtitle text-center">Explore our collection of educational and scientific
-                        Publications.</p>
-                </div>
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="Search for anything..." id="searchInput" autocomplete="off">
-            <button class="search-btn" id="searchButton">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        
+</head>
+
+<body>
+
+
+    <div class="containers">
+        <!-- Filter Sidebar -->
+        <aside class="filters-sidebars">
+            <div class="filters-groups">
+                <h3>
+                    Search
+                </h3>
+                <input type="text" class="searches-filters" placeholder="Search products...">
             </div>
-        </div>
-    </section>
 
+            <div class="filters-groups">
+                <h3>
+                        Product Categories
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                    <li class="filters-option">
+                        <input type="checkbox" id="Potentiostats" checked>
+                        <label for="Potentiostats">Electrochemistry</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="Galvanostats" checked>
+                        <label for="Galvanostats">Spectroscopy</label>
+                    </li>
+                </ul>
+            </div>
 
-    <section class="publication-list-page py-5">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Sticky Filter Sidebar -->
-                <div class="col-lg-3 publication-filter">
-                    <div class="filter-sidebar bg-white p-4 rounded-4 shadow-sm sticky-tops">
-                        <h6 class="mb-4 d-flex align-items-center">
-                            <i class="fas fa-filter me-2"></i> Filter & Sort
-                        </h6>
+           <div class="filters-groups">
+                <h3>
+                    Product Variants
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                     <li class="filters-option">
+                        <input type="checkbox" id="Potentiostats" checked>
+                        <label for="Potentiostats">Handheld Raman</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="Galvanostats" checked>
+                        <label for="Galvanostats">Laboratory Raman</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="Bi-potentiostats">
+                        <label for="Bi-potentiostats">FT-IR</label>
+                    </li>
+                    <li class="filters-option">
+                        <input type="checkbox" id="Multi-channel">
+                        <label for="Multi-channel">LIBS</label>
+                    </li>
+                  
+                </ul>
+            </div> 
 
+            <div class="filters-groups">
+                <h3>
+                    Brands
+                    <button class="resets-filters">Reset</button>
+                </h3>
+                <ul class="filters-options">
+                    <li class="filters-option">
+                        <input type="checkbox" id="brand-1" checked>
+                        <label for="brand-1">JINSP</label>
+                    </li>
+    
+                </ul>
+            </div>
 
-                        <!-- Category Filter -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Equipment Category</label>
-                            <select class="form-select">
-                                <option selected>All Categories</option>
-                                <option>Squidstat - Admiral</option>
-                                <option>Zennium - Zahner</option>
-                                <option>Neware</option>
-                                <option>BioLogic</option>
-                                <option>Gamry</option>
-                            </select>
-                        </div>
+            <div class="filter-actions">
+                <button class="apply-btn">Apply Filters</button>
+                <button class="reset-btn">Reset All</button>
+            </div>
+        </aside>
 
-                        <!-- Year Filter -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Publication Year</label>
-                            <select class="form-select">
-                                <option selected>All Years</option>
-                                <option>2025</option>
-                                <option>2024</option>
-                                <option>2023</option>
-                                <option>2022</option>
-                                <option>2021</option>
-                            </select>
-                        </div>
+        <!-- Main Content -->
+        <div class="mains-contents py-5">
+            <div class="listings-headers">
+                <h1>Spectroscopy Kits</h1>
 
-                        <!-- Journal Filter -->
-                        <div class="mb-4">
-                            <label class="form-label small text-muted mb-3">Journal</label>
-                            <select class="form-select">
-                                <option selected>All Journals</option>
-                                <option>Nature Communications</option>
-                                <option>Scientific Reports</option>
-                                <option>Journal of Power Sources</option>
-                                <option>ACS Energy Letters</option>
-                                <option>Advanced Materials</option>
-                            </select>
-                        </div>
-
-                        <!-- Reset Filters -->
-                        <button class="btn btn-primary w-100">
-                            <i class="fas fa-sync-alt me-2"></i>Reset Filters
+                <div class="views-controls">
+                    <div class="sort-dropdown">
+                        <button>
+                            Sort by: Featured
+                            <i class="fas fa-chevron-down"></i>
                         </button>
+                    </div>
 
-                        <!-- Stats -->
-                        <div class="mt-4 pt-3 border-top">
-                            <div class="d-flex justify-content-between small text-muted mb-3">
-                                <span>Total Publications</span>
-                                <span class="fw-bold">247</span>
+                    <!-- Mobile Filter Trigger -->
+                    <div class="mobile-filter-trigger">
+                        <button id="mobileFilterButton">
+                            <i class="fa-solid fa-filter"></i> Filter
+                            <span class="filter-count">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Filter Overlay -->
+                    <div class="mobile-filter-overlay" id="mobileFilterOverlay">
+                        <div class="mobile-filter-container">
+                            <div class="mobile-filter-header">
+                                <h3>Filters</h3>
+                                <button class="close-filter" id="closeFilterButton">
+                                    <i class="fas fa-times"></i>
+                                </button>
                             </div>
-                            <div class="d-flex justify-content-between small text-muted">
-                                <span>Showing Results</span>
-                                <span class="fw-bold">12</span>
+                            <div class="mobile-filter-content">
+                                <!-- This will contain the same content as your filters-sidebars -->
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Publication Grid -->
-                <div class="col-lg-9">
 
-                    <div class="row g-4">
-                        <!-- Publication 3 -->
-                        <div class="col-md-12 col-lg-12">
-                            <div class="publication-card h-100">
-                                <div class="publication-header">
-                                    <div class="publication-journal">
-                                        <i class="fas fa-book-open"></i> Nature Communications
-                                    </div>
-                                    <div class="publication-year">2023</div>
-                                </div>
-                                <div class="publication-body">
-                                    <p>Coupling nitrate capture with ammonia production through bifunctional
-                                        redox-electrodes.</p>
-                                    <div class="publication-authors">
-                                        Kwiyong Kim, Alexandra Zagalskaya, Jing Lian Ng, Jaeyoung Hong, Vitaly
-                                        Alexandrov,
-                                        Tuan Anh Pham and Xiao Su,
-                                    </div>
-                                </div>
-                                <div class="publication-footer">
-                                    <span class="publication-doi">Report: 14, Article number: 823</span>
-                                    <a href="https://doi.org/10.1038/s41467-023-36321-6" target="_blank"
-                                        class="btn btn-outline-primary btn-sm btn-responsive">
-                                        <i class="fas fa-external-link-alt"></i> View Publication
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Publication 2 -->
-                        <div class="col-md-12 col-lg-12">
-                            <div class="publication-card h-100">
-                                <div class="publication-header">
-                                    <div class="publication-journal">
-                                        <i class="fas fa-book-open"></i> Scientific Reports
-                                    </div>
-                                    <div class="publication-year">2022</div>
-                                </div>
-                                <div class="publication-body">
-                                    <p> Compressed composite carbon felt as a negative electrode for a zinc–iron flow
-                                        battery.</p>
-                                    <div class="publication-authors">
-                                        Janenipa Saupsor, Jinnawat Sangsawang, Wathanyu Kao‑ian, Falko Mahlendorf, Ahmad
-                                        Azmin Mohamad, Rongrong Cheacharoen, Soorathep Kheawhom and Anongnat
-                                        Somwangthanaroj.
-                                    </div>
-                                </div>
-                                <div class="publication-footer">
-                                    <span class="publication-doi">Report: 12, Article number: 21156</span>
-                                    <a href="https://doi.org/10.1038/s41598-022-25450-5" target="_blank"
-                                        class="btn btn-outline-primary btn-sm btn-responsive">
-                                        <i class="fas fa-external-link-alt"></i> View Publication
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Publication 1 -->
-                        <div class="col-md-12 col-lg-12">
-                            <div class="publication-card h-100">
-                                <div class="publication-header">
-                                    <div class="publication-journal">
-                                        <i class="fas fa-book-open"></i> Scientific Reports
-                                    </div>
-                                    <div class="publication-year">2021</div>
-                                </div>
-                                <div class="publication-body">
-                                    <p>Characterization and significance of extracellular polymeric substances, reactive
-                                        oxygen species, and extracellular electron transfer in methanogenic biocathode.
-                                    </p>
-                                    <div class="publication-authors">
-                                        Basem S. Zakaria and Bipro Ranjan Dhar
-                                    </div>
-                                </div>
-                                <div class="publication-footer">
-                                    <span class="publication-doi">Report: 11, Article number: 7933</span>
-                                    <a href="https://doi.org/10.1038/s41598-021-87378-6" target="_blank"
-                                        class="btn btn-outline-primary btn-sm btn-responsive">
-                                        <i class="fas fa-external-link-alt"></i> View Publication
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="view-toggle">
+                        <button class="view-toggle-btn grid-toggle active" aria-label="Grid view">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-toggle-btn list-toggle" aria-label="List view">
+                            <i class="fas fa-list"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <!-- Category sections will be dynamically inserted here -->
+            <div id="categorySections"></div>
+
+            <!-- Loading Indicator -->
+            <div class="loading" id="loadingIndicator">
+                <div class="loading-spinner"></div>
+            </div>
         </div>
-    </section>
+    </div>
+
+
 
 
     <!-- Footer Section -->
@@ -579,10 +531,10 @@
                     <h3 class="footer-heading">Learn</h3>
                     <div class="mb-3">
                         <a href="#" class="footer-link">How to Use</a>
-                        <a href="publications.html" class="footer-link">Educational Articles</a>
+                       <a href="publications.html" class="footer-link">Educational Articles</a>
                         <a href="video.html" class="footer-link">Video Tutorials</a>
                         <a href="blog.html" class="footer-link">Science Blog</a>
-                         <a href="video.html" class="footer-link">Download Guides</a>
+                           <a href="video.html" class="footer-link">Download Guides</a>
                           <a href="helpcenter.html" class="footer-link">Help Center</a>
                     </div>
                 </div>
@@ -626,7 +578,10 @@
     </footer>
 
 
-
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -636,6 +591,415 @@
 
     <script src="js/script.js"></script>
 
+     <!--  <img src="assets/products/spectroscopy/libs/libs.png"  -->
+    
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Product data organized by category
+            const productsByCategory = {
+                " Handheld Raman ": [
+                    {
+                        id: 1,
+                        title: "Handheld Raman Identifier",
+                        category: "spectrometers ",
+                        specs: "The Raman system consists of a laser, Raman probe, and a spectrometer, with different sample cells selected based on the state of the sample being measured.",
+                        features: ["Micro-area in situ", "Non-contact and non-destructive", "Rapid spectroscopy: 1 nA", "High sensitivity", "Weak signal detection", "  Suitable for aqueous samples"],
+                        image: "assets/products/spectroscopy/raman/products-1-300x300.webp",
+                        brand: "JINSP",
+                    },
+  
+                ],
+                "Laboratory Raman": [
+                    {
+                        id: 3,
+                        title: "Online Raman Analyzer for Liquids",
+                        category: "spectrometers",
+                        specs: "High current galvanostat with touchscreen interface and built-in electrochemical impedance spectroscopy.",
+                        features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                        image: "assets/products/spectroscopy/raman/online-raman/F77323.jpg",
+                        brand: "JINSP"
+                    },
+                    {
+                        id: 4,
+                        title: "Raman Probe and Flow Cell ",
+                        category: "spectrometers",
+                        specs: "Compatible testing accessories for liquid online Raman analyzers and benchtop Raman spectrometers.",
+                        features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                        image: "assets/products/spectroscopy/raman/online-raman/asdasd.png",
+                        brand: "JINSP",
+                    }, 
+                ],
+
+                "LIBS System": [
+                    {
+                        id: 6,
+                        title: "LIBS System",
+                        category: "spectrometers",
+                        specs: "The LIBS system generally involves the spectrometer providing a synchronous trigger signal to the laser.",
+                        features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
+                        image: "assets/products/spectroscopy/libs/libs.png",
+                        brand: "JINSP",
+                    }
+                ],
+                "Bi-potentiostats": [],
+                "ZRA": []
+            };
+
+            // View toggle functionality
+            const gridToggle = document.querySelector('.grid-toggle');
+            const listToggle = document.querySelector('.list-toggle');
+            const categorySections = document.getElementById('categorySections');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+
+            // Set up view toggle buttons
+            gridToggle.addEventListener('click', function () {
+                gridToggle.classList.add('active');
+                listToggle.classList.remove('active');
+                document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
+                document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
+            });
+
+            listToggle.addEventListener('click', function () {
+                listToggle.classList.add('active');
+                gridToggle.classList.remove('active');
+                document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
+            });
+
+            // Filter functionality
+            const applyBtn = document.querySelector('.apply-btn');
+            const resetAllBtn = document.querySelector('.reset-btn');
+            const resetFilterBtns = document.querySelectorAll('.resets-filters');
+
+            applyBtn.addEventListener('click', applyFilters);
+            resetAllBtn.addEventListener('click', resetAllFilters);
+
+            resetFilterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const filterGroup = this.closest('.filters-groups');
+                    const checkboxes = filterGroup.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                });
+            });
+
+            // Function to render products by category
+            function renderProducts(filteredCategories) {
+                // Clear existing products
+                categorySections.innerHTML = '';
+
+                // Show loading indicator
+                loadingIndicator.style.display = 'flex';
+
+                // Simulate loading delay
+                setTimeout(() => {
+                    let hasProducts = false;
+
+                    // Loop through each category
+                    for (const [categoryName, products] of Object.entries(productsByCategory)) {
+                        // Skip if category is not selected (unless no filters are applied)
+                        if (filteredCategories && filteredCategories.length > 0 && !filteredCategories.includes(categoryName)) {
+                            continue;
+                        }
+
+                        // Skip if category has no products
+                        if (products.length === 0) continue;
+
+                        hasProducts = true;
+
+                        // Create category section
+                        const section = document.createElement('div');
+                        section.className = 'category-section';
+                        section.id = `category-${categoryName.toLowerCase().replace(' ', '-')}`;
+
+                        // Create category header
+                        const header = document.createElement('div');
+                        header.className = 'category-header';
+                        header.innerHTML = `<h2>${categoryName}</h2>`;
+                        section.appendChild(header);
+
+                        // Create grid view container
+                        const gridContainer = document.createElement('div');
+                        gridContainer.className = 'product-grid active';
+
+                        // Create list view container
+                        const listContainer = document.createElement('div');
+                        listContainer.className = 'product-list';
+
+                        // Add products to both views
+                        products.forEach(product => {
+                            // Grid view card
+                            const card = document.createElement('div');
+                            card.className = 'product-card';
+                            card.setAttribute('data-brand', product.brand);
+
+                            card.innerHTML = `
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.title}" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-specs">${product.specs}</p>
+                            <ul class="product-features">
+                                ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                            <div class="product-actions">
+                                <button class="btn-secondary">
+                                    <i class="far fa-share-square"></i>
+                                </button>
+                                <button class="btn-primary" onclick="window.location.href='products-detail.html'">
+                                    View Details
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                            gridContainer.appendChild(card);
+
+                            // List view row
+                            const row = document.createElement('div');
+                            row.className = 'product-row';
+                            row.setAttribute('data-brand', product.brand);
+
+                            row.innerHTML = `
+                        <div class="product-row-image">
+                            <img src="${product.image}" alt="${product.title}">
+                        </div>
+                        <div class="product-row-info">
+                            <div class="product-row-main">
+                                <div class="product-row-details">
+                                    <div class="product-category">${product.category}</div>
+                                    <h3 class="product-title">${product.title}</h3>
+                                    <p class="product-specs">${product.specs}</p>
+                                    <div class="product-row-features">
+                                        ${product.features.slice(0, 4).map(feature => `
+                                            <div class="feature-item">
+                                                <i class="fas fa-bolt features-icons"></i>
+                                                <span class="feature-text">${feature}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                <div class="product-row-actions">
+                                    <div>
+                                        <button class="btn-secondary" style="margin-bottom: 10px,width: 73%; gap: 10px;">
+                                            <i class="far fa-share-square"></i> Share
+                                        </button>
+                                        <button class="btn-primary" onclick="window.location.href='products-detail.html'">
+                                            View Details
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                            listContainer.appendChild(row);
+                        });
+
+                        section.appendChild(gridContainer);
+                        section.appendChild(listContainer);
+                        categorySections.appendChild(section);
+                    }
+
+                    if (!hasProducts) {
+                        // Show no results message
+                        const noResults = document.createElement('div');
+                        noResults.className = 'no-results';
+                        noResults.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters to find what you're looking for.</p>
+                    <button class="btn btn-primary" onclick="resetAllFilters()">Reset All Filters</button>
+                `;
+                        categorySections.appendChild(noResults);
+                    }
+
+                    // Set initial view
+                    if (gridToggle.classList.contains('active')) {
+                        document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
+                        document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
+                    } else {
+                        document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+                        document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
+                    }
+
+                    // Hide loading indicator
+                    loadingIndicator.style.display = 'none';
+
+                    // Add click handlers to category checkboxes to scroll to sections
+                    document.querySelectorAll('.filters-options input[type="checkbox"]').forEach(checkbox => {
+                        checkbox.addEventListener('change', function () {
+                            if (this.checked) {
+                                const categoryId = this.id.replace(' ', '-');
+                                const section = document.getElementById(`category-${categoryId.toLowerCase()}`);
+                                if (section) {
+                                    section.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }
+                        });
+                    });
+                }, 500);
+            }
+
+            function applyFilters() {
+                // Get selected categories
+                const selectedCategories = Array.from(document.querySelectorAll('#Potentiostats, #Galvanostats, #Bi-potentiostats, #Multi-channel, #ZRA'))
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => {
+                        switch (checkbox.id) {
+                            case 'Potentiostats': return 'Potentiostats';
+                            case 'Galvanostats': return 'Galvanostats';
+                            case 'Bi-potentiostats': return 'Bi-potentiostats';
+                            case 'Multi-channel': return 'Multi-channel';
+                            case 'ZRA': return 'ZRA';
+                            default: return '';
+                        }
+                    });
+
+                // Get selected brands
+                const selectedBrands = Array.from(document.querySelectorAll('#brand-1, #brand-2, #brand-3, #brand-4, #brand-5'))
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => {
+                        switch (checkbox.id) {
+                            case 'brand-1': return 'Zahner';
+                            case 'brand-2': return 'Admiral';
+                            case 'brand-3': return 'Corrtest Instruments';
+                            case 'brand-4': return 'Neware';
+                            case 'brand-5': return 'Semokim';
+                            default: return '';
+                        }
+                    });
+
+                // Filter products by brand if brands are selected
+                let filteredProductsByCategory = { ...productsByCategory };
+                if (selectedBrands.length > 0) {
+                    for (const [category, products] of Object.entries(filteredProductsByCategory)) {
+                        filteredProductsByCategory[category] = products.filter(product =>
+                            selectedBrands.includes(product.brand)
+                        )
+                    }
+                }
+
+                // Render filtered products
+                renderProducts(selectedCategories);
+            }
+
+            function resetAllFilters() {
+                // Uncheck all checkboxes
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+
+                // Check default checkboxes (Categories and Brands)
+                document.querySelectorAll('#Potentiostats, #Galvanostats, #brand-1, #brand-2').forEach(checkbox => {
+                    checkbox.checked = true;
+                });
+
+                // Show all products
+                renderProducts();
+            }
+
+            // Search functionality
+            const searchInput = document.querySelector('.searches-filters');
+            searchInput.addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+
+                let hasResults = false;
+                let filteredCategories = {};
+
+                // Search through all products
+                for (const [category, products] of Object.entries(productsByCategory)) {
+                    const filtered = products.filter(product => {
+                        const title = product.title.toLowerCase();
+                        const specs = product.specs.toLowerCase();
+                        const categoryName = product.category.toLowerCase();
+
+                        return title.includes(searchTerm) || specs.includes(searchTerm) || categoryName.includes(searchTerm);
+                    });
+
+                    if (filtered.length > 0) {
+                        filteredCategories[category] = filtered;
+                        hasResults = true;
+                    }
+                }
+
+                if (hasResults) {
+                    // Temporarily replace productsByCategory with filtered results
+                    const originalProducts = { ...productsByCategory };
+                    Object.assign(productsByCategory, filteredCategories);
+                    renderProducts();
+                    Object.assign(productsByCategory, originalProducts);
+                } else {
+                    renderProducts([]);
+                }
+            });
+
+            // Initial render - show all products
+            renderProducts();
+        });
+
+        // View toggle functions for global access
+        function showGridView() {
+            document.querySelector('.grid-toggle').classList.add('active');
+            document.querySelector('.list-toggle').classList.remove('active');
+            document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
+            document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
+        }
+
+        function showListView() {
+            document.querySelector('.list-toggle').classList.add('active');
+            document.querySelector('.grid-toggle').classList.remove('active');
+            document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
+        }
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Copy the filter sidebar content to mobile
+            const desktopFilters = document.querySelector('.filters-sidebars').innerHTML;
+            document.querySelector('.mobile-filter-content').innerHTML = desktopFilters;
+
+            // Mobile filter toggle
+            const mobileFilterButton = document.getElementById('mobileFilterButton');
+            const closeFilterButton = document.getElementById('closeFilterButton');
+            const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
+
+            mobileFilterButton.addEventListener('click', function () {
+                mobileFilterOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeFilterButton.addEventListener('click', function () {
+                mobileFilterOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Update filter count
+            function updateFilterCount() {
+                const checkedCount = document.querySelectorAll('.filters-option input[type="checkbox"]:checked').length;
+                document.querySelector('.filter-count').textContent = checkedCount;
+            }
+
+            // Listen for filter changes
+            document.querySelectorAll('.filters-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', updateFilterCount);
+            });
+
+            // Initialize count
+            updateFilterCount();
+        });
+
+
+    </script>
 </body>
 
 </html>
