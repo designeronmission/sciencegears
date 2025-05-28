@@ -8691,8 +8691,6 @@ input:checked+.cookie-slider:before {
 
 .search-box {
     position: relative;
-    margin-bottom: 1.5rem;
-    border-radius: 50px;
     overflow: hidden;
 }
 
