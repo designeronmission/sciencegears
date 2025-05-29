@@ -1,873 +1,250 @@
 <!DOCTYPE html>
-<html lang="en-AU">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation & Setup Guides | ScienceGears.com.au</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sciencegears Potentiostat - User Manual</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
     <style>
         :root {
-            --primary: #0066cc;
-            --secondary: #003366;
-            --accent: #ff6600;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --sidebar-width: 320px;
+            --primary-color: #0d6efd;
+            --dark-bg: #212529;
+            --dark-text: #f8f9fa;
+            --light-bg: #f8f9fa;
+            --light-text: #212529;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
         }
-
-        body {
-            background-color: #f5f5f5;
-            color: var(--dark);
-            line-height: 1.6;
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: var(--light-text);
         }
-
-        .container {
-            display: flex;
-            min-height: 100vh;
+        .manual-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
         }
-
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
+        .toc-link {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .toc-link:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
             z-index: 1000;
         }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-
-        .logo-text span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            width: 25%;
-            background-color: white;
-            border-right: 1px solid #eee;
-            height: 100vh;
-            position: sticky;
-            top: 80px;
-            overflow-y: auto;
-            padding: 20px 0;
-        }
-
-        .sidebar-search {
-            padding: 0 20px 20px;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-search input {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        .sidebar-categories {
-            padding: 0 20px;
-        }
-
-        .sidebar-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sidebar-title button {
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-
-        .product-list-setup {
-            list-style: none;
-        }
-
-        .product-item-setup {
-            margin-bottom: 5px;
-        }
-
-        .product-item-setup a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: var(--dark);
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .product-item-setup a:hover {
-            background-color: rgba(0, 102, 204, 0.1);
-            color: var(--primary);
-        }
-
-        .product-item-setup a.active {
-            background-color: var(--primary);
-            color: white !important;
-        }
-
-        .product-meta:active{
-            color: white !important;
-        }
-
-        .product-item-setup .product-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            margin-top: 15px;
-            font-weight: 500;
-
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 40px;
-            max-width: calc(100% - var(--sidebar-width));
-        }
-
-        .guide-header {
-            margin-bottom: 30px;
-        }
-
-        .guide-title {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .guide-subtitle {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .guide-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-
-        .guide-meta-item {
-            display: flex;
-            align-items: center;
-            color: var(--gray);
-        }
-
-        .guide-meta-item i {
-            margin-right: 5px;
-            color: var(--primary);
-        }
-
-        .guide-actions {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .guide-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .guide-btn:hover {
-            background-color: #0055aa;
-        }
-
-        .guide-btn.secondary {
-            background-color: white;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .guide-btn.secondary:hover {
-            background-color: rgba(0, 102, 204, 0.1);
-        }
-
-        .guide-content {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-        }
-
-        .guide-section {
-            margin-bottom: 40px;
-        }
-
-        .guide-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .section-content {
-            line-height: 1.7;
-        }
-
-        .section-content p {
-            margin-bottom: 15px;
-        }
-
-        .section-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin: 20px 0;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .step {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid #eee;
-        }
-
-        .step-number {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: 600;
-            margin-right: 10px;
-        }
-
-        .step-title {
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .warning-box {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .warning-box-title {
-            font-weight: 600;
-            color: #856404;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .danger-box {
-            background-color: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .danger-box-title {
-            font-weight: 600;
-            color: #721c24;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .download-section {
-            margin-top: 40px;
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-        }
-
-        .download-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        .download-list {
-            list-style: none;
-        }
-
-        .download-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .download-item:last-child {
-            border-bottom: none;
-        }
-
-        .download-item-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .download-icon {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .download-item-name {
-            font-weight: 500;
-        }
-
-        .download-item-size {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        .download-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .download-btn:hover {
-            background-color: #0055aa;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .sidebar {
-                width: 280px;
-            }
-
-            .main-content {
-                max-width: calc(100% - 280px);
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: static;
-                border-right: none;
-                border-bottom: 1px solid #eee;
-            }
-
-            .main-content {
-                max-width: 100%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 25px 20px;
-            }
-
-            .guide-title {
-                font-size: 1.7rem;
-            }
-
-            .guide-meta {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .guide-actions {
-                flex-wrap: wrap;
-            }
-
-            .guide-content {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .guide-title {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.3rem;
-            }
-
-            .guide-btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.1);
         }
     </style>
 </head>
+<body class="light-mode">
+    <!-- Dark/Light Mode Toggle -->
+    <div class="position-fixed bottom-0 end-0 m-3">
+        <button id="themeToggle" class="btn btn-primary rounded-circle p-3 shadow">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
 
-<body>
     <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/50x50" alt="ScienceGears Logo">
-                <div class="logo-text">Science<span>Gears</span></div>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#" class="active">Installation</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+    <header class="manual-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Sciencegears Potentiostat</h1>
+            <p class="lead">User Manual & Documentation</p>
+            <p class="mb-0">Model: <strong>PG-510</strong> | Version: <strong>2.1</strong></p>
         </div>
     </header>
 
-
-    
-
-    <!-- Main Container -->
     <div class="container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-search">
-                <input type="text" placeholder="Search installation guides...">
-            </div>
-
-            <div class="sidebar-categories">
-                <div class="sidebar-title">
-                    <span>Potentiostats / Galvanostats</span>
-                    <button>View All</button>
-                </div>
-                <ul class="product-list-setup">
-                    <li class="product-item-setup">
-                        <a href="#" class="active">
-                            <h4>Squidstat Potentiostat</h4>
-                            <div class="product-meta">
-                                <span>Electrochemical Workstation</span>
-                                <span>Difficulty: High</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="product-item-setup">
-                        <a href="#">
-                           <h4>Zennium Modular Potentiostats</h4>
-                            <div class="product-meta">
-                                <span>Potentiostat</span>
-                                <span>Difficulty: Medium</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="product-item-setup">
-                        <a href="#">
-                            <h4>Optional Addon Cards</h4>
-                            <div class="product-meta">
-                                <span>Potentiostat/Galvanostat</span>
-                                <span>Difficulty: High</span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="guide-header">
-                <h1 class="guide-title"> Squidstat Potentiostat Installation Guide</h1>
-                <p class="guide-subtitle">Complete setup and configuration for your multi-channel electrochemical
-                    workstation</p>
-
-                <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Estimated time: 60-90 minutes</span>
+        <div class="row">
+            <!-- Table of Contents (Left Sidebar) -->
+            <div class="col-lg-3 mb-4">
+                <div class="card sticky-top" style="top: 20px;">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-list me-2"></i>Table of Contents</h5>
                     </div>
-                    <div class="guide-meta-item">
-                        <i class="fas fa-tools"></i>
-                        <span>Tools required: USB cable, screwdriver, level</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Safety rating: High voltage - caution required</span>
-                    </div>
-                </div>
-
-                <div class="guide-actions">
-                    <a href="#" class="guide-btn">
-                        <i class="fas fa-file-pdf"></i>
-                        Download PDF
-                    </a>
-                    <a href="#" class="guide-btn secondary">
-                        <i class="fas fa-video"></i>
-                        Watch Video Guide
-                    </a>
-                </div>
-            </div>
-
-            <div class="guide-content">
-                <section class="guide-section">
-                    <h2 class="section-title">Before You Begin</h2>
-                    <div class="section-content">
-                        <p>This guide provides complete installation instructions for your Squidstat Electrochemical
-                            Workstation. The Squidstat is a high-performance potentiostat/galvanostat with up to 16
-                            independent channels for advanced electrochemical research.</p>
-
-                        <div class="danger-box">
-                            <h4 class="danger-box-title">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                Important Safety Notice
-                            </h4>
-                            <p>The Squidstat can deliver high voltages and currents. Always power off the unit when
-                                making connections. Ensure your work area is dry and properly grounded. Wear appropriate
-                                personal protective equipment when handling electrochemical cells.</p>
-                        </div>
-
-                        <h3>What's Included</h3>
-                        <p>Your Squidstat package should contain the following components:</p>
-                        <ul style="margin-bottom: 20px; padding-left: 20px;">
-                            <li> Squidstat main unit with power cord</li>
-                            <li>USB 2.0 connection cable</li>
-                            <li>EC-Lab Software license key and installation USB</li>
-                            <li>Electrode cables (working, reference, counter)</li>
-                            <li>Rack mounting kit (screws and brackets)</li>
-                            <li>Quick start guide</li>
-                        </ul>
-
-                        <h3>System Requirements</h3>
-                        <p>Before installation, verify your computer meets these requirements:</p>
-                        <ul style="margin-bottom: 20px; padding-left: 20px;">
-                            <li>Windows 10 or 11 (64-bit)</li>
-                            <li>Intel Core i5 processor or equivalent</li>
-                            <li>8GB RAM minimum (16GB recommended)</li>
-                            <li>USB 2.0 or 3.0 port</li>
-                            <li>500MB free disk space</li>
-                            <li>Administrator privileges for software installation</li>
+                    <div class="card-body">
+                        <ul class="nav flex-column" id="toc">
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section1">1. Introduction</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section2">2. Safety Information</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section3">3. Technical Specifications</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section4">4. Hardware Setup</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section5">5. Software Installation</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section6">6. Operating Instructions</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section7">7. Troubleshooting</a></li>
+                            <li class="nav-item mb-2"><a class="toc-link" href="#section8">8. Maintenance</a></li>
+                            <li class="nav-item"><a class="toc-link" href="#section9">9. Warranty & Support</a></li>
                         </ul>
                     </div>
-                </section>
-
-                <section class="guide-section">
-                    <h2 class="section-title">Hardware Installation</h2>
-                    <div class="section-content">
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">1</span>Unpacking and Inspection</h3>
-                            <p>Carefully remove all components from the packaging and inspect for any shipping damage.
-                                Verify all components against the packing list.</p>
-                            <p>Choose a stable location for your potentiostat with adequate ventilation (minimum 10cm
-                                clearance on all sides). The surface should be level and vibration-free.</p>
-                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                                alt="Potentiostat unpacking">
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">2</span>Rack Mounting (Optional)</h3>
-                            <p>For rack installation, use the provided mounting brackets and screws. The Squidstat
-                                requires 3U of rack space (13.3cm height).</p>
-                            <p>Ensure the rack is stable and properly grounded. Use all four mounting points for secure
-                                installation.</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">3</span>Power Connection</h3>
-                            <p>Connect the provided power cord to the rear panel of the Squidstat. Plug into a properly
-                                grounded outlet (100-240V, 50/60Hz).</p>
-                            <p>Do not power on the unit until all connections are complete.</p>
-                            <div class="warning-box">
-                                <h4 class="warning-box-title">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    Power Considerations
-                                </h4>
-                                <p>Use only the provided power cord. Ensure your power source provides clean, stable
-                                    voltage. For optimal performance, consider using a line conditioner or UPS.</p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">4</span>Computer Connection</h3>
-                            <p>Connect the USB cable between the Squidstat and your computer. Use the USB 2.0 port on
-                                the rear panel for best performance.</p>
-                            <p>For multi-unit setups, connect each Squidstat to a separate USB host controller.</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">5</span>Electrode Connections</h3>
-                            <p>Connect the working, reference, and counter electrode cables to the appropriate front
-                                panel connectors.</p>
-                            <p>Ensure all connections are secure before applying potential to your electrochemical cell.
-                            </p>
-                            <img src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                                alt="Electrode connections">
-                        </div>
-                    </div>
-                </section>
-
-                <section class="guide-section">
-                    <h2 class="section-title">Software Installation</h2>
-                    <div class="section-content">
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">1</span>EC-Lab Installation</h3>
-                            <p>Insert the provided EC-Lab installation USB or download the latest version from the
-                                BioLogic website. Run the setup executable and follow the on-screen instructions.</p>
-                            <p>When prompted, enter your license key. Select "VSP Series" when choosing hardware
-                                support.</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">2</span>Driver Installation</h3>
-                            <p>After EC-Lab installation, connect the Squidstat and power it on. Windows should
-                                automatically detect and install the necessary drivers.</p>
-                            <p>If automatic installation fails, manually install drivers from the EC-Lab installation
-                                directory (Drivers folder).</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">3</span>Initial Configuration</h3>
-                            <p>Launch EC-Lab and navigate to Tools > Hardware Manager. The Squidstat should appear in
-                                the connected devices list.</p>
-                            <p>Configure your measurement settings according to your experimental requirements. Perform
-                                a system test to verify all channels are functioning properly.</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">4</span>Firmware Update (If Required)</h3>
-                            <p>Check for firmware updates in the Hardware Manager. If an update is available, follow the
-                                on-screen instructions to complete the process.</p>
-                            <p>Do not interrupt power during firmware updates as this may damage the unit.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="guide-section">
-                    <h2 class="section-title">Initial Calibration & Testing</h2>
-                    <div class="section-content">
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">1</span>Open Circuit Test</h3>
-                            <p>With no cell connected, measure the open circuit potential on all channels. Values should
-                                be within ±2mV of zero.</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">2</span>Known Resistor Test</h3>
-                            <p>Connect a 1kΩ resistor between working and counter electrodes. Run a quick
-                                potentiodynamic scan (e.g., -10mV to +10mV at 1mV/s).</p>
-                            <p>The measured current should follow Ohm's Law (I = V/R) with less than 1% deviation.</p>
-                        </div>
-
-                        <div class="step">
-                            <h3 class="step-title"><span class="step-number">3</span>Multi-channel Verification</h3>
-                            <p>If using multiple channels, verify independent operation by running different techniques
-                                on adjacent channels.</p>
-                        </div>
-
-                        <div class="warning-box">
-                            <h4 class="warning-box-title">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                Troubleshooting
-                            </h4>
-                            <p>If any tests fail, check all connections and ensure proper grounding. Contact
-                                ScienceGears technical support if issues persist after basic troubleshooting.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="download-section">
-                    <h3 class="download-title">Download Resources</h3>
-                    <ul class="download-list">
-                        <li class="download-item">
-                            <div class="download-item-info">
-                                <i class="fas fa-file-pdf download-icon"></i>
-                                <div>
-                                    <div class="download-item-name"> Squidstat Complete User Manual</div>
-                                    <div class="download-item-size">PDF • 8.7 MB</div>
-                                </div>
-                            </div>
-                            <button class="download-btn">Download</button>
-                        </li>
-                        <li class="download-item">
-                            <div class="download-item-info">
-                                <i class="fas fa-file-pdf download-icon"></i>
-                                <div>
-                                    <div class="download-item-name">EC-Lab Software Guide</div>
-                                    <div class="download-item-size">PDF • 5.2 MB</div>
-                                </div>
-                            </div>
-                            <button class="download-btn">Download</button>
-                        </li>
-                        <li class="download-item">
-                            <div class="download-item-info">
-                                <i class="fas fa-file-pdf download-icon"></i>
-                                <div>
-                                    <div class="download-item-name">Electrochemistry Cell Setup Guide</div>
-                                    <div class="download-item-size">PDF • 2.1 MB</div>
-                                </div>
-                            </div>
-                            <button class="download-btn">Download</button>
-                        </li>
-                        <li class="download-item">
-                            <div class="download-item-info">
-                                <i class="fas fa-file-pdf download-icon"></i>
-                                <div>
-                                    <div class="download-item-name">Safety & Maintenance Checklist</div>
-                                    <div class="download-item-size">PDF • 1.3 MB</div>
-                                </div>
-                            </div>
-                            <button class="download-btn">Download</button>
-                        </li>
-                    </ul>
-                </section>
+                </div>
             </div>
-        </main>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- 1. Introduction -->
+                <section id="section1" class="mb-5">
+                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-info-circle me-2"></i>1. Introduction</h2>
+                    <p>Welcome to the <strong>Sciencegears Potentiostat</strong> user manual. This device is designed for electrochemical measurements including cyclic voltammetry (CV), electrochemical impedance spectroscopy (EIS), and more.</p>
+                    <div class="alert alert-info">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Quick Tip:</strong> Always ensure proper electrode connections before starting experiments.
+                    </div>
+                </section>
+
+                <!-- 2. Safety Information -->
+                <section id="section2" class="mb-5">
+                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-exclamation-triangle me-2"></i>2. Safety Information</h2>
+                    <div class="accordion" id="safetyAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#safety1">
+                                    Electrical Safety
+                                </button>
+                            </h2>
+                            <div id="safety1" class="accordion-collapse collapse" data-bs-parent="#safetyAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Use only the provided power adapter.</li>
+                                        <li>Avoid exposing the device to moisture.</li>
+                                        <li>Ensure proper grounding.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#safety2">
+                                    Chemical Hazards
+                                </button>
+                            </h2>
+                            <div id="safety2" class="accordion-collapse collapse" data-bs-parent="#safetyAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Wear gloves when handling corrosive electrolytes.</li>
+                                        <li>Work in a well-ventilated area.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Technical Specifications -->
+                <section id="section3" class="mb-5">
+                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-cogs me-2"></i>3. Technical Specifications</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Voltage Range</td>
+                                    <td>±10V</td>
+                                </tr>
+                                <tr>
+                                    <td>Current Range</td>
+                                    <td>1nA - 100mA</td>
+                                </tr>
+                                <tr>
+                                    <td>Input Impedance</td>
+                                    <td>1TΩ</td>
+                                </tr>
+                                <tr>
+                                    <td>Supported Techniques</td>
+                                    <td>CV, LSV, EIS, Chronoamperometry</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- More sections (4-9) can be added similarly -->
+                <section id="section4" class="mb-5">
+                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-plug me-2"></i>4. Hardware Setup</h2>
+                    <p>Connect the electrodes as follows:</p>
+                    <div class="text-center mb-4">
+                        <img src="https://via.placeholder.com/600x300?text=Potentiostat+Connection+Diagram" alt="Connection Diagram" class="img-fluid rounded shadow">
+                    </div>
+                </section>
+
+                <!-- Back to Top Button -->
+                <a href="#" class="btn btn-primary back-to-top rounded-circle p-3 shadow" id="backToTop">
+                    <i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2023 Sciencegears. All rights reserved.</p>
+            <p class="mb-0"><i class="fas fa-envelope me-2"></i>support@sciencegears.com</p>
+        </div>
+    </footer>
 
-
-
-
-
+    <!-- Bootstrap JS & Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script>
-        // Mobile menu toggle functionality
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('show');
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
         });
 
-        // Product selection in sidebar
-        const productItems = document.querySelectorAll('.product-item-setup a');
-        productItems.forEach(item => {
-            item.addEventListener('click', function (e) {
-                e.preventDefault();
-                productItems.forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-
-                // Here you would typically load the new guide content via AJAX
-                // For this demo, we're just simulating the content change
-                document.querySelector('.guide-title').textContent = this.textContent.trim().split('\n')[0];
-            });
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const targetId = link.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
     </script>
 </body>
-
 </html>
