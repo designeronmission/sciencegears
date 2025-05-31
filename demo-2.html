@@ -3,245 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sciencegears Potentiostat - User Manual</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome (Icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <title>Modern Mobile Mega Menu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --dark-bg: #212529;
-            --dark-text: #f8f9fa;
-            --light-bg: #f8f9fa;
-            --light-text: #212529;
+            --primary-color: #6366f1;
+            --primary-light: #a5b4fc;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
         }
-        body.dark-mode {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+            padding-top: 60px; /* Space for fixed menu bar */
         }
-        body.light-mode {
-            background-color: var(--light-bg);
-            color: var(--light-text);
-        }
-        .manual-header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-        }
-        .toc-link {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .toc-link:hover {
-            color: var(--primary-color);
-            padding-left: 5px;
-        }
-        .back-to-top {
+        
+        /* Top Menu Bar */
+        .menu-bar {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .accordion-button:not(.collapsed) {
-            background-color: rgba(13, 110, 253, 0.1);
+        
+        .menu-title {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--dark-color);
+        }
+        
+        .menu-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
+        
+        .menu-toggle i {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-toggle.active i {
+            transform: rotate(90deg);
+        }
+        
+        /* Menu Container */
+        .menu-container {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 999;
+            overflow-y: auto;
+            max-height: 0;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-container.show {
+            max-height: 80vh;
+        }
+        
+        .modern-mega-menu {
+            padding: 10px 0;
+        }
+        
+        .menu-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .menu-header:hover {
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+        
+        .menu-header.active {
+            color: var(--primary-color);
+        }
+        
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .menu-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(241, 245, 249, 0.6);
+        }
+        
+        .submenu.show {
+            max-height: 1000px;
+        }
+        
+        .submenu-item {
+            padding: 12px 20px 12px 56px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--dark-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .submenu-item:before {
+            content: '';
+            position: absolute;
+            left: 44px;
+            height: 6px;
+            width: 6px;
+            background: var(--primary-light);
+            border-radius: 50%;
+        }
+        
+        .submenu-item:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .nested-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(226, 232, 240, 0.4);
+        }
+        
+        .nested-submenu.show {
+            max-height: 1000px;
+        }
+        
+        .nested-item {
+            padding: 10px 20px 10px 72px;
+            display: block;
+            color: #64748b;
+            text-decoration: none;
+        }
+        
+        .nested-item:hover {
+            color: var(--primary-color);
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        /* Media queries for responsive behavior */
+        @media (min-width: 769px) {
+            .menu-bar, .menu-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .menu-header {
+                padding: 12px 15px;
+            }
+            .submenu-item {
+                padding: 10px 15px 10px 50px;
+            }
+            .nested-item {
+                padding: 8px 15px 8px 65px;
+            }
         }
     </style>
 </head>
-<body class="light-mode">
-    <!-- Dark/Light Mode Toggle -->
-    <div class="position-fixed bottom-0 end-0 m-3">
-        <button id="themeToggle" class="btn btn-primary rounded-circle p-3 shadow">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
-
-    <!-- Header -->
-    <header class="manual-header text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Sciencegears Potentiostat</h1>
-            <p class="lead">User Manual & Documentation</p>
-            <p class="mb-0">Model: <strong>PG-510</strong> | Version: <strong>2.1</strong></p>
+<body>
+    <!-- Top Menu Bar -->
+    <div class="menu-bar">
+        <div class="menu-title"></div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
         </div>
-    </header>
-
-    <div class="container">
-        <div class="row">
-            <!-- Table of Contents (Left Sidebar) -->
-            <div class="col-lg-3 mb-4">
-                <div class="card sticky-top" style="top: 20px;">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><i class="fas fa-list me-2"></i>Table of Contents</h5>
+    </div>
+    
+    <!-- Menu Container -->
+    <div class="menu-container" id="menuContainer">
+        <div class="modern-mega-menu">
+            <!-- Products -->
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span>
+                        <i class="fas fa-box-open menu-icon"></i>
+                        Products
+                    </span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="submenu">
+                    <a href="#" class="submenu-item">All Products</a>
+                    <div class="submenu-item nested-toggle">
+                        <span>Electronics</span>
+                        <i class="fas fa-chevron-down toggle-icon ms-auto" style="font-size: 12px;"></i>
                     </div>
-                    <div class="card-body">
-                        <ul class="nav flex-column" id="toc">
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section1">1. Introduction</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section2">2. Safety Information</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section3">3. Technical Specifications</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section4">4. Hardware Setup</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section5">5. Software Installation</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section6">6. Operating Instructions</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section7">7. Troubleshooting</a></li>
-                            <li class="nav-item mb-2"><a class="toc-link" href="#section8">8. Maintenance</a></li>
-                            <li class="nav-item"><a class="toc-link" href="#section9">9. Warranty & Support</a></li>
-                        </ul>
+                    <div class="nested-submenu">
+                        <a href="#" class="nested-item">Smartphones</a>
+                        <a href="#" class="nested-item">Laptops</a>
+                        <a href="#" class="nested-item">Accessories</a>
                     </div>
+                    <div class="submenu-item nested-toggle">
+                        <span>Fashion</span>
+                        <i class="fas fa-chevron-down toggle-icon ms-auto" style="font-size: 12px;"></i>
+                    </div>
+                    <div class="nested-submenu">
+                        <a href="#" class="nested-item">Men's Wear</a>
+                        <a href="#" class="nested-item">Women's Wear</a>
+                        <a href="#" class="nested-item">Kids</a>
+                    </div>
+                    <a href="#" class="submenu-item">New Arrivals</a>
                 </div>
             </div>
-
-            <!-- Main Content -->
-            <div class="col-lg-9">
-                <!-- 1. Introduction -->
-                <section id="section1" class="mb-5">
-                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-info-circle me-2"></i>1. Introduction</h2>
-                    <p>Welcome to the <strong>Sciencegears Potentiostat</strong> user manual. This device is designed for electrochemical measurements including cyclic voltammetry (CV), electrochemical impedance spectroscopy (EIS), and more.</p>
-                    <div class="alert alert-info">
-                        <i class="fas fa-lightbulb me-2"></i>
-                        <strong>Quick Tip:</strong> Always ensure proper electrode connections before starting experiments.
-                    </div>
-                </section>
-
-                <!-- 2. Safety Information -->
-                <section id="section2" class="mb-5">
-                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-exclamation-triangle me-2"></i>2. Safety Information</h2>
-                    <div class="accordion" id="safetyAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#safety1">
-                                    Electrical Safety
-                                </button>
-                            </h2>
-                            <div id="safety1" class="accordion-collapse collapse" data-bs-parent="#safetyAccordion">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li>Use only the provided power adapter.</li>
-                                        <li>Avoid exposing the device to moisture.</li>
-                                        <li>Ensure proper grounding.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#safety2">
-                                    Chemical Hazards
-                                </button>
-                            </h2>
-                            <div id="safety2" class="accordion-collapse collapse" data-bs-parent="#safetyAccordion">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li>Wear gloves when handling corrosive electrolytes.</li>
-                                        <li>Work in a well-ventilated area.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 3. Technical Specifications -->
-                <section id="section3" class="mb-5">
-                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-cogs me-2"></i>3. Technical Specifications</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Voltage Range</td>
-                                    <td>±10V</td>
-                                </tr>
-                                <tr>
-                                    <td>Current Range</td>
-                                    <td>1nA - 100mA</td>
-                                </tr>
-                                <tr>
-                                    <td>Input Impedance</td>
-                                    <td>1TΩ</td>
-                                </tr>
-                                <tr>
-                                    <td>Supported Techniques</td>
-                                    <td>CV, LSV, EIS, Chronoamperometry</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- More sections (4-9) can be added similarly -->
-                <section id="section4" class="mb-5">
-                    <h2 class="mb-4 border-bottom pb-2"><i class="fas fa-plug me-2"></i>4. Hardware Setup</h2>
-                    <p>Connect the electrodes as follows:</p>
-                    <div class="text-center mb-4">
-                        <img src="https://via.placeholder.com/600x300?text=Potentiostat+Connection+Diagram" alt="Connection Diagram" class="img-fluid rounded shadow">
-                    </div>
-                </section>
-
-                <!-- Back to Top Button -->
-                <a href="#" class="btn btn-primary back-to-top rounded-circle p-3 shadow" id="backToTop">
-                    <i class="fas fa-arrow-up"></i></a>
+            
+            <!-- Solutions -->
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span>
+                        <i class="fas fa-lightbulb menu-icon"></i>
+                        Solutions
+                    </span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="submenu">
+                    <a href="#" class="submenu-item">For Business</a>
+                    <a href="#" class="submenu-item">For Education</a>
+                    <a href="#" class="submenu-item">For Developers</a>
+                    <a href="#" class="submenu-item">Case Studies</a>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span>
+                        <i class="fas fa-book menu-icon"></i>
+                        Resources
+                    </span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="submenu">
+                    <a href="#" class="submenu-item">Documentation</a>
+                    <a href="#" class="submenu-item">Tutorials</a>
+                    <a href="#" class="submenu-item">Blog</a>
+                    <a href="#" class="submenu-item">Webinars</a>
+                </div>
+            </div>
+            
+            <!-- Company -->
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span>
+                        <i class="fas fa-building menu-icon"></i>
+                        Company
+                    </span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="submenu">
+                    <a href="#" class="submenu-item">About Us</a>
+                    <a href="#" class="submenu-item">Careers</a>
+                    <a href="#" class="submenu-item">Contact</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">© 2023 Sciencegears. All rights reserved.</p>
-            <p class="mb-0"><i class="fas fa-envelope me-2"></i>support@sciencegears.com</p>
-        </div>
-    </footer>
 
-    <!-- Bootstrap JS & Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
+
+
+
+    
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Dark/Light Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('light-mode')) {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        });
-
-        // Back to Top Button
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.style.display = 'block';
-            } else {
-                backToTop.style.display = 'none';
-            }
-        });
-
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Smooth scrolling for TOC links
-        document.querySelectorAll('.toc-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const menuContainer = document.getElementById('menuContainer');
+            
+            // Toggle main menu visibility
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                menuContainer.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!menuContainer.contains(e.target)) {
+                    menuContainer.classList.remove('show');
+                    menuToggle.classList.remove('active');
+                }
+            });
+            
+            // Handle menu headers (main categories)
+            const menuHeaders = document.querySelectorAll('.menu-header');
+            menuHeaders.forEach(header => {
+                header.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Close other open menus if this one isn't active
+                    if (!this.classList.contains('active')) {
+                        document.querySelectorAll('.menu-header.active').forEach(activeHeader => {
+                            activeHeader.classList.remove('active');
+                            activeHeader.nextElementSibling.classList.remove('show');
+                        });
+                    }
+                    
+                    // Toggle current menu
+                    this.classList.toggle('active');
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('show');
+                    
+                    // Rotate chevron icon
+                    const icon = this.querySelector('.toggle-icon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+            
+            // Handle nested menu toggles
+            const nestedToggles = document.querySelectorAll('.nested-toggle');
+            nestedToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const nestedSubmenu = this.nextElementSibling;
+                    nestedSubmenu.classList.toggle('show');
+                    
+                    // Rotate chevron icon
+                    const icon = this.querySelector('.toggle-icon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+            
+            // Close menu when a link is clicked (optional)
+            const menuLinks = document.querySelectorAll('.submenu-item:not(.nested-toggle), .nested-item');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuContainer.classList.remove('show');
+                    menuToggle.classList.remove('active');
                 });
             });
         });

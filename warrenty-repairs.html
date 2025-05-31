@@ -2,25 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScienceGears - Advanced Electrochemistry Solutions for Battery Research & Materials Science</title>
-    <meta name="description"
-        content="ScienceGears provides cutting-edge electrochemistry instruments including potentiostats, battery test systems, and fuel cell analyzers for research laboratories worldwide.">
-    <meta name="keywords"
-        content="electrochemistry instruments, potentiostat, battery tester, fuel cell analyzer, corrosion measurement, electrochemical research">
-    <meta name="author" content="ScienceGears">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center - Frequently Asked Questions</title>
+  <meta name="description"
+    content="ScienceGears provides cutting-edge electrochemistry instruments including potentiostats, battery test systems, and fuel cell analyzers for research laboratories worldwide.">
+  <meta name="keywords"
+    content="electrochemistry instruments, potentiostat, battery tester, fuel cell analyzer, corrosion measurement, electrochemical research">
+  <meta name="author" content="ScienceGears">
 
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="ScienceGears - Advanced Electrochemistry Solutions">
-    <meta property="og:description"
-        content="Precision electrochemistry instrumentation for battery research, materials science, and renewable energy applications.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.sciencegears.com">
-    <meta property="og:image" content="https://www.sciencegears.com/assets/images/sciencegears-social.jpg">
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="ScienceGears - Advanced Electrochemistry Solutions">
+  <meta property="og:description"
+    content="Precision electrochemistry instrumentation for battery research, materials science, and renewable energy applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sciencegears.com">
+  <meta property="og:image" content="https://www.sciencegears.com/assets/images/sciencegears-social.jpg">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.sciencegears.com">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.sciencegears.com">
 
     <!-- Favicon -->
     <link rel="icon" href="assets/logo/fav-icon.png" type="image/x-icon">
@@ -29,18 +29,121 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/fav-icon.png">
     <link rel="manifest" href="assets/logo/fav-icon.png">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts - Roboto + Plus Jakarta Sans -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-        rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Swiper JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts - Roboto + Plus Jakarta Sans -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #ecf0f1;
+      --accent-color: #3498db;
+      --text-color: #34495e;
+    }
+
+    body {
+      color: var(--text-color);
+      background-color: #f9f9f9;
+    }
+
+
+    .category-title {
+
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mb-3 {
+      color: #202121;
+    }
+
+    .lead {
+      color: #202121;
+    }
+
+    .accordion-button {
+      font-weight: 600;
+      background-color: white;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: var(--accent-color);
+      background-color: var(--secondary-color);
+    }
+
+    .technical-diagram {
+      max-width: 100%;
+      height: auto; 
+      display: block;
+      margin: 1rem auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .equation {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 1.2rem;
+      background-color: #f8f9fa;
+      padding: 0.5rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    .technical-note {
+      background-color: #e8f4fc;
+      border-left: 4px solid var(--accent-color);
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .card-body {
+      padding: 30px 20px;
+    }
+
+    /* Search and Filter Styles */
+#faqSearch {
+  border-right: none;
+}
+
+#searchButton {
+  border-left: none;
+}
+
+.highlight {
+  background-color: #fffde7;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.faq-hidden {
+  display: none !important;
+}
+
+.filter-active {
+  background-color: var(--secondary-color);
+  border-left: 4px solid var(--accent-color);
+}
+
+
+  </style>
+
+</head>
+
+<body>
 
 
     <!-- Header Top Bar -->
@@ -54,7 +157,7 @@
         </div>
     </div>
 
-    <!-- Main Navigation -->
+     <!-- Main Navigation -->
     <nav class="navbar navbar-expand-lg main-navbar sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -75,7 +178,7 @@
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
 
-                       <!-- megaproducts Mega Menu -->
+                        <!-- megaproducts Mega Menu -->
                     <li class="nav-item dropdown mega-menu">
                         <a class="nav-link dropdown-toggle" href="#" id="megaproductsDropdown"
                             data-bs-toggle="dropdown">
@@ -336,7 +439,6 @@
                     </li>
 
 
-
                     <li class="nav-item">
                         <a class="nav-link" href="blog.html">Blog</a>
                     </li>
@@ -345,11 +447,11 @@
                         <a class="nav-link" href="faq.html">FAQ</a>
                     </li>
 
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link nav-res" href="request-quote.html">Request Quote</a>
                     </li>
 
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link nav-res" href="contact.html">Contact Us</a>
                     </li>
 
@@ -576,144 +678,127 @@
 
 
 
-</head>
-
-<body>
 
 
-    <div class="containers">
-        <!-- Filter Sidebar -->
-        <aside class="filters-sidebars">
-            <div class="filters-groups">
-                <h3>
-                    Search
-                </h3>
-                <input type="text" class="searches-filters" placeholder="Search products...">
-            </div>
 
-            <div class="filters-groups">
-                <h3>
-                        Product Categories
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="Potentiostats" checked>
-                        <label for="Potentiostats" onclick="window.location.href=' electrochemistry.html'">Electrochemistry</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="Galvanostats" checked>
-                        <label for="Galvanostats">Spectroscopy</label>
-                    </li>
+  <div class="hero-section">
+    <div class="container text-center">
+      <h1 class="mb-3"> Warranty & Repairs</h1>
+      <p class="lead mb-4">Sciencegears Limited Warranty and Repair Services for your Potentiostat</p>
+    </div>
+  </div>
+
+
+    <div class="warranty-container">
+        
+        <section class="warranty-card">
+            <h2><i class="fas fa-certificate"></i> Limited Warranty Coverage <span class="status status-covered">COVERED</span></h2>
+            <p>Sciencegears warrants that your potentiostat will be free from defects in materials and workmanship under normal use for a period of <strong>24 months</strong> from the date of purchase.</p>
+            
+            <div class="info-box" style="background:#e7f1ff; padding:15px; border-left:4px solid var(--primary); margin:15px 0;">
+                <strong><i class="fas fa-info-circle"></i> Warranty Period:</strong> 
+                <ul>
+                    <li>Main unit: 24 months</li>
+                    <li>Electrodes and consumables: 6 months</li>
+                    <li>Software: 12 months (updates included)</li>
                 </ul>
             </div>
-
-           <div class="filters-groups">
-                <h3>
-                    Product Variants
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                     <li class="filters-option">
-                        <input type="checkbox" id="Potentiostats" checked>
-                        <label for="Potentiostats">Handheld Raman</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="Galvanostats" checked>
-                        <label for="Galvanostats">Laboratory Raman</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="Bi-potentiostats">
-                        <label for="Bi-potentiostats">FT-IR</label>
-                    </li>
-                    <li class="filters-option">
-                        <input type="checkbox" id="Multi-channel">
-                        <label for="Multi-channel">LIBS</label>
-                    </li>
-                  
-                </ul>
-            </div> 
-
-            <div class="filters-groups">
-                <h3>
-                    Brands
-                    <button class="resets-filters">Reset</button>
-                </h3>
-                <ul class="filters-options">
-                    <li class="filters-option">
-                        <input type="checkbox" id="brand-1" checked>
-                        <label for="brand-1">JINSP</label>
-                    </li>
-    
-                </ul>
-            </div>
-
-            <div class="filter-actions">
-                <button class="apply-btn">Apply Filters</button>
-                <button class="reset-btn">Reset All</button>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <div class="mains-contents py-5">
-            <div class="listings-headers">
-                <h1>Spectroscopy Kits</h1>
-
-                <div class="views-controls">
-                    <div class="sort-dropdown">
-                        <button>
-                            Sort by: Featured
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-
-                    <!-- Mobile Filter Trigger -->
-                    <div class="mobile-filter-trigger">
-                        <button id="mobileFilterButton">
-                            <i class="fa-solid fa-filter"></i> Filter
-                            <span class="filter-count">0</span>
-                        </button>
-                    </div>
-
-                    <!-- Mobile Filter Overlay -->
-                    <div class="mobile-filter-overlay" id="mobileFilterOverlay">
-                        <div class="mobile-filter-container">
-                            <div class="mobile-filter-header">
-                                <h3>Filters</h3>
-                                <button class="close-filter" id="closeFilterButton">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                            <div class="mobile-filter-content">
-                                <!-- This will contain the same content as your filters-sidebars -->
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="view-toggle">
-                        <button class="view-toggle-btn grid-toggle active" aria-label="Grid view">
-                            <i class="fas fa-th-large"></i>
-                        </button>
-                        <button class="view-toggle-btn list-toggle" aria-label="List view">
-                            <i class="fas fa-list"></i>
-                        </button>
-                    </div>
+            
+            <h4>What's Covered:</h4>
+            <ul>
+                <li>Defects in materials or workmanship</li>
+                <li>Manufacturing faults</li>
+                <li>Software malfunctions</li>
+                <li>Component failures under normal use</li>
+            </ul>
+        </section>
+        
+        <section class="warranty-card">
+            <h2><i class="fas fa-times-circle"></i> What's Not Covered <span class="status status-not-covered">NOT COVERED</span></h2>
+            <p>The warranty does not cover damage resulting from:</p>
+            <ul>
+                <li>Accidental damage or improper use</li>
+                <li>Exposure to liquids or corrosive chemicals</li>
+                <li>Unauthorized modifications or repairs</li>
+                <li>Use with incompatible accessories</li>
+                <li>Normal wear and tear</li>
+                <li>Acts of nature (floods, fires, etc.)</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2><i class="fas fa-clipboard-check"></i> Warranty Terms & Conditions</h2>
+            
+            <table class="warranty-table">
+                <tr>
+                    <th>Condition</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Proof of Purchase</td>
+                    <td>Original receipt or invoice required</td>
+                </tr>
+                <tr>
+                    <td>International Coverage</td>
+                    <td>Valid in country of purchase only</td>
+                </tr>
+                <tr>
+                    <td>Transferability</td>
+                    <td>Non-transferable to second owners</td>
+                </tr>
+                <tr>
+                    <td>Software Updates</td>
+                    <td>Free during warranty period</td>
+                </tr>
+                <tr>
+                    <td>Return Shipping</td>
+                    <td>Customer responsibility</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section>
+            <h2><i class="fas fa-tools"></i> Repair Process</h2>
+            <p>Follow these steps to request warranty service or repairs:</p>
+            
+            <div class="repair-steps">
+                <div class="step">
+                    <h4>Diagnose the Issue</h4>
+                    <p>Consult the troubleshooting guide in your manual or contact our technical support team for preliminary diagnosis.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Obtain RMA Number</h4>
+                    <p>Contact Sciencegears support to receive a Return Merchandise Authorization (RMA) number. No returns accepted without RMA.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Package Your Unit</h4>
+                    <p>Securely pack the unit in its original packaging if possible. Include all accessories and a copy of your purchase receipt.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Ship to Service Center</h4>
+                    <p>Send to the authorized service center indicated in your RMA documentation. Customer pays shipping to center.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Repair & Return</h4>
+                    <p>Typical repair turnaround is 10-15 business days after receipt. Expedited service available for additional fee.</p>
                 </div>
             </div>
-
-            <!-- Category sections will be dynamically inserted here -->
-            <div id="categorySections"></div>
-
-            <!-- Loading Indicator -->
-            <div class="loading" id="loadingIndicator">
-                <div class="loading-spinner"></div>
+            
+            <div class="warning-box" style="background:#fff3cd; padding:15px; border-left:4px solid var(--warning); margin:20px 0;">
+                <strong><i class="fas fa-exclamation-triangle"></i> Important:</strong> Any attempt to repair the unit yourself will void the warranty. All warranty service must be performed by authorized Sciencegears technicians.
             </div>
-        </div>
+        </section>
+        
+
     </div>
 
 
 
+  
 
     <!-- Footer Section -->
 <footer class="footer">
@@ -721,7 +806,7 @@
             <div class="row text-start">
                 <!-- Explore Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Explore Instruments</h3>
+                    <h4 class="footer-heading">Explore Instruments</h4>
                     <a href=" electrochemistry.html" class="footer-link"> Potentiostats / Galvanostats</a>
                     <a href=" electrochemistry.html" class="footer-link">Photoelectrochemistry &#038;
                         Photovoltaics</a>
@@ -735,20 +820,20 @@
 
                 <!-- Categories Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Learn</h3>
+                    <h4 class="footer-heading">Learn</h4>
                     <div class="mb-3">
-                        <a href="#" class="footer-link">How to Use</a>
-                       <a href="publications.html" class="footer-link">Educational Articles</a>
-                        <a href="video.html" class="footer-link">Video Tutorials</a>
-                        <a href="blog.html" class="footer-link">Science Blog</a>
-                           <a href="video.html" class="footer-link">Download Guides</a>
+                    <a href="#" class="footer-link">How to Use</a>
+                   <a href="publications.html" class="footer-link">Educational Articles</a>
+                    <a href="video.html" class="footer-link">Video Tutorials</a>
+                    <a href="blog.html" class="footer-link">Science Blog</a>
+                       <a href="video.html" class="footer-link">Download Guides</a>
                           
                     </div>
                 </div>
 
                 <!-- Learn Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Quick Links</h3>
+                <h4 class="footer-heading">Quick Links</h4>
                     <a href="index.html" class="footer-link">Home</a>
                     <a href="about.html" class="footer-link">About US</a>
                     <a href=" electrochemistry.html" class="footer-link"> Products</a>
@@ -759,10 +844,10 @@
 
                 <!-- About Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="footer-heading">Legal</h4>
-                    <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
-                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                    <a href="refund-policy.html" class="footer-link">Refund Policy</a>
+                        <h4 class="footer-heading">Legal</h4>
+                        <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="refund-policy.html" class="footer-link">Refund Policy</a>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -785,430 +870,32 @@
     </footer>
 
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- Custom JS -->
 
-   
-    <script src="js/script.js"></script>
-      <script src="js/mobile-menu.js"></script>
-
-     <!--  <img src="assets/products/spectroscopy/libs/libs.png"  -->
-    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Product data organized by category
-            const productsByCategory = {
-                " Handheld Raman ": [
-                    {
-                        id: 1,
-                        title: "Handheld Raman Identifier",
-                        category: "spectrometers ",
-                        specs: "The Raman system consists of a laser, Raman probe, and a spectrometer, with different sample cells selected based on the state of the sample being measured.",
-                        features: ["Micro-area in situ", "Non-contact and non-destructive", "Rapid spectroscopy: 1 nA", "High sensitivity", "Weak signal detection", "  Suitable for aqueous samples"],
-                        image: "assets/products/spectroscopy/raman/products-1-300x300.webp",
-                        brand: "JINSP",
-                    },
-  
-                ],
-                "Laboratory Raman": [
-                    {
-                        id: 3,
-                        title: "Online Raman Analyzer for Liquids",
-                        category: "spectrometers",
-                        specs: "High current galvanostat with touchscreen interface and built-in electrochemical impedance spectroscopy.",
-                        features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
-                        image: "assets/products/spectroscopy/raman/online-raman/F77323.jpg",
-                        brand: "JINSP"
-                    },
-                    {
-                        id: 4,
-                        title: "Raman Probe and Flow Cell ",
-                        category: "spectrometers",
-                        specs: "Compatible testing accessories for liquid online Raman analyzers and benchtop Raman spectrometers.",
-                        features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
-                        image: "assets/products/spectroscopy/raman/online-raman/asdasd.png",
-                        brand: "JINSP",
-                    }, 
-                ],
-
-                "LIBS System": [
-                    {
-                        id: 6,
-                        title: "LIBS System",
-                        category: "spectrometers",
-                        specs: "The LIBS system generally involves the spectrometer providing a synchronous trigger signal to the laser.",
-                        features: ["EIS Frequency Range: Up to 2 MHz", "Max Current: ±1 A", "Best Current Accuracy: 1 nA", "Voltage Scan Range: ±10 V", "Channels Per Unit: 1"],
-                        image: "assets/products/spectroscopy/libs/libs.png",
-                        brand: "JINSP",
-                    }
-                ],
-                "Bi-potentiostats": [],
-                "ZRA": []
-            };
-
-            // View toggle functionality
-            const gridToggle = document.querySelector('.grid-toggle');
-            const listToggle = document.querySelector('.list-toggle');
-            const categorySections = document.getElementById('categorySections');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-
-            // Set up view toggle buttons
-            gridToggle.addEventListener('click', function () {
-                gridToggle.classList.add('active');
-                listToggle.classList.remove('active');
-                document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
-                document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
-            });
-
-            listToggle.addEventListener('click', function () {
-                listToggle.classList.add('active');
-                gridToggle.classList.remove('active');
-                document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
-            });
-
-            // Filter functionality
-            const applyBtn = document.querySelector('.apply-btn');
-            const resetAllBtn = document.querySelector('.reset-btn');
-            const resetFilterBtns = document.querySelectorAll('.resets-filters');
-
-            applyBtn.addEventListener('click', applyFilters);
-            resetAllBtn.addEventListener('click', resetAllFilters);
-
-            resetFilterBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const filterGroup = this.closest('.filters-groups');
-                    const checkboxes = filterGroup.querySelectorAll('input[type="checkbox"]');
-                    checkboxes.forEach(checkbox => {
-                        checkbox.checked = false;
-                    });
-                });
-            });
-
-            // Function to render products by category
-            function renderProducts(filteredCategories) {
-                // Clear existing products
-                categorySections.innerHTML = '';
-
-                // Show loading indicator
-                loadingIndicator.style.display = 'flex';
-
-                // Simulate loading delay
-                setTimeout(() => {
-                    let hasProducts = false;
-
-                    // Loop through each category
-                    for (const [categoryName, products] of Object.entries(productsByCategory)) {
-                        // Skip if category is not selected (unless no filters are applied)
-                        if (filteredCategories && filteredCategories.length > 0 && !filteredCategories.includes(categoryName)) {
-                            continue;
-                        }
-
-                        // Skip if category has no products
-                        if (products.length === 0) continue;
-
-                        hasProducts = true;
-
-                        // Create category section
-                        const section = document.createElement('div');
-                        section.className = 'category-section';
-                        section.id = `category-${categoryName.toLowerCase().replace(' ', '-')}`;
-
-                        // Create category header
-                        const header = document.createElement('div');
-                        header.className = 'category-header';
-                        header.innerHTML = `<h2>${categoryName}</h2>`;
-                        section.appendChild(header);
-
-                        // Create grid view container
-                        const gridContainer = document.createElement('div');
-                        gridContainer.className = 'product-grid active';
-
-                        // Create list view container
-                        const listContainer = document.createElement('div');
-                        listContainer.className = 'product-list';
-
-                        // Add products to both views
-                        products.forEach(product => {
-                            // Grid view card
-                            const card = document.createElement('div');
-                            card.className = 'product-card';
-                            card.setAttribute('data-brand', product.brand);
-
-                            card.innerHTML = `
-                        <div class="product-image-container">
-                            <img src="${product.image}" alt="${product.title}" class="product-image">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-category">${product.category}</div>
-                            <h3 class="product-title">${product.title}</h3>
-                            <p class="product-specs">${product.specs}</p>
-                            <ul class="product-features">
-                                ${product.features.map(feature => `<li>${feature}</li>`).join('')}
-                            </ul>
-                            <div class="product-actions">
-                                <button class="btn-secondary">
-                                    <i class="far fa-share-square"></i>
-                                </button>
-                                <button class="btn-primary" onclick="window.location.href='products-detail.html'">
-                                    View Details
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                            gridContainer.appendChild(card);
-
-                            // List view row
-                            const row = document.createElement('div');
-                            row.className = 'product-row';
-                            row.setAttribute('data-brand', product.brand);
-
-                            row.innerHTML = `
-                        <div class="product-row-image">
-                            <img src="${product.image}" alt="${product.title}">
-                        </div>
-                        <div class="product-row-info">
-                            <div class="product-row-main">
-                                <div class="product-row-details">
-                                    <div class="product-category">${product.category}</div>
-                                    <h3 class="product-title">${product.title}</h3>
-                                    <p class="product-specs">${product.specs}</p>
-                                    <div class="product-row-features">
-                                        ${product.features.slice(0, 4).map(feature => `
-                                            <div class="feature-item">
-                                                <i class="fas fa-bolt features-icons"></i>
-                                                <span class="feature-text">${feature}</span>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                                <div class="product-row-actions">
-                                    <div>
-                                        <button class="btn-secondary" style="margin-bottom: 10px,width: 73%; gap: 10px;">
-                                            <i class="far fa-share-square"></i> Share
-                                        </button>
-                                        <button class="btn-primary" onclick="window.location.href='products-detail.html'">
-                                            View Details
-                                            <i class="fas fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                            listContainer.appendChild(row);
-                        });
-
-                        section.appendChild(gridContainer);
-                        section.appendChild(listContainer);
-                        categorySections.appendChild(section);
-                    }
-
-                    if (!hasProducts) {
-                        // Show no results message
-                        const noResults = document.createElement('div');
-                        noResults.className = 'no-results';
-                        noResults.innerHTML = `
-                    <i class="fas fa-search"></i>
-                    <h3>No products found</h3>
-                    <p>Try adjusting your filters to find what you're looking for.</p>
-                    <button class="btn btn-primary" onclick="resetAllFilters()">Reset All Filters</button>
-                `;
-                        categorySections.appendChild(noResults);
-                    }
-
-                    // Set initial view
-                    if (gridToggle.classList.contains('active')) {
-                        document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
-                        document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
-                    } else {
-                        document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
-                        document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
-                    }
-
-                    // Hide loading indicator
-                    loadingIndicator.style.display = 'none';
-
-                    // Add click handlers to category checkboxes to scroll to sections
-                    document.querySelectorAll('.filters-options input[type="checkbox"]').forEach(checkbox => {
-                        checkbox.addEventListener('change', function () {
-                            if (this.checked) {
-                                const categoryId = this.id.replace(' ', '-');
-                                const section = document.getElementById(`category-${categoryId.toLowerCase()}`);
-                                if (section) {
-                                    section.scrollIntoView({ behavior: 'smooth' });
-                                }
-                            }
-                        });
-                    });
-                }, 500);
-            }
-
-            function applyFilters() {
-                // Get selected categories
-                const selectedCategories = Array.from(document.querySelectorAll('#Potentiostats, #Galvanostats, #Bi-potentiostats, #Multi-channel, #ZRA'))
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => {
-                        switch (checkbox.id) {
-                            case 'Potentiostats': return 'Potentiostats';
-                            case 'Galvanostats': return 'Galvanostats';
-                            case 'Bi-potentiostats': return 'Bi-potentiostats';
-                            case 'Multi-channel': return 'Multi-channel';
-                            case 'ZRA': return 'ZRA';
-                            default: return '';
-                        }
-                    });
-
-                // Get selected brands
-                const selectedBrands = Array.from(document.querySelectorAll('#brand-1, #brand-2, #brand-3, #brand-4, #brand-5'))
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => {
-                        switch (checkbox.id) {
-                            case 'brand-1': return 'Zahner';
-                            case 'brand-2': return 'Admiral';
-                            case 'brand-3': return 'Corrtest Instruments';
-                            case 'brand-4': return 'Neware';
-                            case 'brand-5': return 'Semokim';
-                            default: return '';
-                        }
-                    });
-
-                // Filter products by brand if brands are selected
-                let filteredProductsByCategory = { ...productsByCategory };
-                if (selectedBrands.length > 0) {
-                    for (const [category, products] of Object.entries(filteredProductsByCategory)) {
-                        filteredProductsByCategory[category] = products.filter(product =>
-                            selectedBrands.includes(product.brand)
-                        )
-                    }
-                }
-
-                // Render filtered products
-                renderProducts(selectedCategories);
-            }
-
-            function resetAllFilters() {
-                // Uncheck all checkboxes
-                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-
-                // Check default checkboxes (Categories and Brands)
-                document.querySelectorAll('#Potentiostats, #Galvanostats, #brand-1, #brand-2').forEach(checkbox => {
-                    checkbox.checked = true;
-                });
-
-                // Show all products
-                renderProducts();
-            }
-
-            // Search functionality
-            const searchInput = document.querySelector('.searches-filters');
-            searchInput.addEventListener('input', function () {
-                const searchTerm = this.value.toLowerCase();
-
-                let hasResults = false;
-                let filteredCategories = {};
-
-                // Search through all products
-                for (const [category, products] of Object.entries(productsByCategory)) {
-                    const filtered = products.filter(product => {
-                        const title = product.title.toLowerCase();
-                        const specs = product.specs.toLowerCase();
-                        const categoryName = product.category.toLowerCase();
-
-                        return title.includes(searchTerm) || specs.includes(searchTerm) || categoryName.includes(searchTerm);
-                    });
-
-                    if (filtered.length > 0) {
-                        filteredCategories[category] = filtered;
-                        hasResults = true;
-                    }
-                }
-
-                if (hasResults) {
-                    // Temporarily replace productsByCategory with filtered results
-                    const originalProducts = { ...productsByCategory };
-                    Object.assign(productsByCategory, filteredCategories);
-                    renderProducts();
-                    Object.assign(productsByCategory, originalProducts);
-                } else {
-                    renderProducts([]);
-                }
-            });
-
-            // Initial render - show all products
-            renderProducts();
+   // Form submission handling
+        document.getElementById('warrantyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your server
+            // For demo purposes, we'll just show an alert
+            alert('Thank you for your warranty request. A support representative will contact you within 24 hours.');
+            this.reset();
         });
-
-        // View toggle functions for global access
-        function showGridView() {
-            document.querySelector('.grid-toggle').classList.add('active');
-            document.querySelector('.list-toggle').classList.remove('active');
-            document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'grid');
-            document.querySelectorAll('.product-list').forEach(el => el.style.display = 'none');
-        }
-
-        function showListView() {
-            document.querySelector('.list-toggle').classList.add('active');
-            document.querySelector('.grid-toggle').classList.remove('active');
-            document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.product-list').forEach(el => el.style.display = 'block');
-        }
-
-
-
-
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Copy the filter sidebar content to mobile
-            const desktopFilters = document.querySelector('.filters-sidebars').innerHTML;
-            document.querySelector('.mobile-filter-content').innerHTML = desktopFilters;
-
-            // Mobile filter toggle
-            const mobileFilterButton = document.getElementById('mobileFilterButton');
-            const closeFilterButton = document.getElementById('closeFilterButton');
-            const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
-
-            mobileFilterButton.addEventListener('click', function () {
-                mobileFilterOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-
-            closeFilterButton.addEventListener('click', function () {
-                mobileFilterOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            // Update filter count
-            function updateFilterCount() {
-                const checkedCount = document.querySelectorAll('.filters-option input[type="checkbox"]:checked').length;
-                document.querySelector('.filter-count').textContent = checkedCount;
-            }
-
-            // Listen for filter changes
-            document.querySelectorAll('.filters-option input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', updateFilterCount);
-            });
-
-            // Initialize count
-            updateFilterCount();
         });
-
-
     </script>
+
 </body>
 
 </html>

@@ -44,6 +44,22 @@
         });
         
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Animation on Scroll
         document.addEventListener('DOMContentLoaded', function() {
             const animateElements = document.querySelectorAll('.about-feature, .product-card, .testimonial-card');
@@ -1458,6 +1474,8 @@ window.addEventListener('resize', handleSidebar);
         brandScroller.scrollLeft = scrollLeft - walk;
     });
 });
+
+
 
 
 

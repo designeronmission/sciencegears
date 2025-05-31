@@ -5864,6 +5864,10 @@ position: -webkit-sticky;
     color: var(--primary);
 }
 
+.thumb-products{
+    width: 90px;
+    padding-right: 20px;
+}
 
 .thumb-product-varient {
     width: 100px;
@@ -6614,6 +6618,11 @@ padding: 20px;
 
 
 
+
+
+
+
+
 @media only screen and (min-width: 320px) and (max-width: 425px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
         width: fit-content !important;
@@ -6621,6 +6630,7 @@ padding: 20px;
 
 
 }
+
 
 
 
@@ -9837,7 +9847,7 @@ input:checked+.cookie-slider:before {
             .sticky-filters {
                 position: sticky;
                 top: 0;
-                z-index: 1020;
+                z-index: 0;
                 background-color: white;
                 padding: 1rem 0;
                 box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -10360,5 +10370,388 @@ input:checked+.cookie-slider:before {
             .toc {
                 position: static;
                 margin-bottom: 30px;
+            }
+        }
+
+
+
+
+
+        /* warrenty & repairs */
+
+
+                .warranty-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .warranty-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .warranty-header h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .warranty-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        /* Warranty Cards */
+        .warranty-card {
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .warranty-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .warranty-card h2 {
+            color: var(--primary);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warranty-card h2 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Status Indicators */
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .status-covered {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-not-covered {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* Repair Process */
+        .repair-steps {
+            counter-reset: step-counter;
+            margin: 30px 0;
+        }
+        
+        .step {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 25px;
+            min-height: 40px;
+        }
+        
+        .step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Warranty Table */
+        .warranty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .warranty-table th, 
+        .warranty-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .warranty-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .warranty-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+
+
+
+
+
+      /* Top Menu Bar */
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgb(255 255 255);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-title {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--dark-color);
+        }
+        
+        .menu-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            background: #002464;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
+        
+        .menu-toggle i {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-toggle.active i {
+            transform: rotate(90deg);
+        }
+        
+        /* Menu Container */
+        .menu-container {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 999;
+            overflow-y: auto;
+            max-height: 0;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-container.show {
+            max-height: 100vh;
+        }
+        
+        .modern-mega-menu {
+            padding: 10px 0;
+        }
+        
+        .menu-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .menu-header:hover {
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+        
+        .menu-header.active {
+            color: var(--primary-color);
+        }
+
+        .menu-item a{
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+        
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .menu-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(241, 245, 249, 0.6);
+        }
+        
+        .submenu.show {
+            max-height: 1000px;
+        }
+        
+        .submenu-item {
+            padding: 12px 20px 12px 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-weight: 500;
+            color: #002464;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .submenu-item:before {
+            content: '';
+            position: absolute;
+            left: 44px;
+            height: 6px;
+            font-weight: 500;
+            width: 6px;
+            background: var(--primary-light);
+            border-radius: 50%;
+        }
+        
+        .submenu-item:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .nested-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(226, 232, 240, 0.4);
+        }
+        
+        .nested-submenu.show {
+            max-height: 1000px;
+        }
+        
+        .nested-item {
+               padding: 10px 20px 10px 35px;
+    display: block;
+    font-weight: 500;
+    color: #2a2c2d;
+    text-decoration: none;
+        }
+        
+        .nested-item:hover {
+            color: var(--primary-color);
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+
+          /* Second level nested submenu */
+        .deep-nested-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(203, 213, 225, 0.3);
+        }
+        
+        .deep-nested-submenu.show {
+            max-height: 1000px;
+        }
+        
+        .deep-nested-item {
+            padding: 10px 24px 10px 50px;
+            display: block;
+            color: #3a4452;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .deep-nested-item:before {
+            content: '→';
+            position: absolute;
+            left: 80px;
+            color: var(--primary-light);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .deep-nested-item:hover {
+            color: var(--primary);
+            padding-left: 104px;
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .deep-nested-item:hover:before {
+            opacity: 1;
+            left: 84px;
+        }
+
+
+        /* Media queries for responsive behavior */
+        @media (min-width: 769px) {
+            .menu-bar, .menu-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .menu-header {
+                padding: 12px 15px;
+            }
+            .submenu-item {
+                padding: 10px 15px 10px 50px;
+            }
+            .nested-item {
+                padding: 8px 15px 8px 65px;
             }
         }
