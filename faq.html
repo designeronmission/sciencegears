@@ -43,104 +43,6 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 
-  <style>
-    :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #ecf0f1;
-      --accent-color: #3498db;
-      --text-color: #34495e;
-    }
-
-    body {
-      color: var(--text-color);
-      background-color: #f9f9f9;
-    }
-
-
-    .category-title {
-
-      font-weight: 600;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .mb-3 {
-      color: #202121;
-    }
-
-    .lead {
-      color: #202121;
-    }
-
-    .accordion-button {
-      font-weight: 600;
-      background-color: white;
-    }
-
-    .accordion-button:not(.collapsed) {
-      color: var(--accent-color);
-      background-color: var(--secondary-color);
-    }
-
-    .technical-diagram {
-      max-width: 100%;
-      height: auto; 
-      display: block;
-      margin: 1rem auto;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .equation {
-      font-family: "Times New Roman", Times, serif;
-      font-size: 1.2rem;
-      background-color: #f8f9fa;
-      padding: 0.5rem;
-      border-radius: 5px;
-      display: inline-block;
-      margin: 0.5rem 0;
-    }
-
-    .technical-note {
-      background-color: #e8f4fc;
-      border-left: 4px solid var(--accent-color);
-      padding: 1rem;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
-
-    .card-body {
-      padding: 30px 20px;
-    }
-
-    /* Search and Filter Styles */
-#faqSearch {
-  border-right: none;
-}
-
-#searchButton {
-  border-left: none;
-}
-
-.highlight {
-  background-color: #fffde7;
-  padding: 2px 4px;
-  border-radius: 3px;
-}
-
-.faq-hidden {
-  display: none !important;
-}
-
-.filter-active {
-  background-color: var(--secondary-color);
-  border-left: 4px solid var(--accent-color);
-}
-
-
-  </style>
-
 </head>
 
 <body>
@@ -188,19 +90,6 @@
                         <div class="dropdown-menu mega-menu-content" aria-labelledby="megaproductsDropdown">
                             <div class="container">
                                 <div class="row">
-                                    <!-- Column 3: Image Display -->
-                    <!--                 <div class="col-lg-3 mega-column">
-                                        <div class="megaproduct-promo">
-                                            <h6>Explore Sciencegears</h6>
-                                            <img src="assets/home/about-mega.png" alt="images" class="megamenu-image">
-                                            <p>At ScienceGears, we are committed to delivering high-quality
-                                                electrochemistry instrumentation.</p>
-                                            <a href="about.html">
-                                                <p class="mega-a">Explore Now<i class="fas fa-arrow-right-long"></i></p>
-                                            </a>
-                                        </div>
-                                    </div> -->
-
 
                                     <div class="col-lg-2 mega-column">
                                         <h5 class="section-title megamenu-left">Product Groups</h5>
@@ -252,42 +141,40 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3 mega-column">
+                                     <div class="col-lg-3 mega-column">
                                         <div class="row">
                                             <h5 class="section-title megamenu-left">Product Variants</h5>
 
                                             <div class="megaproduct-category active"
                                                 onclick="window.location.href=' electrochemistry.html'">
-                                                Squidstat Potentiostats / Galvanostats
+                                                Portable
                                             </div>
 
                                             <div class="megaproduct-category"
                                                 onclick="window.location.href=' electrochemistry.html'">
-                                                Zennium Modular Potentiostats / Galvanostats
-                                            </div>
-
-
+                                               Single Channel
+                                        </div>
                                             <div class="megaproduct-category"
                                                 onclick="window.location.href=' electrochemistry.html'">
-                                                External Power Potentiostats
+                                                Bipotentiostat
                                             </div>
                                             <div class="megaproduct-category"
                                                 onclick="window.location.href=' electrochemistry.html'">
-                                                Optional Addon Cards / Modules
+                                                Modular
                                             </div>
                                             <div class="megaproduct-category"
                                                 onclick="window.location.href=' electrochemistry.html'">
-                                                CorrTest Single Channel Potentiostats / Galvanostats
-                                            </div>
-
-                                            <div class="megaproduct-category"
-                                                onclick="window.location.href=' electrochemistry.html'">
-                                                CorrTest Multichannel Potentiostats / Galvanostats
+                                               Multichannel
                                             </div>
 
                                             <div class="megaproduct-category"
                                                 onclick="window.location.href=' electrochemistry.html'">
-                                                CorrTest Boosters and Specialized devices
+                                                Current Boosters
+                                            </div>
+
+                                            <div class="megaproduct-category"
+                                                onclick="window.location.href=' electrochemistry.html'">
+                                               Specialised Devices & Modules
                                             </div>
 
                                         </div>
@@ -906,13 +793,14 @@
   
 
 
+
     <!-- Footer Section -->
 <footer class="footer">
         <div class="container">
             <div class="row text-start">
-                <!-- Explore Column -->
+                  <!-- Explore Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h3 class="footer-heading">Explore Instruments</h3>
+                    <h3 class="footer-heading">Electrochemistry</h3>
                     <a href=" electrochemistry.html" class="footer-link"> Potentiostats / Galvanostats</a>
                     <a href=" electrochemistry.html" class="footer-link">Photoelectrochemistry &#038;
                         Photovoltaics</a>
@@ -924,22 +812,34 @@
 
                 </div>
 
-                <!-- Categories Column -->
+                <!-- Explore Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="footer-heading">Spectroscopy </h3>
+                    <a href=" electrochemistry.html" class="footer-link"> Handheld Raman</a>
+                    <a href=" electrochemistry.html" class="footer-link"> Lab Raman</a>
+                    <a href=" electrochemistry.html" class="footer-link"> Online Raman</a>
+                    <a href=" electrochemistry.html" class="footer-link"> Lab FT-IR</a>
+                    <a href=" electrochemistry.html" class="footer-link"> Online FT-IR</a>
+                    <a href=" electrochemistry.html" class="footer-link"> LIBS </a>
+
+                </div>
+
+                <!-- Categories Column -->
+                <div class="col-lg-2 col-md-6 mb-4">
                     <h3 class="footer-heading">Learn</h3>
                     <div class="mb-3">
-                    <a href="#" class="footer-link">How to Use</a>
-                   <a href="publications.html" class="footer-link">Educational Articles</a>
-                    <a href="video.html" class="footer-link">Video Tutorials</a>
-                    <a href="blog.html" class="footer-link">Science Blog</a>
-                       <a href="video.html" class="footer-link">Download Guides</a>
-                          
+                        <a href="#" class="footer-link">How to Use</a>
+                        <a href="publications.html" class="footer-link">Educational Articles</a>
+                        <a href="video.html" class="footer-link">Video Tutorials</a>
+                        <a href="blog.html" class="footer-link">Science Blog</a>
+                        <a href="video.html" class="footer-link">Download Guides</a>
+
                     </div>
                 </div>
 
                 <!-- Learn Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                <h3 class="footer-heading">Quick Links</h3>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h3 class="footer-heading">Quick Links</h3>
                     <a href="index.html" class="footer-link">Home</a>
                     <a href="about.html" class="footer-link">About US</a>
                     <a href=" electrochemistry.html" class="footer-link"> Products</a>
@@ -949,11 +849,11 @@
                 </div>
 
                 <!-- About Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                        <h4 class="footer-heading">Legal</h4>
-                        <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
-                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <a href="refund-policy.html" class="footer-link">Refund Policy</a>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-heading">Legal</h4>
+                    <a href="terms-of-use.html" class="footer-link">Terms of Use</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="refund-policy.html" class="footer-link">Refund Policy</a>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -974,6 +874,7 @@
             </div>
         </div>
     </footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       <script src="js/mobile-menu.js"></script>

@@ -10755,3 +10755,90 @@ input:checked+.cookie-slider:before {
                 padding: 8px 15px 8px 65px;
             }
         }
+
+
+
+
+        /* FAQ */
+
+
+        
+    .mb-3 {
+      color: #202121;
+    }
+
+    .lead {
+      color: #202121;
+    }
+
+    .accordion-button {
+      font-weight: 600;
+      background-color: white;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: var(--accent-color);
+      background-color: var(--secondary-color);
+    }
+
+    .technical-diagram {
+      max-width: 100%;
+      height: auto; 
+      display: block;
+      margin: 1rem auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .equation {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 1.2rem;
+      background-color: #f8f9fa;
+      padding: 0.5rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    .technical-note {
+      background-color: #e8f4fc;
+      border-left: 4px solid var(--accent-color);
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .card-body {
+      padding: 30px 20px;
+    }
+
+    /* Search and Filter Styles */
+#faqSearch {
+  border-right: none;
+}
+
+#searchButton {
+  border-left: none;
+}
+
+.highlight {
+  background-color: #fffde7;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.faq-hidden {
+  display: none !important;
+}
+
+.filter-active {
+  background-color: var(--secondary-color);
+  border-left: 4px solid var(--accent-color);
+}
+    .category-title {
+
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }

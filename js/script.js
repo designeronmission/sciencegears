@@ -1408,74 +1408,102 @@ window.addEventListener('resize', handleSidebar);
 
 
 
-    
-        document.addEventListener('DOMContentLoaded', function() {
-    // Make the horizontal scroll work with mouse drag
+    document.addEventListener('DOMContentLoaded', function() {
     const brandScroller = document.querySelector('.brand-scroller');
     const brandTrack = document.querySelector('.brand-track');
-    let isDown = false;
+    const brandItems = document.querySelectorAll('.brand-item');
+    const itemWidth = brandItems[0].offsetWidth + parseInt(window.getComputedStyle(brandItems[0]).marginRight);
+    const totalWidth = itemWidth * brandItems.length;
+    let scrollPosition = 0;
+    let isDragging = false;
     let startX;
-    let scrollLeft;
+    let startScrollLeft;
+    let animationId;
+    const scrollSpeed = 1; // pixels per frame (adjust as needed)
 
-    brandScroller.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - brandScroller.offsetLeft;
-        scrollLeft = brandScroller.scrollLeft;
-        brandTrack.style.animationPlayState = 'paused';
-        brandScroller.style.cursor = 'grabbing';
-    });
+    // Set initial track width
+    brandTrack.style.width = `${totalWidth}px`;
 
-    brandScroller.addEventListener('mouseleave', () => {
-        isDown = false;
-        brandScroller.style.cursor = 'grab';
-    });
-
-    brandScroller.addEventListener('mouseup', () => {
-        isDown = false;
-        brandScroller.style.cursor = 'grab';
-        // Restart animation after a delay if not manually scrolling
-        setTimeout(() => {
-            if (!isDown) {
-                brandTrack.style.animationPlayState = 'running';
+    function autoScroll() {
+        if (!isDragging) {
+            scrollPosition += scrollSpeed;
+            
+            // When we reach the end, reset to start seamlessly
+            if (scrollPosition >= totalWidth) {
+                scrollPosition = 0;
+                // Jump back without animation
+                brandScroller.scrollLeft = 0;
+            } else {
+                brandScroller.scrollLeft = scrollPosition;
             }
-        }, 2000);
+        }
+        animationId = requestAnimationFrame(autoScroll);
+    }
+
+    // Start auto-scrolling
+    autoScroll();
+
+    // Pause auto-scroll on interaction
+    brandScroller.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - brandScroller.offsetLeft;
+        startScrollLeft = brandScroller.scrollLeft;
+        brandScroller.style.cursor = 'grabbing';
+        brandScroller.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
     });
 
     brandScroller.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
+        if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - brandScroller.offsetLeft;
-        const walk = (x - startX) * 2; // Adjust scroll speed
-        brandScroller.scrollLeft = scrollLeft - walk;
+        const walk = (x - startX) * 2; // Adjust drag speed
+        scrollPosition = startScrollLeft - walk;
+        brandScroller.scrollLeft = scrollPosition;
     });
 
-    // Touch events for mobile
-    brandScroller.addEventListener('touchstart', (e) => {
-        isDown = true;
-        startX = e.touches[0].pageX - brandScroller.offsetLeft;
-        scrollLeft = brandScroller.scrollLeft;
-        brandTrack.style.animationPlayState = 'paused';
-    });
-
-    brandScroller.addEventListener('touchend', () => {
-        isDown = false;
-        // Restart animation after a delay if not manually scrolling
-        setTimeout(() => {
-            if (!isDown) {
-                brandTrack.style.animationPlayState = 'running';
+    const endDrag = () => {
+        if (isDragging) {
+            isDragging = false;
+            brandScroller.style.cursor = 'grab';
+            brandScroller.style.scrollBehavior = 'smooth';
+            
+            // Ensure position is within bounds
+            if (scrollPosition >= totalWidth) {
+                scrollPosition = 0;
+                brandScroller.scrollLeft = 0;
+            } else if (scrollPosition < 0) {
+                scrollPosition = totalWidth - brandScroller.offsetWidth;
+                brandScroller.scrollLeft = scrollPosition;
             }
-        }, 2000);
+        }
+    };
+
+    brandScroller.addEventListener('mouseup', endDrag);
+    brandScroller.addEventListener('mouseleave', endDrag);
+
+    // Touch support
+    brandScroller.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].pageX - brandScroller.offsetLeft;
+        startScrollLeft = brandScroller.scrollLeft;
+        brandScroller.style.scrollBehavior = 'auto';
     });
 
     brandScroller.addEventListener('touchmove', (e) => {
-        if(!isDown) return;
+        if (!isDragging) return;
         const x = e.touches[0].pageX - brandScroller.offsetLeft;
         const walk = (x - startX) * 2;
-        brandScroller.scrollLeft = scrollLeft - walk;
+        scrollPosition = startScrollLeft - walk;
+        brandScroller.scrollLeft = scrollPosition;
+    });
+
+    brandScroller.addEventListener('touchend', endDrag);
+
+    // Clean up animation on unmount
+    window.addEventListener('beforeunload', () => {
+        cancelAnimationFrame(animationId);
     });
 });
-
-
 
 
 
