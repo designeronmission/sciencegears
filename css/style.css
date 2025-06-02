@@ -8194,7 +8194,7 @@ padding: 20px;
 .add-product-btn {
     background-color: white;
     color: var(--primary-color);
-    border: 2px dashed #002464;
+    border: 1px dashed #002464;
     border-radius: 8px;
     padding: 1rem;
     width: 100%;
