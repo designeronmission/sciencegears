@@ -68,7 +68,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Us</a>
@@ -744,28 +744,38 @@
         </div>
     </section>
 
-    <section class="product-bg">
-        <div class="apple-scroll-section container py-10">
-            <div class="section-container">
-                <div class="section-header">
-                    <div class="header-text">
-                        <h2 class="fw-bold  cyber-border">Product Categories</h2>
-                        <p>Explore our precision instruments designed for electrochemical research and energy
-                            applications</p>
-                    </div>
 
-                    <div class="navs-buttons">
-                        <button class="scroll-button" id="scrollLeft" aria-label="Scroll left">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="scroll-button" id="scrollRight" aria-label="Scroll right">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
+
+
+<section class="product-bg">
+    <div class="apple-scroll-section container py-10">
+        <div class="section-container">
+            <!-- Tab Navigation -->
+            <div class="product-tabs">
+                <button class="product-tab active" data-tab="electrochemistry">Electrochemistry</button>
+                <button class="product-tab" data-tab="spectroscopy">Spectroscopy</button>
+            </div>
+            
+            <div class="section-header">
+                <div class="header-text">
+                    <h2 class="fw-bold cyber-border">Product Categories</h2>
+                    <p>Explore our precision instruments designed for electrochemical research and energy applications</p>
                 </div>
 
+                <div class="navs-buttons">
+                    <button class="scroll-button" id="scrollLeft" aria-label="Scroll left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-button" id="scrollRight" aria-label="Scroll right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Electrochemistry Products -->
+            <div class="tab-content active" id="electrochemistry-tab">
                 <div class="scroll-container">
-                    <div class="scroll-content" id="scrollContent">
+                    <div class="scroll-content" id="scrollContentElectrochemistry">
                         <!-- Category 1 -->
                         <div class="apple-card">
                             <div class="card-image card-bg-1">
@@ -773,10 +783,8 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Potentiostats / Galvanostats</h3>
-                                <p class="card-description">High-precision instruments for electrochemical analysis with
-                                    advanced control capabilities and multi-channel support for complex research setups.
-                                </p>
-                                <a href=" electrochemistry.html" class="card-link">
+                                <p class="card-description">High-precision instruments for electrochemical analysis with advanced control capabilities and multi-channel support for complex research setups.</p>
+                                <a href="electrochemistry.html" class="card-link">
                                     View Products <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -789,9 +797,8 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Photoelectrochemistry</h3>
-                                <p class="card-description">Advanced solutions for studying light-induced
-                                    electrochemical phenomena with integrated light sources and spectral analysis.</p>
-                                <a href=" electrochemistry.html" class="card-link">
+                                <p class="card-description">Advanced solutions for studying light-induced electrochemical phenomena with integrated light sources and spectral analysis.</p>
+                                <a href="electrochemistry.html" class="card-link">
                                     View Products <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -804,9 +811,8 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Photovoltaics</h3>
-                                <p class="card-description">Complete testing solutions for solar cell research,
-                                    including IV curve tracers and quantum efficiency measurement systems.</p>
-                                <a href=" electrochemistry.html" class="card-link">
+                                <p class="card-description">Complete testing solutions for solar cell research, including IV curve tracers and quantum efficiency measurement systems.</p>
+                                <a href="electrochemistry.html" class="card-link">
                                     View Products <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -819,9 +825,8 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Electrochemistry Accessories</h3>
-                                <p class="card-description">Comprehensive range of electrodes, cells, and accessories to
-                                    complete your electrochemical research setup.</p>
-                                <a href=" electrochemistry.html" class="card-link">
+                                <p class="card-description">Comprehensive range of electrodes, cells, and accessories to complete your electrochemical research setup.</p>
+                                <a href="electrochemistry.html" class="card-link">
                                     View Products <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -834,9 +839,8 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title">Battery Cycler Accessories</h3>
-                                <p class="card-description">Complete solutions for battery testing including cyclers,
-                                    climate chambers, and safety equipment.</p>
-                                <a href=" electrochemistry.html" class="card-link">
+                                <p class="card-description">Complete solutions for battery testing including cyclers, climate chambers, and safety equipment.</p>
+                                <a href="electrochemistry.html" class="card-link">
                                     View Products <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -848,29 +852,110 @@
                                 <i class="fas fa-boxes"></i>
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title">All Product Categories</h3>
-                                <p class="card-description">Browse our complete catalog of scientific instruments and
-                                    accessories for all your research needs.</p>
-                                <a href=" electrochemistry.html" class="card-link">
+                                <h3 class="card-title">All Electrochemistry Products</h3>
+                                <p class="card-description">Browse our complete catalog of scientific instruments and accessories for all your research needs.</p>
+                                <a href="electrochemistry.html" class="card-link">
                                     View all <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!--             <div class="scroll-indicator" id="scrollIndicator">
-                <div class="scroll-dot active"></div>
-                <div class="scroll-dot"></div>
-                <div class="scroll-dot"></div>
-                <div class="scroll-dot"></div>
-                <div class="scroll-dot"></div>
-                <div class="scroll-dot"></div>
-            </div> -->
+            <!-- Spectroscopy Products -->
+            <div class="tab-content" id="spectroscopy-tab">
+                <div class="scroll-container">
+                    <div class="scroll-content" id="scrollContentSpectroscopy">
+                        <!-- Category 1 -->
+                        <div class="apple-card">
+                            <div class="card-image card-bg-1">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Handheld Raman</h3>
+                                <p class="card-description">High-performance instruments for ultraviolet-visible spectroscopy with advanced analysis capabilities.</p>
+                                <a href="spectroscopy.html" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Category 2 -->
+                        <div class="apple-card">
+                            <div class="card-image card-bg-2">
+                                <i class="fas fa-wave-square"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Online Raman</h3>
+                                <p class="card-description">Fourier-transform infrared spectroscopy solutions for material analysis and chemical identification.</p>
+                                <a href="spectroscopy.html" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Category 3 -->
+                        <div class="apple-card">
+                            <div class="card-image card-bg-3">
+                                <i class="fas fa-magnet"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Lab FT-IR</h3>
+                                <p class="card-description">Nuclear magnetic resonance systems for advanced molecular structure analysis.</p>
+                                <a href="spectroscopy.html" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Category 4 -->
+                        <div class="apple-card">
+                            <div class="card-image card-bg-4">
+                                <i class="fas fa-burn"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Online FT-IR</h3>
+                                <p class="card-description">Advanced Raman spectroscopy solutions for non-destructive chemical analysis.</p>
+                                <a href="spectroscopy.html" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Category 5 -->
+                        <div class="apple-card">
+                            <div class="card-image card-bg-5">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">LIBS</h3>
+                                <p class="card-description">High-sensitivity instruments for fluorescence spectroscopy applications.</p>
+                                <a href="spectroscopy.html" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- View All Card -->
+                        <div class="apple-card view-all-card">
+                            <div class="card-image">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">All Spectroscopy Products</h3>
+                                <p class="card-description">Browse our complete catalog of spectroscopy instruments and accessories.</p>
+                                <a href="spectroscopy.html" class="card-link">
+                                    View all <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
 
 
 
@@ -1229,9 +1314,83 @@
         });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Tab functionality
+    const tabs = document.querySelectorAll('.product-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add('active');
+            const tabId = tab.getAttribute('data-tab') + '-tab';
+            document.getElementById(tabId).classList.add('active');
+            
+            // Initialize scroll for the active tab
+            initScroll(`scrollContent${tab.getAttribute('data-tab').charAt(0).toUpperCase() + tab.getAttribute('data-tab').slice(1)}`);
+        });
+    });
+    
+    // Initialize scroll for the first tab
+    initScroll('scrollContentElectrochemistry');
+    
+    function initScroll(contentId) {
+        const scrollContent = document.getElementById(contentId);
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+        
+        // Remove previous event listeners to avoid duplicates
+        const newLeftBtn = scrollLeftBtn.cloneNode(true);
+        const newRightBtn = scrollRightBtn.cloneNode(true);
+        scrollLeftBtn.parentNode.replaceChild(newLeftBtn, scrollLeftBtn);
+        scrollRightBtn.parentNode.replaceChild(newRightBtn, scrollRightBtn);
+        
+        // Scroll buttons functionality
+        newLeftBtn.addEventListener('click', function () {
+            scrollContent.scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        });
 
+        newRightBtn.addEventListener('click', function () {
+            scrollContent.scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        });
 
+        function updateScrollButtons() {
+            // Show/hide left button
+            if (scrollContent.scrollLeft <= 0) {
+                newLeftBtn.style.opacity = '0.5';
+                newLeftBtn.disabled = true;
+            } else {
+                newLeftBtn.style.opacity = '1';
+                newLeftBtn.disabled = false;
+            }
 
+            // Show/hide right button
+            if (scrollContent.scrollLeft + scrollContent.clientWidth >= scrollContent.scrollWidth - 1) {
+                newRightBtn.style.opacity = '0.5';
+                newRightBtn.disabled = true;
+            } else {
+                newRightBtn.style.opacity = '1';
+                newRightBtn.disabled = false;
+            }
+        }
+
+        // Update button states on scroll
+        scrollContent.addEventListener('scroll', updateScrollButtons);
+        
+        // Initialize button states
+        updateScrollButtons();
+    }
+});
 
 
 

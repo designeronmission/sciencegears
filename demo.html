@@ -3,223 +3,522 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Banner</title>
+    <title>Product Categories with Tabs and Scroll</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        .banner-container {
-            width: 100%;
+        
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+        }
+        
+        /* Section Header */
+        .section-header {
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-
-        .banner-image {
-            flex: 1;
-            min-height: 300px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            transition: all 0.5s ease;
-            animation: float 6s ease-in-out infinite;
+        
+        .header-text h2 {
+            font-size: 28px;
+            color: #002464;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
-
-        .banner-content {
-            flex: 1;
-            padding: 30px;
-            position: relative;
-            z-index: 2;
+        
+        .header-text p {
+            color: #666;
         }
-
-        .banner-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            line-height: 1.2;
+        
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            width: 100%;
         }
-
-        .banner-subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .banner-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
-            transition: all 0.3s ease;
+        
+        .tab-button {
+            padding: 10px 20px;
+            background: none;
             border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #555;
             cursor: pointer;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
-
-        .banner-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        
+        .tab-button.active {
+            color: #002464;
+            background-color: rgba(0, 36, 100, 0.1);
         }
-
-        .banner-btn:active {
-            transform: translateY(1px);
-        }
-
-        .banner-btn::before {
+        
+        .tab-button.active::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
+            bottom: -11px;
+            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
+            height: 2px;
+            background-color: #002464;
         }
-
-        .banner-btn:hover::before {
-            left: 100%;
+        
+        .tab-button:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.05);
         }
-
-        .discount-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #e74c3c;
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Scroll Navigation */
+        .scroll-nav {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+        
+        .scroll-button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-button:hover {
+            background: #002464;
             color: white;
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            animation: pulse 2s infinite;
+            border-color: #002464;
         }
-
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        
+        .scroll-button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        
+        .scroll-button.disabled:hover {
+            background: white;
+            color: inherit;
+            border-color: #ddd;
         }
-
-        /* Responsive Styles */
+        
+        /* Scroll Container */
+        .scroll-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .scroll-content {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .scroll-content::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Product Cards */
+        .product-card {
+            min-width: 280px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .card-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            color: #002464;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .card-link i {
+            margin-left: 5px;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: #0066cc;
+        }
+        
+        .card-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Card Background Colors */
+        .card-bg-1 { background: linear-gradient(135deg, #002464 0%, #0066cc 100%); }
+        .card-bg-2 { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
+        .card-bg-3 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .card-bg-4 { background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%); }
+        .card-bg-5 { background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%); }
+        
+        /* View All Card */
+        .view-all-card .card-image {
+            background: #f5f7fa;
+            color: #002464;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .banner-container {
+            .section-header {
                 flex-direction: column;
-                text-align: center;
+                align-items: flex-start;
             }
-
-            .banner-image {
-                width: 100%;
-                min-height: 200px;
-                order: 1;
+            
+            .scroll-nav {
+                margin-left: 0;
+                margin-top: 15px;
+                align-self: flex-end;
             }
-
-            .banner-content {
-                order: 2;
-                padding: 20px;
+            
+            .product-card {
+                min-width: 240px;
             }
-
-            .banner-title {
-                font-size: 2rem;
+            
+            .tab-navigation {
+                overflow-x: auto;
+                white-space: nowrap;
+                scrollbar-width: none;
             }
-
-            .banner-subtitle {
-                font-size: 1rem;
-            }
-
-            .discount-badge {
-                top: 10px;
-                right: 10px;
+            
+            .tab-navigation::-webkit-scrollbar {
+                display: none;
             }
         }
-
+        
         @media (max-width: 480px) {
-            .banner-title {
-                font-size: 1.5rem;
+            .product-card {
+                min-width: 220px;
             }
-
-            .banner-btn {
-                padding: 10px 20px;
+            
+            .card-image {
+                height: 140px;
+            }
+            
+            .tab-button {
+                padding: 8px 16px;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="banner-container">
-        <div class="banner-image" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-        <div class="banner-content">
-            <span class="discount-badge">Limited Offer!</span>
-            <h1 class="banner-title">Summer Collection 2023</h1>
-            <p class="banner-subtitle">Discover our new arrivals with exclusive 30% discount for the first 100 customers.</p>
-            <button class="banner-btn" id="shopNowBtn">Shop Now</button>
-        </div>
+    <div class="container">
+        <section class="product-section">
+            <div class="section-header">
+                <div class="header-text">
+                    <h2>Product Categories</h2>
+                    <p>Explore our precision instruments designed for research and applications</p>
+                </div>
+                
+                <div class="tab-navigation">
+                    <button class="tab-button active" data-tab="electrochemistry">Electrochemistry</button>
+                    <button class="tab-button" data-tab="spectroscopy">Spectroscopy</button>
+                    
+                    <div class="scroll-nav">
+                        <button class="scroll-button scroll-left disabled" aria-label="Scroll left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="scroll-button scroll-right" aria-label="Scroll right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Electrochemistry Tab -->
+            <div class="tab-content active" id="electrochemistry">
+                <div class="scroll-container">
+                    <div class="scroll-content" id="electrochemScroll">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="card-image card-bg-1">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Potentiostats</h3>
+                                <p class="card-description">High-precision instruments for electrochemical analysis with advanced control capabilities.</p>
+                                <a href="#" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="card-image card-bg-2">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Photoelectrochemistry</h3>
+                                <p class="card-description">Advanced solutions for studying light-induced electrochemical phenomena.</p>
+                                <a href="#" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="card-image card-bg-3">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Battery Testing</h3>
+                                <p class="card-description">Complete solutions for battery testing including cyclers and safety equipment.</p>
+                                <a href="#" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- View All -->
+                        <div class="product-card view-all-card">
+                            <div class="card-image">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">All Electrochemistry</h3>
+                                <p class="card-description">Browse our complete catalog of electrochemical instruments.</p>
+                                <a href="#" class="card-link">
+                                    View All <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Spectroscopy Tab -->
+            <div class="tab-content" id="spectroscopy">
+                <div class="scroll-container">
+                    <div class="scroll-content" id="spectroScroll">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="card-image card-bg-4">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">UV-Vis Spectrometers</h3>
+                                <p class="card-description">High-performance instruments for ultraviolet-visible spectroscopy.</p>
+                                <a href="#" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="card-image card-bg-5">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Fluorescence Spectrometers</h3>
+                                <p class="card-description">Sensitive instruments for measuring fluorescence with high resolution.</p>
+                                <a href="#" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="card-image card-bg-1">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">FTIR Spectrometers</h3>
+                                <p class="card-description">Fourier-transform infrared spectrometers for molecular analysis.</p>
+                                <a href="#" class="card-link">
+                                    View Products <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- View All -->
+                        <div class="product-card view-all-card">
+                            <div class="card-image">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">All Spectroscopy</h3>
+                                <p class="card-description">Browse our complete catalog of spectroscopy instruments.</p>
+                                <a href="#" class="card-link">
+                                    View All <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Interactive button effect
-        document.getElementById('shopNowBtn').addEventListener('click', function() {
-            // Add your click action here
-            alert('Redirecting to the summer collection!');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
             
-            // Optional: Add animation on click
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                    
+                    // Update scroll buttons for the active tab
+                    updateScrollButtons();
+                });
+            });
+            
+            // Scroll functionality for each tab
+            const scrollContents = [
+                document.getElementById('electrochemScroll'),
+                document.getElementById('spectroScroll')
+            ];
+            
+            const scrollLeftBtns = document.querySelectorAll('.scroll-left');
+            const scrollRightBtns = document.querySelectorAll('.scroll-right');
+            
+            // Scroll amount (match this with your card width + gap)
+            const scrollAmount = 300;
+            
+            // Update button states based on scroll position
+            function updateScrollButtons() {
+                const activeTabContent = document.querySelector('.tab-content.active');
+                const activeScrollContent = activeTabContent.querySelector('.scroll-content');
+                const activeScrollLeft = activeTabContent.querySelector('.scroll-left');
+                const activeScrollRight = activeTabContent.querySelector('.scroll-right');
+                
+                if (activeScrollContent.scrollLeft <= 10) {
+                    activeScrollLeft.classList.add('disabled');
+                } else {
+                    activeScrollLeft.classList.remove('disabled');
+                }
+                
+                if (activeScrollContent.scrollLeft + activeScrollContent.clientWidth >= activeScrollContent.scrollWidth - 10) {
+                    activeScrollRight.classList.add('disabled');
+                } else {
+                    activeScrollRight.classList.remove('disabled');
+                }
+            }
+            
+            // Add event listeners to all scroll buttons
+            scrollLeftBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!this.classList.contains('disabled')) {
+                        const activeScrollContent = this.closest('.tab-navigation').nextElementSibling.querySelector('.scroll-content');
+                        activeScrollContent.scrollBy({
+                            left: -scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            scrollRightBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!this.classList.contains('disabled')) {
+                        const activeScrollContent = this.closest('.tab-navigation').nextElementSibling.querySelector('.scroll-content');
+                        activeScrollContent.scrollBy({
+                            left: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Update buttons when scrolling
+            scrollContents.forEach(content => {
+                if (content) {
+                    content.addEventListener('scroll', updateScrollButtons);
+                }
+            });
+            
+            // Update buttons on resize
+            window.addEventListener('resize', updateScrollButtons);
+            
+            // Initial check
+            updateScrollButtons();
         });
-
-        // Optional: Add parallax effect on scroll
-        window.addEventListener('scroll', function() {
-            const banner = document.querySelector('.banner-container');
-            const scrollPosition = window.pageYOffset;
-            banner.style.transform = 'translateY(' + scrollPosition * 0.2 + 'px)';
-        });
-
-        // Optional: Countdown timer for the offer
-        function updateCountdown() {
-            const now = new Date();
-            const endOfDay = new Date();
-            endOfDay.setHours(23, 59, 59, 999);
-            
-            const diff = endOfDay - now;
-            
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.querySelector('.discount-badge').textContent = 
-                `Offer ends in ${hours}h ${minutes}m ${seconds}s`;
-        }
-        
-        // Uncomment to activate countdown
-        // setInterval(updateCountdown, 1000);
-        // updateCountdown();
     </script>
 </body>
 </html>
