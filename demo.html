@@ -3,521 +3,554 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Categories with Tabs and Scroll</title>
+    <title>ScienceGears - Fullscreen Banner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --transition-speed: 0.7s;
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
-        
+
         body {
-            background-color: #f8f9fa;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Section Header */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .header-text h2 {
-            font-size: 28px;
-            color: #002464;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .header-text p {
-            color: #666;
-        }
-        
-        /* Tab Navigation */
-        .tab-navigation {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 10px;
-            width: 100%;
-        }
-        
-        .tab-button {
-            padding: 10px 20px;
-            background: none;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #555;
-            cursor: pointer;
-            transition: all 0.3s ease;
+
+        .fullscreen-slider {
             position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
         }
-        
-        .tab-button.active {
-            color: #002464;
-            background-color: rgba(0, 36, 100, 0.1);
-        }
-        
-        .tab-button.active::after {
-            content: '';
+
+        .slide {
             position: absolute;
-            bottom: -11px;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 2px;
-            background-color: #002464;
-        }
-        
-        .tab-button:hover:not(.active) {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Tab Content */
-        .tab-content {
-            display: none;
-            margin-top: 20px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        /* Scroll Navigation */
-        .scroll-nav {
-            display: flex;
-            gap: 10px;
-            margin-left: auto;
-        }
-        
-        .scroll-button {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: white;
-            border: 1px solid #ddd;
+            height: 100%;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-color), #000);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .slide-container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .slide-image {
+            flex: 1;
+            position: relative;
+            height: 80vh;
+            transform: translateX(-100px);
+            opacity: 0;
+            transition: all var(--transition-speed) ease-out;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+        }
+
+        .slide.active .slide-image {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .slide-content {
+            flex: 1;
+            padding-left: 8%;
+            transform: translateX(100px);
+            opacity: 0;
+            transition: all var(--transition-speed) ease-out 0.2s;
+        }
+
+        .slide.active .slide-content {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .slide-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .slide-actions {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: white;
+            color: var(--text-dark);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .price-tag {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .nav-btn:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 15px;
+        }
+
+        .slider-dots .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
-        .scroll-button:hover {
-            background: #002464;
-            color: white;
-            border-color: #002464;
-        }
-        
-        .scroll-button.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .scroll-button.disabled:hover {
+
+        .slider-dots .dot.active {
             background: white;
-            color: inherit;
-            border-color: #ddd;
+            transform: scale(1.3);
         }
-        
-        /* Scroll Container */
-        .scroll-container {
-            position: relative;
+
+        .slider-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            overflow: hidden;
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            z-index: 10;
         }
-        
-        .scroll-content {
-            display: flex;
-            gap: 20px;
-            padding-bottom: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .scroll-content::-webkit-scrollbar {
-            display: none;
-        }
-        
-        /* Product Cards */
-        .product-card {
-            min-width: 280px;
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
             background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
+            transition: width linear;
         }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
+
+        /* Responsive Styles */
+        @media (max-width: 1600px) {
+            h2 {
+                font-size: 3.5rem;
+            }
         }
-        
-        .card-image {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
+
+        @media (max-width: 1200px) {
+            h2 {
+                font-size: 3rem;
+            }
+            
+            p {
+                font-size: 1.2rem;
+            }
+            
+            .slide-container {
+                width: 95%;
+            }
         }
-        
-        .card-content {
-            padding: 20px;
-        }
-        
-        .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .card-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            color: #002464;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .card-link i {
-            margin-left: 5px;
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-        
-        .card-link:hover {
-            color: #0066cc;
-        }
-        
-        .card-link:hover i {
-            transform: translateX(3px);
-        }
-        
-        /* Card Background Colors */
-        .card-bg-1 { background: linear-gradient(135deg, #002464 0%, #0066cc 100%); }
-        .card-bg-2 { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
-        .card-bg-3 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
-        .card-bg-4 { background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%); }
-        .card-bg-5 { background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%); }
-        
-        /* View All Card */
-        .view-all-card .card-image {
-            background: #f5f7fa;
-            color: #002464;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-header {
+
+        @media (max-width: 992px) {
+            .slide-container {
                 flex-direction: column;
-                align-items: flex-start;
+                justify-content: center;
+                text-align: center;
+                padding-top: 100px;
             }
-            
-            .scroll-nav {
-                margin-left: 0;
-                margin-top: 15px;
-                align-self: flex-end;
+
+            .slide-image {
+                width: 100%;
+                height: auto;
+                max-height: 50vh;
+                margin-bottom: 40px;
+                transform: translateY(-100px);
             }
-            
-            .product-card {
-                min-width: 240px;
+
+            .slide.active .slide-image {
+                transform: translateY(0);
             }
-            
-            .tab-navigation {
-                overflow-x: auto;
-                white-space: nowrap;
-                scrollbar-width: none;
+
+            .slide-content {
+                padding-left: 0;
+                transform: translateY(100px);
             }
-            
-            .tab-navigation::-webkit-scrollbar {
-                display: none;
+
+            .slide.active .slide-content {
+                transform: translateY(0);
+            }
+
+            p {
+                max-width: 100%;
+            }
+
+            .slide-actions {
+                justify-content: center;
+            }
+
+            h2 {
+                font-size: 2.5rem;
             }
         }
-        
-        @media (max-width: 480px) {
-            .product-card {
-                min-width: 220px;
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
             }
             
-            .card-image {
-                height: 140px;
+            p {
+                font-size: 1.1rem;
             }
             
-            .tab-button {
+            .slide-badge, .price-tag {
+                font-size: 0.9rem;
+            }
+            
+            .cta-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .fullscreen-slider {
+                height: 90vh;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide-badge {
                 padding: 8px 16px;
-                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .slide-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .slider-nav {
+                bottom: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <section class="product-section">
-            <div class="section-header">
-                <div class="header-text">
-                    <h2>Product Categories</h2>
-                    <p>Explore our precision instruments designed for research and applications</p>
+    <div class="fullscreen-slider">
+        <!-- Slide 1 -->
+        <div class="slide active" style="--bg-color: #6a11cb">
+            <div class="slide-bg"></div>
+            <div class="slide-container">
+                <div class="slide-image">
+                    <img src="assets/products/Potentiostats/Squidstat-Plus/SquidStat-Plus_1.png" alt="Laboratory Equipment">
+                    <div class="image-overlay"></div>
                 </div>
-                
-                <div class="tab-navigation">
-                    <button class="tab-button active" data-tab="electrochemistry">Electrochemistry</button>
-                    <button class="tab-button" data-tab="spectroscopy">Spectroscopy</button>
-                    
-                    <div class="scroll-nav">
-                        <button class="scroll-button scroll-left disabled" aria-label="Scroll left">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="scroll-button scroll-right" aria-label="Scroll right">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                <div class="slide-content">
+                    <span class="slide-badge">New Arrival</span>
+                    <h2>Precision Lab Instruments</h2>
+                    <p>Discover our 2024 collection of high-precision laboratory equipment for advanced research and scientific breakthroughs.</p>
+                    <div class="slide-actions">
+                        <a href="#" class="cta-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
+                        <div class="price-tag">From $299</div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Electrochemistry Tab -->
-            <div class="tab-content active" id="electrochemistry">
-                <div class="scroll-container">
-                    <div class="scroll-content" id="electrochemScroll">
-                        <!-- Product 1 -->
-                        <div class="product-card">
-                            <div class="card-image card-bg-1">
-                                <i class="fas fa-microscope"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Potentiostats</h3>
-                                <p class="card-description">High-precision instruments for electrochemical analysis with advanced control capabilities.</p>
-                                <a href="#" class="card-link">
-                                    View Products <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Product 2 -->
-                        <div class="product-card">
-                            <div class="card-image card-bg-2">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Photoelectrochemistry</h3>
-                                <p class="card-description">Advanced solutions for studying light-induced electrochemical phenomena.</p>
-                                <a href="#" class="card-link">
-                                    View Products <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Product 3 -->
-                        <div class="product-card">
-                            <div class="card-image card-bg-3">
-                                <i class="fas fa-battery-full"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Battery Testing</h3>
-                                <p class="card-description">Complete solutions for battery testing including cyclers and safety equipment.</p>
-                                <a href="#" class="card-link">
-                                    View Products <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- View All -->
-                        <div class="product-card view-all-card">
-                            <div class="card-image">
-                                <i class="fas fa-boxes"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">All Electrochemistry</h3>
-                                <p class="card-description">Browse our complete catalog of electrochemical instruments.</p>
-                                <a href="#" class="card-link">
-                                    View All <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" style="--bg-color: #11998e">
+            <div class="slide-bg"></div>
+            <div class="slide-container">
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=1600&auto=format" alt="Microscopes">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="slide-content">
+                    <span class="slide-badge">Best Seller</span>
+                    <h2>Digital Microscopes</h2>
+                    <p>Next-generation microscopy with 4K resolution, AI-powered analysis, and unparalleled clarity for your research needs.</p>
+                    <div class="slide-actions">
+                        <a href="#" class="cta-btn">View Collection <i class="fas fa-arrow-right"></i></a>
+                        <div class="price-tag">From $599</div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Spectroscopy Tab -->
-            <div class="tab-content" id="spectroscopy">
-                <div class="scroll-container">
-                    <div class="scroll-content" id="spectroScroll">
-                        <!-- Product 1 -->
-                        <div class="product-card">
-                            <div class="card-image card-bg-4">
-                                <i class="fas fa-atom"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">UV-Vis Spectrometers</h3>
-                                <p class="card-description">High-performance instruments for ultraviolet-visible spectroscopy.</p>
-                                <a href="#" class="card-link">
-                                    View Products <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Product 2 -->
-                        <div class="product-card">
-                            <div class="card-image card-bg-5">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">Fluorescence Spectrometers</h3>
-                                <p class="card-description">Sensitive instruments for measuring fluorescence with high resolution.</p>
-                                <a href="#" class="card-link">
-                                    View Products <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Product 3 -->
-                        <div class="product-card">
-                            <div class="card-image card-bg-1">
-                                <i class="fas fa-infinity"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">FTIR Spectrometers</h3>
-                                <p class="card-description">Fourier-transform infrared spectrometers for molecular analysis.</p>
-                                <a href="#" class="card-link">
-                                    View Products <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- View All -->
-                        <div class="product-card view-all-card">
-                            <div class="card-image">
-                                <i class="fas fa-boxes"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3 class="card-title">All Spectroscopy</h3>
-                                <p class="card-description">Browse our complete catalog of spectroscopy instruments.</p>
-                                <a href="#" class="card-link">
-                                    View All <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" style="--bg-color: #fc4a1a">
+            <div class="slide-bg"></div>
+            <div class="slide-container">
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&auto=format" alt="Chemistry Set">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="slide-content">
+                    <span class="slide-badge">Limited Offer</span>
+                    <h2>Complete Chemistry Kits</h2>
+                    <p>Professionally curated packages containing everything you need for your chemistry lab, now with 20% discount.</p>
+                    <div class="slide-actions">
+                        <a href="#" class="cta-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
+                        <div class="price-tag">Save 20%</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Navigation -->
+        <div class="slider-nav">
+            <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-dots"></div>
+            <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="slider-progress">
+            <div class="progress-bar"></div>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab functionality
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button and corresponding content
-                    button.classList.add('active');
-                    const tabId = button.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                    
-                    // Update scroll buttons for the active tab
-                    updateScrollButtons();
-                });
+            const slider = document.querySelector('.fullscreen-slider');
+            const slides = document.querySelectorAll('.slide');
+            const dotsContainer = document.querySelector('.slider-dots');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const progressBar = document.querySelector('.progress-bar');
+            let currentSlide = 0;
+            let slideInterval;
+            const slideDuration = 6000; // 6 seconds per slide
+
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
             });
-            
-            // Scroll functionality for each tab
-            const scrollContents = [
-                document.getElementById('electrochemScroll'),
-                document.getElementById('spectroScroll')
-            ];
-            
-            const scrollLeftBtns = document.querySelectorAll('.scroll-left');
-            const scrollRightBtns = document.querySelectorAll('.scroll-right');
-            
-            // Scroll amount (match this with your card width + gap)
-            const scrollAmount = 300;
-            
-            // Update button states based on scroll position
-            function updateScrollButtons() {
-                const activeTabContent = document.querySelector('.tab-content.active');
-                const activeScrollContent = activeTabContent.querySelector('.scroll-content');
-                const activeScrollLeft = activeTabContent.querySelector('.scroll-left');
-                const activeScrollRight = activeTabContent.querySelector('.scroll-right');
+
+            const dots = document.querySelectorAll('.dot');
+
+            // Show current slide
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
                 
-                if (activeScrollContent.scrollLeft <= 10) {
-                    activeScrollLeft.classList.add('disabled');
-                } else {
-                    activeScrollLeft.classList.remove('disabled');
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+                
+                // Reset progress bar
+                progressBar.style.width = '0';
+                progressBar.style.transition = 'none';
+                void progressBar.offsetWidth; // Trigger reflow
+                progressBar.style.transition = `width ${slideDuration/1000}s linear`;
+                progressBar.style.width = '100%';
+            }
+
+            // Next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Go to specific slide
+            function goToSlide(index) {
+                clearInterval(slideInterval);
+                showSlide(index);
+                startSlider();
+            }
+
+            // Start auto-sliding
+            function startSlider() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, slideDuration);
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                nextSlide();
+                startSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                prevSlide();
+                startSlider();
+            });
+
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+                progressBar.style.transition = 'none';
+                progressBar.style.width = progressBar.style.width;
+            });
+
+            slider.addEventListener('mouseleave', startSlider);
+
+            // Touch events for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(slideInterval);
+            }, {passive: true});
+
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startSlider();
+            }, {passive: true});
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    nextSlide(); // Swipe left
                 }
-                
-                if (activeScrollContent.scrollLeft + activeScrollContent.clientWidth >= activeScrollContent.scrollWidth - 10) {
-                    activeScrollRight.classList.add('disabled');
-                } else {
-                    activeScrollRight.classList.remove('disabled');
+                if (touchEndX > touchStartX + 50) {
+                    prevSlide(); // Swipe right
                 }
             }
-            
-            // Add event listeners to all scroll buttons
-            scrollLeftBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    if (!this.classList.contains('disabled')) {
-                        const activeScrollContent = this.closest('.tab-navigation').nextElementSibling.querySelector('.scroll-content');
-                        activeScrollContent.scrollBy({
-                            left: -scrollAmount,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            scrollRightBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    if (!this.classList.contains('disabled')) {
-                        const activeScrollContent = this.closest('.tab-navigation').nextElementSibling.querySelector('.scroll-content');
-                        activeScrollContent.scrollBy({
-                            left: scrollAmount,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Update buttons when scrolling
-            scrollContents.forEach(content => {
-                if (content) {
-                    content.addEventListener('scroll', updateScrollButtons);
-                }
-            });
-            
-            // Update buttons on resize
-            window.addEventListener('resize', updateScrollButtons);
-            
-            // Initial check
-            updateScrollButtons();
+
+            // Initialize
+            showSlide(0);
+            startSlider();
         });
     </script>
 </body>

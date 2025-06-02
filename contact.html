@@ -42,418 +42,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <style>
-        :root {
-            --primary: #002464;
-            /* More vibrant blue */
-            --primary-light: #e6f2ff;
-            --secondary: #00a896;
-            /* Teal accent */
-            --accent: #ff7d00;
-            /* Vibrant orange */
-            --dark: #1a1a2e;
-            /* Dark navy */
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --border-radius: 12px;
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        body {
-            color: var(--dark);
-            line-height: 1.6;
-            background-color: #f5f7fa;
-        }
-
-        /* Modern Hero Section with Gradient */
-        .hero-section {
-            color: white;
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-            background-size: cover;
-            opacity: 0.2;
-        }
-
-        .hero-section h1 {
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #000;
-            font-size: 2.8rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-section p {
-            font-size: 1.2rem;
-            color: grey;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-outline-light {
-            border: 2px solid white;
-            color: white;
-            background: transparent;
-            font-weight: 600;
-            padding: 12px 25px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .btn-outline-light:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .btn-light {
-            background: white;
-            color: var(--primary);
-            font-weight: 600;
-            padding: 12px 25px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .btn-light:hover {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Section Styling */
-        .section-title {
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-
-        .section-subtitle {
-            color: var(--gray);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* Contact Cards - Modern Design */
-        .contact-card {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            height: 100%;
-            transition: var(--transition);
-            border: none;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .contact-card:hover::before {
-            height: 10px;
-            background: var(--secondary);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            background: var(--primary-light);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .contact-card:hover .contact-icon {
-            transform: rotate(10deg) scale(1.1);
-            background: var(--primary);
-            color: white;
-        }
-
-        .contact-card h4 {
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .contact-card p,
-        .contact-card a {
-            color: var(--gray);
-        }
-
-        .contact-card a {
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .contact-card a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-            text-decoration: none;
-        }
-
-        /* Contact Form Container */
-        .contact-form-container {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 40px;
-        }
-
-        /* Form Styling - Modern Inputs */
-        .form-control,
-        .form-select {
-            border-radius: var(--border-radius);
-            padding: 14px 20px;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            transition: var(--transition);
-            height: auto;
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.15);
-        }
-
-        .form-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-
-        /* Button Styling */
-        .btn-primary {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            padding: 14px 30px;
-            font-weight: 600;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            border: none;
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
-            transform: translateX(-100%);
-            transition: var(--transition);
-        }
-
-        .btn-primary:hover {
-            background-color: #0055aa;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 102, 204, 0.2);
-        }
-
-        .btn-primary:hover::after {
-            transform: translateX(0);
-        }
-
-        /* Inquiry Sections */
-        .inquiry-section {
-            display: none;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary);
-        }
-
-        /* Product Item in Multiple Products Form */
-        .product-item {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            border: 1px solid #e0e0e0;
-            transition: var(--transition);
-        }
-
-        .product-item:hover {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .remove-product-btn {
-            background-color: transparent;
-            color: #dc3545;
-            border: none;
-            padding: 0;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .remove-product-btn:hover {
-            color: #a71d2a;
-            transform: translateX(-3px);
-        }
-
-        .add-product-btn {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .add-product-btn:hover {
-            background-color: #009688;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 168, 150, 0.2);
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            color: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .success-message i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .success-message h3 {
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .hero-section h1 {
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #000;
-            font-size: 2.8rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-section p {
-            font-size: 1.2rem;
-            color: grey;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 991.98px) {
-            .contact-form-container {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 767.98px) {
-            .contact-form-container {
-                padding: 25px;
-            }
-
-            .contact-icon {
-                margin-bottom: 15px;
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 575.98px) {
-            .contact-form-container {
-                padding: 20px;
-            }
-
-            .contact-card {
-                text-align: center;
-            }
-
-            .contact-icon {
-                margin: 0 auto 15px;
-            }
-
-            .product-item .row>div {
-                margin-bottom: 10px;
-            }
-
-            .product-item .row>div:last-child {
-                margin-bottom: 0;
-            }
-        }
-    </style>
 
 </head>
 
@@ -517,7 +105,7 @@
 
 
                                     <div class="col-lg-2 mega-column">
-                                        <h5 class="section-title megamenu-left">Product Groups</h5>
+                                        <h5 class="contact-section-title megamenu-left">Product Groups</h5>
                                         <div class="megaproduct-category active"
                                             onclick="window.location.href=' electrochemistry.html'">
                                             <i class="fas fa-bolt"></i>
@@ -533,7 +121,7 @@
 
                                     <div class="col-lg-3 mega-column">
                                         <div class="row">
-                                            <h5 class="section-title megamenu-left">Product Categories</h5>
+                                            <h5 class="contact-section-title megamenu-left">Product Categories</h5>
 
                                             <div class="megaproduct-category active"
                                                 onclick="window.location.href=' electrochemistry.html'">
@@ -568,7 +156,7 @@
 
                                      <div class="col-lg-3 mega-column">
                                         <div class="row">
-                                            <h5 class="section-title megamenu-left">Product Variants</h5>
+                                            <h5 class="contact-section-title megamenu-left">Product Variants</h5>
 
                                             <div class="megaproduct-category active"
                                                 onclick="window.location.href=' electrochemistry.html'">
@@ -607,7 +195,7 @@
 
                                      <div class="col-lg-4 mega-column">
                                         <div class="row">
-                                            <h5 class="section-title megamenu-left">Products</h5>
+                                            <h5 class="contact-section-title megamenu-left">Products</h5>
 
                                             <div class="megaproduct-category mb-4 active"
                                                 onclick="window.location.href=' electrochemistry.html'">
@@ -729,7 +317,7 @@
 
                                     <!-- Column 3: Subcategories -->
                                     <div class="col-lg-3 mega-column">
-                                        <h5 class="section-title megamenu-left">Support</h5>
+                                        <h5 class="contact-section-title megamenu-left">Support</h5>
                                         <div class="subcategories-container">
                                             <div class="megaproducts-categorys"
                                                 onclick="window.location.href='faq.html'"><i
@@ -990,7 +578,7 @@
 
 
     <!-- Hero Section -->
-    <section class="hero-section" data-aos="fade">
+    <section class="contact-hero-section" data-aos="fade">
         <div class="container">
             <h1>Let's Connect With Our Experts</h1>
             <p>Have questions about our electrochemistry instruments or need technical support? Our team is ready to
@@ -1011,8 +599,8 @@
         <!-- Contact Info Cards 
         <div class="row g-4 mb-5" data-aos="fade-up">
             <div class="col-md-6 col-lg-3">
-                <div class="contact-card">
-                    <div class="contact-icon">
+                <div class="contact-contact-cards">
+                    <div class="contact-icons">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h4>Our Location</h4>
@@ -1022,8 +610,8 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <div class="contact-card">
-                    <div class="contact-icon">
+                <div class="contact-contact-cards">
+                    <div class="contact-icons">
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h4>Call Us</h4>
@@ -1033,8 +621,8 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <div class="contact-card">
-                    <div class="contact-icon">
+                <div class="contact-contact-cards">
+                    <div class="contact-icons">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h4>Write Us</h4>  
@@ -1045,8 +633,8 @@
             </div>
 
             <div class="col-md-6 col-lg-3">
-                <div class="contact-card">
-                    <div class="contact-icon">
+                <div class="contact-contact-cards">
+                    <div class="contact-icons">
                         <i class="fas fa-user"></i>
                     </div>
                     <h4>Need Support? </h4>
@@ -1124,7 +712,7 @@
         <div class="row py-10">
             <div class="col-lg-10 mx-auto">
                 <h2 class="text-center">How Can We Help You?</h2>
-                <p class="section-subtitle text-center">Complete the form below and our team will respond within 24
+                <p class="contact-section-subtitle text-center">Complete the form below and our team will respond within 24
                     hours. For urgent inquiries, please call our sales team directly.</p>
 
                 <div class="contact-form-container">
@@ -1159,7 +747,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="country" class="form-label">Country *</label>
                             <select class="form-select" id="country" required>
                                 <option value="">Select Country</option>
@@ -1171,7 +759,7 @@
                                 <option value="CN">China</option>
                                 <option value="IN">India</option>
                             </select>
-                        </div>
+                        </div> 
 
                         <div class="mb-3">
                             <label for="inquiryType" class="form-label">Inquiry Type *</label>
@@ -1182,7 +770,7 @@
                                 <option value="support">Technical Support</option>
                                 <option value="other">Other Inquiry</option>
                             </select>
-                        </div>
+                        </div>-->
 
                         <!-- Product Inquiry Fields (Hidden by default) -->
                         <div id="productFields" class="inquiry-section">
@@ -1225,7 +813,7 @@
                         <div id="multipleProductsFields" class="inquiry-section">
                             <h5 class="mb-3">Products List</h5>
                             <div id="productContainer">
-                                <div class="product-item">
+                                <div class="contact-product-item">
                                     <div class="row g-2">
                                         <div class="col-md-4">
                                             <div class="mb-2">
@@ -1359,7 +947,7 @@
                                 newsletter</label>
                         </div>
                         <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-                        <button type="submit" class="btn btn-primary w-100">
+                        <button type="submit" class="btn contact-btn-primary w-100">
                             <i class="fas fa-paper-plane me-2"></i> Submit Inquiry
                         </button>
                     </form>
@@ -1465,7 +1053,7 @@
             document.getElementById('addProductBtn')?.addEventListener('click', function () {
                 const productContainer = document.getElementById('productContainer');
                 const newProduct = document.createElement('div');
-                newProduct.className = 'product-item';
+                newProduct.className = 'contact-product-item';
                 newProduct.innerHTML = `
                 <div class="row g-2">
                     <div class="col-md-4">
@@ -1517,7 +1105,7 @@
 
                 // Add event listener to the new remove button
                 newProduct.querySelector('.remove-product-btn').addEventListener('click', function () {
-                    if (document.querySelectorAll('.product-item').length > 1) {
+                    if (document.querySelectorAll('.contact-product-item').length > 1) {
                         productContainer.removeChild(newProduct);
                     } else {
                         alert('You need at least one product in your enquiry.');
@@ -1543,8 +1131,8 @@
             document.querySelectorAll('.remove-product-btn').forEach(button => {
                 button.addEventListener('click', function () {
                     // Only remove if it's not the first product
-                    if (document.querySelectorAll('.product-item').length > 1) {
-                        this.closest('.product-item').remove();
+                    if (document.querySelectorAll('.contact-product-item').length > 1) {
+                        this.closest('.contact-product-item').remove();
                     } else {
                         alert('You need at least one product in your enquiry.');
                     }
