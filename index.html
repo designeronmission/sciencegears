@@ -563,10 +563,10 @@
 
 
 
-    <!-- Hero Banner Slider -->
+    <!-- Hero Banner Slider 
     <div class="hero-slider swiper">
 
-        <!-- Small Screen Carousel (320px - 1024px) -->
+        <!-- Small Screen Carousel (320px - 1024px)
         <div id="smallCarousel" class="carousel slide small-carousel" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -587,7 +587,7 @@
             </button>
         </div>
 
-        <!-- Large Screen Carousel (Above 1024px) -->
+        <!-- Large Screen Carousel (Above 1024px) 
         <div id="largeCarousel" class="carousel slide large-carousel" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -608,7 +608,62 @@
             </button>
         </div>
 
-    </div>
+    </div>-->
+
+
+
+        <section class="future-banner" id="future-banner">
+        <!-- Digital Grid Background -->
+        <div class="digital-grid"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particles" style="width: 5px; height: 5px; top: 20%; left: 10%; animation-delay: 0s; color: #f4a631;"></div>
+        <div class="particles" style="width: 8px; height: 8px; top: 70%; left: 80%; animation-delay: 2s; color: #f4a631;"></div>
+        <div class="particles" style="width: 6px; height: 6px; top: 40%; left: 50%; animation-delay: 4s; color: #f4a631;"></div>
+        
+        <div class="future-container">
+            <div class="future-content">
+                <h1 class="future-title">Leading Battery Testing</h1>
+                <p class="future-subtitle">For whatever matters most, make it easier for potential customers to find your business with Google Ads.</p>
+                
+                <div class="future-cta-group">
+                    <button class="future-btn future-btn-primary">
+                        <i class="fas fa-play"></i>
+                        Explore now
+                    </button>
+                    <button class="future-btn future-btn-outline">
+                        <i class="fas fa-comments"></i>
+                        enquiry
+                    </button>
+                </div>
+                
+                <div class="future-nav">
+                    <div class="future-dots" id="future-dots">
+                        <!-- Dots will be added by JavaScript -->
+                    </div>
+                    <div class="future-arrows">
+                        <button class="future-arrow" id="future-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="future-arrow" id="future-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="future-image-container">
+                <div class="future-image-wrapper">
+                    <img src="assets/banner/battery.png" alt="Digital marketing" class="future-image active" data-id="0">
+                    <img src="assets/banner/battery.png" alt="Business growth" class="future-image" data-id="1">
+                    <img src="assets/banner/battery.png" alt="Online shopping" class="future-image" data-id="2">
+                    <div class="holographic-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- About Us Section - Creative Design -->
     <section class="about-section section">
@@ -677,7 +732,7 @@
                         expertise and dedication can make</p>
                 </div>
             </div>
-            <div class="row g-4">
+            <div class="row g-1">
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="glass-card p-4 h-100 interactive-card">
                         <div class="d-flex align-items-center mb-3">
@@ -1199,6 +1254,212 @@
 
 
     <script>
+
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('future-banner');
+            const futureTitle = document.querySelector('.future-title');
+            const futureSubtitle = document.querySelector('.future-subtitle');
+            const futureDots = document.getElementById('future-dots');
+            const futurePrev = document.getElementById('future-prev');
+            const futureNext = document.getElementById('future-next');
+            const futureImages = document.querySelectorAll('.future-image');
+            const futureCtaGroup = document.querySelector('.future-cta-group');
+            const futureNav = document.querySelector('.future-nav');
+            
+            // Trigger animations on load
+            setTimeout(() => {
+                banner.classList.add('animate-in');
+            }, 100);
+            
+            // Content data
+            const contentData = [
+                {
+                    title: "Leading ",
+                    subtitle: "For ",
+                    image: 0
+                },
+                {
+                    title: "ZAHNER Instruments",
+                    subtitle: "Trusted Worldwide for High-Performance Electrochemical Solutions.",
+                    image: 1
+                },
+                {
+                    title: "Grow beyond limits",
+                    subtitle: "Smart advertising that scales with your business goals and reaches the right audience.",
+                    image: 2
+                }
+            ];
+            
+            // Create dots
+            contentData.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('future-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.dataset.index = index;
+                dot.addEventListener('click', () => goToSlide(index));
+                futureDots.appendChild(dot);
+            });
+            
+            const dots = document.querySelectorAll('.future-dot');
+            let currentIndex = 0;
+            const totalSlides = contentData.length;
+            let slideInterval;
+            let isHovering = false;
+            
+            // Change slide function
+            function changeSlide(index) {
+                // Wrap around
+                if (index >= totalSlides) index = 0;
+                if (index < 0) index = totalSlides - 1;
+                
+                // Animate content
+                futureTitle.style.opacity = 0;
+                futureSubtitle.style.opacity = 0;
+                futureTitle.style.transform = 'translateY(20px)';
+                futureSubtitle.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    futureTitle.textContent = contentData[index].title;
+                    futureSubtitle.textContent = contentData[index].subtitle;
+                    futureTitle.style.opacity = 1;
+                    futureSubtitle.style.opacity = 1;
+                    futureTitle.style.transform = 'translateY(0)';
+                    futureSubtitle.style.transform = 'translateY(0)';
+                }, 400);
+                
+                // Animate images
+                futureImages.forEach(img => {
+                    img.classList.remove('active');
+                    img.style.opacity = 0;
+                    img.style.transform = 'translateY(50px) rotateX(20deg)';
+                    
+                    if (parseInt(img.dataset.id) === index) {
+                        setTimeout(() => {
+                            img.classList.add('active');
+                            img.style.opacity = 1;
+                            img.style.transform = 'translateY(0) rotateX(0)';
+                        }, 400);
+                    }
+                });
+                
+                // Update dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (parseInt(dot.dataset.index) === index) {
+                        dot.classList.add('active');
+                    }
+                });
+                
+                currentIndex = index;
+            }
+            
+            // Navigation functions
+            function goToSlide(index) {
+                changeSlide(index);
+                resetTimer();
+            }
+            
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+            
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+            
+            function resetTimer() {
+                clearInterval(slideInterval);
+                if (!isHovering) {
+                    slideInterval = setInterval(nextSlide, 6000);
+                }
+            }
+            
+            // Event listeners
+            futurePrev.addEventListener('click', prevSlide);
+            futureNext.addEventListener('click', nextSlide);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+            
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            banner.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            banner.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) nextSlide();
+                if (touchEndX > touchStartX + 50) prevSlide();
+            }
+            
+            // Auto-rotation with hover pause
+            resetTimer();
+            
+            banner.addEventListener('mouseenter', () => {
+                isHovering = true;
+                clearInterval(slideInterval);
+            });
+            
+            banner.addEventListener('mouseleave', () => {
+                isHovering = false;
+                resetTimer();
+            });
+            
+            // Create more particless dynamically
+            function createParticles() {
+                for (let i = 0; i < 5; i++) {
+                    const particles = document.createElement('div');
+                    particles.classList.add('particles');
+                    const size = Math.random() * 6 + 3;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const delay = Math.random() * 10;
+                    
+                    particles.style.width = `${size}px`;
+                    particles.style.height = `${size}px`;
+                    particles.style.top = `${posY}%`;
+                    particles.style.left = `${posX}%`;
+                    particles.style.animationDelay = `${delay}s`;
+                    
+                    banner.appendChild(particles);
+                }
+            }
+            
+            createParticles();
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const scrollContent = document.getElementById('scrollContent');
             const scrollLeftBtn = document.getElementById('scrollLeft');
@@ -1515,6 +1776,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
+
+
+        
 
 
 
